@@ -1,0 +1,5 @@
+#!/bin/sh
+# Maven Wrapper Script for SkillBridgeSL Backend
+# Requires Maven 3.9+ installed on the host OR run via Docker
+exec mvn "$@"
+
