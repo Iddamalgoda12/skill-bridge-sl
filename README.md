@@ -1,36 +1,149 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SkillBridgeSL – Full-Stack Monorepo
 
-## Getting Started
+> **SkillBridgeSL** is an online learning platform built with a modern full-stack setup.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🏗️ Project Structure
+
+```
+skillbridgesl/
+├── frontend/               # Next.js 16 + React 19 + TypeScript + Tailwind v4 + shadcn/ui
+│   ├── src/
+│   │   ├── app/            # App Router pages (home, about, contact, courses)
+│   │   ├── components/     # Shared React components (Navbar, UI)
+│   │   └── lib/
+│   ├── Dockerfile
+│   └── next.config.ts
+│
+├── backend/                # Spring Boot 3.5 · Java 25 · Maven
+│   ├── src/main/java/com/skillbridgesl/
+│   │   ├── config/         # SecurityConfig, CorsConfig
+│   │   ├── controller/     # REST controllers (AuthController, …)
+│   │   ├── service/        # Business logic (AuthService, …)
+│   │   ├── repository/     # Spring Data JPA repositories
+│   │   ├── model/          # JPA entities (User, Course, Section, Lesson, …)
+│   │   ├── dto/            # Java Records (request/response DTOs)
+│   │   ├── exception/      # Domain exceptions + GlobalExceptionHandler
+│   │   └── security/       # JwtService + JwtAuthenticationFilter
+│   ├── src/main/resources/
+│   │   ├── application.yml
+│   │   ├── application-local.yml
+│   │   └── application-prod.yml
+│   ├── Dockerfile
+│   └── pom.xml
+│
+├── database/
+│   ├── migrations/         # Flyway SQL migrations (V1, V2, …) – shared source of truth
+│   └── init/               # Docker-entrypoint init scripts (role creation)
+│
+├── docker-compose.yml      # Runs all three services
+├── .env.example            # Copy to .env and fill in secrets
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Layer       | Technology                                        |
+|-------------|---------------------------------------------------|
+| Frontend    | Next.js 16, React 19, TypeScript, Tailwind CSS v4 |
+| UI Library  | shadcn/ui, Radix UI, Lucide React                 |
+| Backend     | Spring Boot 3.5, Java 25, Maven                   |
+| Auth        | JWT (JJWT 0.12), Spring Security 6                |
+| ORM         | Spring Data JPA (Hibernate 6)                     |
+| DB          | PostgreSQL 17                                     |
+| Migrations  | Flyway 10 – `database/migrations/` (outside JAR) |
+| Docs        | SpringDoc OpenAPI 2 (Swagger UI)                  |
+| Tests       | JUnit 5, Testcontainers, Spring Security Test     |
+| Containers  | Docker + Docker Compose                           |
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## ⚡ Getting Started
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Prerequisites
+- Docker + Docker Compose v2
+- Java 25 (for local backend dev)
+- Node.js 22+ (for local frontend dev)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 1. Environment Setup
+```bash
+cp .env.example .env
+# Edit .env – especially JWT_SECRET in production
+```
 
-## Deploy on Vercel
+### 2. Run Everything with Docker Compose
+```bash
+docker compose up --build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Service   | URL                                       |
+|-----------|-------------------------------------------|
+| Frontend  | http://localhost:3000                     |
+| Backend   | http://localhost:8080/api                 |
+| Swagger   | http://localhost:8080/api/swagger-ui.html |
+| Health    | http://localhost:8080/api/actuator/health |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🛠️ Local Development
+
+### Backend (Spring Boot)
+```bash
+cd backend
+
+# Run with local profile (verbose SQL, dev tools hot-reload)
+mvn spring-boot:run -Dspring-boot.run.profiles=local
+
+# Run tests (Testcontainers spins up PostgreSQL automatically)
+mvn test
+```
+
+### Frontend (Next.js)
+```bash
+cd frontend
+npm install
+npm run dev   # → http://localhost:3000
+```
+
+---
+
+## 🗄️ Database Migrations (Flyway)
+
+Migration files live **outside the JAR** in `database/migrations/` — the single source of truth across all environments.
+
+```
+database/migrations/
+  V1__init_schema.sql      ← Full initial schema
+  V2__seed_categories.sql  ← Default categories
+  V3__...                  ← Add your next migration here
+```
+
+**Naming convention:** `V{version}__{description}.sql`
+
+| Environment  | How migrations run                                      |
+|--------------|---------------------------------------------------------|
+| Local dev    | Auto on Spring Boot startup (`../database/migrations`)  |
+| Docker       | Baked into image at `/app/migrations` via Dockerfile    |
+| Kubernetes   | Flyway init container before the app pod starts         |
+| CI/CD        | `cd backend && mvn flyway:migrate`                      |
+
+---
+
+## 🔐 API Authentication
+
+All protected endpoints require:
+```
+Authorization: Bearer <access_token>
+```
+
+| Endpoint             | Method | Auth     | Description          |
+|----------------------|--------|----------|----------------------|
+| `/auth/register`     | POST   | Public   | Create account       |
+| `/auth/login`        | POST   | Public   | Get JWT tokens       |
+| `/auth/refresh`      | POST   | Public   | Refresh access token |
+| `/courses/public/**` | GET    | Public   | Browse courses       |
+| `/actuator/health`   | GET    | Public   | Health check         |
+| Everything else      | *      | Required | JWT Bearer required  |

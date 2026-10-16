@@ -1,0 +1,122 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# SkillBridgeSL – Base application configuration
+# Profile-specific files (application-local.yml, application-prod.yml) override
+# ──────────────────────────────────────────────────────────────────────────────
+
+spring:
+  application:
+    name: skillbridgesl-backend
+
+  # ─── Database ─────────────────────────────────────────────────────────────
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/skillbridgesl}
+    username: ${DB_USERNAME:skillbridge}
+    password: ${DB_PASSWORD:skillbridge_secret}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      pool-name: SkillBridgeHikariPool
+
+  # ─── JPA / Hibernate ──────────────────────────────────────────────────────
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate          # Flyway owns schema – never use create/update
+    open-in-view: false           # Avoid lazy-loading anti-pattern
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          batch_size: 25
+        order_inserts: true
+        order_updates: true
+
+  # ─── Flyway (DB Migrations) ────────────────────────────────────────────────
+  # Migrations live in database/migrations/ (outside the JAR).
+  # Each environment sets FLYWAY_LOCATIONS to the appropriate filesystem path:
+  #   Docker / prod  → filesystem:/app/migrations   (volume-mounted or COPYed in)
+  #   Local dev      → overridden in application-local.yml
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    baseline-version: 0
+    locations: ${FLYWAY_LOCATIONS:filesystem:/app/migrations}
+    schemas: public
+    validate-on-migrate: true
+    out-of-order: false
+
+  # ─── Jackson (JSON) ────────────────────────────────────────────────────────
+  jackson:
+    default-property-inclusion: non_null
+    serialization:
+      write-dates-as-timestamps: false
+    deserialization:
+      fail-on-unknown-properties: false
+    time-zone: UTC
+
+  # ─── Mail (configure SMTP in profile-specific yml) ─────────────────────────
+  mail:
+    host: ${MAIL_HOST:smtp.example.com}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME:noreply@example.com}
+    password: ${MAIL_PASSWORD:}
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+
+# ─── Server ────────────────────────────────────────────────────────────────
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+  error:
+    include-message: always
+    include-binding-errors: always
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/plain
+
+# ─── Actuator ──────────────────────────────────────────────────────────────
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,flyway,env
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: when-authorized
+  info:
+    env:
+      enabled: true
+
+# ─── App Custom Properties ─────────────────────────────────────────────────
+app:
+  jwt:
+    secret: ${JWT_SECRET:change_me_in_production_minimum_256_bits_long_random_string}
+    expiration-ms: ${JWT_EXPIRATION_MS:86400000}       # 24 h
+    refresh-expiration-ms: ${JWT_REFRESH_EXPIRATION_MS:604800000}  # 7 days
+  cors:
+    allowed-origins: ${ALLOWED_ORIGINS:http://localhost:3000}
+  pagination:
+    default-page-size: 20
+    max-page-size: 100
+
+# ─── SpringDoc / Swagger UI ────────────────────────────────────────────────
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha
+  info:
+    title: SkillBridgeSL API
+    version: v1
+    description: REST API for the SkillBridgeSL platform
+
