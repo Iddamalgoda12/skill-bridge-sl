@@ -1,0 +1,6 @@
+import { Bookmark, Check, Sparkles, ArrowRight } from "lucide-react";
+import type { Roadmap } from "@/types/catalog";
+import { stages } from "@/lib/data/roadmaps";
+export function RoadmapPreview({roadmap,saved,onSave}: {roadmap:Roadmap;saved:boolean;onSave:()=>void}) {
+ return <section id="roadmap-preview" className="roadmap-preview glass-panel gold-glass" aria-label="Your roadmap preview"><span className="eyebrow-pill"><Sparkles size={15}/>SAMPLE {stages.find(s=>s.id===roadmap.stage)?.label.toUpperCase()} ROADMAP</span><h3>Your path to</h3><h2>{roadmap.career}</h2><p className="muted">{roadmap.milestones.length===4?"Four":roadmap.milestones.length} milestones to start with</p><ol className="roadmap-timeline">{roadmap.milestones.map((m,i)=><li key={m.label}><span className={`milestone-number tone-${["gold","mint","lavender","peach"][i]}`}>{String(i+1).padStart(2,"0")}</span><div><p className="eyebrow">{m.label}</p><h4>{m.title}</h4><p className="muted">{m.description}</p></div></li>)}</ol><button className="glass-button roadmap-save" onClick={onSave}>{saved?<Check size={17}/>:<Bookmark size={17}/>} {saved?"Saved on this device":"Add to My Path"}<ArrowRight size={17}/></button></section>;
+}

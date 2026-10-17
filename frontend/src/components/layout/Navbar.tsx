@@ -1,68 +1,30 @@
 "use client";
-
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-
+import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
+import assets from "@/lib/design/assets.json";
+import { DesignAsset } from "@/components/shared/DesignAsset";
+import LanguageSwitcher from "./LanguageSwitcher";
+const navigation = [
+  { href: "/careers", label: "Explore Careers", icon: assets.template.imgIconCompass },
+  { href: "/build-your-path", label: "Build Your Path", icon: assets.template.imgIconRoute },
+  { href: "/universities", label: "Universities", icon: assets.template.imgIconUniversity },
+  { href: "/courses", label: "Courses", icon: assets.home.imgIconBook },
+  { href: "/about", label: "About", icon: assets.template.imgIconInfo },
+];
 export default function Navbar() {
+  const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
-
-  return (
-    <nav className="bg-black text-white p-5">
-      
-      <div className="flex justify-between items-center">
-        
-        <h1 className="text-2xl font-bold">
-          SkillBridgeSL
-        </h1>
-
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-6 text-lg">
-          <li className="hover:text-blue-400 transition">
-            <Link href="/">Home</Link>
-          </li>
-
-          <li className="hover:text-blue-400 transition">
-            <Link href="/about">About</Link>
-          </li>
-
-          <li className="hover:text-blue-400 transition">
-            <Link href="/courses">Courses</Link>
-          </li>
-
-          <li className="hover:text-blue-400 transition">
-            <Link href="/contact">Contact</Link>
-          </li>
-        </ul>
-
-        {/* Mobile Button */}
-        <button
-          className="md:hidden text-3xl"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          ☰
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <ul className="flex flex-col gap-4 mt-4 md:hidden text-lg">
-          <li>
-            <Link href="/">Home</Link>
-          </li>
-
-          <li>
-            <Link href="/about">About</Link>
-          </li>
-
-          <li>
-            <Link href="/courses">Courses</Link>
-          </li>
-
-          <li>
-            <Link href="/contact">Contact</Link>
-          </li>
-        </ul>
-      )}
+  const [reducedGlass, setReducedGlass] = useState(false);
+  return <header className="site-header" data-figma-node="18:2046">
+    <a className="skip-link" href="#main-content">Skip to content</a>
+    <nav className="navbar" aria-label="Main navigation">
+      <Link href="/" aria-label="SkillBridge SL home" className="brand"><Image src="/Logo.png" width={190} height={68} alt="SkillBridge SL — Your future. Your path." priority /></Link><div className="nav-divider" />
+      <div className="desktop-links">{navigation.map(item => <Link key={item.href} href={item.href} className={`nav-link ${pathname.startsWith(item.href) || (pathname === "/" && item.href === "/careers") ? "active" : ""}`} aria-current={pathname.startsWith(item.href) ? "page" : undefined}><DesignAsset src={item.icon} />{item.label}</Link>)}</div>
+      <div className="nav-actions"><LanguageSwitcher /><button className="appearance-button" type="button" aria-label="Reduce glass transparency" aria-pressed={reducedGlass} onClick={() => { const next = !reducedGlass; setReducedGlass(next); document.documentElement.dataset.reduceGlass = String(next); }}><DesignAsset src={assets.template.imgIconSun} /></button><Link className="login-link" href="/login"><DesignAsset src={assets.template.imgIconUser} />Log in</Link><button type="button" className="menu-toggle" aria-label={menuOpen ? "Close navigation" : "Open navigation"} aria-expanded={menuOpen} aria-controls="mobile-navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X size={20} /> : <Menu size={20} />}</button></div>
     </nav>
-  );
+    {menuOpen && <nav id="mobile-navigation" className="mobile-menu glass-panel" aria-label="Mobile navigation">{[...navigation, { href: "/my-path", label: "My Path", icon: assets.template.imgIconRoute }, { href: "/login", label: "Log in", icon: assets.template.imgIconUser }].map(item => <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)}><DesignAsset src={item.icon} />{item.label}</Link>)}</nav>}
+  </header>;
 }

@@ -1,0 +1,23 @@
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import assets from "@/lib/design/assets.json";
+import { Sparkles, Route, Check, Wallet, Clock, Briefcase, GraduationCap } from "lucide-react";
+import { getCareer } from "@/lib/api/catalog";
+import { PageIntro } from "@/components/shared/PageIntro";
+import { HeroArtwork } from "@/components/home/HeroArtwork";
+import { SaveButton } from "@/components/shared/SaveButton";
+import { ActionLink } from "@/components/shared/ActionLink";
+import { SchoolRoadmap } from "@/components/careers/SchoolRoadmap";
+import { CareerRoles } from "@/components/careers/CareerRoles";
+import { Employers } from "@/components/careers/Employers";
+import { StudyOptions } from "@/components/careers/StudyOptions";
+import { SectionHeading } from "@/components/shared/SectionHeading";
+import Footer from "@/components/layout/Footer";
+type Props={params:Promise<{slug:string}>};
+export async function generateMetadata({params}:Props):Promise<Metadata>{const career=await getCareer((await params).slug);return {title:career?.title||"Career not found"};}
+export default async function CareerPage({params}:Props){
+ const career=await getCareer((await params).slug);if(!career)notFound();const software=career.slug==="software-engineer";
+ return <div className="page-container career-detail"><section className="career-detail-hero"><div><PageIntro badge={<><Sparkles/>CAREER SPOTLIGHT</>} title={software?<>Software<br/>Engineer.</>:career.title}><p>{career.summary}<br/>Here is how you can start — even while you are still at school.</p></PageIntro><div className="hero-button-row"><SaveButton id={career.slug} title={career.title}/><ActionLink href={software?"#school-roadmap":"/build-your-path"} icon={<Route size={17}/>}>Jump to school roadmap</ActionLink><span className="eyebrow-pill"><Check size={14}/>Sri Lanka focus</span></div></div><HeroArtwork compact imageSrc={assets.career.imgGeneratedAiHeroPortraitTransparentPng} imageAlt="Student planning a future career"/></section>
+ {software?<><div className="grid-4 detail-metrics">{[["MEDIAN TOTAL PAY","LKR 168K","per month, reported",Wallet],["REPORTED PAY RANGE","102K–258K","LKR / month",Wallet],["STUDY PATHWAYS","3–4 years","many degree routes",Clock],["SPECIALISATIONS","6 roles","front-end to AI",Briefcase]].map(([label,value,note,Icon])=>{const Glyph=Icon as typeof Wallet;return <div className="glass-panel" key={String(label)}><p className="eyebrow"><Glyph size={19}/>{String(label)}</p><strong>{String(value)}</strong><small>{String(note)}</small></div>;})}</div><p className="section-footnote">Salary source in the design: Glassdoor Sri Lanka (self-reported 2026 snapshot). Actual pay varies by level, company and location.</p><SchoolRoadmap/><section className="section-block"><SectionHeading title="Minimum entry requirements — quick view" description="Small, clear, institution-specific examples. Always verify the intake year."/><div className="grid-2"><article className="entry-card glass-panel"><h3><GraduationCap size={23}/>Public university / UGC <span className="small-pill">Course-specific</span></h3><p>CS typically uses approved Maths / Physics-based A/L combinations; grades and Z-score selection apply.</p><strong>Check current UGC handbook + the exact degree.</strong></article><article className="entry-card glass-panel"><h3><GraduationCap size={23}/>SLIIT / Software Engineering <span className="small-pill">2026 intake example</span></h3><p>3 S passes in Physical Science / Eng. Tech; OR 3 S in another stream + O/L Maths C + IT bridging.</p><strong>Aptitude test applies. A/L ICT may exempt bridging.</strong></article></div></section><CareerRoles/><Employers/><StudyOptions/></>:<section className="section-block"><SectionHeading title={`Explore your path to ${career.title}`} description="Start with your current stage and check requirements for your chosen programme."/><div className="grid-2"><article className="entry-card glass-panel"><h3>Study routes</h3><p>{career.entry}</p><ActionLink href="/universities">Explore universities</ActionLink></article><article className="entry-card glass-panel"><h3>Where these skills matter</h3><p>{career.employers}</p><p className="muted">These are career examples. Detailed entry requirements and opportunities will be added as the catalog grows.</p></article></div></section>}
+ <div className="comparison-bar glass-panel section-block"><span className="icon-bubble"><Route size={23}/></span><div><h3>Your future starts with one small step.</h3><p className="muted">Save this career and use the O/L → A/L → Degree roadmap to plan your next move.</p></div><SaveButton id={career.slug} title={career.title}/></div><Footer/></div>;
+}

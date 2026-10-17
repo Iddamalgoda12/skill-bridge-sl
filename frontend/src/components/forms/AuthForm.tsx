@@ -1,0 +1,11 @@
+"use client";
+import { useState, type FormEvent } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { ArrowRight, LoaderCircle } from "lucide-react";
+import { apiRequest } from "@/lib/api/client";
+export function AuthForm({register=false}:{register?:boolean}){
+ const router=useRouter();const [pending,setPending]=useState(false);const [error,setError]=useState("");
+ async function submit(event:FormEvent<HTMLFormElement>){event.preventDefault();const form=new FormData(event.currentTarget);setPending(true);setError("");try{await apiRequest(`/api/auth/${register?"register":"login"}`,{method:"POST",body:JSON.stringify(Object.fromEntries(form))});router.push("/my-path");router.refresh();}catch(error){setError(error instanceof Error?error.message:"Please try again.");}finally{setPending(false);}}
+ return <form onSubmit={submit} className="auth-form glass-panel"><h1>{register?"Start your journey.":"Welcome back."}</h1><p className="muted">{register?"Create your SkillBridge SL account.":"Log in to continue your SkillBridge SL journey."}</p>{register&&<div className="grid-2"><label className="form-label">First name<input className="form-control" name="firstName" autoComplete="given-name" required maxLength={100}/></label><label className="form-label">Last name<input className="form-control" name="lastName" autoComplete="family-name" required maxLength={100}/></label></div>}<label className="form-label">Email address<input className="form-control" name="email" type="email" autoComplete="email" required/></label><label className="form-label">Password<input className="form-control" name="password" type="password" autoComplete={register?"new-password":"current-password"} required minLength={register?8:1} maxLength={128}/>{register&&<small>Use at least 8 characters.</small>}</label>{error&&<p className="notice" role="alert">{error}</p>}<button type="submit" className="glass-button button-dark" disabled={pending}>{pending?<LoaderCircle size={18} className="loading-icon"/>:null}{register?"Create account":"Log in"}<ArrowRight size={18}/></button><p className="auth-alternative">{register?"Already have an account?":"New to SkillBridge SL?"} <Link href={register?"/login":"/register"}>{register?"Log in":"Create an account"}</Link></p></form>;
+}

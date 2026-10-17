@@ -1,0 +1,48 @@
+/* Exact source: SkillBridgeSL / template design 18:3851.
+   Panel and text tokens come from the corresponding retrieved page frames. */
+:root {
+  --gold-cream: #fff4cb;
+  --gold-light: #ffe78d;
+  --gold-main: #ffda70;
+  --gold-soft: #f8dc93;
+  --gold-ivory: #fff5dc;
+  --ink: #1c281d;
+  --forest: #193b2b;
+  --muted-ink: #68746b;
+  --white: #fff;
+  --glass-white: rgba(255,255,255,.36);
+  --glass-border: rgba(255,255,255,.95);
+  --glass-surface: rgba(255,255,255,.78);
+  --glass-warm: rgba(255,249,232,.73);
+  --grid-color: rgba(150,123,60,.05);
+  --nav-active: #f6eac8;
+  --nav-border: #eeddaa;
+  --gold-border: #e5c36b;
+  --mint: #dfedda;
+  --lavender: #eee8f5;
+  --peach: #f6e3d7;
+  --ice: #e5eff5;
+  --sunlight: #fff3c8;
+  --glass-shadow: 0 9px 20px rgba(128,96,40,.1);
+  --nav-shadow: 0 8px 18px rgba(139,104,28,.15);
+  --surface-gradient: linear-gradient(101deg,rgba(255,255,255,.94),rgba(255,252,242,.88) 50%,rgba(255,244,217,.8));
+  --gold-glass-gradient: linear-gradient(103deg,rgba(255,255,255,.94),rgba(255,243,199,.88) 50%,rgba(251,225,162,.8));
+  --background: var(--gold-cream);
+  --foreground: var(--ink);
+  --primary: var(--forest);
+  --primary-foreground: var(--white);
+  --card: var(--glass-surface);
+  --card-foreground: var(--ink);
+  --border: var(--glass-border);
+  --ring: var(--gold-border);
+  --muted: var(--sunlight);
+  --muted-foreground: var(--muted-ink);
+  --accent: var(--nav-active);
+  --accent-foreground: var(--forest);
+  --secondary: var(--glass-warm);
+  --secondary-foreground: var(--forest);
+  --destructive: var(--forest);
+  --radius: 1rem;
+  --font-sans: var(--font-inter), var(--font-noto-sans), var(--font-noto-sans-sinhala), sans-serif;
+  --font-sinhala: var(--font-noto-sans-sinhala), sans-serif;
+}

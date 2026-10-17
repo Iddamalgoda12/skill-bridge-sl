@@ -1,12 +1,12 @@
+import type { Metadata } from "next";
+import { Sparkles, Heart, GraduationCap, Camera } from "lucide-react";
+import { PageIntro } from "@/components/shared/PageIntro";
+import { GlassPanel } from "@/components/shared/GlassPanel";
+import { DesignAsset } from "@/components/shared/DesignAsset";
+import { SectionHeading } from "@/components/shared/SectionHeading";
+import Footer from "@/components/layout/Footer";
+import assets from "@/lib/design/assets.json";
+export const metadata: Metadata = { title: "About" };
 export default function AboutPage() {
-  return (
-    <main className="min-h-screen flex items-center justify-center p-8">
-      <section className="text-center max-w-2xl">
-        <h1 className="text-4xl font-bold">About SkillBridgeSL</h1>
-        <p className="mt-4 text-gray-600">
-          SkillBridgeSL connects students, mentors, and industry professionals to help learners build practical skills and advance their careers.
-        </p>
-      </section>
-    </main>
-  );
+ return <div className="page-container about-page"><div className="about-hero"><div><PageIntro badge={<><Sparkles/>ABOUT SKILLBRIDGE SL</>} title="Built for your journey."><p>A career and education guidance space created by an engineering student,<br/>for Sri Lankan students figuring out what comes next.</p></PageIntro><GlassPanel className="personal-note"><span className="icon-bubble"><Heart size={23}/></span><div><h3>From someone who has been in your shoes</h3><p className="muted">The big decisions feel easier when an aiya shares the roadmap.<br/>That is the feeling I want SkillBridge SL to give every student.</p></div></GlassPanel></div><GlassPanel className="founder-card"><div className="founder-portrait"><DesignAsset src={assets.about.imgPortraitBackgroundHalo} className="portrait-halo"/><DesignAsset src={assets.about.imgPortraitEditablePlaceholderSilhouette} className="portrait-silhouette"/><span className="portrait-label"><Camera size={14}/>ADD YOUR PHOTO</span><span className="portrait-placeholder">Your portrait goes here • Replace this image layer</span></div><p className="eyebrow">MEET THE CREATOR</p><h3>An engineering student. An aiya.</h3><p className="inline-icon"><GraduationCap size={19}/>Faculty of Engineering · University of Ruhuna</p><small className="muted">Independent student project • Not an official university service</small></GlassPanel></div><section className="about-story"><SectionHeading eyebrow="THE STORY BEHIND SKILLBRIDGE" title="Why I started SkillBridge SL" description="A small student idea, with a bigger purpose."/><div className="story-grid"><GlassPanel className="story-card"><h3>Hi, I’m the student behind SkillBridge SL.</h3><p>I study at the Faculty of Engineering, University of Ruhuna. I know how hard<br/>it can be to connect school subjects, degree choices and real careers.</p><p>I created SkillBridge SL to bring that information into one friendly place—<br/>so the next student does not have to figure everything out alone.</p><span className="story-tag"><GraduationCap size={16}/>Made by a Ruhuna engineering student</span></GlassPanel><GlassPanel className="values-card"><h3>What matters to me</h3>{[["Clarity","Clear steps, without overwhelming jargon.",assets.about.imgIconLightbulb,""],["Real guidance","Helpful context across study stages.",assets.about.imgIconCompass1,"tone-mint"],["Student-first","Built around the questions we really ask.",assets.about.imgIconHeart1,"tone-peach"]].map(([title,copy,icon,tone])=><div className="value-row" key={title}><span className={`icon-bubble ${tone}`}><DesignAsset src={icon}/></span><div><strong>{title}</strong><p className="muted">{copy}</p></div></div>)}</GlassPanel></div></section><Footer/></div>;
 }

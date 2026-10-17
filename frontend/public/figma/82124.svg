@@ -1,0 +1,10 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="1100" height="1050" viewBox="0 0 1100 1050" fill="none" xmlns="http://www.w3.org/2000/svg">
+<ellipse id="03 / Champagne Diffusion" cx="550" cy="525" rx="550" ry="525" fill="url(#paint0_radial_0_43)"/>
+<defs>
+<radialGradient id="paint0_radial_0_43" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(550 525) scale(550 525)">
+<stop stop-color="#FFFBE9" stop-opacity="0.52"/>
+<stop offset="0.45" stop-color="#FFE3AC" stop-opacity="0.3"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</radialGradient>
+</defs>
+</svg>

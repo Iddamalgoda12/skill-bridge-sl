@@ -1,0 +1,10 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="1220" height="740" viewBox="0 0 1220 740" fill="none" xmlns="http://www.w3.org/2000/svg">
+<ellipse id="07 / Golden extension diffusion" cx="610" cy="370" rx="610" ry="370" fill="url(#paint0_radial_0_141)"/>
+<defs>
+<radialGradient id="paint0_radial_0_141" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(610 370) scale(610 370)">
+<stop stop-color="#FFFBE9" stop-opacity="0.52"/>
+<stop offset="0.45" stop-color="#FFE8BA" stop-opacity="0.19"/>
+<stop offset="1" stop-color="#FFE8BA" stop-opacity="0"/>
+</radialGradient>
+</defs>
+</svg>

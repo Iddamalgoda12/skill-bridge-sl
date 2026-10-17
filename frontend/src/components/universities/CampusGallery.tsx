@@ -1,0 +1,3 @@
+import { Camera } from "lucide-react";
+/** Intentional image slots from the Figma design. Populate from university.gallery when available. */
+export function CampusGallery({name}: {name:string}) {return <section id="gallery" className="campus-gallery glass-panel" aria-label={`${name} campus gallery`}><p className="eyebrow">CAMPUS GALLERY</p><div className="campus-photo main-campus-photo"><Camera size={26}/><strong>{name} campus photo</strong></div><div className="campus-small-photos">{["Campus life","Faculty buildings"].map(label=><div className="campus-photo" key={label}><Camera size={22}/><strong>{label}</strong></div>)}</div><small>Campus photographs will appear here.</small></section>;}
