@@ -3,6 +3,7 @@ import { Noto_Sans, Noto_Sans_Sinhala, Geist_Mono, Inter, Roboto, Kalam } from "
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import GoldenBackground from "@/components/layout/GoldenBackground";
+import { AppPreferencesProvider } from "@/components/layout/AppPreferences";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
 const roboto = Roboto({ variable: "--font-roboto", subsets: ["latin"], display: "swap" });
@@ -42,7 +43,8 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${roboto.variable} ${kalam.variable} ${notoSans.variable} ${notoSansSinhala.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body><div className="app-shell"><GoldenBackground /><Navbar /><main id="main-content">{children}</main></div></body>
+      <head><meta name="theme-color" content="#fff4cb" /></head>
+      <body><AppPreferencesProvider><div className="app-shell"><GoldenBackground /><Navbar /><main id="main-content">{children}</main></div></AppPreferencesProvider></body>
     </html>
   );
 }

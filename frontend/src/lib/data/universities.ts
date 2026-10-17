@@ -1,4 +1,4 @@
-import type { University, Course } from "@/types/catalog";
+import type { University } from "@/types/catalog";
 import assets from "@/lib/design/assets.json";
 export const sampleUniversities: University[] = [
  { slug: "moratuwa", name: "University of Moratuwa", shortName: "UOM", type: "Government", location: "Moratuwa", areas: ["Engineering","IT","Architecture"], illustration: assets.universities.imgCampusEditorialIllustration, website: "https://uom.lk" },
@@ -16,4 +16,3 @@ export const studyRoutes = [
  { university: "NSBM Green University", slug: "nsbm", type: "Non-state degree provider", note: "Awards by NSBM and Plymouth are listed separately.", degrees: ["BSc (Hons) in Software Engineering – NSBM", "BSc (Hons) Software Engineering – Plymouth", "BSc (Hons) in Computer Science – NSBM", "BSc (Hons) Computer Science – Plymouth", "BSc (Hons) in Data Science – NSBM", "BSc (Hons) Data Science – Plymouth", "BSc (Hons) Artificial Intelligence – Plymouth"] },
  { university: "Informatics Institute of Technology (IIT)", slug: "iit", type: "Non-state institute / overseas awards", note: "Programme availability and awarding university can vary by intake.", degrees: ["BEng (Hons) Software Engineering", "BSc (Hons) Computer Science", "BSc (Hons) Artificial Intelligence and Data Science", "BEng (Hons) Artificial Intelligence and Data Engineering"] },
 ];
-export const sampleCourses: Course[] = studyRoutes.flatMap(route => route.degrees.map((title,i) => ({ id: `${route.slug}-${i}`, title, universitySlug: route.slug, university: route.university, level: "Undergraduate", duration: "Confirm with institution", area: "Computing" })));

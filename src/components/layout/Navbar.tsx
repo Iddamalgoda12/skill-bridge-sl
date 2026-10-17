@@ -26,10 +26,6 @@ export default function Navbar() {
           </li>
 
           <li className="hover:text-blue-400 transition">
-            <Link href="/courses">Courses</Link>
-          </li>
-
-          <li className="hover:text-blue-400 transition">
             <Link href="/contact">Contact</Link>
           </li>
         </ul>
@@ -52,10 +48,6 @@ export default function Navbar() {
 
           <li>
             <Link href="/about">About</Link>
-          </li>
-
-          <li>
-            <Link href="/courses">Courses</Link>
           </li>
 
           <li>

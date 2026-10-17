@@ -1,7 +1,7 @@
 import "server-only";
 import { sampleCareers } from "@/lib/data/careers";
-import { sampleUniversities, sampleCourses } from "@/lib/data/universities";
-import type { Career, University, Course } from "@/types/catalog";
+import { sampleUniversities } from "@/lib/data/universities";
+import type { Career, University } from "@/types/catalog";
 /** Planned Spring endpoints. Sample mode is explicit; API failures never masquerade as sample results. */
 async function catalog<T>(resource: string, sample: T[], required: (keyof T)[]): Promise<T[]> {
   if (process.env.CATALOG_DATA_SOURCE !== "api") return sample;
@@ -14,6 +14,5 @@ async function catalog<T>(resource: string, sample: T[], required: (keyof T)[]):
 }
 export const getCareers = () => catalog<Career>("careers/public", sampleCareers, ["slug", "title", "category"]);
 export const getUniversities = () => catalog<University>("universities/public", sampleUniversities, ["slug", "name", "areas", "type"]);
-export const getCourses = () => catalog<Course>("courses/public", sampleCourses, ["id", "title", "university", "area"]);
 export async function getCareer(slug: string) { return (await getCareers()).find(item => item.slug === slug); }
 export async function getUniversity(slug: string) { return (await getUniversities()).find(item => item.slug === slug); }

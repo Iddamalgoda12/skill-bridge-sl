@@ -9,6 +9,7 @@ import { DesignAsset } from "@/components/shared/DesignAsset";
 import { SaveButton } from "@/components/shared/SaveButton";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { HeroArtwork } from "@/components/home/HeroArtwork";
+import { useAppPreferences } from "@/components/layout/AppPreferences";
 import assets from "@/lib/design/assets.json";
 import type { Career } from "@/types/catalog";
 
@@ -38,12 +39,12 @@ function matchesStudyRoute(career: Career, route: string) {
 }
 
 export function CareerDirectory({ careers }: { careers: Career[] }) {
+  const { t } = useAppPreferences();
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All careers");
   const [studyRoute, setStudyRoute] = useState("");
   const [showMoreCategories, setShowMoreCategories] = useState(false);
   const [sort, setSort] = useState("featured");
-  const allCategories = [...mainCategories, ...additionalCategories];
   const filtered = useMemo(() => careers
     .filter((career) => category === "All careers" || career.category === category)
     .filter((career) => !studyRoute || matchesStudyRoute(career, studyRoute))
@@ -68,13 +69,13 @@ export function CareerDirectory({ careers }: { careers: Career[] }) {
       <section className="career-directory-hero glass-panel">
         <div>
           <span className="eyebrow-pill">
-            <DesignAsset src={assets["18:9557"].imgIconCompass} />EXPLORE CAREERS
+            <DesignAsset src={assets["18:9557"].imgIconCompass} />{t("copy.EXPLORE CAREERS", "EXPLORE CAREERS")}
           </span>
-          <h1>Find a career that<br /><span>feels like you.</span></h1>
-          <p className="muted">Discover real career paths, entry routes, employers and salary insights<br />made for students and career explorers across Sri Lanka.</p>
+          <h1>{t("copy.Find a career that", "Find a career that")}<br /><span>{t("copy.feels like you.", "feels like you.")}</span></h1>
+          <p className="muted">{t("copy.Discover real career paths, entry routes, employers and salary insights", "Discover real career paths, entry routes, employers and salary insights")}<br />{t("copy.made for students and career explorers across Sri Lanka.", "made for students and career explorers across Sri Lanka.")}</p>
           <label className="search-input career-search">
             <DesignAsset src={assets["18:9557"].imgIconSearch} />
-            <input aria-label="Search careers" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search careers: software, medicine, accounting, design..." />
+            <input aria-label="Search careers" value={query} onChange={(event) => setQuery(event.target.value)} placeholder={t("copy.Search careers: software, medicine, accounting, design...", "Search careers: software, medicine, accounting, design...")} />
             <DesignAsset src={assets["18:9557"].imgIconArrow} />
           </label>
         </div>
@@ -100,15 +101,15 @@ export function CareerDirectory({ careers }: { careers: Career[] }) {
         <SectionHeading eyebrow="BROWSE THE POSSIBILITIES" title="Explore career paths" description={`${filtered.length} curated roles · Sri Lankan education pathways`} />
         <div className="career-browser">
           <aside className="career-sidebar glass-panel" aria-label="Career filters">
-            <h3>Find your fit</h3>
-            <p className="muted">Refine by your strengths and interests</p>
-            <p className="eyebrow">YOUR INTERESTS</p>
+            <h3>{t("copy.Find your fit", "Find your fit")}</h3>
+            <p className="muted">{t("copy.Refine by your strengths and interests", "Refine by your strengths and interests")}</p>
+            <p className="eyebrow">{t("copy.YOUR INTERESTS", "YOUR INTERESTS")}</p>
             {interests.map(([label, value]) => (
               <button key={value} type="button" className={category === value ? "selected" : ""} aria-pressed={category === value} onClick={() => selectCategory(category === value ? "All careers" : value)}>
                 <SlidersHorizontal size={14} />{label}{category === value && <span aria-hidden="true">✓</span>}
               </button>
             ))}
-            <p className="eyebrow study-route-label">STUDY ROUTES</p>
+            <p className="eyebrow study-route-label">{t("copy.STUDY ROUTES", "STUDY ROUTES")}</p>
             <div className="study-route-filters">
               {studyRoutes.map(([label, value]) => (
                 <label key={value}>
@@ -119,8 +120,8 @@ export function CareerDirectory({ careers }: { careers: Career[] }) {
             </div>
             <div className="sidebar-cta gold-glass">
               <Sparkles size={22} />
-              <h3>Not sure what fits?</h3>
-              <p className="muted">Match your interests to a career.</p>
+              <h3>{t("copy.Not sure what fits?", "Not sure what fits?")}</h3>
+              <p className="muted">{t("copy.Match your interests to a career.", "Match your interests to a career.")}</p>
               <ActionLink href="/build-your-path">Build my path</ActionLink>
             </div>
           </aside>
