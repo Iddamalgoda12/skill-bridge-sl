@@ -8,7 +8,7 @@ node_modules/
 !.yarn/releases
 !.yarn/versions
 
-# Next.js output (root app and frontend app)
+# Next.js output
 .next/
 **/.next/
 out/
