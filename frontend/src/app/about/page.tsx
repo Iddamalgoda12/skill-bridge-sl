@@ -1,12 +1,72 @@
 import type { Metadata } from "next";
 import { Sparkles, Heart, GraduationCap, Camera } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 import { PageIntro } from "@/components/shared/PageIntro";
 import { GlassPanel } from "@/components/shared/GlassPanel";
 import { DesignAsset } from "@/components/shared/DesignAsset";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import Footer from "@/components/layout/Footer";
 import assets from "@/lib/design/assets.json";
-export const metadata: Metadata = { title: "About" };
-export default function AboutPage() {
- return <div className="page-container about-page"><div className="about-hero"><div><PageIntro badge={<><Sparkles/>ABOUT SKILLBRIDGE SL</>} title="Built for your journey."><p>A career and education guidance space created by an engineering student,<br/>for Sri Lankan students figuring out what comes next.</p></PageIntro><GlassPanel className="personal-note"><span className="icon-bubble"><Heart size={23}/></span><div><h3>From someone who has been in your shoes</h3><p className="muted">The big decisions feel easier when an aiya shares the roadmap.<br/>That is the feeling I want SkillBridge SL to give every student.</p></div></GlassPanel></div><GlassPanel className="founder-card"><div className="founder-portrait"><DesignAsset src={assets.about.imgPortraitBackgroundHalo} className="portrait-halo"/><DesignAsset src={assets.about.imgPortraitEditablePlaceholderSilhouette} className="portrait-silhouette"/><span className="portrait-label"><Camera size={14}/>ADD YOUR PHOTO</span><span className="portrait-placeholder">Your portrait goes here • Replace this image layer</span></div><p className="eyebrow">MEET THE CREATOR</p><h3>An engineering student. An aiya.</h3><p className="inline-icon"><GraduationCap size={19}/>Faculty of Engineering · University of Ruhuna</p><small className="muted">Independent student project • Not an official university service</small></GlassPanel></div><section className="about-story"><SectionHeading eyebrow="THE STORY BEHIND SKILLBRIDGE" title="Why I started SkillBridge SL" description="A small student idea, with a bigger purpose."/><div className="story-grid"><GlassPanel className="story-card"><h3>Hi, I’m the student behind SkillBridge SL.</h3><p>I study at the Faculty of Engineering, University of Ruhuna. I know how hard<br/>it can be to connect school subjects, degree choices and real careers.</p><p>I created SkillBridge SL to bring that information into one friendly place—<br/>so the next student does not have to figure everything out alone.</p><span className="story-tag"><GraduationCap size={16}/>Made by a Ruhuna engineering student</span></GlassPanel><GlassPanel className="values-card"><h3>What matters to me</h3>{[["Clarity","Clear steps, without overwhelming jargon.",assets.about.imgIconLightbulb,""],["Real guidance","Helpful context across study stages.",assets.about.imgIconCompass1,"tone-mint"],["Student-first","Built around the questions we really ask.",assets.about.imgIconHeart1,"tone-peach"]].map(([title,copy,icon,tone])=><div className="value-row" key={title}><span className={`icon-bubble ${tone}`}><DesignAsset src={icon}/></span><div><strong>{title}</strong><p className="muted">{copy}</p></div></div>)}</GlassPanel></div></section><Footer/></div>;
+
+export async function generateMetadata(): Promise<Metadata> {
+  return { title: (await getTranslations("about"))("meta") };
+}
+
+const values = [
+  { id: "clarity", icon: assets.about.imgIconLightbulb, tone: "" },
+  { id: "guidance", icon: assets.about.imgIconCompass1, tone: "tone-mint" },
+  { id: "student", icon: assets.about.imgIconHeart1, tone: "tone-peach" },
+] as const;
+
+export default async function AboutPage() {
+  const t = await getTranslations("about");
+  const br = { br: () => <br /> };
+  return (
+    <div className="page-container about-page">
+      <div className="about-hero">
+        <div>
+          <PageIntro badge={<><Sparkles />{t("eyebrow")}</>} title={t("title")}>
+            <p>{t.rich("intro", br)}</p>
+          </PageIntro>
+          <GlassPanel className="personal-note">
+            <span className="icon-bubble"><Heart size={23} aria-hidden="true" /></span>
+            <div><h3>{t("note.title")}</h3><p className="muted">{t.rich("note.body", br)}</p></div>
+          </GlassPanel>
+        </div>
+        <GlassPanel className="founder-card">
+          <div className="founder-portrait">
+            <DesignAsset src={assets.about.imgPortraitBackgroundHalo} className="portrait-halo" />
+            <DesignAsset src={assets.about.imgPortraitEditablePlaceholderSilhouette} className="portrait-silhouette" />
+            <span className="portrait-label"><Camera size={14} aria-hidden="true" />{t("founder.addPhoto")}</span>
+            <span className="portrait-placeholder">{t("founder.placeholder")}</span>
+          </div>
+          <p className="eyebrow">{t("founder.eyebrow")}</p>
+          <h3>{t("founder.title")}</h3>
+          <p className="inline-icon"><GraduationCap size={19} aria-hidden="true" />{t("founder.faculty")}</p>
+          <small className="muted">{t("founder.disclaimer")}</small>
+        </GlassPanel>
+      </div>
+      <section className="about-story">
+        <SectionHeading eyebrow={t("story.eyebrow")} title={t("story.title")} description={t("story.description")} />
+        <div className="story-grid">
+          <GlassPanel className="story-card">
+            <h3>{t("story.hi")}</h3>
+            <p>{t.rich("story.p1", br)}</p>
+            <p>{t.rich("story.p2", br)}</p>
+            <span className="story-tag"><GraduationCap size={16} aria-hidden="true" />{t("story.tag")}</span>
+          </GlassPanel>
+          <GlassPanel className="values-card">
+            <h3>{t("values.title")}</h3>
+            {values.map(({ id, icon, tone }) => (
+              <div className="value-row" key={id}>
+                <span className={`icon-bubble ${tone}`}><DesignAsset src={icon} /></span>
+                <div><strong>{t(`values.${id}.title`)}</strong><p className="muted">{t(`values.${id}.copy`)}</p></div>
+              </div>
+            ))}
+          </GlassPanel>
+        </div>
+      </section>
+      <Footer />
+    </div>
+  );
 }

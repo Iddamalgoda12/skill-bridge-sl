@@ -1,6 +1,8 @@
 package com.skillbridgesl.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -37,7 +39,9 @@ public class User implements UserDetails {
     @Column(name = "last_name", nullable = false, length = 100)
     private String lastName;
 
+    // Postgres native enum column: bind as a named enum, not varchar.
     @Enumerated(EnumType.STRING)
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
     @Column(nullable = false)
     private Role role;
 

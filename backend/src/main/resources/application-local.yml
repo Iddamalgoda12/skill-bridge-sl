@@ -4,9 +4,9 @@
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/skillbridgesl
-    username: skillbridge
-    password: skillbridge_secret
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/skillbridgesl}
+    username: ${DB_USERNAME:skillbridge}
+    password: ${DB_PASSWORD:skillbridge_secret}
 
   # ─── Flyway: point to the shared database/migrations/ folder ──────────────
   # Working directory when running `mvn spring-boot:run` is backend/,
@@ -35,7 +35,19 @@ logging:
     org.hibernate.orm.jdbc.bind: TRACE
 
 management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,flyway
   endpoint:
     health:
       show-details: always
+
+app:
+  security:
+    # Locally the API is only reached through the Next.js BFF, which forwards the visitor's address.
+    trust-forwarded-for: true
+  jwt:
+    # Development-only key. Never reuse outside the local profile.
+    secret: ${JWT_SECRET:bG9jYWwtZGV2LW9ubHktand0LXNlY3JldC1rZXktbm90LWZvci1wcm9kdWN0aW9uLXVzZQ==}
 

@@ -61,3 +61,7 @@ Thumbs.db
 # Deployment tooling
 .vercel/
 node_modules
+.next-e2e/
+**/.next-e2e/
+test-results/
+playwright-report/

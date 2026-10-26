@@ -1,6 +1,34 @@
+import { useTranslations } from "next-intl";
 import { Bookmark, Check, Sparkles, ArrowRight } from "lucide-react";
 import type { Roadmap } from "@/types/catalog";
-import { stages } from "@/lib/data/roadmaps";
-export function RoadmapPreview({roadmap,saved,onSave}: {roadmap:Roadmap;saved:boolean;onSave:()=>void}) {
- return <section id="roadmap-preview" className="roadmap-preview glass-panel gold-glass" aria-label="Your roadmap preview"><span className="eyebrow-pill"><Sparkles size={15}/>SAMPLE {stages.find(s=>s.id===roadmap.stage)?.label.toUpperCase()} ROADMAP</span><h3>Your path to</h3><h2>{roadmap.career}</h2><p className="muted">{roadmap.milestones.length===4?"Four":roadmap.milestones.length} milestones to start with</p><ol className="roadmap-timeline">{roadmap.milestones.map((m,i)=><li key={m.label}><span className={`milestone-number tone-${["gold","mint","lavender","peach"][i]}`}>{String(i+1).padStart(2,"0")}</span><div><p className="eyebrow">{m.label}</p><h4>{m.title}</h4><p className="muted">{m.description}</p></div></li>)}</ol><button className="glass-button roadmap-save" onClick={onSave}>{saved?<Check size={17}/>:<Bookmark size={17}/>} {saved?"Saved on this device":"Add to My Path"}<ArrowRight size={17}/></button></section>;
+import { milestoneIndexes } from "@/lib/data/roadmaps";
+
+const tones = ["gold", "mint", "lavender", "peach"];
+
+export function RoadmapPreview({ roadmap, saved, onSave }: { roadmap: Roadmap; saved: boolean; onSave: () => void }) {
+  const t = useTranslations("path");
+  const milestones = milestoneIndexes(roadmap.stage);
+  return (
+    <section id="roadmap-preview" className="roadmap-preview glass-panel gold-glass" aria-label={t("preview.label")}>
+      <span className="eyebrow-pill"><Sparkles size={15} aria-hidden="true" />{t("preview.badge", { stage: t(`stages.${roadmap.stage}.label`) })}</span>
+      <h3>{t("preview.yourPathTo")}</h3>
+      <h2>{t(`goals.${roadmap.goal}.title`)}</h2>
+      <p className="muted">{t("preview.milestones", { count: milestones.length })}</p>
+      <ol className="roadmap-timeline">
+        {milestones.map((n) => (
+          <li key={n}>
+            <span className={`milestone-number tone-${tones[n - 1]}`}>{String(n).padStart(2, "0")}</span>
+            <div>
+              <p className="eyebrow">{t(`roadmap.labels.${n}`)}</p>
+              <h4>{t(`roadmap.${roadmap.goal}.${n}.title`)}</h4>
+              <p className="muted">{t(`roadmap.${roadmap.goal}.${n}.description`)}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <button className="glass-button roadmap-save" onClick={onSave} aria-live="polite">
+        {saved ? <Check size={17} aria-hidden="true" /> : <Bookmark size={17} aria-hidden="true" />} {saved ? t("preview.saved") : t("preview.add")}<ArrowRight size={17} aria-hidden="true" />
+      </button>
+    </section>
+  );
 }

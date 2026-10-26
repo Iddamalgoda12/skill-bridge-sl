@@ -2,6 +2,7 @@ package com.skillbridgesl.controller;
 
 import com.skillbridgesl.dto.auth.AuthResponse;
 import com.skillbridgesl.dto.auth.LoginRequest;
+import com.skillbridgesl.dto.auth.RefreshRequest;
 import com.skillbridgesl.dto.auth.RegisterRequest;
 import com.skillbridgesl.service.AuthService;
 import jakarta.validation.Valid;
@@ -28,8 +29,13 @@ public class AuthController {
     }
 
     @PostMapping("/refresh")
-    public ResponseEntity<AuthResponse> refresh(@RequestParam String refreshToken) {
-        return ResponseEntity.ok(authService.refresh(refreshToken));
+    public ResponseEntity<AuthResponse> refresh(@Valid @RequestBody RefreshRequest request) {
+        return ResponseEntity.ok(authService.refresh(request.refreshToken()));
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<Void> logout(@Valid @RequestBody RefreshRequest request) {
+        authService.logout(request.refreshToken());
+        return ResponseEntity.noContent().build();
     }
 }
-

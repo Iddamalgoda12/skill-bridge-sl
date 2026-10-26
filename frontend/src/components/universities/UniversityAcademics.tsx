@@ -1,5 +1,40 @@
+import { Check } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { DesignAsset } from "@/components/shared/DesignAsset";
-import { Check } from "lucide-react";
 import { faculties, degreeGroups } from "@/lib/data/faculties";
-export function UniversityAcademics(){return <><section id="faculties" className="section-block"><SectionHeading eyebrow="EXPLORE ACADEMICS" title="10 faculties at the University of Ruhuna" description="Select a faculty to learn about its fields and available programmes."/><div className="faculty-grid">{faculties.map(([title,copy,icon,tone])=><a className="faculty-card glass-panel" href="#degrees" key={title}><span className={`icon-bubble ${tone}`}><DesignAsset src={icon}/></span><h3>{title}</h3><p>{copy}</p></a>)}</div></section><section id="degrees" className="section-block"><SectionHeading eyebrow="STUDY OPTIONS" title="Undergraduate degree programmes" description="A comprehensive overview of undergraduate pathways; check faculty sites for specialisations, eligibility and current availability."/><div className="grid-3 degree-grid">{degreeGroups.map(group=><article className="degree-card glass-panel" key={group.title}><header><span className={`icon-bubble ${group.tone}`}><DesignAsset src={group.icon}/></span><div><h3>{group.title}</h3><p>{group.faculty}</p></div></header><ul>{group.degrees.map(degree=><li key={degree}><Check size={13}/>{degree}</li>)}</ul></article>)}</div><p className="section-footnote">Programme names and engineering specialisations are illustrative of published official pathways; consult the latest university handbook for the current intake.</p></section></>;}
+
+export async function UniversityAcademics() {
+  const t = await getTranslations("universityDetail");
+  return (
+    <>
+      <section id="faculties" className="section-block">
+        <SectionHeading eyebrow={t("academics.eyebrow")} title={t("academics.title")} description={t("academics.description")} />
+        <div className="faculty-grid">
+          {faculties.map(({ id, icon, tone }) => (
+            <a className="faculty-card glass-panel" href="#degrees" key={id}>
+              <span className={`icon-bubble ${tone}`}><DesignAsset src={icon} /></span>
+              <h3>{t(`faculties.${id}.title`)}</h3>
+              <p>{t(`faculties.${id}.copy`)}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+      <section id="degrees" className="section-block">
+        <SectionHeading eyebrow={t("degrees.eyebrow")} title={t("degrees.title")} description={t("degrees.description")} />
+        <div className="grid-3 degree-grid">
+          {degreeGroups.map((group) => (
+            <article className="degree-card glass-panel" key={group.id}>
+              <header>
+                <span className={`icon-bubble ${group.tone}`}><DesignAsset src={group.icon} /></span>
+                <div><h3>{t(`degreeGroups.${group.id}.title`)}</h3><p>{t(`degreeGroups.${group.id}.faculty`)}</p></div>
+              </header>
+              <ul>{group.degrees.map((degree) => <li key={degree}><Check size={13} aria-hidden="true" />{degree}</li>)}</ul>
+            </article>
+          ))}
+        </div>
+        <p className="section-footnote">{t("degrees.footnote")}</p>
+      </section>
+    </>
+  );
+}

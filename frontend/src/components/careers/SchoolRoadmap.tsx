@@ -1,8 +1,39 @@
 import { Check, Pencil, Target, GraduationCap } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 import { SectionHeading } from "@/components/shared/SectionHeading";
-const routes=[
- {stage:"O/L STUDENT",title:"Build your foundations",badge:"Grades 10–11",Icon:Pencil,tone:"",steps:[["Choose ICT if available","Helpful for early exposure, but NOT mandatory."],["Give Maths + English priority","Logic, algebra, reading and communication."],["Try coding before A/Ls","Start with Scratch, HTML or basic Python."],["Make one small project","A simple website, calculator or mini-game."]],note:"Best move: explore, practise and stay curious."},
- {stage:"A/L STUDENT",title:"Pick a suitable route",badge:"Grades 12–13",Icon:Target,tone:"tone-mint",steps:[["Consider the Maths stream","Combined Maths + Physics opens many public pathways."],["Check where ICT fits","ICT may be accepted in certain subject combinations."],["Focus on grades and Z-score","Admission depends on the specific course and intake."],["Keep building your skills","Python, Git, web basics and problem-solving."]],note:"Not all degrees require the same A/L stream."},
- {stage:"AFTER A/Ls",title:"Turn skills into experience",badge:"Your next step",Icon:GraduationCap,tone:"tone-lavender",steps:[["Compare study routes","CS, Software Engineering, IT or related degrees."],["Verify exact entry rules","Review UGC and each institute’s current notice."],["Build a GitHub portfolio","Create two projects and document your process."],["Find real experience","Hackathons, internships, open-source work."]],note:"You can also explore approved bridging or foundation routes."},
-];
-export function SchoolRoadmap(){return <section id="school-roadmap" className="section-block"><SectionHeading title="Your journey starts at school" description="Practical steps for Sri Lankan students — choose the stage you are in."/><div className="grid-3">{routes.map(({stage,title,badge,Icon,tone,steps,note})=><article key={stage} className="school-card glass-panel glass-gradient"><header><span className={`icon-bubble ${tone}`}><Icon size={24}/></span><div><p className="eyebrow">{stage}</p><h3>{title}</h3></div><span className="small-pill">{badge}</span></header><ol>{steps.map(([title,copy],i)=><li key={title}><span className={`check-dot ${tone}`}><Check size={13}/></span><div><strong>{String(i+1).padStart(2,"0")} {title}</strong><p>{copy}</p></div></li>)}</ol><p className={`school-note ${tone}`}>{note}</p></article>)}</div></section>;}
+
+const stages = [
+  { id: "ol", Icon: Pencil, tone: "" },
+  { id: "al", Icon: Target, tone: "tone-mint" },
+  { id: "after", Icon: GraduationCap, tone: "tone-lavender" },
+] as const;
+const steps = [1, 2, 3, 4] as const;
+
+export async function SchoolRoadmap() {
+  const t = await getTranslations("careerDetail.school");
+  return (
+    <section id="school-roadmap" className="section-block">
+      <SectionHeading title={t("title")} description={t("description")} />
+      <div className="grid-3">
+        {stages.map(({ id, Icon, tone }) => (
+          <article key={id} className="school-card glass-panel glass-gradient">
+            <header>
+              <span className={`icon-bubble ${tone}`}><Icon size={24} aria-hidden="true" /></span>
+              <div><p className="eyebrow">{t(`${id}.stage`)}</p><h3>{t(`${id}.title`)}</h3></div>
+              <span className="small-pill">{t(`${id}.badge`)}</span>
+            </header>
+            <ol>
+              {steps.map((n) => (
+                <li key={n}>
+                  <span className={`check-dot ${tone}`}><Check size={13} aria-hidden="true" /></span>
+                  <div><strong>{String(n).padStart(2, "0")} {t(`${id}.steps.${n}.title`)}</strong><p>{t(`${id}.steps.${n}.copy`)}</p></div>
+                </li>
+              ))}
+            </ol>
+            <p className={`school-note ${tone}`}>{t(`${id}.note`)}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}

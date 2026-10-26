@@ -1,12 +1,31 @@
+export type ApiErrorBody = { code?: string; violations?: Record<string, string> };
+
 export class ApiError extends Error {
-  constructor(message: string, public status: number) { super(message); this.name = "ApiError"; }
-}
-/** Browser requests use the same-origin Next.js /api proxy. */
-export async function apiRequest<T>(path: string, options: RequestInit = {}): Promise<T> {
-  const response = await fetch(path, { ...options, headers: { "Content-Type": "application/json", ...options.headers } });
-  if (!response.ok) {
-    const body = await response.json().catch(() => null);
-    throw new ApiError(body?.message || "We couldn’t complete that request. Please try again.", response.status);
+  constructor(
+    /** Stable machine code from the API (translated by the UI). */
+    public code: string,
+    public status: number,
+    public violations?: Record<string, string>,
+  ) {
+    super(code);
+    this.name = "ApiError";
   }
-  return response.status === 204 ? undefined as T : response.json();
+}
+
+/**
+ * Browser → Next.js route handler call. Failures become `ApiError`s carrying
+ * stable codes; user-facing text is chosen by the caller from translations.
+ */
+export async function apiRequest<T = unknown>(path: string, options: RequestInit = {}): Promise<T> {
+  let response: Response;
+  try {
+    response = await fetch(path, { ...options, headers: { "Content-Type": "application/json", ...options.headers } });
+  } catch {
+    throw new ApiError("NETWORK", 0);
+  }
+  if (!response.ok) {
+    const body: ApiErrorBody | null = await response.json().catch(() => null);
+    throw new ApiError(body?.code ?? "BAD_REQUEST", response.status, body?.violations);
+  }
+  return (response.status === 204 ? undefined : await response.json().catch(() => undefined)) as T;
 }

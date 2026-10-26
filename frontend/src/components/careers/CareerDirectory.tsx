@@ -3,33 +3,30 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
+import { useTranslations } from "next-intl";
 import { Compass, SlidersHorizontal, Sparkles } from "lucide-react";
 import { ActionLink } from "@/components/shared/ActionLink";
 import { DesignAsset } from "@/components/shared/DesignAsset";
 import { SaveButton } from "@/components/shared/SaveButton";
 import { SectionHeading } from "@/components/shared/SectionHeading";
-import { HeroArtwork } from "@/components/home/HeroArtwork";
-import { useAppPreferences } from "@/components/layout/AppPreferences";
 import assets from "@/lib/design/assets.json";
-import type { Career } from "@/types/catalog";
+import { formatSalary, type LocalizedCareer } from "@/lib/i18n/catalog";
 
-const mainCategories = ["All careers", "Technology", "Healthcare", "Engineering", "Business", "Creative", "Education"];
+const ALL = "all";
+const mainCategories = [ALL, "Technology", "Healthcare", "Engineering", "Business", "Creative", "Education"];
 const additionalCategories = ["Legal", "Hospitality", "Skilled Trades"];
 const interests = [
-  ["Technology & coding", "Technology"],
-  ["Health & wellbeing", "Healthcare"],
-  ["Building & engineering", "Engineering"],
-  ["Business & finance", "Business"],
-  ["Creative thinking", "Creative"],
+  ["technology", "Technology"],
+  ["health", "Healthcare"],
+  ["engineering", "Engineering"],
+  ["business", "Business"],
+  ["creative", "Creative"],
 ] as const;
-const studyRoutes = [
-  ["A/L university degrees", "degree"],
-  ["Professional qualifications", "professional"],
-  ["Diplomas & NVQ", "diploma"],
-  ["Skills + portfolio", "skills"],
-] as const;
+const studyRoutes = ["degree", "professional", "diploma", "skills"] as const;
 
-function matchesStudyRoute(career: Career, route: string) {
+/** Study-route filters match the English entry-route text kept on the record. */
+function matchesStudyRoute(career: LocalizedCareer, route: string) {
   const entry = career.entry.toLowerCase();
   if (route === "degree") return /degree|university|mbbs|engineering/.test(entry);
   if (route === "professional") return /professional|registration|licensing|ca\b|slmc|accreditation/.test(entry);
@@ -38,19 +35,26 @@ function matchesStudyRoute(career: Career, route: string) {
   return true;
 }
 
-export function CareerDirectory({ careers }: { careers: Career[] }) {
-  const { t } = useAppPreferences();
+/** `artwork` is a server-rendered slot (it needs server-only translations). */
+export function CareerDirectory({ careers, artwork }: { careers: LocalizedCareer[]; artwork: ReactNode }) {
+  const t = useTranslations("careers");
+  const catalog = useTranslations("catalog");
   const [query, setQuery] = useState("");
-  const [category, setCategory] = useState("All careers");
+  const [category, setCategory] = useState(ALL);
   const [studyRoute, setStudyRoute] = useState("");
   const [showMoreCategories, setShowMoreCategories] = useState(false);
   const [sort, setSort] = useState("featured");
-  const filtered = useMemo(() => careers
-    .filter((career) => category === "All careers" || career.category === category)
-    .filter((career) => !studyRoute || matchesStudyRoute(career, studyRoute))
-    .filter((career) => `${career.title} ${career.summary} ${career.employers}`.toLowerCase().includes(query.toLowerCase()))
-    .sort((a, b) => sort === "az" ? a.title.localeCompare(b.title) : 0),
-  [careers, category, studyRoute, query, sort]);
+
+  const categoryLabel = (value: string) => (value === ALL ? t("categories.all") : catalog.has(`category.${value}`) ? catalog(`category.${value}`) : value);
+
+  const filtered = useMemo(() => {
+    const needle = query.trim().toLowerCase();
+    return careers
+      .filter((career) => category === ALL || career.category === category)
+      .filter((career) => !studyRoute || matchesStudyRoute(career, studyRoute))
+      .filter((career) => !needle || `${career.display.title} ${career.display.summary} ${career.display.employers} ${career.title} ${career.employers}`.toLowerCase().includes(needle))
+      .sort((a, b) => (sort === "az" ? a.display.title.localeCompare(b.display.title) : 0));
+  }, [careers, category, studyRoute, query, sort]);
 
   function selectCategory(next: string) {
     setCategory(next);
@@ -59,36 +63,38 @@ export function CareerDirectory({ careers }: { careers: Career[] }) {
 
   function clearFilters() {
     setQuery("");
-    setCategory("All careers");
+    setCategory(ALL);
     setStudyRoute("");
     setShowMoreCategories(false);
   }
+
+  const stats = [
+    [String(careers.length), t("stats.paths"), assets["18:9590"].imgIconCompass],
+    ["9", t("stats.families"), assets["18:9596"].imgIconBriefcase],
+    ["LKR", t("stats.salary"), assets.careerDirectoryCards.imgIconCoin],
+    ["UGC", t("stats.admissions"), assets["18:9608"].imgIconSchool],
+  ];
 
   return (
     <>
       <section className="career-directory-hero glass-panel">
         <div>
           <span className="eyebrow-pill">
-            <DesignAsset src={assets["18:9557"].imgIconCompass} />{t("copy.EXPLORE CAREERS", "EXPLORE CAREERS")}
+            <DesignAsset src={assets["18:9557"].imgIconCompass} />{t("eyebrow")}
           </span>
-          <h1>{t("copy.Find a career that", "Find a career that")}<br /><span>{t("copy.feels like you.", "feels like you.")}</span></h1>
-          <p className="muted">{t("copy.Discover real career paths, entry routes, employers and salary insights", "Discover real career paths, entry routes, employers and salary insights")}<br />{t("copy.made for students and career explorers across Sri Lanka.", "made for students and career explorers across Sri Lanka.")}</p>
+          <h1>{t.rich("title", { accent: (chunks) => <span>{chunks}</span>, br: () => <br /> })}</h1>
+          <p className="muted">{t.rich("intro", { br: () => <br /> })}</p>
           <label className="search-input career-search">
             <DesignAsset src={assets["18:9557"].imgIconSearch} />
-            <input aria-label="Search careers" value={query} onChange={(event) => setQuery(event.target.value)} placeholder={t("copy.Search careers: software, medicine, accounting, design...", "Search careers: software, medicine, accounting, design...")} />
+            <input type="search" aria-label={t("searchLabel")} value={query} onChange={(event) => setQuery(event.target.value)} placeholder={t("searchPlaceholder")} />
             <DesignAsset src={assets["18:9557"].imgIconArrow} />
           </label>
         </div>
-        <HeroArtwork compact />
+        {artwork}
       </section>
 
-      <div className="career-stats grid-4" aria-label="Career directory facts">
-        {[
-          [String(careers.length), "career paths", assets["18:9590"].imgIconCompass],
-          ["9", "career families", assets["18:9596"].imgIconBriefcase],
-          ["LKR", "salary signals", assets.careerDirectoryCards.imgIconCoin],
-          ["UGC", "admission checks", assets["18:9608"].imgIconSchool],
-        ].map(([value, label, icon]) => (
+      <div className="career-stats grid-4" role="group" aria-label={t("statsLabel")}>
+        {stats.map(([value, label, icon]) => (
           <div className="glass-panel" key={label}>
             <DesignAsset src={icon} />
             <strong>{value}</strong>
@@ -98,70 +104,76 @@ export function CareerDirectory({ careers }: { careers: Career[] }) {
       </div>
 
       <section className="section-block">
-        <SectionHeading eyebrow="BROWSE THE POSSIBILITIES" title="Explore career paths" description={`${filtered.length} curated roles · Sri Lankan education pathways`} />
+        <SectionHeading eyebrow={t("browse.eyebrow")} title={t("browse.title")} description={t("browse.description", { count: filtered.length })} />
         <div className="career-browser">
-          <aside className="career-sidebar glass-panel" aria-label="Career filters">
-            <h3>{t("copy.Find your fit", "Find your fit")}</h3>
-            <p className="muted">{t("copy.Refine by your strengths and interests", "Refine by your strengths and interests")}</p>
-            <p className="eyebrow">{t("copy.YOUR INTERESTS", "YOUR INTERESTS")}</p>
-            {interests.map(([label, value]) => (
-              <button key={value} type="button" className={category === value ? "selected" : ""} aria-pressed={category === value} onClick={() => selectCategory(category === value ? "All careers" : value)}>
-                <SlidersHorizontal size={14} />{label}{category === value && <span aria-hidden="true">✓</span>}
+          <aside className="career-sidebar glass-panel" aria-label={t("filters.label")}>
+            <h3>{t("filters.title")}</h3>
+            <p className="muted">{t("filters.subtitle")}</p>
+            <p className="eyebrow">{t("filters.interests")}</p>
+            {interests.map(([key, value]) => (
+              <button key={value} type="button" className={category === value ? "selected" : ""} aria-pressed={category === value} onClick={() => selectCategory(category === value ? ALL : value)}>
+                <SlidersHorizontal size={14} aria-hidden="true" />{t(`filters.interest.${key}`)}{category === value && <span aria-hidden="true">✓</span>}
               </button>
             ))}
-            <p className="eyebrow study-route-label">{t("copy.STUDY ROUTES", "STUDY ROUTES")}</p>
+            <p className="eyebrow study-route-label">{t("filters.studyRoutes")}</p>
             <div className="study-route-filters">
-              {studyRoutes.map(([label, value]) => (
+              {studyRoutes.map((value) => (
                 <label key={value}>
-                  <input type="radio" name="career-study-route" checked={studyRoute === value} onChange={() => setStudyRoute(studyRoute === value ? "" : value)} />
-                  <span>{label}</span>
+                  <input type="radio" name="career-study-route" checked={studyRoute === value} onChange={() => setStudyRoute(studyRoute === value ? "" : value)} onClick={() => studyRoute === value && setStudyRoute("")} />
+                  <span>{t(`filters.route.${value}`)}</span>
                 </label>
               ))}
             </div>
             <div className="sidebar-cta gold-glass">
-              <Sparkles size={22} />
-              <h3>{t("copy.Not sure what fits?", "Not sure what fits?")}</h3>
-              <p className="muted">{t("copy.Match your interests to a career.", "Match your interests to a career.")}</p>
-              <ActionLink href="/build-your-path">Build my path</ActionLink>
+              <Sparkles size={22} aria-hidden="true" />
+              <h3>{t("filters.notSure")}</h3>
+              <p className="muted">{t("filters.match")}</p>
+              <ActionLink href="/build-your-path">{t("filters.buildPath")}</ActionLink>
             </div>
           </aside>
 
           <div>
-            <div className="category-chips" aria-label="Filter by career family">
+            <div className="category-chips" role="group" aria-label={t("categories.label")}>
               {mainCategories.map((item) => (
-                <button key={item} type="button" className={category === item ? "selected" : ""} aria-pressed={category === item} onClick={() => selectCategory(item)}>{item}</button>
+                <button key={item} type="button" className={category === item ? "selected" : ""} aria-pressed={category === item} onClick={() => selectCategory(item)}>{categoryLabel(item)}</button>
               ))}
-              <button type="button" className={showMoreCategories ? "selected" : ""} aria-expanded={showMoreCategories} onClick={() => setShowMoreCategories(!showMoreCategories)}>More <SlidersHorizontal size={13} /></button>
+              <button type="button" className={showMoreCategories ? "selected" : ""} aria-expanded={showMoreCategories} onClick={() => setShowMoreCategories(!showMoreCategories)}>{t("categories.more")} <SlidersHorizontal size={13} aria-hidden="true" /></button>
               {showMoreCategories && additionalCategories.map((item) => (
-                <button key={item} type="button" className={category === item ? "selected" : ""} aria-pressed={category === item} onClick={() => selectCategory(item)}>{item}</button>
+                <button key={item} type="button" className={category === item ? "selected" : ""} aria-pressed={category === item} onClick={() => selectCategory(item)}>{categoryLabel(item)}</button>
               ))}
             </div>
             <div className="results-toolbar">
-              <span role="status">Showing {filtered.length} careers</span>
-              <label className="career-sort"><span className="sr-only">Sort careers</span><select aria-label="Sort careers" className="sort-select" value={sort} onChange={(event) => setSort(event.target.value)}><option value="featured">Popular first</option><option value="az">Name (A–Z)</option></select></label>
+              <span role="status">{t("results", { count: filtered.length })}</span>
+              <label className="career-sort">
+                <span className="sr-only">{t("sort.label")}</span>
+                <select className="sort-select" value={sort} onChange={(event) => setSort(event.target.value)}>
+                  <option value="featured">{t("sort.featured")}</option>
+                  <option value="az">{t("sort.az")}</option>
+                </select>
+              </label>
             </div>
 
             <div className="career-grid">
               {filtered.map((career) => (
                 <article className="career-card glass-panel" key={career.slug}>
                   <div className="career-card-media">
-                    {career.image ? <Image src={career.image} fill sizes="(max-width:700px) 90vw, 270px" alt={`Figma career photograph for ${career.title}`} /> : <div className="career-image-placeholder"><Compass size={38} /></div>}
-                    <span className="career-category">{career.category}</span>
-                    <SaveButton id={career.slug} title={career.title} compact iconAsset={assets.careerDirectoryCards.imgIconBookmark} />
+                    {career.image ? <Image src={career.image} fill sizes="(max-width:700px) 90vw, 270px" alt={t("card.photoAlt", { title: career.display.title })} /> : <div className="career-image-placeholder"><Compass size={38} aria-hidden="true" /></div>}
+                    <span className="career-category">{career.display.category}</span>
+                    <SaveButton id={career.slug} title={career.display.title} compact iconAsset={assets.careerDirectoryCards.imgIconBookmark} />
                   </div>
-                  <h3><Link href={`/careers/${career.slug}`}>{career.title}</Link></h3>
-                  <p className="career-salary">{career.salary || "Monthly pay: varies"}</p>
-                  <p className="career-card-line"><DesignAsset src={assets.careerDirectoryCards.imgIconBriefcase} />{career.employers}</p>
-                  <p className="career-card-line"><DesignAsset src={assets.careerDirectoryCards.imgIconSchool} />{career.entry}</p>
-                  <Link className="career-explore gold-glass" href={`/careers/${career.slug}`}>Explore career<DesignAsset src={assets.careerDirectoryCards.imgIconArrow} /></Link>
+                  <h3><Link href={`/careers/${career.slug}`}>{career.display.title}</Link></h3>
+                  <p className="career-salary">{formatSalary(catalog, career)}</p>
+                  <p className="career-card-line"><DesignAsset src={assets.careerDirectoryCards.imgIconBriefcase} />{career.display.employers}</p>
+                  <p className="career-card-line"><DesignAsset src={assets.careerDirectoryCards.imgIconSchool} />{career.display.entry}</p>
+                  <Link className="career-explore gold-glass" href={`/careers/${career.slug}`}>{t("card.explore")}<DesignAsset src={assets.careerDirectoryCards.imgIconArrow} /></Link>
                 </article>
               ))}
             </div>
             {!filtered.length && (
               <div className="glass-panel empty-state" role="status">
-                <h3>No careers found</h3>
-                <p>Try another search or choose a different category.</p>
-                <button className="glass-button" type="button" onClick={clearFilters}>Clear filters</button>
+                <h3>{t("empty.title")}</h3>
+                <p>{t("empty.body")}</p>
+                <button className="glass-button" type="button" onClick={clearFilters}>{t("empty.clear")}</button>
               </div>
             )}
           </div>
@@ -169,9 +181,9 @@ export function CareerDirectory({ careers }: { careers: Career[] }) {
       </section>
 
       <div className="career-source-note section-block">
-        <p>Salary signals are indicative monthly averages for listed occupations or adjacent role families, not guaranteed offers.</p>
-        <p>Entry routes are guidance only: actual A/L subjects, grades, Z-scores, accreditation, licensing and employer criteria differ.</p>
-        <small>Confirm salary information and admission requirements with current official sources before making a decision.</small>
+        <p>{t("notes.salary")}</p>
+        <p>{t("notes.entry")}</p>
+        <small>{t("notes.confirm")}</small>
       </div>
     </>
   );

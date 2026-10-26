@@ -1,6 +1,8 @@
 package com.skillbridgesl.config;
 
+import com.skillbridgesl.security.JsonSecurityHandlers;
 import com.skillbridgesl.security.JwtAuthenticationFilter;
+import com.skillbridgesl.security.RateLimitFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,6 +30,7 @@ public class SecurityConfig {
 
     private static final String[] PUBLIC_ENDPOINTS = {
         "/auth/**",
+        "/contact",
         "/courses/public/**",
         "/categories/**",
         "/actuator/health",
@@ -38,13 +41,22 @@ public class SecurityConfig {
     };
 
     private final JwtAuthenticationFilter jwtAuthFilter;
+    private final RateLimitFilter          rateLimitFilter;
     private final UserDetailsService       userDetailsService;
     private final CorsConfigurationSource  corsConfigurationSource;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
+            // Stateless bearer-token API: no ambient cookie credentials reach this
+            // service (the Next.js BFF holds the cookies and checks Origin itself).
             .csrf(AbstractHttpConfigurer::disable)
+            .headers(headers -> headers
+                .referrerPolicy(r -> r.policy(
+                    org.springframework.security.web.header.writers.ReferrerPolicyHeaderWriter.ReferrerPolicy.NO_REFERRER)))
+            .exceptionHandling(ex -> ex
+                .authenticationEntryPoint(JsonSecurityHandlers.unauthorized())
+                .accessDeniedHandler(JsonSecurityHandlers.forbidden()))
             .cors(cors -> cors.configurationSource(corsConfigurationSource))
             .sessionManagement(session ->
                 session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -52,6 +64,7 @@ public class SecurityConfig {
                 .requestMatchers(PUBLIC_ENDPOINTS).permitAll()
                 .anyRequest().authenticated())
             .authenticationProvider(authenticationProvider())
+            .addFilterBefore(rateLimitFilter, UsernamePasswordAuthenticationFilter.class)
             .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
             .build();
     }

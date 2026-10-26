@@ -1,149 +1,97 @@
-# SkillBridgeSL – Full-Stack Monorepo
+# SkillBridgeSL
 
-> **SkillBridgeSL** is an online learning platform built with a modern full-stack setup.
+SkillBridgeSL is a full-stack learning platform with a Next.js frontend, a Spring Boot API, and a local PostgreSQL database.
 
----
+## Requirements
 
-## 🏗️ Project Structure
+- PostgreSQL 17 (or a compatible PostgreSQL version) installed and running locally
+- Java 25
+- Maven 3.9+
+- Node.js 22+ and npm
 
-```
-skillbridgesl/
-├── frontend/               # Next.js 16 + React 19 + TypeScript + Tailwind v4 + shadcn/ui
-│   ├── src/
-│   │   ├── app/            # App Router pages (home, about, contact, courses)
-│   │   ├── components/     # Shared React components (Navbar, UI)
-│   │   └── lib/
-│   ├── Dockerfile
-│   └── next.config.ts
-│
-├── backend/                # Spring Boot 3.5 · Java 25 · Maven
-│   ├── src/main/java/com/skillbridgesl/
-│   │   ├── config/         # SecurityConfig, CorsConfig
-│   │   ├── controller/     # REST controllers (AuthController, …)
-│   │   ├── service/        # Business logic (AuthService, …)
-│   │   ├── repository/     # Spring Data JPA repositories
-│   │   ├── model/          # JPA entities (User, Course, Section, Lesson, …)
-│   │   ├── dto/            # Java Records (request/response DTOs)
-│   │   ├── exception/      # Domain exceptions + GlobalExceptionHandler
-│   │   └── security/       # JwtService + JwtAuthenticationFilter
-│   ├── src/main/resources/
-│   │   ├── application.yml
-│   │   ├── application-local.yml
-│   │   └── application-prod.yml
-│   ├── Dockerfile
-│   └── pom.xml
-│
-├── database/
-│   ├── migrations/         # Flyway SQL migrations (V1, V2, …) – shared source of truth
-│   └── init/               # Docker-entrypoint init scripts (role creation)
-│
-├── docker-compose.yml      # Runs all three services
-├── .env.example            # Copy to .env and fill in secrets
-└── README.md
+## First-time setup
+
+### 1. Create the local database
+
+Open `psql` as a PostgreSQL administrator and run:
+
+```sql
+CREATE ROLE skillbridge WITH LOGIN PASSWORD 'skillbridge_secret';
+CREATE DATABASE skillbridgesl OWNER skillbridge;
 ```
 
----
+If the role or database already exists, keep it and confirm the credentials match `backend/src/main/resources/application-local.yml`, or set `DB_URL`, `DB_USERNAME`, and `DB_PASSWORD` in your shell before starting the backend.
 
-## 🚀 Tech Stack
+### 2. Start the backend
 
-| Layer       | Technology                                        |
-|-------------|---------------------------------------------------|
-| Frontend    | Next.js 16, React 19, TypeScript, Tailwind CSS v4 |
-| UI Library  | shadcn/ui, Radix UI, Lucide React                 |
-| Backend     | Spring Boot 3.5, Java 25, Maven                   |
-| Auth        | JWT (JJWT 0.12), Spring Security 6                |
-| ORM         | Spring Data JPA (Hibernate 6)                     |
-| DB          | PostgreSQL 17                                     |
-| Migrations  | Flyway 10 – `database/migrations/` (outside JAR) |
-| Docs        | SpringDoc OpenAPI 2 (Swagger UI)                  |
-| Tests       | JUnit 5, Testcontainers, Spring Security Test     |
-| Containers  | Docker + Docker Compose                           |
+In a terminal from the repository root:
 
----
-
-## ⚡ Getting Started
-
-### Prerequisites
-- Docker + Docker Compose v2
-- Java 25 (for local backend dev)
-- Node.js 22+ (for local frontend dev)
-
-### 1. Environment Setup
-```bash
-cp .env.example .env
-# Edit .env – especially JWT_SECRET in production
-```
-
-### 2. Run Everything with Docker Compose
-```bash
-docker compose up --build
-```
-
-| Service   | URL                                       |
-|-----------|-------------------------------------------|
-| Frontend  | http://localhost:3000                     |
-| Backend   | http://localhost:8080/api                 |
-| Swagger   | http://localhost:8080/api/swagger-ui.html |
-| Health    | http://localhost:8080/api/actuator/health |
-
----
-
-## 🛠️ Local Development
-
-### Backend (Spring Boot)
 ```bash
 cd backend
-
-# Run with local profile (verbose SQL, dev tools hot-reload)
 mvn spring-boot:run -Dspring-boot.run.profiles=local
-
-# Run tests (Testcontainers spins up PostgreSQL automatically)
-mvn test
 ```
 
-### Frontend (Next.js)
+On first startup, Spring Boot runs Flyway migrations from `../database/migrations` and validates the schema. The API listens at `http://localhost:8080/api`.
+
+### 3. Install and start the frontend
+
+In a second terminal from the repository root:
+
 ```bash
 cd frontend
-npm install
-npm run dev   # → http://localhost:3000
+npm ci
+npm run dev
 ```
 
----
+Open `http://localhost:3000`. The frontend's API proxy targets `http://localhost:8080/api` by default. Set `NEXT_PUBLIC_API_URL` in `frontend/.env.local` if your backend uses another address.
 
-## 🗄️ Database Migrations (Flyway)
+## Useful URLs
 
-Migration files live **outside the JAR** in `database/migrations/` — the single source of truth across all environments.
+- Frontend: http://localhost:3000
+- API: http://localhost:8080/api
+- Swagger UI: http://localhost:8080/api/swagger-ui.html
+- Health: http://localhost:8080/api/actuator/health
 
-```
-database/migrations/
-  V1__init_schema.sql      ← Full initial schema
-  V2__seed_categories.sql  ← Default categories
-  V3__...                  ← Add your next migration here
-```
+## Development commands
 
-**Naming convention:** `V{version}__{description}.sql`
+Run backend tests from `backend/` with `mvn test`. Tests use the local PostgreSQL database configured by `DB_URL`, `DB_USERNAME`, and `DB_PASSWORD`; start PostgreSQL before running them.
 
-| Environment  | How migrations run                                      |
-|--------------|---------------------------------------------------------|
-| Local dev    | Auto on Spring Boot startup (`../database/migrations`)  |
-| Docker       | Baked into image at `/app/migrations` via Dockerfile    |
-| Kubernetes   | Flyway init container before the app pod starts         |
-| CI/CD        | `cd backend && mvn flyway:migrate`                      |
+Run the frontend production build from `frontend/` with `npm run build`, or run its linter with `npm run lint`.
 
----
+## Database migrations
 
-## 🔐 API Authentication
+Flyway migration files live in `database/migrations/` and follow the naming convention `V{version}__{description}.sql`. Spring Boot applies pending migrations on backend startup. Add a new migration file rather than editing one that has already been applied.
 
-All protected endpoints require:
-```
-Authorization: Bearer <access_token>
+## Project structure
+
+```text
+backend/                 Spring Boot API and Maven project
+database/migrations/     Flyway SQL migrations
+frontend/                Next.js app and npm project
 ```
 
-| Endpoint             | Method | Auth     | Description          |
-|----------------------|--------|----------|----------------------|
-| `/auth/register`     | POST   | Public   | Create account       |
-| `/auth/login`        | POST   | Public   | Get JWT tokens       |
-| `/auth/refresh`      | POST   | Public   | Refresh access token |
-| `/courses/public/**` | GET    | Public   | Browse courses       |
-| `/actuator/health`   | GET    | Public   | Health check         |
-| Everything else      | *      | Required | JWT Bearer required  |
+## Authentication
+
+The browser never sees a token. Next.js route handlers (`/api/auth/*`, `/api/account/*`) act as a
+backend-for-frontend: they call Spring and keep a 15-minute access token and a 7-day, single-use,
+rotating refresh token in `HttpOnly`, `SameSite=Lax` cookies. `src/proxy.ts` silently renews an expired
+access token and guards `/account`; Spring re-checks authorization on every call. Refresh tokens are
+stored hashed, revoked on logout/password change, and reuse outside a 10 s grace window revokes the whole
+token family. `JWT_SECRET` is mandatory outside the `local` profile (see `.env.example`).
+
+## Languages
+
+English and Sinhala (`frontend/messages/{en,si}.json`, `next-intl`, cookie-based, no URL prefix).
+Add text to **both** files; `npm test` fails if the keys, placeholders or Sinhala script drift apart.
+Backend validation returns stable codes (`password_weak`, `EMAIL_EXISTS`, …) that the UI translates.
+
+## Testing
+
+```bash
+cd backend && set -a && source .env && set +a && ./mvnw test     # needs local PostgreSQL; tests roll back
+cd frontend && npm run lint && npm run typecheck && npm test      # unit tests
+# browser tests need the API and a production build running:
+NEXT_DIST_DIR=.next-e2e npx next build && NEXT_DIST_DIR=.next-e2e npx next start -p 3001 &
+E2E_BASE_URL=http://localhost:3001 npm run test:e2e              # uses system Chrome; cleans up @example.test users
+```
+Set `AUTH_RATE_LIMIT=100000` on the API while running e2e (many registrations from one address).

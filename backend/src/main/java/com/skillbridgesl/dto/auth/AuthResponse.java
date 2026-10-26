@@ -1,36 +1,17 @@
 package com.skillbridgesl.dto.auth;
 
+import com.skillbridgesl.dto.user.UserProfile;
 import com.skillbridgesl.model.User;
 
 public record AuthResponse(
-    String  accessToken,
-    String  refreshToken,
-    String  tokenType,
-    long    expiresIn,
-    UserInfo user
+    String accessToken,
+    String refreshToken,
+    String tokenType,
+    long expiresIn,
+    UserProfile user
 ) {
-    public record UserInfo(
-        String id,
-        String email,
-        String firstName,
-        String lastName,
-        User.Role role
-    ) {}
-
-    public static AuthResponse of(String access, String refresh, long expiresIn, User user) {
-        return new AuthResponse(
-            access,
-            refresh,
-            "Bearer",
-            expiresIn,
-            new UserInfo(
-                user.getId().toString(),
-                user.getEmail(),
-                user.getFirstName(),
-                user.getLastName(),
-                user.getRole()
-            )
-        );
+    /** @param expiresInSeconds lifetime of the access token, in seconds */
+    public static AuthResponse of(String access, String refresh, long expiresInSeconds, User user) {
+        return new AuthResponse(access, refresh, "Bearer", expiresInSeconds, UserProfile.from(user));
     }
 }
-

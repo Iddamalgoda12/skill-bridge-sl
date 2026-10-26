@@ -1,16 +1,122 @@
 "use client";
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import { useTranslations } from "next-intl";
 import { BookOpen, Calculator, GraduationCap, Laptop, Heart, Palette, Check, ChevronRight, Sparkles, Info } from "lucide-react";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { RoadmapPreview } from "./RoadmapPreview";
-import { stages, goals, createSampleRoadmap } from "@/lib/data/roadmaps";
-import type { RoadmapStage } from "@/types/catalog";
-const icons=[BookOpen,Calculator,GraduationCap,Laptop];const goalIcons=[Laptop,Heart,Palette];
-export function PathBuilder(){
- const [stage,setStage]=useState<RoadmapStage>("ol");const [goal,setGoal]=useState(0);const [focus,setFocus]=useState(["Mathematics","English"]);const [roadmap,setRoadmap]=useState(createSampleRoadmap(goals[0].title,"ol",["Mathematics","English"]));const [saved,setSaved]=useState(false);const [message,setMessage]=useState("");
- function chooseStage(next:RoadmapStage){setStage(next);setSaved(false);setRoadmap(createSampleRoadmap(goals[goal].title,next,focus));}
- function chooseGoal(index:number){setGoal(index);const next=goals[index].focus.slice(0,2);setFocus(next);setSaved(false);setRoadmap(createSampleRoadmap(goals[index].title,stage,next));}
- function generate(){setRoadmap(createSampleRoadmap(goals[goal].title,stage,focus));setSaved(false);setMessage("Your roadmap is ready. Review the next steps and save it to My Path.");}
- function save(){try{const raw=JSON.parse(localStorage.getItem("skillbridge:roadmaps:v1")||"[]");const existing=Array.isArray(raw)?raw:[];localStorage.setItem("skillbridge:roadmaps:v1",JSON.stringify([...existing.filter((r:{id:string})=>r.id!==roadmap.id),roadmap]));setSaved(true);setMessage("Saved on this device. Find your roadmap in My Path.");}catch{setMessage("Your browser could not save this roadmap. Please enable local storage.");}}
- return <><section id="stage-selection" className="stage-section"><SectionHeading title="Start where you are" description="Pick your current education stage. Your roadmap can grow with you." action={<span className="eyebrow-pill">STEP 01 OF 03</span>}/><div className="grid-4 stage-options">{stages.map((s,i)=>{const Icon=icons[i];return <button key={s.id} className={`stage-option glass-panel ${stage===s.id?"gold-glass selected":"glass-gradient"}`} onClick={()=>chooseStage(s.id)} aria-pressed={stage===s.id}><div><span className={`icon-bubble ${s.tone}`}><Icon size={24}/></span><span><strong>{s.label}</strong><small>{s.description}</small></span>{stage===s.id&&<Check size={16} className="stage-check"/>}</div><p>{s.detail}<ChevronRight size={17}/></p></button>;})}</div></section><div className="builder-grid"><section className="path-builder glass-panel glass-gradient"><h2>Make it yours</h2><p className="muted">Choose a goal and discover useful subjects for your next step.</p><ol className="builder-steps">{["Career goal","Focus areas","Review route"].map((label,i)=><li key={label}><span>{i+1}</span>{label}</li>)}</ol><fieldset><legend>1 What career interests you?</legend><p className="muted">Example selections — you can change your goal later.</p><div className="goal-options">{goals.map((g,i)=>{const Icon=goalIcons[i];return <button type="button" key={g.title} className={`goal-option ${goal===i?"selected gold-glass":""}`} aria-pressed={goal===i} onClick={()=>chooseGoal(i)}><span className={`icon-bubble ${["tone-mint","tone-peach","tone-lavender"][i]}`}><Icon size={22}/></span><span><strong>{g.title}</strong><small>{g.description}</small></span>{goal===i&&<Check size={13} className="goal-check"/>}</button>;})}</div></fieldset><fieldset><legend>2 Build your foundation</legend><p className="muted">Suggested focus areas for a {stages.find(s=>s.id===stage)?.label.toLowerCase()} interested in {goals[goal].title.toLowerCase()}.</p><div className="focus-chips">{goals[goal].focus.map(f=><button type="button" key={f} className={focus.includes(f)?"selected":""} aria-pressed={focus.includes(f)} onClick={()=>{setFocus(current=>current.includes(f)?current.filter(x=>x!==f):[...current,f]);setSaved(false);}}>{focus.includes(f)?<Check size={14}/>:<BookOpen size={14}/>} {f}</button>)}</div></fieldset><div className="notice inline-icon"><Info size={19}/><div>{goal===0?"ICT is useful, but is not compulsory for every software-related pathway.":"Explore relevant subjects and check each programme’s entry requirements."}<small>A/L streams and university admission requirements vary by programme.</small></div></div><div className="builder-submit"><button className="glass-button gold-glass" onClick={generate}><Sparkles size={17}/>Create my roadmap<ChevronRight size={17}/></button><span>Explore your next steps at your own pace.</span></div><p className="status-message" aria-live="polite">{message}</p></section><RoadmapPreview roadmap={roadmap} saved={saved} onSave={save}/></div></>;
+import { stages, goals, createRoadmap } from "@/lib/data/roadmaps";
+import { savedRoadmaps } from "@/lib/data/saved-items";
+import type { GoalId, RoadmapStage } from "@/types/catalog";
+
+const stageIcons = [BookOpen, Calculator, GraduationCap, Laptop];
+const goalIcons = { software: Laptop, doctor: Heart, designer: Palette } as const;
+const goalTones = { software: "tone-mint", doctor: "tone-peach", designer: "tone-lavender" } as const;
+
+export function PathBuilder() {
+  const t = useTranslations("path");
+  const [stage, setStage] = useState<RoadmapStage>("ol");
+  const [goalId, setGoalId] = useState<GoalId>("software");
+  const [focus, setFocus] = useState<string[]>(["maths", "english"]);
+  const [savedId, setSavedId] = useState<string | null>(null);
+  const [message, setMessage] = useState<{ kind: "ok" | "error"; text: string } | null>(null);
+
+  const goal = goals.find((g) => g.id === goalId)!;
+  const roadmap = useMemo(() => createRoadmap(goalId, stage, focus), [goalId, stage, focus]);
+  const saved = savedId === `${roadmap.id}|${focus.join(",")}`;
+
+  function chooseGoal(id: GoalId) {
+    setGoalId(id);
+    setFocus(goals.find((g) => g.id === id)!.focus.slice(0, 2));
+    setMessage(null);
+  }
+
+  function toggleFocus(item: string) {
+    setFocus((current) => (current.includes(item) ? current.filter((x) => x !== item) : [...current, item]));
+    setMessage(null);
+  }
+
+  function generate() {
+    setMessage({ kind: "ok", text: t("builder.ready") });
+    document.getElementById("roadmap-preview")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function save() {
+    try {
+      savedRoadmaps.save(roadmap);
+      setSavedId(`${roadmap.id}|${focus.join(",")}`);
+      setMessage({ kind: "ok", text: t("builder.saved") });
+    } catch {
+      setMessage({ kind: "error", text: t("builder.storageError") });
+    }
+  }
+
+  return (
+    <>
+      <section id="stage-selection" className="stage-section">
+        <SectionHeading title={t("stage.title")} description={t("stage.description")} action={<span className="eyebrow-pill">{t("stage.step")}</span>} />
+        <div className="grid-4 stage-options">
+          {stages.map((s, i) => {
+            const Icon = stageIcons[i];
+            return (
+              <button key={s.id} type="button" className={`stage-option glass-panel ${stage === s.id ? "gold-glass selected" : "glass-gradient"}`} onClick={() => { setStage(s.id); setMessage(null); }} aria-pressed={stage === s.id}>
+                <div>
+                  <span className={`icon-bubble ${s.tone}`}><Icon size={24} aria-hidden="true" /></span>
+                  <span><strong>{t(`stages.${s.id}.label`)}</strong><small>{t(`stages.${s.id}.description`)}</small></span>
+                  {stage === s.id && <Check size={16} className="stage-check" aria-hidden="true" />}
+                </div>
+                <p>{t(`stages.${s.id}.detail`)}<ChevronRight size={17} aria-hidden="true" /></p>
+              </button>
+            );
+          })}
+        </div>
+      </section>
+
+      <div className="builder-grid">
+        <section className="path-builder glass-panel glass-gradient">
+          <h2>{t("builder.title")}</h2>
+          <p className="muted">{t("builder.subtitle")}</p>
+          <ol className="builder-steps">
+            {(["goal", "focus", "review"] as const).map((key, i) => <li key={key}><span>{i + 1}</span>{t(`builder.steps.${key}`)}</li>)}
+          </ol>
+          <fieldset>
+            <legend>{t("builder.goalLegend")}</legend>
+            <p className="muted">{t("builder.goalHint")}</p>
+            <div className="goal-options">
+              {goals.map((g) => {
+                const Icon = goalIcons[g.id];
+                return (
+                  <button type="button" key={g.id} className={`goal-option ${goalId === g.id ? "selected gold-glass" : ""}`} aria-pressed={goalId === g.id} onClick={() => chooseGoal(g.id)}>
+                    <span className={`icon-bubble ${goalTones[g.id]}`}><Icon size={22} aria-hidden="true" /></span>
+                    <span><strong>{t(`goals.${g.id}.title`)}</strong><small>{t(`goals.${g.id}.description`)}</small></span>
+                    {goalId === g.id && <Check size={13} className="goal-check" aria-hidden="true" />}
+                  </button>
+                );
+              })}
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>{t("builder.focusLegend")}</legend>
+            <p className="muted">{t("builder.focusHint", { stage: t(`stages.${stage}.label`), goal: t(`goals.${goalId}.title`) })}</p>
+            <div className="focus-chips">
+              {goal.focus.map((f) => (
+                <button type="button" key={f} className={focus.includes(f) ? "selected" : ""} aria-pressed={focus.includes(f)} onClick={() => toggleFocus(f)}>
+                  {focus.includes(f) ? <Check size={14} aria-hidden="true" /> : <BookOpen size={14} aria-hidden="true" />} {t(`focus.${f}`)}
+                </button>
+              ))}
+            </div>
+          </fieldset>
+          <div className="notice inline-icon">
+            <Info size={19} aria-hidden="true" />
+            <div>{goalId === "software" ? t("builder.noticeSoftware") : t("builder.noticeOther")}<small>{t("builder.noticeSmall")}</small></div>
+          </div>
+          <div className="builder-submit">
+            <button type="button" className="glass-button gold-glass" onClick={generate}><Sparkles size={17} aria-hidden="true" />{t("builder.create")}<ChevronRight size={17} aria-hidden="true" /></button>
+            <span>{t("builder.paceNote")}</span>
+          </div>
+          <p className={message?.kind === "error" ? "notice notice-error" : "status-message"} role={message?.kind === "error" ? "alert" : "status"}>{message?.text}</p>
+        </section>
+        <RoadmapPreview roadmap={roadmap} saved={saved} onSave={save} />
+      </div>
+    </>
+  );
 }

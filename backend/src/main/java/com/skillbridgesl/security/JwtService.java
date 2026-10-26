@@ -4,6 +4,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
@@ -24,11 +25,27 @@ public class JwtService {
     @Value("${app.jwt.secret}")
     private String secret;
 
-    @Value("${app.jwt.expiration-ms:86400000}")
+    @Value("${app.jwt.expiration-ms:900000}")
     private long jwtExpirationMs;
 
-    @Value("${app.jwt.refresh-expiration-ms:604800000}")
-    private long refreshExpirationMs;
+    /** Fail fast on a missing or weak signing key rather than at the first login. */
+    @PostConstruct
+    void validateSecret() {
+        byte[] key;
+        try {
+            key = Decoders.BASE64.decode(secret);
+        } catch (RuntimeException e) {
+            throw new IllegalStateException("app.jwt.secret must be a base64-encoded value", e);
+        }
+        if (key.length < 32) {
+            throw new IllegalStateException(
+                "app.jwt.secret must decode to at least 32 bytes; generate one with: openssl rand -base64 48");
+        }
+    }
+
+    public long accessTtlSeconds() {
+        return jwtExpirationMs / 1000;
+    }
 
     // ── Token generation ─────────────────────────────────────────────────────
 
@@ -38,10 +55,6 @@ public class JwtService {
 
     public String generateToken(Map<String, Object> extraClaims, UserDetails userDetails) {
         return buildToken(extraClaims, userDetails, jwtExpirationMs);
-    }
-
-    public String generateRefreshToken(UserDetails userDetails) {
-        return buildToken(Map.of(), userDetails, refreshExpirationMs);
     }
 
     private String buildToken(Map<String, Object> extraClaims,
@@ -64,7 +77,8 @@ public class JwtService {
 
     public boolean isTokenValid(String token, UserDetails userDetails) {
         final String username = extractUsername(token);
-        return username.equals(userDetails.getUsername()) && !isTokenExpired(token);
+        return username.equalsIgnoreCase(userDetails.getUsername()) && !isTokenExpired(token)
+                && userDetails.isEnabled();
     }
 
     public boolean isTokenExpired(String token) {

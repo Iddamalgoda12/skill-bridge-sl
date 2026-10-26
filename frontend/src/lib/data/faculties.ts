@@ -1,21 +1,25 @@
 import assets from "@/lib/design/assets.json";
+
+// Titles and blurbs live in the message files under universityDetail.faculties.<id>.
 export const faculties = [
- ["Engineering","engineering · Galle",assets.university.imgIconLayers,"tone-ice"],
- ["Medicine","health sciences · Galle",assets.university.imgIconStethoscope,"tone-peach"],
- ["Science","computing · natural sciences",assets.university.imgIconCpu,"tone-mint"],
- ["Agriculture","farming · green technology",assets.university.imgIconLeaf,""],
- ["Management & Finance","business · management",assets.university.imgIconBriefcase,"tone-lavender"],
- ["Humanities & Social Sciences","arts · social sciences",assets.university.imgIconUsers,"tone-peach"],
- ["Fisheries & Marine Sciences","marine · freshwater",assets.university.imgIconFish,"tone-ice"],
- ["Allied Health Sciences","nursing · pharmacy · MLS",assets.university.imgIconGraduation1,"tone-mint"],
- ["Technology","engineering · ICT · biosystems",assets.university.imgIconCpu,""],
- ["Graduate Studies","postgraduate & research",assets.university.imgIconBook,"tone-lavender"],
-];
+  { id: "engineering", icon: assets.university.imgIconLayers, tone: "tone-ice" },
+  { id: "medicine", icon: assets.university.imgIconStethoscope, tone: "tone-peach" },
+  { id: "science", icon: assets.university.imgIconCpu, tone: "tone-mint" },
+  { id: "agriculture", icon: assets.university.imgIconLeaf, tone: "" },
+  { id: "management", icon: assets.university.imgIconBriefcase, tone: "tone-lavender" },
+  { id: "humanities", icon: assets.university.imgIconUsers, tone: "tone-peach" },
+  { id: "fisheries", icon: assets.university.imgIconFish, tone: "tone-ice" },
+  { id: "allied", icon: assets.university.imgIconGraduation1, tone: "tone-mint" },
+  { id: "technology", icon: assets.university.imgIconCpu, tone: "" },
+  { id: "graduate", icon: assets.university.imgIconBook, tone: "tone-lavender" },
+] as const;
+
+// Group titles are translated (universityDetail.degreeGroups.<id>); degree names are official programme titles.
 export const degreeGroups = [
- {title:"Engineering",faculty:"Faculty of Engineering",icon:assets.university.imgIconLayers1,tone:"tone-ice",degrees:["BSc Engineering","Civil & Environmental","Computer Engineering","Electrical & Information","Marine & Naval Architecture","Mechanical & Manufacturing"]},
- {title:"Health & Medicine",faculty:"Medicine + Allied Health",icon:assets.university.imgIconStethoscope1,tone:"tone-peach",degrees:["MBBS Medicine","Pharmacy","Medical Laboratory Science","Nursing"]},
- {title:"Science & Computing",faculty:"Faculty of Science",icon:assets.university.imgIconCpu1,tone:"tone-mint",degrees:["BSc Biological Science","BSc Physical Science","Computer Science","Financial Mathematics & Industrial Statistics"]},
- {title:"Technology",faculty:"Faculty of Technology",icon:assets.university.imgIconCpu,tone:"",degrees:["Engineering Technology (Hons)","Information & Communication Technology (Hons)","Biosystems Technology (Hons)"]},
- {title:"Agriculture",faculty:"Faculty of Agriculture",icon:assets.university.imgIconLeaf1,tone:"tone-mint",degrees:["Agricultural Resource Management & Technology","Agribusiness Management","Green Technology"]},
- {title:"Other disciplines",faculty:"Additional faculties",icon:assets.university.imgIconBook1,tone:"tone-lavender",degrees:["Arts / Humanities","Management / BBA","Fisheries & Marine Sciences","Marine & Fresh Water Sciences","Postgraduate study via FGS"]},
-];
+  { id: "engineering", icon: assets.university.imgIconLayers1, tone: "tone-ice", degrees: ["BSc Engineering", "Civil & Environmental", "Computer Engineering", "Electrical & Information", "Marine & Naval Architecture", "Mechanical & Manufacturing"] },
+  { id: "health", icon: assets.university.imgIconStethoscope1, tone: "tone-peach", degrees: ["MBBS Medicine", "Pharmacy", "Medical Laboratory Science", "Nursing"] },
+  { id: "science", icon: assets.university.imgIconCpu1, tone: "tone-mint", degrees: ["BSc Biological Science", "BSc Physical Science", "Computer Science", "Financial Mathematics & Industrial Statistics"] },
+  { id: "technology", icon: assets.university.imgIconCpu, tone: "", degrees: ["Engineering Technology (Hons)", "Information & Communication Technology (Hons)", "Biosystems Technology (Hons)"] },
+  { id: "agriculture", icon: assets.university.imgIconLeaf1, tone: "tone-mint", degrees: ["Agricultural Resource Management & Technology", "Agribusiness Management", "Green Technology"] },
+  { id: "other", icon: assets.university.imgIconBook1, tone: "tone-lavender", degrees: ["Arts / Humanities", "Management / BBA", "Fisheries & Marine Sciences", "Marine & Fresh Water Sciences", "Postgraduate study via FGS"] },
+] as const;

@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Noto_Sans, Noto_Sans_Sinhala, Geist_Mono, Inter, Roboto, Kalam } from "next/font/google";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import GoldenBackground from "@/components/layout/GoldenBackground";
-import { AppPreferencesProvider } from "@/components/layout/AppPreferences";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
 const roboto = Roboto({ variable: "--font-roboto", subsets: ["latin"], display: "swap" });
@@ -28,23 +29,40 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: { default: "SkillBridge SL — Your future. Your path.", template: "%s | SkillBridge SL" },
-  description: "Explore careers, compare Sri Lankan universities, and build your own education roadmap.",
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("meta");
+  return {
+    title: { default: t("title"), template: "%s | SkillBridge SL" },
+    description: t("description"),
+  };
+}
+
+export const viewport: Viewport = {
+  themeColor: "#fff4cb",
+  colorScheme: "light",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
   return (
     <html
-      lang="en"
+      lang={locale}
+      data-locale={locale}
       className={`${inter.variable} ${roboto.variable} ${kalam.variable} ${notoSans.variable} ${notoSansSinhala.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <head><meta name="theme-color" content="#fff4cb" /></head>
-      <body><AppPreferencesProvider><div className="app-shell"><GoldenBackground /><Navbar /><main id="main-content">{children}</main></div></AppPreferencesProvider></body>
+      <body>
+        <NextIntlClientProvider>
+          <div className="app-shell">
+            <GoldenBackground />
+            <Navbar />
+            <main id="main-content">{children}</main>
+          </div>
+        </NextIntlClientProvider>
+      </body>
     </html>
   );
 }

@@ -31,3 +31,10 @@ management:
     health:
       show-details: never
 
+
+# API docs are a development aid; do not publish the API surface in production.
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false

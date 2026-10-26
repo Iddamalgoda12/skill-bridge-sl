@@ -1,4 +1,32 @@
+import { getTranslations } from "next-intl/server";
 import assets from "@/lib/design/assets.json";
 import { DesignAsset } from "@/components/shared/DesignAsset";
-const stations=[{title:"O/Ls",copy:"Build basics",icon:assets.path.imgVectorBook1,tone:""},{title:"A/Ls",copy:"Choose focus",icon:assets.path.imgVectorTarget,tone:"tone-mint"},{title:"Degree",copy:"Grow skills",icon:assets.path.imgVectorUniversity1,tone:"tone-lavender"},{title:"Career",copy:"Start working",icon:assets.path.imgVectorFlag,tone:"tone-peach"}];
-export function JourneyIllustration(){return <div className="journey-illustration glass-panel glass-gradient"><p className="eyebrow">YOUR JOURNEY AT A GLANCE</p><span className="journey-badge eyebrow-pill"><DesignAsset src={assets.path.imgVectorSpark}/>One goal. Many routes.</span><DesignAsset src={assets.path.imgGoldenGlassPathHalo} className="journey-halo"/><DesignAsset src={assets.path.imgSoftMintGlassWash} className="journey-wash"/><div className="journey-art"><DesignAsset src={assets.path.imgIllustrationEditableWindingTimeline} className="journey-line"/>{stations.map((station,i)=><div key={station.title} className={`journey-station station-${i}`}><span className={`station-icon ${station.tone}`}><DesignAsset src={station.icon}/></span><div><strong>{station.title}</strong><p>{station.copy}</p></div></div>)}</div><p className="journey-caption">Explore your options. You can update your path at any time.</p></div>;}
+
+const stations = [
+  { id: "ol", icon: assets.path.imgVectorBook1, tone: "" },
+  { id: "al", icon: assets.path.imgVectorTarget, tone: "tone-mint" },
+  { id: "degree", icon: assets.path.imgVectorUniversity1, tone: "tone-lavender" },
+  { id: "career", icon: assets.path.imgVectorFlag, tone: "tone-peach" },
+] as const;
+
+export async function JourneyIllustration() {
+  const t = await getTranslations("path.journey");
+  return (
+    <div className="journey-illustration glass-panel glass-gradient">
+      <p className="eyebrow">{t("eyebrow")}</p>
+      <span className="journey-badge eyebrow-pill"><DesignAsset src={assets.path.imgVectorSpark} />{t("badge")}</span>
+      <DesignAsset src={assets.path.imgGoldenGlassPathHalo} className="journey-halo" />
+      <DesignAsset src={assets.path.imgSoftMintGlassWash} className="journey-wash" />
+      <div className="journey-art">
+        <DesignAsset src={assets.path.imgIllustrationEditableWindingTimeline} className="journey-line" />
+        {stations.map((station, i) => (
+          <div key={station.id} className={`journey-station station-${i}`}>
+            <span className={`station-icon ${station.tone}`}><DesignAsset src={station.icon} /></span>
+            <div><strong>{t(`stations.${station.id}.title`)}</strong><p>{t(`stations.${station.id}.copy`)}</p></div>
+          </div>
+        ))}
+      </div>
+      <p className="journey-caption">{t("caption")}</p>
+    </div>
+  );
+}

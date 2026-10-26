@@ -4,6 +4,8 @@
 @import "../styles/tokens.css";
 @import "../styles/layout.css";
 @import "../styles/pages.css";
+@import "../styles/forms.css";
+@import "../styles/locale.css";
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

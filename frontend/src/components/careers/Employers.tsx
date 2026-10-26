@@ -1,12 +1,33 @@
+import { getTranslations } from "next-intl/server";
 import { SectionHeading } from "@/components/shared/SectionHeading";
-import assets from "@/lib/design/assets.json";
 import { DesignAsset } from "@/components/shared/DesignAsset";
-const employers=[
- ["WSO2","API management, identity & integration","Product engineering / enterprise software",assets.career.imgCompanyAbstractMark],
- ["99x","Digital product engineering for clients","Product design / platform development",assets.career.imgCompanyAbstractMark1],
- ["Sysco LABS","Technology for global foodservice supply chains","Cloud, data & logistics platforms",assets.career.imgCompanyAbstractMark2],
- ["IFS","Enterprise cloud software for industries","ERP, service and asset management",assets.career.imgCompanyAbstractMark3],
- ["Virtusa","Digital engineering and IT consulting","Software delivery and modernization",assets.career.imgCompanyAbstractMark4],
- ["LSEG","Financial markets data and technology","Trading, analytics and data systems",assets.career.imgCompanyAbstractMark5],
+import assets from "@/lib/design/assets.json";
+
+// Company names are proper nouns; descriptions are translated.
+const employers = [
+  { id: "wso2", name: "WSO2", icon: assets.career.imgCompanyAbstractMark },
+  { id: "99x", name: "99x", icon: assets.career.imgCompanyAbstractMark1 },
+  { id: "sysco", name: "Sysco LABS", icon: assets.career.imgCompanyAbstractMark2 },
+  { id: "ifs", name: "IFS", icon: assets.career.imgCompanyAbstractMark3 },
+  { id: "virtusa", name: "Virtusa", icon: assets.career.imgCompanyAbstractMark4 },
+  { id: "lseg", name: "LSEG", icon: assets.career.imgCompanyAbstractMark5 },
 ];
-export function Employers(){return <section className="section-block"><SectionHeading title="Companies where these skills matter" description="Example software employers and the kind of technology they work on — not live job listings."/><div className="grid-3 employer-grid">{employers.map(([name,description,detail,icon])=><article key={name} className="employer-card glass-panel"><div><DesignAsset src={icon}/><h3>{name}</h3></div><p>{description}</p><small>{detail}</small></article>)}</div><p className="section-footnote">Companies are shown as career examples; hiring, salaries and entry-level opportunities are not implied.</p></section>;}
+
+export async function Employers() {
+  const t = await getTranslations("careerDetail.employers");
+  return (
+    <section className="section-block">
+      <SectionHeading title={t("title")} description={t("description")} />
+      <div className="grid-3 employer-grid">
+        {employers.map(({ id, name, icon }) => (
+          <article key={id} className="employer-card glass-panel">
+            <div><DesignAsset src={icon} /><h3>{name}</h3></div>
+            <p>{t(`items.${id}.description`)}</p>
+            <small>{t(`items.${id}.detail`)}</small>
+          </article>
+        ))}
+      </div>
+      <p className="section-footnote">{t("footnote")}</p>
+    </section>
+  );
+}

@@ -1,0 +1,48 @@
+/*
+ * Sinhala typography. Sinhala glyphs are taller and wider than Latin ones, and
+ * they combine into clusters that tight tracking or forced capitals would break,
+ * so the English-tuned display styles are relaxed here.
+ */
+html[data-locale="si"] {
+  --font-sans: var(--font-noto-sans-sinhala), var(--font-inter), system-ui, sans-serif;
+}
+html[data-locale="si"] body { line-height: 1.75; }
+html[data-locale="si"] :is(h1, h2, h3, h4) {
+  font-family: var(--font-noto-sans-sinhala), var(--font-roboto), sans-serif;
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+html[data-locale="si"] :is(.eyebrow, .eyebrow-pill, .home-eyebrow, .small-pill, .portrait-label, .career-category, .mobile-nav-eyebrow, .institution-type) {
+  letter-spacing: 0;
+  text-transform: none;
+}
+html[data-locale="si"] :is(.glass-button, .nav-link, .login-link, .filter-button, .category-chips button, .segmented-control button) {
+  line-height: 1.45;
+  white-space: normal;
+  text-align: center;
+}
+html[data-locale="si"] .nav-link { padding-block: 6px; height: auto; min-height: 43px; }
+html[data-locale="si"] .language-switcher button { line-height: 1.2; }
+/* Sinhala words are separated by spaces; only break a word as a last resort. */
+html[data-locale="si"] :is(p, li, h1, h2, h3, h4, small, strong, span, a, label) { overflow-wrap: break-word; word-break: normal; line-break: auto; }
+
+html[data-locale="si"] h1 { font-size: clamp(32px, 4.4vw, 46px); }
+html[data-locale="si"] h2 { font-size: clamp(24px, 3vw, 30px); }
+html[data-locale="si"] h3 { font-size: 18px; }
+html[data-locale="si"] .page-intro h1,
+html[data-locale="si"] .career-directory-hero h1,
+html[data-locale="si"] .path-hero h1,
+html[data-locale="si"] .career-detail-hero h1,
+html[data-locale="si"] .university-detail-hero h1,
+html[data-locale="si"] .about-hero h1 { font-size: clamp(32px, 4.6vw, 52px); }
+html[data-locale="si"] .auth-form h1 { font-size: 32px; }
+html[data-locale="si"] .intro-description { font-size: 15px; line-height: 1.85; }
+html[data-locale="si"] .muted { line-height: 1.75; }
+@media (max-width: 700px) {
+  html[data-locale="si"] h1,
+  html[data-locale="si"] .path-hero h1,
+  html[data-locale="si"] .career-detail-hero h1,
+  html[data-locale="si"] .university-detail-hero h1,
+  html[data-locale="si"] .about-hero h1 { font-size: clamp(28px, 8vw, 36px); }
+  html[data-locale="si"] .navbar { gap: 4px; }
+}
