@@ -1,0 +1,18 @@
+import type { University } from "@/types/catalog";
+import assets from "@/lib/design/assets.json";
+export const sampleUniversities: University[] = [
+ { slug: "moratuwa", name: "University of Moratuwa", shortName: "UOM", type: "Government", location: "Moratuwa", areas: ["Engineering","IT","Architecture"], illustration: assets.universities.imgCampusEditorialIllustration, website: "https://uom.lk" },
+ { slug: "peradeniya", name: "University of Peradeniya", shortName: "UOP", type: "Government", location: "Peradeniya", areas: ["Engineering","Science","Agriculture"], illustration: assets.universities.imgCampusEditorialIllustration1, website: "https://www.pdn.ac.lk" },
+ { slug: "ruhuna", name: "University of Ruhuna", shortName: "UOR", type: "Government", location: "Matara", areas: ["Engineering","Science","Technology"], illustration: assets.universities.imgCampusEditorialIllustration2, website: "https://www.ruh.ac.lk" },
+ { slug: "sliit", name: "SLIIT", shortName: "SLIIT", type: "Non-state", location: "Malabe", areas: ["Computing","Engineering","Business"], illustration: assets.universities.imgCampusEditorialIllustration3, website: "https://www.sliit.lk" },
+ { slug: "nsbm", name: "NSBM Green University", shortName: "NSBM", type: "Non-state", location: "Homagama", areas: ["Computing","Business","Engineering"], illustration: assets.universities.imgCampusEditorialIllustration4, website: "https://www.nsbm.ac.lk" },
+ { slug: "cinec", name: "CINEC Campus", shortName: "CINEC", type: "Non-state", location: "Malabe", areas: ["Maritime","Engineering","Logistics"], illustration: assets.universities.imgCampusEditorialIllustration5, website: "https://www.cinec.edu" },
+];
+export const studyRoutes = [
+ { university: "University of Moratuwa", slug: "moratuwa", degrees: ["BSc Engineering (Hons) – Computer Science & Engineering", "BSc (Hons) in Information Technology", "BSc (Hons) in Information Technology & Management", "BSc (Hons) in Artificial Intelligence", "Bachelor of Information Technology (BIT) – External"] },
+ { university: "University of Peradeniya", slug: "peradeniya", degrees: ["BSc Engineering (Hons) – Computer Engineering", "BSc Honours in Computer Science", "BSc – Computer Science subject pathway (General)"] },
+ { university: "University of Ruhuna", slug: "ruhuna", degrees: ["Bachelor of Computer Science (BCS)", "Bachelor of Computer Science – Special / Honours", "BSc Engineering (Hons) in Computer Engineering", "BSc (General) – Computer Science subject pathway"] },
+ { university: "SLIIT", slug: "sliit", degrees: ["BSc (Hons) in Software Engineering", "BSc (Hons) in Computer Science", "BSc (Hons) in IT – Information Technology", "BSc (Hons) in Information Systems Engineering", "BSc (Hons) in Data Science", "BSc (Hons) in IT – Artificial Intelligence"] },
+ { university: "NSBM Green University", slug: "nsbm", degrees: ["BSc (Hons) in Software Engineering – NSBM", "BSc (Hons) Software Engineering – Plymouth", "BSc (Hons) in Computer Science – NSBM", "BSc (Hons) Computer Science – Plymouth", "BSc (Hons) in Data Science – NSBM", "BSc (Hons) Data Science – Plymouth", "BSc (Hons) Artificial Intelligence – Plymouth"] },
+ { university: "Informatics Institute of Technology (IIT)", slug: "iit", degrees: ["BEng (Hons) Software Engineering", "BSc (Hons) Computer Science", "BSc (Hons) Artificial Intelligence and Data Science", "BEng (Hons) Artificial Intelligence and Data Engineering"] },
+];

@@ -1,0 +1,9 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="860" height="970" viewBox="0 0 860 970" fill="none" xmlns="http://www.w3.org/2000/svg">
+<ellipse id="Mint middle glow" cx="430" cy="485" rx="430" ry="485" fill="url(#paint0_radial_0_37)"/>
+<defs>
+<radialGradient id="paint0_radial_0_37" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(430 485) scale(430 485)">
+<stop stop-color="#DCEFD9" stop-opacity="0.6"/>
+<stop offset="1" stop-color="#DCEFD9" stop-opacity="0"/>
+</radialGradient>
+</defs>
+</svg>

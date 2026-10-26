@@ -1,0 +1,1319 @@
+{
+  "meta": {
+    "title": "SkillBridge SL — Your future. Your path.",
+    "description": "Explore careers, compare Sri Lankan universities, and build your own education roadmap."
+  },
+  "nav": {
+    "skipToContent": "Skip to content",
+    "mainNavigation": "Main navigation",
+    "home": "SkillBridge SL home",
+    "logoAlt": "SkillBridge SL — Your future. Your path.",
+    "careers": "Explore Careers",
+    "path": "Build Your Path",
+    "universities": "Universities",
+    "about": "About",
+    "account": "Account",
+    "login": "Log in",
+    "logout": "Log out",
+    "closeMenu": "Close navigation",
+    "openMenu": "Open navigation",
+    "language": "Language"
+  },
+  "mobile": {
+    "closeMenu": "Close navigation menu",
+    "navigation": "Mobile navigation",
+    "eyebrow": "Your future starts here",
+    "title": "Explore your possibilities",
+    "subtitle": "Find a path that fits your ambitions.",
+    "description": {
+      "careers": "Discover the right career for you",
+      "path": "Create your personal roadmap",
+      "universities": "Find your ideal university",
+      "about": "Learn more about SkillBridge"
+    },
+    "accountDescription": "Manage your profile and password",
+    "loginDescription": "Save your journey and progress",
+    "questions": "Have any questions?",
+    "help": "Get help from the experts",
+    "guidance": "Ask for personal guidance",
+    "tagline": "Your future. Your path.",
+    "footer": "Premium career guidance for Sri Lankan students across all disciplines."
+  },
+  "footer": {
+    "tagline": "Your future. Your path.",
+    "note": "An independent student-made guidance platform • Sri Lanka"
+  },
+  "save": {
+    "removeLabel": "Remove {title} from My Path",
+    "saveLabel": "Save {title} to My Path",
+    "saved": "Saved to My Path",
+    "addUniversity": "Add to my university list",
+    "addCareer": "Add to Your Path",
+    "storageError": "Your browser could not save this item. Please enable local storage."
+  },
+  "home": {
+    "artworkAlt": "A Sri Lankan student considering her future, with a laptop and pen",
+    "eyebrow": "YOUR FUTURE STARTS HERE",
+    "headline": "Discover<br></br><accent>your path.</accent>",
+    "ideaNote": "Better<br></br>Choices<br></br>Brighter<br></br>Tomorrows",
+    "description": "From wondering what’s next to knowing where to go. Find careers, study pathways and universities in one place.",
+    "actions": {
+      "careers": "Explore careers",
+      "path": "Build your path",
+      "universities": "Universities",
+      "saved": "My saved paths"
+    },
+    "features": {
+      "careers": {
+        "title": "Explore Careers",
+        "copy": "Find work you’ll love, starting with your strengths."
+      },
+      "saved": {
+        "title": "Save Your Shortlist",
+        "copy": "Keep your favourite careers and universities together."
+      },
+      "path": {
+        "title": "Plan Your Journey",
+        "copy": "A clear roadmap from O/Ls all the way to PhD."
+      },
+      "universities": {
+        "title": "Compare Universities",
+        "copy": "Find the right place for your next step."
+      }
+    },
+    "trending": "Trending career paths",
+    "viewAll": "View all",
+    "trendingCards": {
+      "universities": "{count, plural, one {# university} other {# universities}}",
+      "engineer": {
+        "name": "Engineer",
+        "focus": "Design & technology"
+      },
+      "doctor": {
+        "name": "Doctor",
+        "focus": "Health & science"
+      },
+      "accountant": {
+        "name": "Accountant",
+        "focus": "Business & finance"
+      },
+      "designer": {
+        "name": "Designer",
+        "focus": "Creative technology"
+      },
+      "teacher": {
+        "name": "Teacher",
+        "focus": "Education & learning"
+      }
+    }
+  },
+  "auth": {
+    "fields": {
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email address",
+      "password": "Password",
+      "passwordHint": "Use 8 or more characters with at least one letter and one number."
+    },
+    "login": {
+      "meta": "Log in",
+      "title": "Welcome back.",
+      "subtitle": "Log in to continue your SkillBridge SL journey.",
+      "submit": "Log in",
+      "pending": "Logging in…",
+      "alternative": "New to SkillBridge SL?",
+      "alternativeLink": "Create an account",
+      "passwordChanged": "Your password was changed. Please log in again with the new password."
+    },
+    "register": {
+      "meta": "Create account",
+      "title": "Start your journey.",
+      "subtitle": "Create your SkillBridge SL account.",
+      "submit": "Create account",
+      "pending": "Creating account…",
+      "alternative": "Already have an account?",
+      "alternativeLink": "Log in"
+    }
+  },
+  "errors": {
+    "validation": {
+      "required": "This field is required.",
+      "invalid_email": "Enter a valid email address.",
+      "too_long": "This is too long.",
+      "too_short": "This is too short. Please write at least 10 characters.",
+      "password_length": "Use 8 to 72 characters.",
+      "password_weak": "Include at least one letter and one number.",
+      "mismatch": "The passwords do not match.",
+      "invalid": "This value is not valid.",
+      "incorrect_password": "Your current password is incorrect."
+    },
+    "api": {
+      "INVALID_CREDENTIALS": "Your email or password is incorrect.",
+      "EMAIL_EXISTS": "An account with this email already exists. Try logging in instead.",
+      "RATE_LIMITED": "Too many attempts. Please wait a few minutes and try again.",
+      "UNAVAILABLE": "The service is temporarily unavailable. Please try again shortly.",
+      "UNAUTHENTICATED": "Your session has ended. Please log in again.",
+      "INVALID_TOKEN": "Your session has ended. Please log in again.",
+      "FORBIDDEN": "You don’t have permission to do that.",
+      "VALIDATION_FAILED": "Please check the highlighted fields and try again.",
+      "NOT_FOUND": "We couldn’t find what you were looking for.",
+      "INTERNAL_ERROR": "Something went wrong on our side. Please try again later.",
+      "BAD_REQUEST": "We couldn’t complete that request. Please try again.",
+      "NETWORK": "Can’t reach the server. Check your connection and try again."
+    }
+  },
+  "account": {
+    "meta": "My account",
+    "eyebrow": "YOUR ACCOUNT",
+    "greeting": "Hello, {name}.",
+    "subtitle": "Manage your profile and keep your account secure.",
+    "role": {
+      "STUDENT": "Student",
+      "INSTRUCTOR": "Instructor",
+      "ADMIN": "Administrator"
+    },
+    "logout": "Log out",
+    "profile": {
+      "heading": "Profile",
+      "description": "This is how you appear on SkillBridge SL.",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email address",
+      "emailNote": "Your email is your login and can’t be changed here.",
+      "bio": "About you (optional)",
+      "bioHint": "Up to 500 characters.",
+      "save": "Save changes",
+      "saving": "Saving…",
+      "saved": "Your profile has been updated."
+    },
+    "password": {
+      "heading": "Change password",
+      "description": "You’ll be logged out on all devices and asked to log in again.",
+      "current": "Current password",
+      "new": "New password",
+      "confirm": "Confirm new password",
+      "submit": "Change password",
+      "saving": "Changing…"
+    }
+  },
+  "contact": {
+    "meta": "Personal Guidance",
+    "eyebrow": "PERSONAL GUIDANCE",
+    "title": "Have any questions?",
+    "intro": "Share where you are in your journey and what you’d like to explore.",
+    "form": {
+      "heading": "Let’s find your next step.",
+      "name": "Your name",
+      "email": "Email address",
+      "topic": "What can we help with?",
+      "topics": {
+        "guidance": "Career and course guidance",
+        "scholarships": "Scholarships and funding",
+        "feedback": "Feedback about SkillBridge SL"
+      },
+      "message": "Your message",
+      "send": "Send message",
+      "sending": "Sending…",
+      "success": "Your message has been sent. Thank you for getting in touch."
+    }
+  },
+  "states": {
+    "loading": "Finding your next step…",
+    "error": {
+      "title": "We couldn’t load this page.",
+      "body": "Please try again in a moment.",
+      "retry": "Try again"
+    },
+    "notFound": {
+      "title": "This path isn’t here yet.",
+      "body": "Explore the available careers and universities to find your next step.",
+      "home": "Back to home"
+    }
+  },
+  "catalog": {
+    "category": {
+      "Technology": "Technology",
+      "Healthcare": "Healthcare",
+      "Engineering": "Engineering",
+      "Business": "Business",
+      "Creative": "Creative",
+      "Education": "Education",
+      "Legal": "Legal",
+      "Hospitality": "Hospitality",
+      "Skilled Trades": "Skilled Trades"
+    },
+    "salary": {
+      "average": "LKR {amount, number}k / mo avg",
+      "varies": "Varies by post / mo avg",
+      "unknown": "Monthly pay: varies"
+    },
+    "career": {
+      "software-engineer": {
+        "title": "Software Engineer",
+        "summary": "Design apps, develop real products and solve meaningful problems.",
+        "employers": "WSO2 · Virtusa · 99x",
+        "entry": "A/L any stream + computing / portfolio"
+      },
+      "doctor": {
+        "title": "Doctor",
+        "summary": "Help people live healthier lives through medicine and care.",
+        "employers": "Government hospitals · Asiri",
+        "entry": "A/L Bio → MBBS → SLMC registration"
+      },
+      "civil-engineer": {
+        "title": "Civil Engineer",
+        "summary": "Shape the places we live, work and connect.",
+        "employers": "Access · Maga · ICC",
+        "entry": "A/L Maths + accredited engineering degree"
+      },
+      "accountant": {
+        "title": "Accountant",
+        "summary": "Turn financial information into better decisions.",
+        "employers": "KPMG · EY · John Keells",
+        "entry": "A/L any stream + AAT / CA / finance degree"
+      },
+      "ui-ux-designer": {
+        "title": "UI / UX Designer",
+        "summary": "Create useful digital experiences for real people.",
+        "employers": "99x · Arimac · agencies",
+        "entry": "Any A/L + design skills + portfolio"
+      },
+      "school-teacher": {
+        "title": "School Teacher",
+        "summary": "Help the next generation learn and grow.",
+        "employers": "Government schools · Lyceum",
+        "entry": "A/L → teacher training / degree"
+      },
+      "registered-nurse": {
+        "title": "Registered Nurse",
+        "summary": "Support patients through skilled, compassionate care.",
+        "employers": "Asiri · Nawaloka · state",
+        "entry": "Science route + recognised nursing training"
+      },
+      "legal-officer": {
+        "title": "Legal Officer",
+        "summary": "Help people and organisations navigate legal questions.",
+        "employers": "Banks · corporations · firms",
+        "entry": "Law degree / professional legal route"
+      },
+      "data-analyst": {
+        "title": "Data Analyst",
+        "summary": "Find patterns and turn data into useful insights.",
+        "employers": "Dialog · IFS · banks",
+        "entry": "Maths useful + analytics + SQL"
+      },
+      "cybersecurity-analyst": {
+        "title": "Cybersecurity Analyst",
+        "summary": "Protect digital systems and information.",
+        "employers": "Virtusa · Dialog · SLT",
+        "entry": "IT training + security certificates + practice"
+      },
+      "banking-officer": {
+        "title": "Banking Officer",
+        "summary": "Support customers with everyday financial services.",
+        "employers": "Commercial Bank · HNB",
+        "entry": "A/L eligibility varies + bank training"
+      },
+      "architectural-designer": {
+        "title": "Architectural Designer",
+        "summary": "Imagine buildings and spaces for better living.",
+        "employers": "Design studios · consultants",
+        "entry": "Design studies; SLIA route to architect"
+      },
+      "professional-chef": {
+        "title": "Professional Chef",
+        "summary": "Create food experiences with skill and imagination.",
+        "employers": "Jetwing · Cinnamon Hotels",
+        "entry": "O/L + culinary / NVQ training"
+      },
+      "digital-marketer": {
+        "title": "Digital Marketer",
+        "summary": "Connect brands with people through digital channels.",
+        "employers": "Dialog · agencies · brands",
+        "entry": "Any A/L + campaigns + portfolio"
+      },
+      "cabin-crew": {
+        "title": "Cabin Crew",
+        "summary": "Keep passengers safe and make journeys welcoming.",
+        "employers": "SriLankan Airlines · FitsAir",
+        "entry": "Airline criteria + English + training"
+      },
+      "electrician": {
+        "title": "Electrician",
+        "summary": "Install and maintain safe electrical systems.",
+        "employers": "CEB contractors · service firms",
+        "entry": "O/L + NVQ / apprenticeship"
+      },
+      "pharmacist": {
+        "title": "Pharmacist",
+        "summary": "Help people understand and use medicines safely.",
+        "employers": "Hemas · hospitals · retail",
+        "entry": "Approved pharmacy education + registration"
+      },
+      "mechanical-engineer": {
+        "title": "Mechanical Engineer",
+        "summary": "Design and improve machines and production systems.",
+        "employers": "MAS · Brandix · Hayleys",
+        "entry": "A/L Maths + mechanical engineering degree"
+      },
+      "hr-recruitment": {
+        "title": "HR / Recruitment",
+        "summary": "Help people and teams grow at work.",
+        "employers": "MAS · John Keells · banks",
+        "entry": "Any A/L + HR diploma / degree"
+      },
+      "logistics-coordinator": {
+        "title": "Logistics Coordinator",
+        "summary": "Keep goods moving efficiently from place to place.",
+        "employers": "DHL · Hayleys · Aitken Spence",
+        "entry": "A/L + logistics / supply chain training"
+      },
+      "it-support-specialist": {
+        "title": "IT Support Specialist",
+        "summary": "Solve technical problems and keep people connected.",
+        "employers": "SLT-MOBITEL · Dialog",
+        "entry": "O/L / A/L + IT certification / NVQ / diploma"
+      },
+      "hotel-receptionist": {
+        "title": "Hotel Receptionist",
+        "summary": "Create a welcoming experience for every guest.",
+        "employers": "Jetwing · Cinnamon · resorts",
+        "entry": "O/L / A/L + English + hospitality training"
+      },
+      "graphic-designer": {
+        "title": "Graphic Designer",
+        "summary": "Communicate ideas through visual design.",
+        "employers": "Arimac · studios · brands",
+        "entry": "O/L / A/L + creative portfolio"
+      },
+      "quantity-surveyor": {
+        "title": "Quantity Surveyor",
+        "summary": "Plan and manage the costs of construction.",
+        "employers": "Maga · Access · consultants",
+        "entry": "A/L → QS diploma / degree"
+      },
+      "business-development": {
+        "title": "Business Development",
+        "summary": "Build relationships and discover new opportunities.",
+        "employers": "Dialog · banks · FMCG",
+        "entry": "A/L / degree + sales experience"
+      },
+      "electrical-engineer": {
+        "title": "Electrical Engineer",
+        "summary": "Develop electrical and energy systems.",
+        "employers": "CEB · Hayleys · MAS",
+        "entry": "A/L Maths + electrical engineering degree"
+      },
+      "qa-test-engineer": {
+        "title": "QA / Test Engineer",
+        "summary": "Help teams deliver reliable software.",
+        "employers": "99x · Virtusa · IFS",
+        "entry": "Any A/L + software testing skills"
+      },
+      "physiotherapist": {
+        "title": "Physiotherapist",
+        "summary": "Help people improve movement and recover.",
+        "employers": "Hospitals · rehabilitation centres",
+        "entry": "Science + recognised physiotherapy training"
+      },
+      "content-writer": {
+        "title": "Content Writer",
+        "summary": "Make information clear, useful and engaging.",
+        "employers": "Media · agencies · brands",
+        "entry": "Any stream + writing portfolio"
+      },
+      "university-lecturer": {
+        "title": "University Lecturer",
+        "summary": "Share knowledge and contribute to research.",
+        "employers": "State + private universities",
+        "entry": "Relevant degree + postgraduate route"
+      },
+      "welder": {
+        "title": "Welder",
+        "summary": "Build and repair metal structures with precision.",
+        "employers": "Manufacturing · construction",
+        "entry": "O/L optional + NVQ / apprenticeship"
+      },
+      "customer-support": {
+        "title": "Customer Support",
+        "summary": "Help customers find answers and resolve problems.",
+        "employers": "Dialog · banks · BPO",
+        "entry": "O/L / A/L + communication skills"
+      }
+    },
+    "university": {
+      "moratuwa": {
+        "name": "University of Moratuwa"
+      },
+      "peradeniya": {
+        "name": "University of Peradeniya"
+      },
+      "ruhuna": {
+        "name": "University of Ruhuna"
+      },
+      "sliit": {
+        "name": "SLIIT"
+      },
+      "nsbm": {
+        "name": "NSBM Green University"
+      },
+      "cinec": {
+        "name": "CINEC Campus"
+      },
+      "iit": {
+        "name": "Informatics Institute of Technology (IIT)"
+      }
+    },
+    "location": {
+      "Moratuwa": "Moratuwa",
+      "Peradeniya": "Peradeniya",
+      "Matara": "Matara",
+      "Malabe": "Malabe",
+      "Homagama": "Homagama"
+    },
+    "area": {
+      "Engineering": "Engineering",
+      "IT": "IT",
+      "Architecture": "Architecture",
+      "Science": "Science",
+      "Agriculture": "Agriculture",
+      "Technology": "Technology",
+      "Computing": "Computing",
+      "Business": "Business",
+      "Maritime": "Maritime",
+      "Logistics": "Logistics"
+    },
+    "institutionType": {
+      "Government": "Government",
+      "Non-state": "Non-state"
+    }
+  },
+  "careers": {
+    "meta": "Explore Careers",
+    "eyebrow": "EXPLORE CAREERS",
+    "title": "Find a career that<br></br><accent>feels like you.</accent>",
+    "intro": "Discover real career paths, entry routes, employers and salary insights<br></br>made for students and career explorers across Sri Lanka.",
+    "searchLabel": "Search careers",
+    "searchPlaceholder": "Search careers: software, medicine, accounting, design...",
+    "statsLabel": "Career directory facts",
+    "stats": {
+      "paths": "career paths",
+      "families": "career families",
+      "salary": "salary signals",
+      "admissions": "admission checks"
+    },
+    "browse": {
+      "eyebrow": "BROWSE THE POSSIBILITIES",
+      "title": "Explore career paths",
+      "description": "{count, plural, one {# curated role} other {# curated roles}} · Sri Lankan education pathways"
+    },
+    "filters": {
+      "label": "Career filters",
+      "title": "Find your fit",
+      "subtitle": "Refine by your strengths and interests",
+      "interests": "YOUR INTERESTS",
+      "interest": {
+        "technology": "Technology & coding",
+        "health": "Health & wellbeing",
+        "engineering": "Building & engineering",
+        "business": "Business & finance",
+        "creative": "Creative thinking"
+      },
+      "studyRoutes": "STUDY ROUTES",
+      "route": {
+        "degree": "A/L university degrees",
+        "professional": "Professional qualifications",
+        "diploma": "Diplomas & NVQ",
+        "skills": "Skills + portfolio"
+      },
+      "notSure": "Not sure what fits?",
+      "match": "Match your interests to a career.",
+      "buildPath": "Build my path"
+    },
+    "categories": {
+      "label": "Filter by career family",
+      "all": "All careers",
+      "more": "More"
+    },
+    "results": "{count, plural, one {Showing # career} other {Showing # careers}}",
+    "sort": {
+      "label": "Sort careers",
+      "featured": "Popular first",
+      "az": "Name (A–Z)"
+    },
+    "card": {
+      "photoAlt": "Photograph representing {title}",
+      "explore": "Explore career"
+    },
+    "empty": {
+      "title": "No careers found",
+      "body": "Try another search or choose a different category.",
+      "clear": "Clear filters"
+    },
+    "notes": {
+      "salary": "Salary signals are indicative monthly averages for listed occupations or adjacent role families, not guaranteed offers.",
+      "entry": "Entry routes are guidance only: actual A/L subjects, grades, Z-scores, accreditation, licensing and employer criteria differ.",
+      "confirm": "Confirm salary information and admission requirements with current official sources before making a decision."
+    }
+  },
+  "careerDetail": {
+    "notFoundTitle": "Career not found",
+    "eyebrow": "CAREER SPOTLIGHT",
+    "softwareTitle": "Software<br></br>Engineer.",
+    "startHint": "Here is how you can start — even while you are still at school.",
+    "jumpToRoadmap": "Jump to school roadmap",
+    "sriLankaFocus": "Sri Lanka focus",
+    "heroAlt": "Student planning a future career",
+    "metrics": {
+      "pay": {
+        "label": "MEDIAN TOTAL PAY",
+        "value": "LKR 168K",
+        "note": "per month, reported"
+      },
+      "range": {
+        "label": "REPORTED PAY RANGE",
+        "value": "102K–258K",
+        "note": "LKR / month"
+      },
+      "pathways": {
+        "label": "STUDY PATHWAYS",
+        "value": "3–4 years",
+        "note": "many degree routes"
+      },
+      "roles": {
+        "label": "SPECIALISATIONS",
+        "value": "6 roles",
+        "note": "front-end to AI"
+      }
+    },
+    "salaryFootnote": "Salary source in the design: Glassdoor Sri Lanka (self-reported 2026 snapshot). Actual pay varies by level, company and location.",
+    "entry": {
+      "title": "Minimum entry requirements — quick view",
+      "description": "Small, clear, institution-specific examples. Always verify the intake year.",
+      "public": {
+        "title": "Public university / UGC",
+        "pill": "Course-specific",
+        "body": "CS typically uses approved Maths / Physics-based A/L combinations; grades and Z-score selection apply.",
+        "action": "Check current UGC handbook + the exact degree."
+      },
+      "sliit": {
+        "title": "SLIIT / Software Engineering",
+        "pill": "2026 intake example",
+        "body": "3 S passes in Physical Science / Eng. Tech; OR 3 S in another stream + O/L Maths C + IT bridging.",
+        "action": "Aptitude test applies. A/L ICT may exempt bridging."
+      }
+    },
+    "generic": {
+      "title": "Explore your path to {career}",
+      "description": "Start with your current stage and check requirements for your chosen programme.",
+      "routes": "Study routes",
+      "exploreUniversities": "Explore universities",
+      "where": "Where these skills matter",
+      "note": "These are career examples. Detailed entry requirements and opportunities will be added as the catalog grows."
+    },
+    "cta": {
+      "title": "Your future starts with one small step.",
+      "body": "Save this career and use the O/L → A/L → Degree roadmap to plan your next move."
+    },
+    "school": {
+      "title": "Your journey starts at school",
+      "description": "Practical steps for Sri Lankan students — choose the stage you are in.",
+      "ol": {
+        "stage": "O/L STUDENT",
+        "title": "Build your foundations",
+        "badge": "Grades 10–11",
+        "steps": {
+          "1": {
+            "title": "Choose ICT if available",
+            "copy": "Helpful for early exposure, but NOT mandatory."
+          },
+          "2": {
+            "title": "Give Maths + English priority",
+            "copy": "Logic, algebra, reading and communication."
+          },
+          "3": {
+            "title": "Try coding before A/Ls",
+            "copy": "Start with Scratch, HTML or basic Python."
+          },
+          "4": {
+            "title": "Make one small project",
+            "copy": "A simple website, calculator or mini-game."
+          }
+        },
+        "note": "Best move: explore, practise and stay curious."
+      },
+      "al": {
+        "stage": "A/L STUDENT",
+        "title": "Pick a suitable route",
+        "badge": "Grades 12–13",
+        "steps": {
+          "1": {
+            "title": "Consider the Maths stream",
+            "copy": "Combined Maths + Physics opens many public pathways."
+          },
+          "2": {
+            "title": "Check where ICT fits",
+            "copy": "ICT may be accepted in certain subject combinations."
+          },
+          "3": {
+            "title": "Focus on grades and Z-score",
+            "copy": "Admission depends on the specific course and intake."
+          },
+          "4": {
+            "title": "Keep building your skills",
+            "copy": "Python, Git, web basics and problem-solving."
+          }
+        },
+        "note": "Not all degrees require the same A/L stream."
+      },
+      "after": {
+        "stage": "AFTER A/Ls",
+        "title": "Turn skills into experience",
+        "badge": "Your next step",
+        "steps": {
+          "1": {
+            "title": "Compare study routes",
+            "copy": "CS, Software Engineering, IT or related degrees."
+          },
+          "2": {
+            "title": "Verify exact entry rules",
+            "copy": "Review UGC and each institute’s current notice."
+          },
+          "3": {
+            "title": "Build a GitHub portfolio",
+            "copy": "Create two projects and document your process."
+          },
+          "4": {
+            "title": "Find real experience",
+            "copy": "Hackathons, internships, open-source work."
+          }
+        },
+        "note": "You can also explore approved bridging or foundation routes."
+      }
+    },
+    "roles": {
+      "title": "What jobs can you do?",
+      "description": "Six directions you can explore after learning software engineering.",
+      "items": {
+        "frontend": {
+          "title": "Front-End Developer",
+          "copy": "Web experiences people love"
+        },
+        "backend": {
+          "title": "Back-End Engineer",
+          "copy": "APIs, services & databases"
+        },
+        "fullstack": {
+          "title": "Full-Stack Engineer",
+          "copy": "Build connected products"
+        },
+        "mobile": {
+          "title": "Mobile App Developer",
+          "copy": "Create apps for everyday life"
+        },
+        "devops": {
+          "title": "Cloud / DevOps Engineer",
+          "copy": "Ship and run systems at scale"
+        },
+        "data": {
+          "title": "Data / AI Engineer",
+          "copy": "Turn data into smart systems"
+        }
+      }
+    },
+    "employers": {
+      "title": "Companies where these skills matter",
+      "description": "Example software employers and the kind of technology they work on — not live job listings.",
+      "footnote": "Companies are shown as career examples; hiring, salaries and entry-level opportunities are not implied.",
+      "items": {
+        "wso2": {
+          "description": "API management, identity & integration",
+          "detail": "Product engineering / enterprise software"
+        },
+        "99x": {
+          "description": "Digital product engineering for clients",
+          "detail": "Product design / platform development"
+        },
+        "sysco": {
+          "description": "Technology for global foodservice supply chains",
+          "detail": "Cloud, data & logistics platforms"
+        },
+        "ifs": {
+          "description": "Enterprise cloud software for industries",
+          "detail": "ERP, service and asset management"
+        },
+        "virtusa": {
+          "description": "Digital engineering and IT consulting",
+          "detail": "Software delivery and modernization"
+        },
+        "lseg": {
+          "description": "Financial markets data and technology",
+          "detail": "Trading, analytics and data systems"
+        }
+      }
+    },
+    "study": {
+      "title": "Where can you study Software Engineering?",
+      "description": "Explore degree names at each institution — direct software routes and related computing programmes.",
+      "programmes": "{count, plural, one {# programme} other {# programmes}}",
+      "fit": {
+        "external": "External",
+        "strong": "Strong fit",
+        "related": "Related"
+      },
+      "officialList": "Official programme list",
+      "footnote": "Degree relevance shows career alignment, not admissions eligibility. Confirm programme titles, A/L criteria, fees and intake on the official sites.",
+      "routes": {
+        "moratuwa": {
+          "type": "State university",
+          "note": "CSE is an Engineering specialisation; BIT is an external route."
+        },
+        "peradeniya": {
+          "type": "State university",
+          "note": "Computer Science Honours is selected after initial BSc study."
+        },
+        "ruhuna": {
+          "type": "State university",
+          "note": "BCS Special/Honours is an advanced progression from the BCS route."
+        },
+        "sliit": {
+          "type": "Non-state degree provider",
+          "note": "Specialisations and bridging / entry requirements vary by degree."
+        },
+        "nsbm": {
+          "type": "Non-state degree provider",
+          "note": "Awards by NSBM and Plymouth are listed separately."
+        },
+        "iit": {
+          "type": "Non-state institute / overseas awards",
+          "note": "Programme availability and awarding university can vary by intake."
+        }
+      }
+    }
+  },
+  "universities": {
+    "meta": "Universities",
+    "eyebrow": "SRI LANKA UNIVERSITIES",
+    "title": "Discover university.",
+    "intro": "Explore government universities and private higher education institutes in Sri Lanka.<br></br>Compare study programmes, locations, entry pathways and student opportunities.",
+    "search": {
+      "label": "Search universities, courses or locations",
+      "placeholder": "Search universities, courses or locations...",
+      "submit": "Search University"
+    },
+    "filters": {
+      "location": "Location",
+      "allLocations": "All locations",
+      "area": "Study area",
+      "allAreas": "All study areas",
+      "degreeType": "Degree type",
+      "funding": "Funding options",
+      "more": "More filters",
+      "clear": "Clear filters",
+      "moreNotice": "Degree and funding filters will become available as institutions add programme details. You can currently filter by location, study area and institution type."
+    },
+    "category": {
+      "title": "Browse by institution type",
+      "subtitle": "Choose a category to explore the options available.",
+      "all": "All institutions",
+      "government": "Government",
+      "nonState": "Private / Non-state"
+    },
+    "results": {
+      "title": "Explore universities & institutes",
+      "description": "A starting selection of Sri Lankan higher education institutions.",
+      "count": "{count, plural, one {# institution shown} other {# institutions shown}}",
+      "empty": "No universities match your filters"
+    },
+    "sort": {
+      "label": "Sort universities",
+      "featured": "Sort: Featured",
+      "az": "Sort: Name (A–Z)",
+      "za": "Sort: Name (Z–A)"
+    },
+    "compare": {
+      "title": "Find the best fit for your future",
+      "subtitle": "Compare locations, courses and entry pathways before deciding.",
+      "selected": "{count} of {max} universities selected",
+      "run": "Compare selected",
+      "start": "Compare universities",
+      "resultsLabel": "University comparison",
+      "resultsTitle": "Your university comparison",
+      "close": "Close comparison",
+      "university": "University",
+      "type": "Institution type",
+      "location": "Location",
+      "areas": "Study areas"
+    },
+    "card": {
+      "location": "{location}, Sri Lanka",
+      "explore": "Explore {name}",
+      "compare": "Compare this university"
+    },
+    "resources": {
+      "title": "Plan your university journey",
+      "description": "Helpful resources for students preparing for higher education.",
+      "admission": {
+        "title": "University Admission Guide",
+        "description": "Understand A/L eligibility, applications and entry requirements."
+      },
+      "funding": {
+        "title": "Scholarships & Funding",
+        "description": "Explore scholarships, student loans and financial support."
+      },
+      "guidance": {
+        "title": "Course & Career Guidance",
+        "description": "Discover which study pathways match your ambitions."
+      }
+    }
+  },
+  "universityDetail": {
+    "notFoundTitle": "University not found",
+    "breadcrumb": "Breadcrumb",
+    "universities": "Universities",
+    "badge": {
+      "public": "PUBLIC UNIVERSITY",
+      "higher": "HIGHER EDUCATION"
+    },
+    "ruhunaTitle": "University of<br></br>Ruhuna",
+    "introRuhuna": "Explore faculties, undergraduate degrees, admission pathways, campus life and official links at one of Sri Lanka’s established public universities.",
+    "intro": "Explore faculties, undergraduate degrees, admission pathways, campus life and official links at {name}.",
+    "established": "Established 1978",
+    "locationRuhuna": "{location} · Southern Province",
+    "locationOther": "{location}, Sri Lanka",
+    "facultyCount": "10 faculties",
+    "ruhunaShort": "Ruhuna",
+    "metrics": {
+      "faculties": {
+        "value": "10",
+        "label": "FACULTIES"
+      },
+      "founded": {
+        "value": "1978",
+        "label": "FOUNDED"
+      },
+      "campus": {
+        "value": "Matara",
+        "label": "MAIN CAMPUS"
+      },
+      "type": {
+        "value": "Public",
+        "label": "UNIVERSITY TYPE"
+      }
+    },
+    "sections": "University sections",
+    "tabs": {
+      "overview": "Overview",
+      "faculties": "Faculties",
+      "degrees": "Degrees",
+      "admissions": "Admissions",
+      "rankings": "Rankings",
+      "campusLife": "Campus life",
+      "gallery": "Gallery"
+    },
+    "getToKnow": "GET TO KNOW {name}",
+    "overviewTitleRuhuna": "A university across Southern Sri Lanka",
+    "overviewRuhuna": "Established as Ruhuna University College in 1978 and elevated to university status in 1984, the University of Ruhuna serves students through its main Wellamadama campus and faculty locations in Matara and Galle.",
+    "overviewOther": "Explore {areas} at {name}, {location}. Visit the institution’s official website for current programmes and admission requirements.",
+    "overviewTagline": "{type} institution • Undergraduate, postgraduate and research pathways",
+    "rankings": {
+      "title": "University rankings",
+      "source": "Webometrics · January 2026",
+      "nationalValue": "5th",
+      "national": "SRI LANKA",
+      "worldValue": "2,779",
+      "world": "WORLD POSITION",
+      "note": "Rankings vary by publisher and year. This is not a QS rank."
+    },
+    "locations": {
+      "eyebrow": "GETTING IN",
+      "title": "Faculty locations",
+      "description": "Understand where you might study and how Sri Lankan public university admission works.",
+      "heading": "Where the faculties are located",
+      "items": {
+        "matara": {
+          "title": "Matara · Wellamadama",
+          "copy": "Science, Arts, Management, Fisheries, Graduate Studies"
+        },
+        "kamburupitiya": {
+          "title": "Kamburupitiya area",
+          "copy": "Agriculture and Technology"
+        },
+        "galle": {
+          "title": "Galle area",
+          "copy": "Engineering, Medicine and Allied Health Sciences"
+        }
+      }
+    },
+    "campus": {
+      "eyebrow": "STUDENT EXPERIENCE",
+      "title": "Campus life and useful resources",
+      "description": "Plan beyond a course name: explore facilities, support, and the student experience.",
+      "library": {
+        "title": "Library & research",
+        "description": "Discover library facilities, research projects and academic support."
+      },
+      "clubs": {
+        "title": "Clubs & societies",
+        "description": "Explore student communities, sports, culture and campus activities."
+      },
+      "faculty": {
+        "title": "Faculty pathways",
+        "description": "Check department sites, internships, practical work and projects."
+      }
+    },
+    "ready": {
+      "title": "Ready to explore {name}?",
+      "body": "Use the official website for up-to-date admission, faculty and degree information. Save this university to your study shortlist on SkillBridge SL.",
+      "visit": "Visit official website"
+    },
+    "academics": {
+      "eyebrow": "EXPLORE ACADEMICS",
+      "title": "10 faculties at the University of Ruhuna",
+      "description": "Select a faculty to learn about its fields and available programmes."
+    },
+    "faculties": {
+      "engineering": {
+        "title": "Engineering",
+        "copy": "engineering · Galle"
+      },
+      "medicine": {
+        "title": "Medicine",
+        "copy": "health sciences · Galle"
+      },
+      "science": {
+        "title": "Science",
+        "copy": "computing · natural sciences"
+      },
+      "agriculture": {
+        "title": "Agriculture",
+        "copy": "farming · green technology"
+      },
+      "management": {
+        "title": "Management & Finance",
+        "copy": "business · management"
+      },
+      "humanities": {
+        "title": "Humanities & Social Sciences",
+        "copy": "arts · social sciences"
+      },
+      "fisheries": {
+        "title": "Fisheries & Marine Sciences",
+        "copy": "marine · freshwater"
+      },
+      "allied": {
+        "title": "Allied Health Sciences",
+        "copy": "nursing · pharmacy · MLS"
+      },
+      "technology": {
+        "title": "Technology",
+        "copy": "engineering · ICT · biosystems"
+      },
+      "graduate": {
+        "title": "Graduate Studies",
+        "copy": "postgraduate & research"
+      }
+    },
+    "degrees": {
+      "eyebrow": "STUDY OPTIONS",
+      "title": "Undergraduate degree programmes",
+      "description": "A comprehensive overview of undergraduate pathways; check faculty sites for specialisations, eligibility and current availability.",
+      "footnote": "Programme names and engineering specialisations are illustrative of published official pathways; consult the latest university handbook for the current intake."
+    },
+    "degreeGroups": {
+      "engineering": {
+        "title": "Engineering",
+        "faculty": "Faculty of Engineering"
+      },
+      "health": {
+        "title": "Health & Medicine",
+        "faculty": "Medicine + Allied Health"
+      },
+      "science": {
+        "title": "Science & Computing",
+        "faculty": "Faculty of Science"
+      },
+      "technology": {
+        "title": "Technology",
+        "faculty": "Faculty of Technology"
+      },
+      "agriculture": {
+        "title": "Agriculture",
+        "faculty": "Faculty of Agriculture"
+      },
+      "other": {
+        "title": "Other disciplines",
+        "faculty": "Additional faculties"
+      }
+    },
+    "gallery": {
+      "label": "{name} campus gallery",
+      "eyebrow": "CAMPUS GALLERY",
+      "main": "{name} campus photo",
+      "life": "Campus life",
+      "buildings": "Faculty buildings",
+      "placeholder": "Campus photographs will appear here."
+    }
+  },
+  "path": {
+    "meta": "Build Your Path",
+    "hero": {
+      "eyebrow": "BUILD YOUR PATH",
+      "title": "Your future,<br></br><accent>step by step.</accent>",
+      "intro": "Big dreams feel easier with a clear plan. Discover the subjects,<br></br>courses and milestones that can take you there.",
+      "build": "Build my roadmap",
+      "example": "See an example",
+      "note": "Made for Sri Lankan students, from O/Ls to your first career."
+    },
+    "journey": {
+      "eyebrow": "YOUR JOURNEY AT A GLANCE",
+      "badge": "One goal. Many routes.",
+      "caption": "Explore your options. You can update your path at any time.",
+      "stations": {
+        "ol": {
+          "title": "O/Ls",
+          "copy": "Build basics"
+        },
+        "al": {
+          "title": "A/Ls",
+          "copy": "Choose focus"
+        },
+        "degree": {
+          "title": "Degree",
+          "copy": "Grow skills"
+        },
+        "career": {
+          "title": "Career",
+          "copy": "Start working"
+        }
+      }
+    },
+    "stage": {
+      "title": "Start where you are",
+      "description": "Pick your current education stage. Your roadmap can grow with you.",
+      "step": "STEP 01 OF 03"
+    },
+    "stages": {
+      "ol": {
+        "label": "O/L Student",
+        "description": "Find your strengths",
+        "detail": "Subjects • first skills"
+      },
+      "al": {
+        "label": "A/L Student",
+        "description": "Shape your stream",
+        "detail": "Subjects • entry routes"
+      },
+      "after-al": {
+        "label": "After A/Ls",
+        "description": "Choose your next step",
+        "detail": "Degrees • alternatives"
+      },
+      "university": {
+        "label": "University Student",
+        "description": "Prepare for industry",
+        "detail": "Projects • internships"
+      }
+    },
+    "builder": {
+      "title": "Make it yours",
+      "subtitle": "Choose a goal and discover useful subjects for your next step.",
+      "steps": {
+        "goal": "Career goal",
+        "focus": "Focus areas",
+        "review": "Review route"
+      },
+      "goalLegend": "1 What career interests you?",
+      "goalHint": "Example selections — you can change your goal later.",
+      "focusLegend": "2 Build your foundation",
+      "focusHint": "Suggested focus areas for “{stage}” and the goal “{goal}”.",
+      "noticeSoftware": "ICT is useful, but is not compulsory for every software-related pathway.",
+      "noticeOther": "Explore relevant subjects and check each programme’s entry requirements.",
+      "noticeSmall": "A/L streams and university admission requirements vary by programme.",
+      "create": "Create my roadmap",
+      "paceNote": "Explore your next steps at your own pace.",
+      "ready": "Your roadmap is ready. Review the next steps and save it to My Path.",
+      "saved": "Saved on this device. Find your roadmap in My Path.",
+      "storageError": "Your browser could not save this roadmap. Please enable local storage."
+    },
+    "goals": {
+      "software": {
+        "title": "Software Engineer",
+        "description": "Apps, systems & AI"
+      },
+      "doctor": {
+        "title": "Doctor",
+        "description": "Health & care"
+      },
+      "designer": {
+        "title": "Designer",
+        "description": "Creative problem-solving"
+      }
+    },
+    "focus": {
+      "maths": "Mathematics",
+      "english": "English",
+      "ict": "ICT (optional)",
+      "coding": "Coding basics",
+      "creative": "Creative thinking",
+      "biology": "Biology",
+      "chemistry": "Chemistry",
+      "communication": "Communication",
+      "scientific": "Scientific thinking",
+      "art": "Art & design",
+      "digital": "Digital tools",
+      "portfolio": "Portfolio"
+    },
+    "preview": {
+      "label": "Your roadmap preview",
+      "badge": "Sample roadmap · {stage}",
+      "yourPathTo": "Your path to",
+      "pathTo": "Your path to {goal}",
+      "milestones": "{count, plural, one {# milestone} other {# milestones}} to start with",
+      "saved": "Saved on this device",
+      "add": "Add to My Path"
+    },
+    "roadmap": {
+      "labels": {
+        "1": "NOW • O/Ls",
+        "2": "NEXT • A/Ls",
+        "3": "AFTER A/Ls",
+        "4": "CAREER LAUNCH"
+      },
+      "software": {
+        "1": {
+          "title": "Strengthen Maths + English",
+          "description": "Explore ICT and try a mini coding project."
+        },
+        "2": {
+          "title": "Choose a suitable subject stream",
+          "description": "Review Maths / ICT eligibility by course."
+        },
+        "3": {
+          "title": "Compare relevant degrees",
+          "description": "CS, Software Engineering or IT routes."
+        },
+        "4": {
+          "title": "Build projects and apply",
+          "description": "GitHub portfolio, internships, first role."
+        }
+      },
+      "doctor": {
+        "1": {
+          "title": "Build your science foundation",
+          "description": "Focus on science, English and study habits."
+        },
+        "2": {
+          "title": "Choose a suitable subject stream",
+          "description": "Check the required science subjects for medicine."
+        },
+        "3": {
+          "title": "Compare relevant degrees",
+          "description": "Review recognised medical programmes and entry criteria."
+        },
+        "4": {
+          "title": "Complete training and registration",
+          "description": "Confirm supervised practice and registration requirements."
+        }
+      },
+      "designer": {
+        "1": {
+          "title": "Explore visual ideas",
+          "description": "Practise drawing, observation and creative thinking."
+        },
+        "2": {
+          "title": "Choose a suitable subject stream",
+          "description": "Review design programme entry requirements."
+        },
+        "3": {
+          "title": "Compare relevant degrees",
+          "description": "Compare design degrees and portfolio requirements."
+        },
+        "4": {
+          "title": "Build a portfolio and apply",
+          "description": "Personal projects, internships and your first role."
+        }
+      }
+    },
+    "flexible": {
+      "title": "Simple today. Flexible tomorrow.",
+      "description": "Your path is a guide, not a fixed rule. Revisit it as your interests and options change.",
+      "discover": {
+        "title": "Discover what suits you",
+        "description": "Compare career goals and build confidence."
+      },
+      "understand": {
+        "title": "Understand what is needed",
+        "description": "Know which subjects and entry rules to check."
+      },
+      "progress": {
+        "title": "Make progress visible",
+        "description": "Turn a big ambition into small next steps."
+      }
+    }
+  },
+  "myPath": {
+    "meta": "My Path",
+    "eyebrow": "YOUR JOURNEY",
+    "title": "Your future, in one place.",
+    "intro": "Keep your favourite careers, universities and next steps together.",
+    "deviceNote": "Your shortlist and roadmaps are saved on this device.",
+    "empty": {
+      "title": "Your next chapter starts here.",
+      "body": "Save a career or university, or create your first roadmap.",
+      "action": "Build my path"
+    },
+    "kind": {
+      "career": "Career",
+      "university": "University"
+    },
+    "explore": {
+      "career": "Explore career",
+      "university": "Explore university"
+    },
+    "roadmaps": "Your roadmaps",
+    "removeRoadmap": "Remove roadmap"
+  },
+  "about": {
+    "meta": "About",
+    "eyebrow": "ABOUT SKILLBRIDGE SL",
+    "title": "Built for your journey.",
+    "intro": "A career and education guidance space created by an engineering student,<br></br>for Sri Lankan students figuring out what comes next.",
+    "note": {
+      "title": "From someone who has been in your shoes",
+      "body": "The big decisions feel easier when an aiya shares the roadmap.<br></br>That is the feeling I want SkillBridge SL to give every student."
+    },
+    "founder": {
+      "addPhoto": "ADD YOUR PHOTO",
+      "placeholder": "Your portrait goes here • Replace this image layer",
+      "eyebrow": "MEET THE CREATOR",
+      "title": "An engineering student. An aiya.",
+      "faculty": "Faculty of Engineering · University of Ruhuna",
+      "disclaimer": "Independent student project • Not an official university service"
+    },
+    "story": {
+      "eyebrow": "THE STORY BEHIND SKILLBRIDGE",
+      "title": "Why I started SkillBridge SL",
+      "description": "A small student idea, with a bigger purpose.",
+      "hi": "Hi, I’m the student behind SkillBridge SL.",
+      "p1": "I study at the Faculty of Engineering, University of Ruhuna. I know how hard<br></br>it can be to connect school subjects, degree choices and real careers.",
+      "p2": "I created SkillBridge SL to bring that information into one friendly place—<br></br>so the next student does not have to figure everything out alone.",
+      "tag": "Made by a Ruhuna engineering student"
+    },
+    "values": {
+      "title": "What matters to me",
+      "clarity": {
+        "title": "Clarity",
+        "copy": "Clear steps, without overwhelming jargon."
+      },
+      "guidance": {
+        "title": "Real guidance",
+        "copy": "Helpful context across study stages."
+      },
+      "student": {
+        "title": "Student-first",
+        "copy": "Built around the questions we really ask."
+      }
+    }
+  }
+}

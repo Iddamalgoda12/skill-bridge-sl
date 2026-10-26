@@ -1,0 +1,17 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="1430" height="1330" viewBox="0 0 1430 1330" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="02 / Upper Cream Aurora" filter="url(#filter0_f_0_91)">
+<ellipse cx="715" cy="665" rx="625" ry="575" fill="url(#paint0_radial_0_91)"/>
+</g>
+<defs>
+<filter id="filter0_f_0_91" x="0" y="0" width="1430" height="1330" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="45" result="effect1_foregroundBlur_0_91"/>
+</filter>
+<radialGradient id="paint0_radial_0_91" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(715 665) scale(625 575)">
+<stop stop-color="white" stop-opacity="0.75"/>
+<stop offset="0.4" stop-color="#FFF9E8" stop-opacity="0.42"/>
+<stop offset="1" stop-color="#FFF9E8" stop-opacity="0"/>
+</radialGradient>
+</defs>
+</svg>

@@ -38,9 +38,8 @@ spring:
 
   # ─── Flyway (DB Migrations) ────────────────────────────────────────────────
   # Migrations live in database/migrations/ (outside the JAR).
-  # Each environment sets FLYWAY_LOCATIONS to the appropriate filesystem path:
-  #   Docker / prod  → filesystem:/app/migrations   (volume-mounted or COPYed in)
-  #   Local dev      → overridden in application-local.yml
+  # Local development reads the shared migrations folder via application-local.yml.
+  # Set FLYWAY_LOCATIONS when deploying to a different environment.
   flyway:
     enabled: true
     baseline-on-migrate: true
@@ -75,8 +74,9 @@ server:
   servlet:
     context-path: /api
   error:
-    include-message: always
-    include-binding-errors: always
+    include-message: never
+    include-binding-errors: never
+    include-stacktrace: never
   compression:
     enabled: true
     mime-types: application/json,application/xml,text/html,text/plain
@@ -86,21 +86,27 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info,metrics,flyway,env
+        include: health,info
       base-path: /actuator
   endpoint:
     health:
-      show-details: when-authorized
-  info:
-    env:
-      enabled: true
+      show-details: never
+  health:
+    mail:
+      enabled: false
 
 # ─── App Custom Properties ─────────────────────────────────────────────────
 app:
   jwt:
-    secret: ${JWT_SECRET:change_me_in_production_minimum_256_bits_long_random_string}
-    expiration-ms: ${JWT_EXPIRATION_MS:86400000}       # 24 h
-    refresh-expiration-ms: ${JWT_REFRESH_EXPIRATION_MS:604800000}  # 7 days
+    # Required (base64, >= 32 bytes). No default outside the local profile:
+    #   openssl rand -base64 48
+    secret: ${JWT_SECRET}
+    expiration-ms: ${JWT_EXPIRATION_MS:900000}                     # access token: 15 min
+    refresh-expiration-ms: ${JWT_REFRESH_EXPIRATION_MS:604800000}  # refresh token: 7 days
+  security:
+    # Only enable when the API is reachable solely through a trusted proxy.
+    trust-forwarded-for: ${TRUST_FORWARDED_FOR:false}
+    auth-rate-limit: ${AUTH_RATE_LIMIT:30}                         # per client, per endpoint, per 15 min
   cors:
     allowed-origins: ${ALLOWED_ORIGINS:http://localhost:3000}
   pagination:

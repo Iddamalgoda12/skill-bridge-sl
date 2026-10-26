@@ -1,0 +1,10 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="850" height="780" viewBox="0 0 850 780" fill="none" xmlns="http://www.w3.org/2000/svg">
+<ellipse id="04 / Pale Mint Aurora" cx="425" cy="390" rx="425" ry="390" fill="url(#paint0_radial_0_86)"/>
+<defs>
+<radialGradient id="paint0_radial_0_86" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(425 390) scale(425 390)">
+<stop stop-color="#D8F4D4" stop-opacity="0.45"/>
+<stop offset="0.45" stop-color="#EAF8D8" stop-opacity="0.22"/>
+<stop offset="1" stop-color="#EAF8D8" stop-opacity="0"/>
+</radialGradient>
+</defs>
+</svg>

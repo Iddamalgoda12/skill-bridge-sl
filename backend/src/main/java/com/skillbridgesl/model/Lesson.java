@@ -1,6 +1,8 @@
 package com.skillbridgesl.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 import lombok.*;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -28,7 +30,9 @@ public class Lesson {
     @Column(nullable = false, length = 255)
     private String title;
 
+    // Postgres native enum column: bind as a named enum, not varchar.
     @Enumerated(EnumType.STRING)
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
     @Column(nullable = false)
     @Builder.Default
     private Type type = Type.VIDEO;

@@ -1,0 +1,7 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="14.2" height="14.2" viewBox="0 0 14.2 14.2" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 1">
+<path id="View All Arrow shaft" d="M1.1 7.1H13.1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" stroke="#111111"/>
+<path id="View All Arrow upper" d="M7.1 1.1L13.1 7.1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" stroke="#111111"/>
+<path id="View All Arrow lower" d="M7.1 13.1L13.1 7.1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" stroke="#111111"/>
+</g>
+</svg>

@@ -1,0 +1,10 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="1250" height="1150" viewBox="0 0 1250 1150" fill="none" xmlns="http://www.w3.org/2000/svg">
+<ellipse id="02 / Upper Cream Aurora" cx="625" cy="575" rx="625" ry="575" fill="url(#paint0_radial_0_118)"/>
+<defs>
+<radialGradient id="paint0_radial_0_118" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(625 575) scale(625 575)">
+<stop stop-color="white" stop-opacity="0.75"/>
+<stop offset="0.45" stop-color="#FFF9E8" stop-opacity="0.42"/>
+<stop offset="1" stop-color="#FFF9E8" stop-opacity="0"/>
+</radialGradient>
+</defs>
+</svg>
