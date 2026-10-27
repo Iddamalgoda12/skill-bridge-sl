@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
 import assets from "@/lib/design/assets.json";
 import { Sparkles, Route, Check, Wallet, Clock, Briefcase, GraduationCap } from "lucide-react";
@@ -14,11 +14,26 @@ import { CareerRoles } from "@/components/careers/CareerRoles";
 import { Employers } from "@/components/careers/Employers";
 import { StudyOptions } from "@/components/careers/StudyOptions";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import { EngineeringFields } from "@/components/careers/EngineeringFields";
 
 type Props = { params: Promise<{ slug: string }> };
 
+const ENGINEERING_SUBFIELDS = [
+  "software-engineer",
+  "cloud-architect",
+  "cybersecurity-analyst",
+  "ai-engineer",
+  "data-analyst",
+  "designer",
+  "civil-engineer",
+  "mechanical-engineer",
+  "electrical-engineer",
+];
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const [career, catalog, t] = await Promise.all([getCareer((await params).slug), getTranslations("catalog"), getTranslations("careerDetail")]);
+  const { slug } = await params;
+  const canonicalSlug = ENGINEERING_SUBFIELDS.includes(slug) ? "engineer" : slug;
+  const [career, catalog, t] = await Promise.all([getCareer(canonicalSlug), getTranslations("catalog"), getTranslations("careerDetail")]);
   return { title: career ? localizeCareer(catalog, career).display.title : t("notFoundTitle") };
 }
 
@@ -30,10 +45,16 @@ const metrics = [
 ] as const;
 
 export default async function CareerPage({ params }: Props) {
-  const record = await getCareer((await params).slug);
+  const { slug } = await params;
+  if (ENGINEERING_SUBFIELDS.includes(slug)) {
+    redirect("/careers/engineer");
+  }
+
+  const record = await getCareer(slug);
   if (!record) notFound();
   const [t, catalog] = await Promise.all([getTranslations("careerDetail"), getTranslations("catalog")]);
   const career = localizeCareer(catalog, record);
+  const isEngineer = career.slug === "engineer";
   const software = career.slug === "software-engineer";
 
   return (
@@ -45,14 +66,18 @@ export default async function CareerPage({ params }: Props) {
           </PageIntro>
           <div className="hero-button-row">
             <SaveButton id={career.slug} title={career.display.title} />
-            <ActionLink href={software ? "#school-roadmap" : "/build-your-path"} icon={<Route size={17} />}>{t("jumpToRoadmap")}</ActionLink>
+            <ActionLink href={software ? "#school-roadmap" : isEngineer ? "#engineering-disciplines" : "/build-your-path"} icon={<Route size={17} />}>{t("jumpToRoadmap")}</ActionLink>
             <span className="eyebrow-pill"><Check size={14} />{t("sriLankaFocus")}</span>
           </div>
         </div>
-        <HeroArtwork compact imageSrc={assets.career.imgGeneratedAiHeroPortraitTransparentPng} imageAlt={t("heroAlt")} />
+        <HeroArtwork compact imageSrc={career.image || assets.career.imgGeneratedAiHeroPortraitTransparentPng} imageAlt={t("heroAlt")} />
       </section>
 
-      {software ? (
+      {isEngineer ? (
+        <div id="engineering-disciplines">
+          <EngineeringFields />
+        </div>
+      ) : software ? (
         <>
           <div className="grid-4 detail-metrics">
             {metrics.map(({ id, Icon }) => (

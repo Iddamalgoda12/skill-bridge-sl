@@ -3,9 +3,10 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import type { ReactNode } from "react";
 import { useTranslations } from "next-intl";
-import { Compass, SlidersHorizontal, Sparkles } from "lucide-react";
+import { Compass, SlidersHorizontal, Sparkles, ShieldCheck, DollarSign, GraduationCap, Info } from "lucide-react";
 import { ActionLink } from "@/components/shared/ActionLink";
 import { DesignAsset } from "@/components/shared/DesignAsset";
 import { SaveButton } from "@/components/shared/SaveButton";
@@ -37,6 +38,7 @@ function matchesStudyRoute(career: LocalizedCareer, route: string) {
 
 /** `artwork` is a server-rendered slot (it needs server-only translations). */
 export function CareerDirectory({ careers, artwork }: { careers: LocalizedCareer[]; artwork: ReactNode }) {
+  const router = useRouter();
   const t = useTranslations("careers");
   const catalog = useTranslations("catalog");
   const [query, setQuery] = useState("");
@@ -68,13 +70,6 @@ export function CareerDirectory({ careers, artwork }: { careers: LocalizedCareer
     setShowMoreCategories(false);
   }
 
-  const stats = [
-    [String(careers.length), t("stats.paths"), assets["18:9590"].imgIconCompass],
-    ["9", t("stats.families"), assets["18:9596"].imgIconBriefcase],
-    ["LKR", t("stats.salary"), assets.careerDirectoryCards.imgIconCoin],
-    ["UGC", t("stats.admissions"), assets["18:9608"].imgIconSchool],
-  ];
-
   return (
     <>
       <section className="career-directory-hero glass-panel">
@@ -92,16 +87,6 @@ export function CareerDirectory({ careers, artwork }: { careers: LocalizedCareer
         </div>
         {artwork}
       </section>
-
-      <div className="career-stats grid-4" role="group" aria-label={t("statsLabel")}>
-        {stats.map(([value, label, icon]) => (
-          <div className="glass-panel" key={label}>
-            <DesignAsset src={icon} />
-            <strong>{value}</strong>
-            <span>{label}</span>
-          </div>
-        ))}
-      </div>
 
       <section className="section-block">
         <SectionHeading eyebrow={t("browse.eyebrow")} title={t("browse.title")} description={t("browse.description", { count: filtered.length })} />
@@ -155,16 +140,34 @@ export function CareerDirectory({ careers, artwork }: { careers: LocalizedCareer
 
             <div className="career-grid">
               {filtered.map((career) => (
-                <article className="career-card glass-panel" key={career.slug}>
+                <article
+                  className="career-card glass-panel"
+                  key={career.slug}
+                  onClick={(e) => {
+                    const target = e.target as HTMLElement;
+                    if (target.closest("button") || target.closest("a")) return;
+                    router.push(`/careers/${career.slug}`);
+                  }}
+                  style={{ cursor: "pointer" }}
+                >
                   <div className="career-card-media">
-                    {career.image ? <Image src={career.image} fill sizes="(max-width:700px) 90vw, 270px" alt={t("card.photoAlt", { title: career.display.title })} /> : <div className="career-image-placeholder"><Compass size={38} aria-hidden="true" /></div>}
+                    {career.image ? (
+                      <Image
+                        src={career.image}
+                        fill
+                        sizes="(max-width:700px) 90vw, (max-width:1250px) 33vw, 270px"
+                        alt={t("card.photoAlt", { title: career.display.title })}
+                      />
+                    ) : (
+                      <div className="career-image-placeholder"><Compass size={38} aria-hidden="true" /></div>
+                    )}
                     <span className="career-category">{career.display.category}</span>
                     <SaveButton id={career.slug} title={career.display.title} compact iconAsset={assets.careerDirectoryCards.imgIconBookmark} />
                   </div>
                   <h3><Link href={`/careers/${career.slug}`}>{career.display.title}</Link></h3>
                   <p className="career-salary">{formatSalary(catalog, career)}</p>
-                  <p className="career-card-line"><DesignAsset src={assets.careerDirectoryCards.imgIconBriefcase} />{career.display.employers}</p>
-                  <p className="career-card-line"><DesignAsset src={assets.careerDirectoryCards.imgIconSchool} />{career.display.entry}</p>
+                  <p className="career-card-line"><DesignAsset src={assets.careerDirectoryCards.imgIconBriefcase} /><span>{career.display.employers}</span></p>
+                  <p className="career-card-line"><DesignAsset src={assets.careerDirectoryCards.imgIconSchool} /><span>{career.display.entry}</span></p>
                   <Link className="career-explore gold-glass" href={`/careers/${career.slug}`}>{t("card.explore")}<DesignAsset src={assets.careerDirectoryCards.imgIconArrow} /></Link>
                 </article>
               ))}
@@ -180,10 +183,33 @@ export function CareerDirectory({ careers, artwork }: { careers: LocalizedCareer
         </div>
       </section>
 
-      <div className="career-source-note section-block">
-        <p>{t("notes.salary")}</p>
-        <p>{t("notes.entry")}</p>
-        <small>{t("notes.confirm")}</small>
+      <div className="career-source-note glass-panel section-block" role="note" aria-label="Official advisory">
+        <div className="source-note-header">
+          <span className="eyebrow-pill">
+            <ShieldCheck size={14} aria-hidden="true" />
+            <span>{t("notes.badge")}</span>
+          </span>
+        </div>
+        <div className="source-note-grid">
+          <div className="source-note-item">
+            <span className="source-note-icon"><DollarSign size={16} aria-hidden="true" /></span>
+            <div>
+              <strong>{t("notes.salaryTitle")}</strong>
+              <p>{t("notes.salary")}</p>
+            </div>
+          </div>
+          <div className="source-note-item">
+            <span className="source-note-icon"><GraduationCap size={16} aria-hidden="true" /></span>
+            <div>
+              <strong>{t("notes.entryTitle")}</strong>
+              <p>{t("notes.entry")}</p>
+            </div>
+          </div>
+        </div>
+        <div className="source-note-footer">
+          <Info size={13} aria-hidden="true" />
+          <small>{t("notes.confirm")}</small>
+        </div>
       </div>
     </>
   );
