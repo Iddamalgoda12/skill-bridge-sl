@@ -7,7 +7,6 @@ import { JourneyIllustration } from "@/components/path/JourneyIllustration";
 import { PathBuilder } from "@/components/path/PathBuilder";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { ResourceCards } from "@/components/shared/ResourceCards";
-import Footer from "@/components/layout/Footer";
 import assets from "@/lib/design/assets.json";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -43,7 +42,6 @@ export default async function BuildYourPathPage() {
           ]}
         />
       </section>
-      <Footer />
     </div>
   );
 }

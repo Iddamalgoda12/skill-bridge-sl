@@ -6,7 +6,6 @@ import { PageIntro } from "@/components/shared/PageIntro";
 import { ProfileForm } from "@/components/account/ProfileForm";
 import { PasswordForm } from "@/components/account/PasswordForm";
 import { LogoutButton } from "@/components/account/LogoutButton";
-import Footer from "@/components/layout/Footer";
 import { getCurrentUser } from "@/lib/auth/session";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -32,7 +31,6 @@ export default async function AccountPage() {
         <ProfileForm user={user} />
         <PasswordForm />
       </div>
-      <Footer />
     </div>
   );
 }

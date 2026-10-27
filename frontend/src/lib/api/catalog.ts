@@ -14,5 +14,20 @@ async function catalog<T>(resource: string, sample: T[], required: (keyof T)[]):
 }
 export const getCareers = () => catalog<Career>("careers/public", sampleCareers, ["slug", "title", "category"]);
 export const getUniversities = () => catalog<University>("universities/public", sampleUniversities, ["slug", "name", "areas", "type"]);
-export async function getCareer(slug: string) { return (await getCareers()).find(item => item.slug === slug); }
+const ENGINEERING_SLUGS = [
+  "software-engineer",
+  "cloud-architect",
+  "cybersecurity-analyst",
+  "ai-engineer",
+  "data-analyst",
+  "designer",
+  "civil-engineer",
+  "mechanical-engineer",
+  "electrical-engineer",
+];
+
+export async function getCareer(slug: string) {
+  const target = ENGINEERING_SLUGS.includes(slug) ? "engineer" : slug;
+  return (await getCareers()).find(item => item.slug === target);
+}
 export async function getUniversity(slug: string) { return (await getUniversities()).find(item => item.slug === slug); }

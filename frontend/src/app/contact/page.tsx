@@ -3,7 +3,6 @@ import { MessageCircle } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { PageIntro } from "@/components/shared/PageIntro";
 import { ContactForm } from "@/components/forms/ContactForm";
-import Footer from "@/components/layout/Footer";
 
 export async function generateMetadata(): Promise<Metadata> {
   return { title: (await getTranslations("contact"))("meta") };
@@ -17,7 +16,6 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
         <p>{t("intro")}</p>
       </PageIntro>
       <ContactForm topic={topic === "scholarships" || topic === "feedback" ? topic : "guidance"} />
-      <Footer />
     </div>
   );
 }

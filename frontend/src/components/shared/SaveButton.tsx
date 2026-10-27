@@ -12,7 +12,8 @@ export function SaveButton({ id, title, kind = "career", compact = false, iconAs
   const saved = (JSON.parse(serialized) as { id: string; kind: string }[]).some((item) => item.id === id && item.kind === kind);
   const [error, setError] = useState(false);
 
-  function toggle() {
+  function toggle(e?: React.MouseEvent) {
+    e?.stopPropagation();
     try {
       savedItems.toggle({ id, title, kind });
       setError(false);

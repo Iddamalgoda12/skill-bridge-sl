@@ -41,7 +41,41 @@
   },
   "footer": {
     "tagline": "Your future. Your path.",
-    "note": "An independent student-made guidance platform • Sri Lanka"
+    "note": "An independent student-made guidance platform • Sri Lanka",
+    "description": "Sri Lanka's dedicated career guidance and higher education roadmap platform. Built to empower O/L, A/L, and university students to discover degree pathways, UGC selection criteria, and modern careers.",
+    "liveStatus": "Live for 2026/2027 Admissions",
+    "colHigherEd": "Higher Education",
+    "colCareers": "Career Pathways",
+    "colTools": "Student Tools",
+    "colAbout": "About & Trust",
+    "linkAllUnis": "All Sri Lankan Universities",
+    "linkStateUnis": "17 State Universities",
+    "linkNonStateUnis": "Non-State Campuses",
+    "linkRuhunaProfile": "University of Ruhuna Profile",
+    "linkUgcRoadmap": "UGC Admission Guide",
+    "linkAllCareers": "Explore All Careers",
+    "linkTechCareers": "Software & Technology",
+    "linkHealthCareers": "Healthcare & Medicine",
+    "linkEngineeringCareers": "Engineering & Industry",
+    "linkBusinessCareers": "Management & Finance",
+    "linkBuildPath": "Build Your Roadmap",
+    "linkMyPath": "My Saved Shortlist",
+    "linkStreamGuide": "A/L Stream Guide",
+    "linkAccount": "Student Account",
+    "linkMentor": "Guidance & Mentorship",
+    "linkStory": "Creator Story & Mission",
+    "linkRuhunaHeritage": "Ruhuna Engineering Roots",
+    "linkContact": "Contact & Feedback",
+    "linkPrivacy": "Student Privacy & Terms",
+    "linkUgcPortal": "Official UGC Portal",
+    "newsletterTitle": "Stay Ahead of University & Career Deadlines",
+    "newsletterSubtitle": "Get verified university intake alerts, A/L stream insights, and scholarship updates.",
+    "newsletterPlaceholder": "Enter your student email...",
+    "newsletterButton": "Stay Informed",
+    "newsletterSuccess": "Thank you! You're subscribed to intake updates.",
+    "copyright": "© {year} SkillBridge SL. An independent educational platform crafted by a Ruhuna engineering student.",
+    "disclaimer": "Independent educational guidance. Admission requirements reference official UGC Sri Lanka publications.",
+    "backToTop": "Back to top"
   },
   "save": {
     "removeLabel": "Remove {title} from My Path",
@@ -245,7 +279,7 @@
       "Skilled Trades": "Skilled Trades"
     },
     "salary": {
-      "average": "LKR {amount, number}k / mo avg",
+      "average": "LKR {amount, number}k / mo avg (2026)",
       "varies": "Varies by post / mo avg",
       "unknown": "Monthly pay: varies"
     },
@@ -441,6 +475,186 @@
         "summary": "Help customers find answers and resolve problems.",
         "employers": "Dialog · banks · BPO",
         "entry": "O/L / A/L + communication skills"
+      },
+      "engineer": {
+        "title": "Engineer",
+        "summary": "Design systems, develop infrastructure, and lead technical innovation across all industries.",
+        "employers": "Access · Maga · CEB · MAS · Dialog",
+        "entry": "A/L Combined Maths + accredited B.Sc. Engineering"
+      },
+      "lawyer": {
+        "title": "Lawyer",
+        "summary": "Provide legal counsel, handle dispute litigation, and uphold corporate law.",
+        "employers": "Bar Association · Commercial Banks · Law Firms",
+        "entry": "A/L any stream → LLB Degree / Sri Lanka Law College"
+      },
+      "teacher": {
+        "title": "School Teacher",
+        "summary": "Help the next generation learn, develop skills, and grow.",
+        "employers": "Government national schools · Lyceum · Gateway",
+        "entry": "A/L → National College of Education (NCOE) / B.Ed degree"
+      },
+      "nurse": {
+        "title": "Registered Nurse",
+        "summary": "Support patients through skilled, compassionate clinical care.",
+        "employers": "General Hospitals · Asiri Health · Lanka Hospitals",
+        "entry": "A/L Science → Government Nursing Training / B.Sc Nursing"
+      },
+      "architect": {
+        "title": "Architect",
+        "summary": "Imagine and design buildings, sustainable structures, and liveable spaces.",
+        "employers": "Design studios · Architecture consultancies · CECB",
+        "entry": "A/L Maths or Arts + B.Arch degree / SLIA parts"
+      },
+      "banker": {
+        "title": "Banking Officer",
+        "summary": "Support customers and companies with banking, credit facilities, and loans.",
+        "employers": "Commercial Bank · HNB · Sampath Bank · BOC",
+        "entry": "A/L any stream + IBSL exams / Finance degree"
+      },
+      "hr-manager": {
+        "title": "HR Manager",
+        "summary": "Cultivate workplace talent, manage recruitment, and foster organisation culture.",
+        "employers": "MAS · John Keells · Brandix · Hemas",
+        "entry": "A/L any stream + CIPM qualification / HR degree"
+      },
+      "designer": {
+        "title": "UI / UX Designer",
+        "summary": "Create useful, delightful digital user interfaces and mobile experiences.",
+        "employers": "99x · Arimac · Sysco LABS · Tech startups",
+        "entry": "Any A/L + design portfolio + UI/UX tools"
+      },
+      "hospitality-manager": {
+        "title": "Hospitality Manager",
+        "summary": "Deliver world-class guest experiences across Sri Lanka's luxury resorts.",
+        "employers": "Jetwing · Cinnamon Hotels · Aitken Spence",
+        "entry": "A/L any stream + SLITHM diploma / hospitality degree"
+      },
+      "logistics-manager": {
+        "title": "Logistics Manager",
+        "summary": "Keep global shipping fleets, port cargo, and supply chains moving smoothly.",
+        "employers": "Hayleys Advantis · DHL · Aitken Spence",
+        "entry": "A/L + CILT / logistics degree"
+      },
+      "airline-pilot": {
+        "title": "Airline Pilot",
+        "summary": "Command commercial passenger flights and manage international flight safety.",
+        "employers": "SriLankan Airlines · FitsAir · International carriers",
+        "entry": "A/L Science / Maths + Class 1 Medical + CPL / ATPL"
+      },
+      "agricultural-scientist": {
+        "title": "Agricultural Scientist",
+        "summary": "Innovate sustainable crop farming, food security, and modern smart agri-tech.",
+        "employers": "Department of Agriculture · Tea Research Institute · CIC",
+        "entry": "A/L Bio / Biosystems Technology → B.Sc. Agriculture"
+      },
+      "marine-officer": {
+        "title": "Marine Officer",
+        "summary": "Navigate merchant naval vessels and manage deep-sea marine engineering.",
+        "employers": "Mercantile Marine Management · Colombo Dockyard · Global fleets",
+        "entry": "A/L Maths / Science → Cadet Training (CINEC / KDU) + CoC"
+      },
+      "dentist": {
+        "title": "Dental Surgeon / Dentist",
+        "summary": "Diagnose dental health, perform oral surgeries, and treat orthodontic conditions.",
+        "employers": "Government Dental Institutes · Private Dental Hospitals · Asiri",
+        "entry": "A/L Bio Science → BDS (Peradeniya) → SLMC Dental Council registration"
+      },
+      "veterinarian": {
+        "title": "Veterinary Surgeon",
+        "summary": "Treat companion pets, farm livestock, wildlife species, and protect animal healthcare.",
+        "employers": "Department of Animal Production & Health · Wildlife Dept · Vet Clinics",
+        "entry": "A/L Bio Science → BVSc (Peradeniya) → Veterinary Council registration"
+      },
+      "financial-analyst": {
+        "title": "Financial & Investment Analyst",
+        "summary": "Analyze equity markets, corporate balance sheets, and guide high-return investments.",
+        "employers": "Colombo Stock Exchange · NDB Capital · CAL · Acuity · Commercial Banks",
+        "entry": "A/L Commerce / Maths → Finance Degree / CFA / CIMA"
+      },
+      "cloud-architect": {
+        "title": "Cloud & DevOps Architect",
+        "summary": "Architect resilient AWS/Azure/GCP cloud environments and automate CI/CD pipelines.",
+        "employers": "Sysco LABS · WSO2 · Dialog · Axiata Digital Labs · IFS",
+        "entry": "Computing Degree + AWS/Azure Certified Solutions Architect"
+      },
+      "ai-engineer": {
+        "title": "AI & Machine Learning Engineer",
+        "summary": "Build generative AI models, natural language processing pipelines, and neural networks.",
+        "employers": "Virtusa · WSO2 · Sysco LABS · AI Research Labs · LSEG",
+        "entry": "Maths / Computing / Data Science degree + Python / PyTorch / LLMs"
+      },
+      "biomedical-scientist": {
+        "title": "Biomedical & Laboratory Scientist",
+        "summary": "Perform clinical blood pathologies, microbiological testing, and molecular diagnostics.",
+        "employers": "State General Hospitals · Asiri Laboratories · Durdans · Lanka Hospitals",
+        "entry": "A/L Science → B.Sc. Medical Laboratory Science (MLS) / Biomedical Science"
+      },
+      "food-scientist": {
+        "title": "Food Scientist & Technologist",
+        "summary": "Innovate nutrition products, test food safety, and manage modern agro-processing lines.",
+        "employers": "Ceylon Biscuits (Munchee) · Maliban · Nestlé Lanka · Elephant House",
+        "entry": "A/L Bio / Science → B.Sc. Food Science & Technology"
+      },
+      "air-traffic-controller": {
+        "title": "Air Traffic Controller (ATC)",
+        "summary": "Manage flight trajectories, airport runways, and ensure safe separation of commercial airliners.",
+        "employers": "Airport & Aviation Services Sri Lanka (AASL) · Bandaranaike Int'l Airport (BIA)",
+        "entry": "A/L Maths / Science + AASL ATC Selection Aptitude & Medical"
+      },
+      "fashion-designer": {
+        "title": "Fashion & Apparel Designer",
+        "summary": "Design international runway collections, functional performance sportswear, and apparel trends.",
+        "employers": "MAS Holdings · Brandix Apparel · Hirdaramani · Design Studios",
+        "entry": "Any A/L + B.Des Fashion Design (Moratuwa) / SLITA / AOD"
+      },
+      "tea-plantation-manager": {
+        "title": "Tea Plantation & Estate Manager",
+        "summary": "Direct Ceylon tea cultivation, processing factories, and sustainable high-elevation plantations.",
+        "employers": "Hayleys Plantations · Kelani Valley · Dilmah Tea · Maskeliya Plantations",
+        "entry": "A/L Agriculture / Science / Commerce + B.Sc. Plantation Management / NIPM"
+      },
+      "wildlife-conservationist": {
+        "title": "Wildlife Conservation Officer",
+        "summary": "Protect endangered species, safeguard national parks (Yala/Wilpattu), and manage human-elephant coexistence.",
+        "employers": "Department of Wildlife Conservation (DWC) · WNPS · Elephant Transit Home",
+        "entry": "A/L Bio Science → B.Sc. Zoology / Wildlife Conservation (Colombo/USJ)"
+      },
+      "marine-biologist": {
+        "title": "Marine Biologist & Oceanographer",
+        "summary": "Research coral reefs, blue whale migration corridors, and protect Indian Ocean marine biodiversity.",
+        "employers": "NARA · Ruhuna Marine Science · Oceanswell · Blue Resources Trust",
+        "entry": "A/L Bio Science → B.Sc. Marine Science / Oceanography (Ruhuna/Colombo)"
+      },
+      "ayurvedic-doctor": {
+        "title": "Ayurvedic Medical Doctor (BAMS)",
+        "summary": "Heal patients through holistic indigenous medicine, herbal pharmacology, and Panchakarma therapies.",
+        "employers": "Ayurvedic Teaching Hospitals · Siddhalepa · Link Natural · Luxury Wellness Resorts",
+        "entry": "A/L Bio Science → BAMS (Colombo / Gampaha Wickramarachchi) → Ayurvedic Council"
+      },
+      "gemologist": {
+        "title": "Gemologist & Jewellery Appraiser",
+        "summary": "Inspect, grade, and certify precious Ceylon blue sapphires, rubies, and gemstone crystals.",
+        "employers": "National Gem and Jewellery Authority (NGJA) · Ratnapura Gem Exchanges · Export Houses",
+        "entry": "A/L Science / Maths → B.Sc. Geology / NGJA Professional Gemology Diploma"
+      },
+      "aquaculture-specialist": {
+        "title": "Aquaculture & Fisheries Specialist",
+        "summary": "Lead coastal brackish-water prawn farms, freshwater fish hatcheries, and sustainable seafood exports.",
+        "employers": "NAQDA · Oceanpick · Taprobane Seafood Group · State Hatcheries",
+        "entry": "A/L Bio Science → B.Sc. Aquaculture & Fisheries (Ruhuna / Wayamba)"
+      },
+      "environmental-officer": {
+        "title": "Environmental Officer & Forester",
+        "summary": "Conserve tropical rainforest reserves (Sinharaja/KDN), monitor industrial emissions, and manage reforestation.",
+        "employers": "Forest Department Sri Lanka · Central Environmental Authority (CEA) · UNDP",
+        "entry": "A/L Bio / Science → B.Sc. Forestry & Environmental Science (USJ)"
+      },
+      "ecotourism-naturalist": {
+        "title": "Eco-Tourism Naturalist & Safari Guide",
+        "summary": "Guide international wildlife expeditions, birdwatching tours, and whale watching safaris.",
+        "employers": "Jetwing Vil Uyana · Cinnamon Nature Trails · Walkers Tours · Eco-Lodges",
+        "entry": "A/L any stream + SLTDA Chauffeur/Site Guide License + Field Naturalist Training"
       }
     },
     "university": {
@@ -637,7 +851,10 @@
     "notes": {
       "salary": "Salary signals are indicative monthly averages for listed occupations or adjacent role families, not guaranteed offers.",
       "entry": "Entry routes are guidance only: actual A/L subjects, grades, Z-scores, accreditation, licensing and employer criteria differ.",
-      "confirm": "Confirm salary information and admission requirements with current official sources before making a decision."
+      "confirm": "Confirm salary information and admission requirements with current official sources before making a decision.",
+      "badge": "2026 Benchmarks & Official Guidance",
+      "salaryTitle": "2026 Monthly Salary Signals",
+      "entryTitle": "Education & Admission Pathways"
     }
   },
   "careerDetail": {
