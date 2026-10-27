@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { ActionLink } from "@/components/shared/ActionLink";
+import { TrendingViewport } from "./TrendingViewport";
 import assets from "@/lib/design/assets.json";
 
 const trends = [
@@ -39,12 +40,12 @@ export async function TrendingCareers() {
         <h2 id="trending-heading">{t("trending")}</h2>
         <ActionLink href="/careers">{t("viewAll")}</ActionLink>
       </div>
-      <div className="trending-viewport" role="region" aria-label={t("trending")}>
+      <TrendingViewport label={t("trending")} pauseLabel={t("pauseTrending")} playLabel={t("playTrending")}>
         <div className="trending-track">
           {trends.map((career) => <CareerCard career={career} key={career.slug} />)}
           {trends.map((career) => <CareerCard career={career} duplicate key={`duplicate-${career.slug}`} />)}
         </div>
-      </div>
+      </TrendingViewport>
     </section>
   );
 }

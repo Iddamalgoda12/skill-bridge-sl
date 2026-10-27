@@ -105,7 +105,9 @@
         "name": "Teacher",
         "focus": "Education & learning"
       }
-    }
+    },
+    "pauseTrending": "Pause scrolling",
+    "playTrending": "Resume scrolling"
   },
   "auth": {
     "fields": {
@@ -909,7 +911,10 @@
       "admissions": "Admissions",
       "rankings": "Rankings",
       "campusLife": "Campus life",
-      "gallery": "Gallery"
+      "gallery": "Gallery",
+      "heritage": "Heritage & Architecture",
+      "facilities": "Facilities & Life",
+      "resources": "Official Links"
     },
     "getToKnow": "GET TO KNOW {name}",
     "overviewTitleRuhuna": "A university across Southern Sri Lanka",
@@ -1052,7 +1057,101 @@
       "main": "{name} campus photo",
       "life": "Campus life",
       "buildings": "Faculty buildings",
-      "placeholder": "Campus photographs will appear here."
+      "placeholder": "Campus photographs will appear here.",
+      "title": "Explore the University of Ruhuna in Pictures",
+      "subtitle": "Authentic photographs of the iconic Wellamadama coastal campus, Geoffrey Bawa architecture, and specialized faculties.",
+      "photo1Badge": "Aerial View",
+      "photo1Title": "Wellamadama Coastal Campus & Indian Ocean",
+      "photo1Desc": "The main campus is perched on rolling coastal knolls overlooking the Indian Ocean along the Matara-Kataragama road.",
+      "photo2Badge": "Geoffrey Bawa Masterpiece",
+      "photo2Title": "Tropical Modernist Hillside Pavilions",
+      "photo2Desc": "World-renowned red-tiled pavilions, natural rock outcrops, and shaded colonnades designed by legendary architect Geoffrey Bawa.",
+      "photo3Badge": "Engineering Campus",
+      "photo3Title": "Faculty of Engineering (Hapugala, Galle)",
+      "photo3Desc": "Modern multi-tier engineering blocks nestled in the green hills of Hapugala.",
+      "photo4Badge": "Scenic Campus",
+      "photo4Title": "Open Courtyards & Ocean Breeze Loggias",
+      "photo4Desc": "Covered walkways connecting hillsides with natural breeze channels and lush garden courtyards.",
+      "photo5Badge": "Laboratories",
+      "photo5Title": "Department of Electrical & Information Engineering",
+      "photo5Desc": "State-of-the-art computing, telecommunications, and high-voltage laboratories.",
+      "attribution": "Real photographs sourced via Wikimedia Commons & University of Ruhuna community (CC BY-SA 3.0).",
+      "close": "Close",
+      "viewFull": "View photograph"
+    },
+    "motto": "Paññayā Narānaṅ Ratanaṅ · Wisdom is man’s greatest treasure",
+    "taglineRuhuna": "The Southern Province’s Premier National Seat of Higher Learning",
+    "establishedDetail": "Founded 1 Sept 1978 · University Status 1 Feb 1984",
+    "bawaHeritageBadge": "Geoffrey Bawa Architecture",
+    "tagoreBadge": "Tagore Memorial Auditorium (1,500 Seats)",
+    "heritage": {
+      "eyebrow": "ARCHITECTURAL MASTERPIECE",
+      "title": "Geoffrey Bawa’s Coastal Masterpiece",
+      "description": "The Wellamadama main campus was master-planned by legendary Sri Lankan architect Geoffrey Bawa between 1980 and 1988, creating an internationally acclaimed masterpiece of Tropical Modernism.",
+      "bawaCard1Title": "Ocean Vistas & Natural Rock Outcrops",
+      "bawaCard1Desc": "Built on a 72-acre coastal topography across two hills and an artificial lake, Bawa preserved natural granite boulders and sea breezes rather than leveling the terrain.",
+      "bawaCard2Title": "50+ Pavilions Linked by Covered Loggias",
+      "bawaCard2Desc": "Instead of monolithic concrete blocks, over fifty individual red-tiled pavilions are connected by covered stone verandas, courtyards, and open-air corridors.",
+      "tagoreTitle": "Rabindranath Tagore Memorial Auditorium",
+      "tagoreDesc": "Gifted through a grant from the Government of India, this 1,500-seat state-of-the-art facility is the largest auditorium in any Sri Lankan university, adhering gracefully to Bawa's Tropical Modernist aesthetic."
+    },
+    "facultyExplorer": {
+      "eyebrow": "CAMPUS & FACULTY DIRECTORY",
+      "title": "Explore Ruhuna’s 10 Specialized Faculties",
+      "description": "Faculties are strategically located across the Southern Province in Matara, Galle, and Kamburupitiya to optimize clinical, marine, engineering, and agricultural education.",
+      "filterAll": "All Faculties (10)",
+      "filterMatara": "Wellamadama, Matara (5)",
+      "filterGalle": "Galle Campuses (3)",
+      "filterKamburupitiya": "Kamburupitiya (2)",
+      "streamLabel": "A/L Stream:",
+      "estLabel": "Est.",
+      "locationLabel": "Location:",
+      "visitFaculty": "Faculty Portal"
+    },
+    "facilitiesSection": {
+      "eyebrow": "CAMPUS FACILITIES & LIFE",
+      "title": "World-Class Facilities & Student Community",
+      "description": "Beyond lectures, Ruhuna offers premier research infrastructure, oceanfront libraries, vibrant student societies, and athletic facilities.",
+      "tagoreFacilityTitle": "Rabindranath Tagore Memorial Auditorium",
+      "tagoreFacilityDesc": "1,500-seat acoustic concert and convocation hall, the largest in any university across Sri Lanka.",
+      "libraryFacilityTitle": "Main Library & Research Commons",
+      "libraryFacilityDesc": "Over 200,000 volumes, e-journal databases, quiet study halls, and branch libraries in Galle and Mapalana.",
+      "sportsFacilityTitle": "Sports Complex & Athletic Grounds",
+      "sportsFacilityDesc": "Indoor gymnasium, international-standard athletic track, cricket ground, badminton, and annual Colours Night.",
+      "marineFacilityTitle": "Marine Research Station & Hatcheries",
+      "marineFacilityDesc": "Dedicated marine research vessels, oceanographic monitors, and coastal aquaculture hatcheries.",
+      "societiesFacilityTitle": "30+ Student Societies & Clubs",
+      "societiesFacilityDesc": "IEEE Student Branch Ruhuna, AIESEC in Ruhuna, Rotaract, Arts Circle, Nature Club, and Explorers.",
+      "labsFacilityTitle": "Advanced Engineering & Science Labs",
+      "labsFacilityDesc": "High-voltage test facilities, robotics suites, clean rooms, and data processing centers."
+    },
+    "admissionsGuide": {
+      "eyebrow": "ADMISSION GUIDANCE",
+      "title": "How to Enter the University of Ruhuna",
+      "description": "A practical roadmap for Sri Lankan G.C.E. O/L and A/L students aiming for national university admission.",
+      "step1Title": "1. Choose the Right G.C.E. A/L Stream",
+      "step1Desc": "Engineering requires Physical Science (Combined Maths, Physics, Chemistry/ICT). Medicine and Allied Health require Biological Science. Technology requires ET/BST. Management and Humanities require Commerce and Arts.",
+      "step2Title": "2. Z-Score & UGC Selection Formula",
+      "step2Desc": "Selection is administered nationally by the University Grants Commission (UGC) via 40% All-Island Merit and 60% District Quota (including 5% for underprivileged districts).",
+      "step3Title": "3. Aptitude Tests & Special Criteria",
+      "step3Desc": "Certain degrees (e.g. Computer Science, Marine Information Technology) may require an aptitude test or minimum O/L English grade as published in the annual UGC handbook.",
+      "ugcAction": "Check Official UGC Handbook",
+      "ugcLinkText": "Visit UGC Sri Lanka Portal"
+    },
+    "resourcesHub": {
+      "eyebrow": "VERIFIED LINKS",
+      "title": "Official University Resources & Portals",
+      "description": "Working official links to university management, student information systems, and academic libraries.",
+      "mainPortal": "Main University Website",
+      "mainPortalDesc": "Official announcements, administration, and university news at ruh.ac.lk.",
+      "libraryPortal": "University Library Network",
+      "libraryPortalDesc": "Online public access catalog (OPAC), e-theses, and digital journals at lib.ruh.ac.lk.",
+      "examPortal": "Examination & Student Portal",
+      "examPortalDesc": "Student registration, examination schedules, and academic calendars.",
+      "cintaPortal": "Center for International Affairs (CINTA)",
+      "cintaPortalDesc": "Global university collaborations, scholar exchanges, and international grants.",
+      "ugcPortal": "University Grants Commission (UGC)",
+      "ugcPortalDesc": "Official university admission guidelines, cut-offs, and registration portal at ugc.ac.lk."
     }
   },
   "path": {

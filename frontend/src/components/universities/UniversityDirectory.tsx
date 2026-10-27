@@ -59,7 +59,7 @@ export function UniversityDirectory({ universities, initialCompare = false }: { 
             <Search size={20} aria-hidden="true" />
             <input type="search" aria-label={t("search.label")} placeholder={t("search.placeholder")} value={query} onChange={(e) => setQuery(e.target.value)} />
           </label>
-          <Button className="glass-button button-dark" type="submit"><Search size={18} aria-hidden="true" />{t("search.submit")}<ArrowRight size={18} aria-hidden="true" /></Button>
+          <Button variant="glass" className="glass-button button-dark" type="submit"><Search size={18} aria-hidden="true" />{t("search.submit")}<ArrowRight size={18} aria-hidden="true" /></Button>
         </div>
         <div className="filter-row">
           <label className="select-control">
@@ -123,7 +123,7 @@ export function UniversityDirectory({ universities, initialCompare = false }: { 
           <h3>{compare ? t("compare.selected", { count: selected.length, max: MAX_COMPARE }) : t("compare.title")}</h3>
           <p className="muted">{t("compare.subtitle")}</p>
         </div>
-        <Button className="glass-button button-dark" onClick={() => { if (!compare) setCompare(true); else if (selected.length >= 2) setShowComparison(true); }} disabled={compare && selected.length < 2}>
+        <Button variant="glass" className="glass-button button-dark" onClick={() => { if (!compare) setCompare(true); else if (selected.length >= 2) setShowComparison(true); }} disabled={compare && selected.length < 2}>
           <Columns3 size={16} aria-hidden="true" />{compare ? t("compare.run") : t("compare.start")}<ArrowRight size={17} aria-hidden="true" />
         </Button>
       </div>

@@ -1,467 +1,469 @@
 {
   "meta": {
-    "title": "SkillBridge SL — ඔබේ අනාගතය. ඔබේ මාර්ගය.",
-    "description": "වෘත්තීන් ගවේෂණය කරන්න, ශ්‍රී ලංකාවේ විශ්වවිද්‍යාල සසඳන්න, ඔබටම ආවේණික අධ්‍යාපන මාර්ග සිතියමක් සාදාගන්න."
+    "title": "SkillBridge SL — ඔයාගෙ අනාගතය. ඔයාගෙම path එක.",
+    "description": "Careers ගැන හොයන්න, ලංකාවේ universities compare කරන්න, ඔයාටම හරියන education roadmap එකක් හදාගන්න."
   },
   "nav": {
-    "skipToContent": "ප්‍රධාන අන්තර්ගතයට යන්න",
-    "mainNavigation": "ප්‍රධාන සංචාලනය",
+    "skipToContent": "ප්‍රධාන කොටසට යන්න",
+    "mainNavigation": "ප්‍රධාන මෙනුව",
     "home": "SkillBridge SL මුල් පිටුව",
-    "logoAlt": "SkillBridge SL — ඔබේ අනාගතය. ඔබේ මාර්ගය.",
-    "careers": "වෘත්තීන් ගවේෂණය",
-    "path": "ඔබේ මාර්ගය",
-    "universities": "විශ්වවිද්‍යාල",
+    "logoAlt": "SkillBridge SL — ඔයාගෙ අනාගතය. ඔයාගෙම path එක.",
+    "careers": "Careers හොයන්න",
+    "path": "ඔයාගෙ Path එක",
+    "universities": "Universities",
     "about": "අප ගැන",
-    "account": "ගිණුම",
-    "login": "පිවිසෙන්න",
-    "logout": "ඉවත් වන්න",
+    "account": "Account එක",
+    "login": "Login වෙන්න",
+    "logout": "Logout වෙන්න",
     "closeMenu": "මෙනුව වසන්න",
-    "openMenu": "මෙනුව විවෘත කරන්න",
+    "openMenu": "මෙනුව අරින්න",
     "language": "භාෂාව"
   },
   "mobile": {
-    "closeMenu": "සංචාලන මෙනුව වසන්න",
-    "navigation": "ජංගම සංචාලනය",
-    "eyebrow": "ඔබේ අනාගතය මෙතැනින් ඇරඹේ",
-    "title": "ඔබේ හැකියාවන් ගවේෂණය කරන්න",
-    "subtitle": "ඔබේ අභිලාෂයන්ට ගැළපෙන මාර්ගයක් සොයාගන්න.",
+    "closeMenu": "මෙනුව වසන්න",
+    "navigation": "Mobile මෙනුව",
+    "eyebrow": "ඔයාගෙ අනාගතය මෙතනින් පටන් ගන්න",
+    "title": "හැකියාවන් explore කරන්න",
+    "subtitle": "ඔයාගෙ goals වලට ගැළපෙන path එකක් හොයාගන්න.",
     "description": {
-      "careers": "ඔබට ගැළපෙන වෘත්තිය සොයාගන්න",
-      "path": "ඔබේම මාර්ග සිතියම සාදන්න",
-      "universities": "ඔබට සුදුසු විශ්වවිද්‍යාලය සොයාගන්න",
-      "about": "SkillBridge ගැන තව දැනගන්න"
+      "careers": "ඔයාට හරියන career එක හොයාගන්න",
+      "path": "ඔයාගෙම roadmap එක හදාගන්න",
+      "universities": "ඔයාට ගැළපෙන university එක හොයාගන්න",
+      "about": "SkillBridge ගැන තව විස්තර දැනගන්න"
     },
-    "accountDescription": "ඔබේ පැතිකඩ සහ මුරපදය කළමනාකරණය කරන්න",
-    "loginDescription": "ඔබේ ගමන සහ ප්‍රගතිය සුරකින්න",
-    "questions": "ඔබට ප්‍රශ්න තිබේද?",
-    "help": "විශේෂඥයන්ගෙන් උදව් ලබාගන්න",
-    "guidance": "පුද්ගලික මඟපෙන්වීමක් ඉල්ලන්න",
-    "tagline": "ඔබේ අනාගතය. ඔබේ මාර්ගය.",
-    "footer": "සියලු විෂය ක්ෂේත්‍රවල ශ්‍රී ලාංකික සිසුන් සඳහා උසස් තත්ත්වයේ වෘත්තීය මඟපෙන්වීම."
+    "accountDescription": "ඔයාගෙ profile එකයි password එකයි manage කරගන්න",
+    "loginDescription": "ඔයාගෙ journey එකයි progress එකයි save කරගන්න",
+    "questions": "ප්‍රශ්න මොනවා හරි තියෙනවද?",
+    "help": "Senior කෙනෙක්ගෙන් help එකක් ගන්න",
+    "guidance": "Personal guidance එකක් ඉල්ලන්න",
+    "tagline": "ඔයාගෙ අනාගතය. ඔයාගෙම path එක.",
+    "footer": "ඕනෑම stream එකක ලාංකික students ලා වෙනුවෙන්ම හැදූ career guidance එක."
   },
   "footer": {
-    "tagline": "ඔබේ අනාගතය. ඔබේ මාර්ගය.",
-    "note": "ස්වාධීන ශිෂ්‍ය මඟපෙන්වීම් වේදිකාවක් • ශ්‍රී ලංකාව"
+    "tagline": "ඔයාගෙ අනාගතය. ඔයාගෙම path එක.",
+    "note": "Students ලා වෙනුවෙන්ම ශිෂ්‍යයෙක් හදපු guidance platform එකක් • ශ්‍රී ලංකාව"
   },
   "save": {
-    "removeLabel": "{title} මගේ මාර්ගයෙන් ඉවත් කරන්න",
-    "saveLabel": "{title} මගේ මාර්ගයට සුරකින්න",
-    "saved": "මගේ මාර්ගයට සුරැකිණි",
-    "addUniversity": "මගේ විශ්වවිද්‍යාල ලැයිස්තුවට එක් කරන්න",
-    "addCareer": "ඔබේ මාර්ගයට එක් කරන්න",
-    "storageError": "ඔබේ බ්‍රවුසරයට මෙය සුරැකීමට නොහැකි විය. කරුණාකර දේශීය ගබඩාව (local storage) සක්‍රිය කරන්න."
+    "removeLabel": "{title} මගේ Path එකෙන් අයින් කරන්න",
+    "saveLabel": "{title} මගේ Path එකට save කරගන්න",
+    "saved": "මගේ Path එකට save කරගත්තා",
+    "addUniversity": "මගේ university list එකට add කරගන්න",
+    "addCareer": "ඔයාගෙ Path එකට add කරගන්න",
+    "storageError": "Browser එකෙන් මේක save කරගන්න බැරි වුණා. කරුණාකර local storage enable කරගන්න."
   },
   "home": {
-    "artworkAlt": "ලැප්ටොප් පරිගණකයක් සහ පෑනක් සමඟ තම අනාගතය ගැන කල්පනා කරන ශ්‍රී ලාංකික සිසුවියක්",
-    "eyebrow": "ඔබේ අනාගතය මෙතැනින් ඇරඹේ",
-    "headline": "<accent>ඔබේ මාර්ගය සොයාගන්න.</accent>",
-    "ideaNote": "හොඳ<br></br>තීරණ<br></br>දීප්තිමත්<br></br>හෙට දින",
-    "description": "ඊළඟට කුමක්දැයි සිතීමේ සිට නිවැරදි මාර්ගය දැනගැනීම දක්වා. වෘත්තීන්, අධ්‍යාපන මාර්ග සහ විශ්වවිද්‍යාල එකම තැනකින් සොයාගන්න.",
+    "artworkAlt": "Laptop එකකුයි පෑනකුයි එක්ක තමන්ගෙ future එක ගැන හිතන ලාංකික ශිෂ්‍යාවක්",
+    "eyebrow": "ඔයාගෙ අනාගතය මෙතනින් පටන් ගන්න",
+    "headline": "ඔයාගෙ<br></br><accent>path එක හොයාගන්න.</accent>",
+    "ideaNote": "හොඳ<br></br>තීරණ<br></br>දීප්තිමත්<br></br>හෙටක්",
+    "description": "ඊළඟට මොකද කරන්නේ කියන තැන ඉඳන් යන්න ඕන තැන හරියටම දැනගන්න. Careers, study pathways සහ universities ඔක්කොම එකම තැනකින් හොයාගන්න.",
     "actions": {
-      "careers": "වෘත්තීන් ගවේෂණය",
-      "path": "ඔබේ මාර්ගය සැලසුම් කරන්න",
-      "universities": "විශ්වවිද්‍යාල",
-      "saved": "සුරැකි මාර්ග"
+      "careers": "Careers හොයන්න",
+      "path": "ඔයාගෙ path එක plan කරන්න",
+      "universities": "Universities",
+      "saved": "Save කරගත් paths"
     },
     "features": {
       "careers": {
-        "title": "වෘත්තීන් ගවේෂණය",
-        "copy": "ඔබේ ශක්තීන්ට ගැළපෙන, ඔබ ප්‍රිය කරන රැකියාවක් සොයාගන්න."
+        "title": "Careers හොයන්න",
+        "copy": "ඔයාගෙ හැකියාවන් එක්ක ඔයා ආස කරන field එකක් හොයාගන්න."
       },
       "saved": {
-        "title": "ඔබේ කෙටි ලැයිස්තුව සුරකින්න",
-        "copy": "ඔබ කැමති වෘත්තීන් සහ විශ්වවිද්‍යාල එකම තැනක සුරකින්න."
+        "title": "Shortlist එක save කරගන්න",
+        "copy": "ඔයා කැමති careers සහ universities එක ළඟින් තියාගන්න."
       },
       "path": {
-        "title": "ඔබේ ගමන සැලසුම් කරන්න",
-        "copy": "O/L සිට PhD දක්වා පැහැදිලි අධ්‍යාපන මාර්ගයක්."
+        "title": "Journey එක plan කරන්න",
+        "copy": "O/L ඉඳන් PhD එක දක්වාම පැහැදිලි roadmap එකක්."
       },
       "universities": {
-        "title": "විශ්වවිද්‍යාල සසඳන්න",
-        "copy": "ඔබේ ඊළඟ පියවර සඳහා සුදුසු ස්ථානය සොයාගන්න."
+        "title": "Universities compare කරන්න",
+        "copy": "ඔයාගෙ ඊළඟ පියවරට වඩාත්ම ගැළපෙන තැන තෝරගන්න."
       }
     },
-    "trending": "ජනප්‍රිය වෘත්තීය මාර්ග",
-    "viewAll": "සියල්ල බලන්න",
+    "trending": "දැන් trending වෙන career paths",
+    "viewAll": "ඔක්කොම බලන්න",
     "trendingCards": {
-      "universities": "විශ්වවිද්‍යාල {count}ක්",
+      "universities": "Universities {count}ක්",
       "engineer": {
-        "name": "ඉංජිනේරු",
-        "focus": "නිර්මාණ සහ තාක්ෂණය"
+        "name": "Engineer (ඉංජිනේරු)",
+        "focus": "Design & technology"
       },
       "doctor": {
-        "name": "වෛද්‍ය",
-        "focus": "සෞඛ්‍ය සහ විද්‍යාව"
+        "name": "Doctor (වෛද්‍යවරයා)",
+        "focus": "Health & science"
       },
       "accountant": {
-        "name": "ගණකාධිකාරී",
-        "focus": "ව්‍යාපාර සහ මූල්‍ය"
+        "name": "Accountant (ගණකාධිකාරී)",
+        "focus": "Business & finance"
       },
       "designer": {
-        "name": "නිර්මාණකරු",
-        "focus": "නිර්මාණශීලී තාක්ෂණය"
+        "name": "Designer (නිර්මාණකරු)",
+        "focus": "Creative technology"
       },
       "teacher": {
-        "name": "ගුරුවරයා",
-        "focus": "අධ්‍යාපනය සහ ඉගෙනුම"
+        "name": "Teacher (ගුරුවරයා)",
+        "focus": "Education & learning"
       }
-    }
+    },
+    "pauseTrending": "Scroll වීම නවත්වන්න",
+    "playTrending": "නැවත scroll කරන්න"
   },
   "auth": {
     "fields": {
-      "firstName": "මුල් නම",
-      "lastName": "වාසගම",
-      "email": "විද්‍යුත් තැපැල් ලිපිනය",
-      "password": "මුරපදය",
-      "passwordHint": "අකුරක් සහ ඉලක්කමක් අඩංගු අවම වශයෙන් අක්ෂර 8ක මුරපදයක් භාවිත කරන්න."
+      "firstName": "මුල් නම (First name)",
+      "lastName": "වාසගම (Last name)",
+      "email": "Email ලිපිනය",
+      "password": "Password එක",
+      "passwordHint": "අකුරක් සහ ඉලක්කමක් එක්ක අඩුම තරමේ අකුරු 8ක password එකක් දාන්න."
     },
     "login": {
-      "meta": "පිවිසෙන්න",
-      "title": "නැවත සාදරයෙන් පිළිගනිමු.",
-      "subtitle": "ඔබේ SkillBridge SL ගමන දිගටම කරගෙන යාමට පිවිසෙන්න.",
-      "submit": "පිවිසෙන්න",
-      "pending": "පිවිසෙමින්…",
-      "alternative": "SkillBridge SL සඳහා අලුත්ද?",
-      "alternativeLink": "ගිණුමක් සාදන්න",
-      "passwordChanged": "ඔබේ මුරපදය වෙනස් කරන ලදී. කරුණාකර නව මුරපදයෙන් නැවත පිවිසෙන්න."
+      "meta": "Login වෙන්න",
+      "title": "නැවතත් සාදරයෙන් පිළිගන්නවා.",
+      "subtitle": "SkillBridge SL journey එක දිගටම කරගෙන යන්න login වෙන්න.",
+      "submit": "Login වෙන්න",
+      "pending": "Login වෙන ගමන්…",
+      "alternative": "SkillBridge SL එකට අලුත්ද?",
+      "alternativeLink": "Account එකක් හදාගන්න",
+      "passwordChanged": "ඔයාගෙ password එක වෙනස් වුණා. කරුණාකර අලුත් password එකෙන් ආයෙත් login වෙන්න."
     },
     "register": {
-      "meta": "ගිණුමක් සාදන්න",
-      "title": "ඔබේ ගමන අරඹන්න.",
-      "subtitle": "ඔබේ SkillBridge SL ගිණුම සාදන්න.",
-      "submit": "ගිණුම සාදන්න",
-      "pending": "ගිණුම සාදමින්…",
-      "alternative": "දැනටමත් ගිණුමක් තිබේද?",
-      "alternativeLink": "පිවිසෙන්න"
+      "meta": "Account එකක් හදාගන්න",
+      "title": "ඔයාගෙ journey එක පටන් ගන්න.",
+      "subtitle": "SkillBridge SL account එකක් හදාගන්න.",
+      "submit": "Account එක හදාගන්න",
+      "pending": "Account එක හදන ගමන්…",
+      "alternative": "දැනටමත් account එකක් තියෙනවද?",
+      "alternativeLink": "Login වෙන්න"
     }
   },
   "errors": {
     "validation": {
-      "required": "මෙම ක්ෂේත්‍රය අනිවාර්යයි.",
-      "invalid_email": "වලංගු විද්‍යුත් තැපැල් ලිපිනයක් ඇතුළත් කරන්න.",
-      "too_long": "මෙය ඉතා දිගය.",
-      "too_short": "මෙය ඉතා කෙටිය. කරුණාකර අවම වශයෙන් අක්ෂර 10ක් ලියන්න.",
-      "password_length": "අක්ෂර 8 සිට 72 දක්වා භාවිත කරන්න.",
-      "password_weak": "අවම වශයෙන් එක් අකුරක් සහ එක් ඉලක්කමක් ඇතුළත් කරන්න.",
-      "mismatch": "මුරපද නොගැළපේ.",
-      "invalid": "මෙම අගය වලංගු නොවේ.",
-      "incorrect_password": "ඔබේ වත්මන් මුරපදය වැරදිය."
+      "required": "මේක අනිවාර්යයෙන් පුරවන්න ඕන.",
+      "invalid_email": "හරියන email address එකක් දාන්න.",
+      "too_long": "මේක දිග වැඩියි.",
+      "too_short": "මේක කෙටි වැඩියි. අඩුම ගාණෙ අකුරු 10ක්වත් ලියන්න.",
+      "password_length": "අකුරු 8ත් 72ත් අතර ප්‍රමාණයක් පාවිච්චි කරන්න.",
+      "password_weak": "අවම වශයෙන් එක අකුරක් සහ එක ඉලක්කමක්වත් ඇතුළත් කරන්න.",
+      "mismatch": "Passwords දෙක ගැළපෙන්නෙ නැහැ.",
+      "invalid": "මේ අගය වලංගු නැහැ.",
+      "incorrect_password": "දැනට තියෙන password එක වැරදියි."
     },
     "api": {
-      "INVALID_CREDENTIALS": "ඔබේ විද්‍යුත් තැපැල් ලිපිනය හෝ මුරපදය වැරදිය.",
-      "EMAIL_EXISTS": "මෙම විද්‍යුත් තැපැල් ලිපිනයෙන් ගිණුමක් දැනටමත් පවතී. ඒ වෙනුවට පිවිසීමට උත්සාහ කරන්න.",
-      "RATE_LIMITED": "උත්සාහයන් අධිකය. කරුණාකර මිනිත්තු කිහිපයකින් නැවත උත්සාහ කරන්න.",
-      "UNAVAILABLE": "සේවාව තාවකාලිකව ලබාගත නොහැක. කරුණාකර මොහොතකින් නැවත උත්සාහ කරන්න.",
-      "UNAUTHENTICATED": "ඔබේ සැසිය අවසන් වී ඇත. කරුණාකර නැවත පිවිසෙන්න.",
-      "INVALID_TOKEN": "ඔබේ සැසිය අවසන් වී ඇත. කරුණාකර නැවත පිවිසෙන්න.",
-      "FORBIDDEN": "ඒ සඳහා ඔබට අවසර නොමැත.",
-      "VALIDATION_FAILED": "කරුණාකර උද්දීපනය කළ ක්ෂේත්‍ර පරීක්ෂා කර නැවත උත්සාහ කරන්න.",
-      "NOT_FOUND": "ඔබ සොයන දේ සොයාගත නොහැකි විය.",
-      "INTERNAL_ERROR": "අපේ පැත්තෙන් යම් දෝෂයක් සිදු විය. කරුණාකර පසුව නැවත උත්සාහ කරන්න.",
-      "BAD_REQUEST": "එම ඉල්ලීම සම්පූර්ණ කළ නොහැකි විය. කරුණාකර නැවත උත්සාහ කරන්න.",
-      "NETWORK": "සේවාදායකයට සම්බන්ධ විය නොහැක. ඔබේ සම්බන්ධතාව පරීක්ෂා කර නැවත උත්සාහ කරන්න."
+      "INVALID_CREDENTIALS": "ඔයාගෙ email එක හෝ password එක වැරදියි.",
+      "EMAIL_EXISTS": "මේ email එකෙන් දැනටමත් account එකක් තියෙනවා. ඒකෙන් login වෙන්න බලන්න.",
+      "RATE_LIMITED": "Try කරපු වාර ගණන වැඩියි. විනාඩි කිහිපයකින් ආයෙ try කරන්න.",
+      "UNAVAILABLE": "Service එක තාවකාලිකව වැඩ නැහැ. පොඩ්ඩක් ඉඳලා ආයෙ try කරන්න.",
+      "UNAUTHENTICATED": "Session එක expire වෙලා. කරුණාකර ආයෙත් login වෙන්න.",
+      "INVALID_TOKEN": "Session එක expire වෙලා. කරුණාකර ආයෙත් login වෙන්න.",
+      "FORBIDDEN": "ඒකට ඔයාට access නැහැ.",
+      "VALIDATION_FAILED": "Highlight කරලා තියෙන තැන් ටික බලලා ආයෙ try කරන්න.",
+      "NOT_FOUND": "ඔයා හොයන දේ හොයාගන්න බැරි වුණා.",
+      "INTERNAL_ERROR": "අපේ පැත්තෙන් පොඩි අවුලක් වුණා. කරුණාකර පස්සෙ ආයෙ try කරන්න.",
+      "BAD_REQUEST": "ඉල්ලපු දේ කරන්න බැරි වුණා. කරුණාකර ආයෙ try කරන්න.",
+      "NETWORK": "Server එකට connect වෙන්න බැහැ. Internet connection එක check කරලා ආයෙ try කරන්න."
     }
   },
   "account": {
-    "meta": "මගේ ගිණුම",
-    "eyebrow": "ඔබේ ගිණුම",
-    "greeting": "ආයුබෝවන්, {name}.",
-    "subtitle": "ඔබේ පැතිකඩ කළමනාකරණය කර ගිණුම ආරක්ෂිතව තබාගන්න.",
+    "meta": "මගේ Account එක",
+    "eyebrow": "ඔයාගෙ account එක",
+    "greeting": "හායි, {name}.",
+    "subtitle": "ඔයාගෙ profile එක manage කරගෙන account එක secure තියාගන්න.",
     "role": {
-      "STUDENT": "ශිෂ්‍ය",
-      "INSTRUCTOR": "උපදේශක",
-      "ADMIN": "පරිපාලක"
+      "STUDENT": "ශිෂ්‍ය (Student)",
+      "INSTRUCTOR": "උපදේශක (Instructor)",
+      "ADMIN": "Admin"
     },
-    "logout": "ඉවත් වන්න",
+    "logout": "Logout වෙන්න",
     "profile": {
-      "heading": "පැතිකඩ",
-      "description": "SkillBridge SL හි ඔබව දිස්වන ආකාරය මෙයයි.",
+      "heading": "Profile එක",
+      "description": "SkillBridge SL එකේ ඔයාව අනිත් අයට පේන්නෙ මෙහෙමයි.",
       "firstName": "මුල් නම",
       "lastName": "වාසගම",
-      "email": "විද්‍යුත් තැපැල් ලිපිනය",
-      "emailNote": "ඔබේ විද්‍යුත් තැපෑල ඔබේ පිවිසුම වන අතර එය මෙතැනින් වෙනස් කළ නොහැක.",
-      "bio": "ඔබ ගැන (අත්‍යවශ්‍ය නොවේ)",
-      "bioHint": "උපරිම අක්ෂර 500ක්.",
-      "save": "වෙනස්කම් සුරකින්න",
-      "saving": "සුරකිමින්…",
-      "saved": "ඔබේ පැතිකඩ යාවත්කාලීන කරන ලදී."
+      "email": "Email ලිපිනය",
+      "emailNote": "Email එක තමයි ඔයාගෙ login එක, ඒ නිසා ඒක මෙතනින් වෙනස් කරන්න බැහැ.",
+      "bio": "ඔයා ගැන විස්තරයක් (optional)",
+      "bioHint": "උපරිම අකුරු 500ක්.",
+      "save": "Save කරගන්න",
+      "saving": "Save වෙන ගමන්…",
+      "saved": "ඔයාගෙ profile එක update කළා."
     },
     "password": {
-      "heading": "මුරපදය වෙනස් කරන්න",
-      "description": "ඔබව සියලු උපාංගවලින් ඉවත් කර නැවත පිවිසීමට ඉල්ලා සිටිනු ඇත.",
-      "current": "වත්මන් මුරපදය",
-      "new": "නව මුරපදය",
-      "confirm": "නව මුරපදය තහවුරු කරන්න",
-      "submit": "මුරපදය වෙනස් කරන්න",
-      "saving": "වෙනස් කරමින්…"
+      "heading": "Password එක වෙනස් කරන්න",
+      "description": "මේකෙන් පස්සෙ ඔයා connect වෙලා ඉන්න හැම device එකෙන්ම logout වෙන නිසා ආයෙ login වෙන්න වෙයි.",
+      "current": "දැනට තියෙන password එක",
+      "new": "අලුත් password එක",
+      "confirm": "අලුත් password එක තහවුරු කරන්න",
+      "submit": "Password එක වෙනස් කරන්න",
+      "saving": "වෙනස් වෙන ගමන්…"
     }
   },
   "contact": {
-    "meta": "පුද්ගලික මඟපෙන්වීම",
-    "eyebrow": "පුද්ගලික මඟපෙන්වීම",
-    "title": "ඔබට ප්‍රශ්න තිබේද?",
-    "intro": "ඔබ සිටින අදියර සහ ගවේෂණය කිරීමට කැමති දේ අපට කියන්න.",
+    "meta": "Personal Guidance",
+    "eyebrow": "Personal Guidance",
+    "title": "ප්‍රශ්න මොනවා හරි තියෙනවද?",
+    "intro": "ඔයා දැන් ඉන්න stage එකයි, දැනගන්න ඕන දේවල් ටිකයි අපිට කියන්න.",
     "form": {
-      "heading": "ඔබේ ඊළඟ පියවර එක්ව සොයාගනිමු.",
-      "name": "ඔබේ නම",
-      "email": "විද්‍යුත් තැපැල් ලිපිනය",
-      "topic": "අපට උදව් කළ හැක්කේ කුමක් සඳහාද?",
+      "heading": "ඔයාගෙ ඊළඟ පියවර අපි එකතු වෙලා හොයාගමු.",
+      "name": "ඔයාගෙ නම",
+      "email": "Email ලිපිනය",
+      "topic": "අපෙන් ඔයාට උදව් වෙන්න ඕනෙ මොනවාටද?",
       "topics": {
-        "guidance": "වෘත්තීය සහ පාඨමාලා මඟපෙන්වීම",
-        "scholarships": "ශිෂ්‍යත්ව සහ මූල්‍ය සහාය",
-        "feedback": "SkillBridge SL ගැන ප්‍රතිපෝෂණ"
+        "guidance": "Career සහ courses ගැන guidance එකක්",
+        "scholarships": "Scholarships සහ මූල්‍ය සහාය",
+        "feedback": "SkillBridge SL ගැන අදහස් (Feedback)"
       },
-      "message": "ඔබේ පණිවිඩය",
-      "send": "පණිවිඩය යවන්න",
-      "sending": "යවමින්…",
-      "success": "ඔබේ පණිවිඩය යවන ලදී. අප හා සම්බන්ධ වීම ගැන ස්තූතියි."
+      "message": "ඔයාගෙ පණිවිඩය",
+      "send": "Send කරන්න",
+      "sending": "යවන ගමන්…",
+      "success": "ඔයාගෙ message එක සාර්ථකව ලැබුණා. අපිට ලියපු එකට බොහොම ස්තූතියි!"
     }
   },
   "states": {
-    "loading": "ඔබේ ඊළඟ පියවර සොයමින්…",
+    "loading": "ඔයාගෙ ඊළඟ පියවර හොයන ගමන්…",
     "error": {
-      "title": "මෙම පිටුව පූරණය කළ නොහැකි විය.",
-      "body": "කරුණාකර මොහොතකින් නැවත උත්සාහ කරන්න.",
+      "title": "මේ පිටුව load කරගන්න බැරි වුණා.",
+      "body": "කරුණාකර තව ටිකකින් ආයෙ try කරලා බලන්න.",
       "retry": "නැවත උත්සාහ කරන්න"
     },
     "notFound": {
-      "title": "මෙම මාර්ගය තවම මෙහි නැත.",
-      "body": "ඔබේ ඊළඟ පියවර සොයා ගැනීමට පවතින වෘත්තීන් සහ විශ්වවිද්‍යාල ගවේෂණය කරන්න.",
+      "title": "ඔයා හොයපු page එක මෙතන නැහැ.",
+      "body": "ඔයාගෙ ඊළඟ පියවර හොයාගන්න දැනට තියෙන careers සහ universities බලන්න.",
       "home": "මුල් පිටුවට යන්න"
     }
   },
   "catalog": {
     "category": {
-      "Technology": "තාක්ෂණය",
-      "Healthcare": "සෞඛ්‍ය සේවා",
-      "Engineering": "ඉංජිනේරු විද්‍යාව",
-      "Business": "ව්‍යාපාර",
-      "Creative": "නිර්මාණශීලී",
-      "Education": "අධ්‍යාපනය",
-      "Legal": "නීතිය",
-      "Hospitality": "ආගන්තුක සත්කාර",
-      "Skilled Trades": "කාර්මික වෘත්තීන්"
+      "Technology": "Technology",
+      "Healthcare": "Healthcare & වෛද්‍ය",
+      "Engineering": "Engineering",
+      "Business": "Business & Finance",
+      "Creative": "Creative & Design",
+      "Education": "Education & ඉගැන්වීම්",
+      "Legal": "නීතිය (Legal)",
+      "Hospitality": "Hospitality & සංචාරක",
+      "Skilled Trades": "කාර්මික වෘත්තීන් (Skilled Trades)"
     },
     "salary": {
-      "average": "මසකට සාමාන්‍යය රු. {amount, number}k",
-      "varies": "තනතුර අනුව වෙනස් වේ",
-      "unknown": "මාසික වැටුප: වෙනස් වේ"
+      "average": "මසකට සාමාන්‍යයෙන් රු. {amount, number}k",
+      "varies": "තනතුර සහ පළපුරුද්ද අනුව වෙනස් වේ",
+      "unknown": "මාසික වැටුප: වෙනස් විය හැක"
     },
     "career": {
       "software-engineer": {
-        "title": "මෘදුකාංග ඉංජිනේරු",
-        "summary": "යෙදුම් නිර්මාණය කරන්න, සැබෑ නිෂ්පාදන සංවර්ධනය කරන්න, අර්ථවත් ගැටලු විසඳන්න.",
+        "title": "Software Engineer",
+        "summary": "Apps හදන්න, real-world products develop කරන්න, අලුත් ප්‍රශ්නවලට solutions හොයන්න.",
         "employers": "WSO2 · Virtusa · 99x",
-        "entry": "A/L ඕනෑම විෂය ධාරාවක් + පරිගණක / portfolio"
+        "entry": "A/L ඕනෑම stream එකක් + coding / portfolio"
       },
       "doctor": {
-        "title": "වෛද්‍යවරයා",
-        "summary": "වෛද්‍ය විද්‍යාව සහ රැකවරණය හරහා මිනිසුන්ට වඩා සෞඛ්‍ය සම්පන්න ජීවිතයක් ගත කිරීමට උදව් කරන්න.",
+        "title": "Doctor (වෛද්‍යවරයා)",
+        "summary": "වෛද්‍ය විද්‍යාව සහ රෝගී සත්කාර හරහා මිනිසුන්ට නිරෝගී ජීවිතයක් ගත කරන්න උදව් කරන්න.",
         "employers": "රජයේ රෝහල් · Asiri",
-        "entry": "A/L ජීව විද්‍යාව → MBBS → SLMC ලියාපදිංචිය"
+        "entry": "A/L Bio Science → MBBS → SLMC ලියාපදිංචිය"
       },
       "civil-engineer": {
-        "title": "සිවිල් ඉංජිනේරු",
-        "summary": "අප ජීවත් වන, වැඩ කරන සහ එකිනෙකා සම්බන්ධ වන ස්ථාන නිර්මාණය කරන්න.",
+        "title": "Civil Engineer",
+        "summary": "අපි ජීවත් වන, වැඩ කරන සහ ගමන් බිමන් යන ගොඩනැඟිලි හා පාරවල් design කරන්න.",
         "employers": "Access · Maga · ICC",
-        "entry": "A/L ගණිතය + පිළිගත් ඉංජිනේරු උපාධියක්"
+        "entry": "A/L Maths + පිළිගත් Engineering degree එකක්"
       },
       "accountant": {
-        "title": "ගණකාධිකාරී",
-        "summary": "මූල්‍ය තොරතුරු වඩා හොඳ තීරණ බවට පත් කරන්න.",
+        "title": "Accountant (ගණකාධිකාරී)",
+        "summary": "Financial data විශ්ලේෂණය කරලා ආයතනවලට හොඳ තීරණ ගන්න උදව් කරන්න.",
         "employers": "KPMG · EY · John Keells",
-        "entry": "A/L ඕනෑම විෂය ධාරාවක් + AAT / CA / මූල්‍ය උපාධියක්"
+        "entry": "A/L ඕනෑම stream එකක් + AAT / CA / Finance degree එකක්"
       },
       "ui-ux-designer": {
-        "title": "UI / UX නිර්මාණකරු",
-        "summary": "සැබෑ මිනිසුන් සඳහා ප්‍රයෝජනවත් ඩිජිටල් අත්දැකීම් නිර්මාණය කරන්න.",
-        "employers": "99x · Arimac · නිර්මාණ ආයතන",
-        "entry": "ඕනෑම A/L + නිර්මාණ කුසලතා + portfolio"
+        "title": "UI / UX Designer",
+        "summary": "Real users ලා වෙනුවෙන් ලස්සන සහ පාවිච්චි කරන්න ලේසි digital apps සහ websites design කරන්න.",
+        "employers": "99x · Arimac · Design Studios",
+        "entry": "ඕනෑම A/L stream එකක් + design skills + portfolio"
       },
       "school-teacher": {
-        "title": "පාසල් ගුරුවරයා",
-        "summary": "ඊළඟ පරම්පරාවට ඉගෙනීමට සහ වර්ධනය වීමට උදව් කරන්න.",
-        "employers": "රජයේ පාසල් · Lyceum",
-        "entry": "A/L → ගුරු පුහුණුව / උපාධිය"
+        "title": "පාසල් ගුරුවරයා (Teacher)",
+        "summary": "ඊළඟ පරම්පරාවට අලුත් දේවල් කියා දීලා ජීවිතය සාර්ථක කරගන්න උදව් කරන්න.",
+        "employers": "රජයේ පාසල් · ජාත්‍යන්තර පාසල්",
+        "entry": "A/L → විද්‍යාපීඨ / ගුරු පුහුණුව / Degree"
       },
       "registered-nurse": {
-        "title": "ලියාපදිංචි හෙද නිලධාරී",
-        "summary": "දක්ෂ, කරුණාවන්ත රැකවරණයෙන් රෝගීන්ට සහාය වන්න.",
-        "employers": "Asiri · Nawaloka · රාජ්‍ය",
-        "entry": "විද්‍යා විෂය ධාරාව + පිළිගත් හෙද පුහුණුව"
+        "title": "හෙද නිලධාරී (Nurse)",
+        "summary": "දක්ෂ සහ කරුණාවන්ත සාත්තු සේවාවක් හරහා රෝගීන්ට සුවය ලබා දෙන්න.",
+        "employers": "Asiri · Nawaloka · රජයේ රෝහල්",
+        "entry": "Science stream + පිළිගත් Nursing පුහුණුව"
       },
       "legal-officer": {
-        "title": "නීති නිලධාරී",
-        "summary": "නීතිමය ප්‍රශ්නවලදී පුද්ගලයන්ට සහ ආයතනවලට මඟපෙන්වන්න.",
-        "employers": "බැංකු · සංස්ථා · නීති සමාගම්",
-        "entry": "නීති උපාධිය / වෘත්තීය නීති මාර්ගය"
+        "title": "නීති නිලධාරී (Legal Officer)",
+        "summary": "නීතිමය ගැටලුවලදී පුද්ගලයන්ට සහ සමාගම්වලට හරි මඟපෙන්වීමක් දෙන්න.",
+        "employers": "බැංකු · Corporates · Law firms",
+        "entry": "Law Degree (LLB) / Law College මාර්ගය"
       },
       "data-analyst": {
-        "title": "දත්ත විශ්ලේෂක",
-        "summary": "රටා සොයාගෙන දත්ත ප්‍රයෝජනවත් අවබෝධයන් බවට පත් කරන්න.",
+        "title": "Data Analyst",
+        "summary": "දත්ත පරීක්ෂා කරලා වැදගත් insights සහ තොරතුරු සොයාගන්න.",
         "employers": "Dialog · IFS · බැංකු",
-        "entry": "ගණිතය ප්‍රයෝජනවත් + විශ්ලේෂණ + SQL"
+        "entry": "Maths දැනුම + Data Analytics + SQL"
       },
       "cybersecurity-analyst": {
-        "title": "සයිබර් ආරක්ෂණ විශ්ලේෂක",
-        "summary": "ඩිජිටල් පද්ධති සහ තොරතුරු ආරක්ෂා කරන්න.",
+        "title": "Cybersecurity Analyst",
+        "summary": "Digital systems සහ sensitive data සයිබර් ප්‍රහාරවලින් ආරක්ෂා කරන්න.",
         "employers": "Virtusa · Dialog · SLT",
-        "entry": "IT පුහුණුව + ආරක්ෂණ සහතික + ප්‍රායෝගික අත්දැකීම්"
+        "entry": "IT degree / diploma + Security certifications + Hands-on experience"
       },
       "banking-officer": {
-        "title": "බැංකු නිලධාරී",
-        "summary": "දෛනික මූල්‍ය සේවා සමඟ පාරිභෝගිකයන්ට සහාය වන්න.",
-        "employers": "Commercial Bank · HNB",
-        "entry": "A/L සුදුසුකම් වෙනස් වේ + බැංකු පුහුණුව"
+        "title": "බැංකු නිලධාරී (Banking Officer)",
+        "summary": "දෛනික මූල්‍ය හා බැංකු සේවාවන් ලබා ගන්නා පාරිභෝගිකයන්ට උදව් කරන්න.",
+        "employers": "Commercial Bank · HNB · Sampath",
+        "entry": "A/L + Banking exams (IBSL) / Degree"
       },
       "architectural-designer": {
-        "title": "ගෘහ නිර්මාණ නිර්මාණකරු",
-        "summary": "වඩා හොඳ ජීවිතයක් සඳහා ගොඩනැඟිලි සහ අවකාශ සිතින් මවන්න.",
-        "employers": "නිර්මාණ ස්ටුඩියෝ · උපදේශකයින්",
-        "entry": "නිර්මාණ අධ්‍යයන; ගෘහ නිර්මාණ ශිල්පියෙකු වීමට SLIA මාර්ගය"
+        "title": "Architectural Designer",
+        "summary": "මිනිසුන්ට පහසු සහ අලංකාර ගොඩනැඟිලි හා අවකාශයන් සැලසුම් කරන්න.",
+        "employers": "Design Studios · උපදේශක සමාගම්",
+        "entry": "Design / Architecture studies; SLIA මාර්ගය"
       },
       "professional-chef": {
-        "title": "වෘත්තීය සූපවේදී",
-        "summary": "කුසලතාවෙන් සහ පරිකල්පනයෙන් ආහාර අත්දැකීම් නිර්මාණය කරන්න.",
-        "employers": "Jetwing · Cinnamon Hotels",
-        "entry": "O/L + සූපවේද / NVQ පුහුණුව"
+        "title": "Professional Chef",
+        "summary": "පළපුරුද්ද සහ නිර්මාණශීලී බව එකතු කරලා රසවත් කෑම අත්දැකීම් නිර්මාණය කරන්න.",
+        "employers": "Jetwing · Cinnamon Hotels · තරු පන්තියේ හෝටල්",
+        "entry": "O/L + Culinary Arts / NVQ පුහුණුව"
       },
       "digital-marketer": {
-        "title": "ඩිජිටල් අලෙවිකරු",
-        "summary": "ඩිජිටල් නාලිකා හරහා සන්නාම මිනිසුන් සමඟ සම්බන්ධ කරන්න.",
-        "employers": "Dialog · ආයතන · සන්නාම",
-        "entry": "ඕනෑම A/L + ව්‍යාපාර (campaigns) + portfolio"
+        "title": "Digital Marketer",
+        "summary": "Social media සහ digital platforms හරහා brands මිනිස්සු අතරට ගෙනියන්න.",
+        "employers": "Dialog · Digital Agencies · Brands",
+        "entry": "ඕනෑම A/L + Marketing campaigns + practical skills"
       },
       "cabin-crew": {
-        "title": "කේබින් කාර්ය මණ්ඩලය",
-        "summary": "මගීන් ආරක්ෂිතව තබා ගමන් සුවපහසු කරන්න.",
+        "title": "Cabin Crew (ගුවන් සේවක)",
+        "summary": "ගුවන් මගීන්ගේ ආරක්ෂාව තහවුරු කරමින් සුහදශීලී ගමන් අත්දැකීමක් ලබා දෙන්න.",
         "employers": "SriLankan Airlines · FitsAir",
-        "entry": "ගුවන් සමාගමේ නිර්ණායක + ඉංග්‍රීසි + පුහුණුව"
+        "entry": "ගුවන් සේවා නිර්ණායක + ඉංග්‍රීසි දැනුම + පුහුණුව"
       },
       "electrician": {
-        "title": "විදුලි කාර්මිකයා",
-        "summary": "ආරක්ෂිත විදුලි පද්ධති ස්ථාපනය කර නඩත්තු කරන්න.",
-        "employers": "ලංවිම කොන්ත්‍රාත්කරුවන් · සේවා සමාගම්",
-        "entry": "O/L + NVQ / ආධුනික පුහුණුව"
+        "title": "විදුලි කාර්මික (Electrician)",
+        "summary": "විදුලි පද්ධති ආරක්ෂිතව install කරලා නඩත්තු කටයුතු කරන්න.",
+        "employers": "CEB කොන්ත්‍රාත්කරුවන් · සේවා සමාගම්",
+        "entry": "O/L + NVQ / Technical college පුහුණුව"
       },
       "pharmacist": {
-        "title": "ඖෂධවේදී",
-        "summary": "මිනිසුන්ට ඖෂධ තේරුම් ගැනීමට සහ ආරක්ෂිතව භාවිත කිරීමට උදව් කරන්න.",
-        "employers": "Hemas · රෝහල් · සිල්ලර",
-        "entry": "අනුමත ඖෂධවේද අධ්‍යාපනය + ලියාපදිංචිය"
+        "title": "ඖෂධවේදී (Pharmacist)",
+        "summary": "රෝගීන්ට අවශ්‍ය ඖෂධ නිවැරදිව හා ආරක්ෂිතව ලබා දෙමින් උපදෙස් දෙන්න.",
+        "employers": "Hemas · රෝහල් · ඖෂධහල්",
+        "entry": "පිළිගත් Pharmacy degree / diploma + SPMC registration"
       },
       "mechanical-engineer": {
-        "title": "යාන්ත්‍රික ඉංජිනේරු",
-        "summary": "යන්ත්‍ර සහ නිෂ්පාදන පද්ධති නිර්මාණය කර දියුණු කරන්න.",
+        "title": "Mechanical Engineer",
+        "summary": "යන්ත්‍ර සූත්‍ර, වාහන සහ නිෂ්පාදන පද්ධති design කර දියුණු කරන්න.",
         "employers": "MAS · Brandix · Hayleys",
-        "entry": "A/L ගණිතය + යාන්ත්‍රික ඉංජිනේරු උපාධියක්"
+        "entry": "A/L Maths + Mechanical Engineering degree එකක්"
       },
       "hr-recruitment": {
-        "title": "මානව සම්පත් / බඳවා ගැනීම්",
-        "summary": "රැකියා ස්ථානයේ පුද්ගලයන්ට සහ කණ්ඩායම්වලට වර්ධනය වීමට උදව් කරන්න.",
+        "title": "HR / Recruitment Officer",
+        "summary": "ආයතනයට ගැළපෙන දක්ෂ අය බඳවාගෙන ඔවුන්ගේ වෘත්තීය දියුණුවට සහාය වෙන්න.",
         "employers": "MAS · John Keells · බැංකු",
-        "entry": "ඕනෑම A/L + මානව සම්පත් ඩිප්ලෝමාවක් / උපාධියක්"
+        "entry": "ඕනෑම A/L stream එකක් + HR Diploma / Degree එකක්"
       },
       "logistics-coordinator": {
-        "title": "ලොජිස්ටික්ස් සම්බන්ධීකාරක",
-        "summary": "භාණ්ඩ ස්ථානයෙන් ස්ථානයට කාර්යක්ෂමව ගමන් කරවන්න.",
+        "title": "Logistics Coordinator",
+        "summary": "භාණ්ඩ හා ද්‍රව්‍ය එක් තැනක සිට තවත් තැනකට කාර්යක්ෂමව ගෙන්වා ගැනීමට කටයුතු කරන්න.",
         "employers": "DHL · Hayleys · Aitken Spence",
-        "entry": "A/L + ලොජිස්ටික්ස් / සැපයුම් දාම පුහුණුව"
+        "entry": "A/L + Logistics / Supply Chain පුහුණුව"
       },
       "it-support-specialist": {
-        "title": "IT සහාය විශේෂඥ",
-        "summary": "තාක්ෂණික ගැටලු විසඳා මිනිසුන් සම්බන්ධව තබන්න.",
-        "employers": "SLT-MOBITEL · Dialog",
-        "entry": "O/L / A/L + IT සහතික / NVQ / ඩිප්ලෝමා"
+        "title": "IT Support Specialist",
+        "summary": "Hardware සහ network ගැටලු විසඳලා පරිගණක පද්ධති නිසි පරිදි ක්‍රියාත්මකව තබන්න.",
+        "employers": "SLT-MOBITEL · Dialog · IT ආයතන",
+        "entry": "O/L / A/L + IT certifications / NVQ / Diploma"
       },
       "hotel-receptionist": {
-        "title": "හෝටල් පිළිගැනීම් නිලධාරී",
-        "summary": "සෑම අමුත්තෙකු සඳහාම සාදරයෙන් පිළිගන්නා අත්දැකීමක් නිර්මාණය කරන්න.",
-        "employers": "Jetwing · Cinnamon · නිවාඩු නිකේතන",
-        "entry": "O/L / A/L + ඉංග්‍රීසි + ආගන්තුක සත්කාර පුහුණුව"
+        "title": "Hotel Receptionist",
+        "summary": "හෝටලයට පැමිණෙන දෙස් විදෙස් අමුත්තන් සුහදශීලීව පිළිගෙන සේවා සලසන්න.",
+        "employers": "Jetwing · Cinnamon · Resorts",
+        "entry": "O/L / A/L + English fluency + Hospitality පුහුණුව"
       },
       "graphic-designer": {
-        "title": "ග්‍රැෆික් නිර්මාණකරු",
-        "summary": "දෘශ්‍ය නිර්මාණ හරහා අදහස් සන්නිවේදනය කරන්න.",
-        "employers": "Arimac · ස්ටුඩියෝ · සන්නාම",
-        "entry": "O/L / A/L + නිර්මාණශීලී portfolio"
+        "title": "Graphic Designer",
+        "summary": "Visuals, posters සහ branding designs හරහා අදහස් ආකර්ෂණීයව ඉදිරිපත් කරන්න.",
+        "employers": "Arimac · Creative Studios · Brands",
+        "entry": "O/L / A/L + Design tools (Photoshop, Illustrator) + Portfolio"
       },
       "quantity-surveyor": {
-        "title": "ප්‍රමාණ මිනින්දෝරු",
-        "summary": "ඉදිකිරීම් පිරිවැය සැලසුම් කර කළමනාකරණය කරන්න.",
-        "employers": "Maga · Access · උපදේශකයින්",
-        "entry": "A/L → QS ඩිප්ලෝමාව / උපාධිය"
+        "title": "Quantity Surveyor (QS)",
+        "summary": "ඉදිකිරීම් ව්‍යාපෘතිවල වියදම් ඇස්තමේන්තු කර budget එක කළමනාකරණය කරන්න.",
+        "employers": "Maga · Access · උපදේශක සමාගම්",
+        "entry": "A/L Maths → QS Diploma / Degree"
       },
       "business-development": {
-        "title": "ව්‍යාපාර සංවර්ධන නිලධාරී",
-        "summary": "සබඳතා ගොඩනඟා නව අවස්ථා සොයාගන්න.",
-        "employers": "Dialog · බැංකු · FMCG",
-        "entry": "A/L / උපාධිය + විකුණුම් අත්දැකීම්"
+        "title": "Business Development Officer",
+        "summary": "නව ව්‍යාපාරික අවස්ථා සොයාගෙන clients ලා සමඟ සම්බන්ධතා ගොඩනඟාගන්න.",
+        "employers": "Dialog · බැංකු · FMCG සමාගම්",
+        "entry": "A/L / Degree + Sales & communication skills"
       },
       "electrical-engineer": {
-        "title": "විදුලි ඉංජිනේරු",
-        "summary": "විදුලි සහ බලශක්ති පද්ධති සංවර්ධනය කරන්න.",
-        "employers": "ලංවිම (CEB) · Hayleys · MAS",
-        "entry": "A/L ගණිතය + විදුලි ඉංජිනේරු උපාධියක්"
+        "title": "Electrical Engineer",
+        "summary": "විදුලි බල පද්ධති, පරිපථ සහ බලශක්ති උත්පාදනය දියුණු කරන්න.",
+        "employers": "CEB · Hayleys · MAS",
+        "entry": "A/L Maths + Electrical Engineering degree එකක්"
       },
       "qa-test-engineer": {
-        "title": "QA / පරීක්ෂණ ඉංජිනේරු",
-        "summary": "විශ්වාසදායක මෘදුකාංග බෙදාහැරීමට කණ්ඩායම්වලට උදව් කරන්න.",
+        "title": "QA / Test Engineer",
+        "summary": "Software වල bugs හොයලා quality එක තහවුරු කරන්න developers ලා එක්ක වැඩ කරන්න.",
         "employers": "99x · Virtusa · IFS",
-        "entry": "ඕනෑම A/L + මෘදුකාංග පරීක්ෂණ කුසලතා"
+        "entry": "ඕනෑම A/L + Software testing skills / Degree"
       },
       "physiotherapist": {
-        "title": "භෞත චිකිත්සක",
-        "summary": "චලනය වැඩිදියුණු කර සුවය ලැබීමට මිනිසුන්ට උදව් කරන්න.",
-        "employers": "රෝහල් · පුනරුත්ථාපන මධ්‍යස්ථාන",
-        "entry": "විද්‍යාව + පිළිගත් භෞත චිකිත්සා පුහුණුව"
+        "title": "Physiotherapist (භෞත චිකිත්සක)",
+        "summary": "ශාරීරික ආබාධ හා වේදනාවන් සුව කරලා නැවත සාමාන්‍ය ජීවිතයට එන්න රෝගීන්ට උදව් කරන්න.",
+        "employers": "රෝහල් · Rehabilitation centers",
+        "entry": "Science stream + පිළිගත් Physiotherapy පුහුණුව"
       },
       "content-writer": {
-        "title": "අන්තර්ගත ලේඛක",
-        "summary": "තොරතුරු පැහැදිලි, ප්‍රයෝජනවත් සහ සිත්ගන්නාසුළු කරන්න.",
-        "employers": "මාධ්‍ය · ආයතන · සන්නාම",
-        "entry": "ඕනෑම විෂය ධාරාවක් + ලේඛන portfolio"
+        "title": "Content Writer",
+        "summary": "කියවන්නන්ට පහසුවෙන් තේරුම් ගන්න පුළුවන් articles, blogs සහ social media copy ලියන්න.",
+        "employers": "Digital media · Agencies · Brands",
+        "entry": "ඕනෑම stream එකක් + හොඳ ලිවීමේ හැකියාව + Writing portfolio"
       },
       "university-lecturer": {
-        "title": "විශ්වවිද්‍යාල කථිකාචාර්ය",
-        "summary": "දැනුම බෙදාගෙන පර්යේෂණයට දායක වන්න.",
-        "employers": "රාජ්‍ය සහ පෞද්ගලික විශ්වවිද්‍යාල",
-        "entry": "අදාළ උපාධිය + පශ්චාත් උපාධි මාර්ගය"
+        "title": "University Lecturer",
+        "summary": "විශ්වවිද්‍යාල සිසුන්ට උගන්වන්න සහ අලුත් පර්යේෂණ (research) සිදු කරන්න.",
+        "employers": "රජයේ සහ පෞද්ගලික universities",
+        "entry": "First/Second upper Degree + Postgraduate (Masters/PhD)"
       },
       "welder": {
-        "title": "වෙල්ඩින් කාර්මිකයා",
-        "summary": "ලෝහ ව්‍යුහයන් නිරවද්‍යව ඉදිකර අලුත්වැඩියා කරන්න.",
-        "employers": "නිෂ්පාදන · ඉදිකිරීම්",
-        "entry": "O/L අත්‍යවශ්‍ය නොවේ + NVQ / ආධුනික පුහුණුව"
+        "title": "Welder (වෙල්ඩින් කාර්මික)",
+        "summary": "ලෝහ කොටස් නිරවද්‍යව එකලස් කර ආරක්ෂිත ව්‍යුහයන් සාදන්න.",
+        "employers": "ඉදිකිරීම් · නිෂ්පාදන කර්මාන්තශාලා",
+        "entry": "O/L + NVQ / Apprenticeship පුහුණුව"
       },
       "customer-support": {
-        "title": "පාරිභෝගික සහාය",
-        "summary": "පාරිභෝගිකයන්ට පිළිතුරු සොයාගැනීමට සහ ගැටලු විසඳීමට උදව් කරන්න.",
-        "employers": "Dialog · බැංකු · BPO",
-        "entry": "O/L / A/L + සන්නිවේදන කුසලතා"
+        "title": "Customer Support Specialist",
+        "summary": "පාරිභෝගිකයින්ට අවශ්‍ය තොරතුරු ලබා දෙමින් ඔවුන්ගේ ගැටලුවලට කඩිනම් විසඳුම් දෙන්න.",
+        "employers": "Dialog · බැංකු · BPO සමාගම්",
+        "entry": "O/L / A/L + Communication skills"
       }
     },
     "university": {
       "moratuwa": {
-        "name": "මොරටුව විශ්වවිද්‍යාලය"
+        "name": "මොරටුව විශ්වවිද්‍යාලය (UoM)"
       },
       "peradeniya": {
-        "name": "පේරාදෙණිය විශ්වවිද්‍යාලය"
+        "name": "පේරාදෙණිය විශ්වවිද්‍යාලය (UoP)"
       },
       "ruhuna": {
-        "name": "රුහුණ විශ්වවිද්‍යාලය"
+        "name": "රුහුණ විශ්වවිද්‍යාලය (UoR)"
       },
       "sliit": {
         "name": "SLIIT"
       },
       "nsbm": {
-        "name": "NSBM හරිත විශ්වවිද්‍යාලය"
+        "name": "NSBM හරිත විශ්වවිද්‍යාලය (Green University)"
       },
       "cinec": {
-        "name": "CINEC කැම්පස්"
+        "name": "CINEC Campus"
       },
       "iit": {
-        "name": "තොරතුරු තාක්ෂණ ආයතනය (IIT)"
+        "name": "IIT (Informatics Institute of Technology)"
       }
     },
     "location": {
@@ -472,425 +474,425 @@
       "Homagama": "හෝමාගම"
     },
     "area": {
-      "Engineering": "ඉංජිනේරු විද්‍යාව",
-      "IT": "තොරතුරු තාක්ෂණය",
-      "Architecture": "ගෘහ නිර්මාණ විද්‍යාව",
-      "Science": "විද්‍යාව",
-      "Agriculture": "කෘෂිකර්මය",
-      "Technology": "තාක්ෂණය",
-      "Computing": "පරිගණක විද්‍යාව",
-      "Business": "ව්‍යාපාර",
-      "Maritime": "සාගර / නාවික",
-      "Logistics": "ලොජිස්ටික්ස්"
+      "Engineering": "Engineering",
+      "IT": "Information Technology (IT)",
+      "Architecture": "Architecture",
+      "Science": "Science",
+      "Agriculture": "Agriculture",
+      "Technology": "Technology",
+      "Computing": "Computing",
+      "Business": "Business & Management",
+      "Maritime": "Maritime & නාවික",
+      "Logistics": "Logistics & Supply Chain"
     },
     "institutionType": {
-      "Government": "රජයේ",
-      "Non-state": "රාජ්‍ය නොවන"
+      "Government": "රජයේ (State)",
+      "Non-state": "Private / Non-state"
     }
   },
   "careers": {
-    "meta": "වෘත්තීන් ගවේෂණය",
-    "eyebrow": "වෘත්තීන් ගවේෂණය",
-    "title": "ඔබට ගැළපෙන වෘත්තියක්<br></br><accent>සොයාගන්න.</accent>",
-    "intro": "සැබෑ වෘත්තීය මාර්ග, ප්‍රවේශ අවස්ථා, සේවායෝජකයින් සහ වැටුප් තොරතුරු සොයාගන්න<br></br>ශ්‍රී ලංකාවේ සිසුන් සහ වෘත්තීය මාර්ග සොයන්නන් වෙනුවෙන්.",
-    "searchLabel": "වෘත්තීන් සොයන්න",
-    "searchPlaceholder": "වෘත්තීන් සොයන්න: මෘදුකාංග, වෛද්‍ය, ගිණුම්කරණ, නිර්මාණ...",
-    "statsLabel": "වෘත්තීය නාමාවලියේ තොරතුරු",
+    "meta": "Careers හොයන්න",
+    "eyebrow": "Careers හොයන්න",
+    "title": "ඔයාට ගැළපෙන career එකක්<br></br><accent>හොයාගන්න.</accent>",
+    "intro": "Real career paths, admission details, employers සහ salary විස්තර එකම තැනින් දැනගන්න<br></br>ශ්‍රී ලංකාවේ students ලා සහ career එකක් plan කරන හැමෝම වෙනුවෙන්.",
+    "searchLabel": "Careers search කරන්න",
+    "searchPlaceholder": "Careers search කරන්න: software, doctor, accounting, design...",
+    "statsLabel": "Career directory එකේ විස්තර",
     "stats": {
-      "paths": "වෘත්තීය මාර්ග",
-      "families": "වෘත්තීය පවුල්",
-      "salary": "වැටුප් දර්ශක",
-      "admissions": "ඇතුළත්වීම් පරීක්ෂා"
+      "paths": "Career paths",
+      "families": "Career categories",
+      "salary": "Salary insights",
+      "admissions": "Admission details"
     },
     "browse": {
-      "eyebrow": "හැකියාවන් ගවේෂණය කරන්න",
-      "title": "වෘත්තීය මාර්ග ගවේෂණය කරන්න",
-      "description": "තෝරාගත් තනතුරු {count}ක් · ශ්‍රී ලාංකික අධ්‍යාපන මාර්ග"
+      "eyebrow": "හැකියාවන් explore කරන්න",
+      "title": "Career paths බලන්න",
+      "description": "තෝරාගත් careers {count}ක් · ශ්‍රී ලංකාවේ education paths"
     },
     "filters": {
-      "label": "වෘත්තීය පෙරහන්",
-      "title": "ඔබට ගැළපෙන දේ සොයන්න",
-      "subtitle": "ඔබේ ශක්තීන් සහ රුචිකත්ව අනුව පෙරහන් කරන්න",
-      "interests": "ඔබේ රුචිකත්වයන්",
+      "label": "Career filters",
+      "title": "ඔයාට හරියන දේ හොයාගන්න",
+      "subtitle": "ඔයාගෙ හැකියාවන් සහ කැමැත්ත අනුව search කරන්න",
+      "interests": "ඔයා කැමති fields",
       "interest": {
-        "technology": "තාක්ෂණය සහ කේතනය",
-        "health": "සෞඛ්‍ය සහ යහපැවැත්ම",
-        "engineering": "ඉදිකිරීම් සහ ඉංජිනේරු විද්‍යාව",
-        "business": "ව්‍යාපාර සහ මූල්‍ය",
-        "creative": "නිර්මාණශීලී චින්තනය"
+        "technology": "Technology & Coding",
+        "health": "Healthcare & සුවසෙත",
+        "engineering": "Engineering & ඉදිකිරීම්",
+        "business": "Business & Finance",
+        "creative": "Creative & Design"
       },
-      "studyRoutes": "අධ්‍යයන මාර්ග",
+      "studyRoutes": "Study pathways",
       "route": {
-        "degree": "A/L විශ්වවිද්‍යාල උපාධි",
-        "professional": "වෘත්තීය සුදුසුකම්",
-        "diploma": "ඩිප්ලෝමා සහ NVQ",
-        "skills": "කුසලතා + portfolio"
+        "degree": "A/L University Degrees",
+        "professional": "Professional Qualifications",
+        "diploma": "Diploma & NVQ",
+        "skills": "Skills + Portfolio"
       },
-      "notSure": "ඔබට ගැළපෙන්නේ කුමක්දැයි නොදන්නවාද?",
-      "match": "ඔබේ රුචිකත්වයන්ට ගැළපෙන වෘත්තියක් සොයන්න.",
-      "buildPath": "මගේ මාර්ගය සකසන්න"
+      "notSure": "ඔයාට ගැළපෙන්නේ මොකක්ද කියලා හිතාගන්න අමාරුද?",
+      "match": "ඔයාගෙ කැමැත්තට හරියන career එකක් හොයාගන්න.",
+      "buildPath": "මගේ path එක හදාගන්න"
     },
     "categories": {
-      "label": "වෘත්තීය පවුල අනුව පෙරන්න",
-      "all": "සියලු වෘත්තීන්",
-      "more": "තව"
+      "label": "Category එක අනුව filter කරන්න",
+      "all": "සියලුම careers",
+      "more": "තව බලන්න"
     },
-    "results": "වෘත්තීන් {count}ක් පෙන්වමින්",
+    "results": "Careers {count}ක් හමුවුණා",
     "sort": {
-      "label": "වෘත්තීන් පිළිවෙළට සකසන්න",
-      "featured": "ජනප්‍රිය මුලින්",
+      "label": "පිළිවෙළට සකසන්න",
+      "featured": "Trending මුලින්",
       "az": "නම (A–Z)"
     },
     "card": {
       "photoAlt": "{title} නියෝජනය කරන ඡායාරූපය",
-      "explore": "වෘත්තිය ගවේෂණය"
+      "explore": "Career එක ගැන බලන්න"
     },
     "empty": {
-      "title": "වෘත්තීන් හමු නොවීය",
-      "body": "වෙනත් සෙවීමක් උත්සාහ කරන්න හෝ වෙනත් කාණ්ඩයක් තෝරන්න.",
-      "clear": "පෙරහන් ඉවත් කරන්න"
+      "title": "Careers කිසිවක් හමු වුණේ නැහැ",
+      "body": "වෙනත් වචනයක් search කරලා බලන්න, නැත්නම් filters අයින් කරන්න.",
+      "clear": "Filters clear කරන්න"
     },
     "notes": {
-      "salary": "වැටුප් දර්ශක යනු ලැයිස්තුගත රැකියා හෝ ආසන්න තනතුරු පවුල් සඳහා දළ මාසික සාමාන්‍ය අගයන් වන අතර, සහතික කළ දීමනා නොවේ.",
-      "entry": "ඇතුළත්වීමේ මාර්ග මඟපෙන්වීමක් පමණි: සැබෑ A/L විෂයයන්, ශ්‍රේණි, Z-ලකුණු, පිළිගැනීම්, බලපත්‍ර සහ සේවායෝජක නිර්ණායක වෙනස් වේ.",
-      "confirm": "තීරණයක් ගැනීමට පෙර වැටුප් තොරතුරු සහ ඇතුළත්වීමේ අවශ්‍යතා වත්මන් නිල මූලාශ්‍රවලින් තහවුරු කරගන්න."
+      "salary": "Salary figures කියන්නේ careers වල සාමාන්‍ය දළ මාසික අගයන් මිස සහතික කළ දීමනා නොවේ.",
+      "entry": "Admission pathways මඟපෙන්වීමක් පමණි: A/L subjects, grades, Z-scores සහ employer requirements වෙනස් විය හැක.",
+      "confirm": "තීරණයක් ගන්න කලින් salaries සහ admission requirements අදාළ නිල website වලින් තහවුරු කරගන්න."
     }
   },
   "careerDetail": {
-    "notFoundTitle": "වෘත්තිය හමු නොවීය",
-    "eyebrow": "විශේෂිත වෘත්තිය",
-    "softwareTitle": "මෘදුකාංග<br></br>ඉංජිනේරු.",
-    "startHint": "පාසලේ සිටියදීත් ඔබට අරඹන්නට හැකි ආකාරය මෙන්න.",
-    "jumpToRoadmap": "පාසල් මාර්ග සිතියමට යන්න",
-    "sriLankaFocus": "ශ්‍රී ලංකා කේන්ද්‍රීය",
-    "heroAlt": "අනාගත වෘත්තියක් සැලසුම් කරන සිසුවෙක්",
+    "notFoundTitle": "Career එක හමු වුණේ නැහැ",
+    "eyebrow": "Featured Career",
+    "softwareTitle": "Software<br></br>Engineer.",
+    "startHint": "පාසල් කාලයේ ඉඳන්ම ඔයාට මේක පටන් ගන්න පුළුවන් විදිහ මෙන්න.",
+    "jumpToRoadmap": "School roadmap එකට යන්න",
+    "sriLankaFocus": "ශ්‍රී ලංකාව කේන්ද්‍ර කරගත්",
+    "heroAlt": "තමන්ගෙ career එක plan කරන ශිෂ්‍යයෙක්",
     "metrics": {
       "pay": {
-        "label": "මධ්‍යන්‍ය මුළු වැටුප",
+        "label": "සාමාන්‍ය මුළු වැටුප",
         "value": "රු. 168K",
-        "note": "මසකට, වාර්තා කළ"
+        "note": "මසකට (reported)"
       },
       "range": {
-        "label": "වාර්තා කළ වැටුප් පරාසය",
+        "label": "වාර්තා වූ salary range එක",
         "value": "102K–258K",
-        "note": "රු. / මාසයකට"
+        "note": "රු. / මසකට"
       },
       "pathways": {
-        "label": "අධ්‍යයන මාර්ග",
+        "label": "Study pathways",
         "value": "අවුරුදු 3–4",
-        "note": "බොහෝ උපාධි මාර්ග"
+        "note": "බොහෝ degree programs"
       },
       "roles": {
-        "label": "විශේෂිතකරණ",
-        "value": "තනතුරු 6ක්",
-        "note": "front-end සිට AI දක්වා"
+        "label": "Specializations",
+        "value": "Roles 6ක්",
+        "note": "frontend ඉඳන් AI දක්වා"
       }
     },
-    "salaryFootnote": "නිර්මාණයේ වැටුප් මූලාශ්‍රය: Glassdoor ශ්‍රී ලංකාව (2026 ස්වයං-වාර්තා කළ දත්ත). සැබෑ වැටුප මට්ටම, සමාගම සහ ස්ථානය අනුව වෙනස් වේ.",
+    "salaryFootnote": "Salary data source: Glassdoor Sri Lanka (2026 self-reported data). Real salary එක experience, company සහ location අනුව වෙනස් වේ.",
     "entry": {
-      "title": "අවම ඇතුළත්වීමේ අවශ්‍යතා — කෙටි දළ විශ්ලේෂණය",
-      "description": "කුඩා, පැහැදිලි, ආයතන-විශේෂිත උදාහරණ. සෑම විටම බඳවාගැනීමේ වර්ෂය තහවුරු කරගන්න.",
+      "title": "අවම admission requirements — කෙටි දළ විශ්ලේෂණයක්",
+      "description": "පැහැදිලි උදාහරණ කිහිපයක්. හැමවිටම අදාළ intake year එක confirm කරගන්න.",
       "public": {
-        "title": "රජයේ විශ්වවිද්‍යාල / UGC",
-        "pill": "පාඨමාලාව අනුව",
-        "body": "CS සඳහා සාමාන්‍යයෙන් අනුමත ගණිතය / භෞතික විද්‍යාව පදනම් කරගත් A/L සංයෝජන භාවිත වේ; ශ්‍රේණි සහ Z-ලකුණු තේරීම අදාළ වේ.",
-        "action": "වත්මන් UGC අත්පොත සහ නිශ්චිත උපාධිය පරීක්ෂා කරන්න."
+        "title": "රජයේ Universities / UGC",
+        "pill": "Course එක අනුව",
+        "body": "CS සඳහා සාමාන්‍යයෙන් Maths / Physics අඩංගු A/L combinations පිළිගැනේ; Grades සහ Z-score මත තේරීම සිදු වේ.",
+        "action": "නවතම UGC handbook එක සහ අදාළ degree requirements බලන්න."
       },
       "sliit": {
-        "title": "SLIIT / මෘදුකාංග ඉංජිනේරු විද්‍යාව",
-        "pill": "2026 බඳවාගැනීම් උදාහරණය",
-        "body": "භෞතික විද්‍යාව / ඉංජි. තාක්ෂණ විෂයන්හි S සාමාන්‍ය සමත්වීම් 3ක්; නැතහොත් වෙනත් විෂය ධාරාවක S 3ක් + O/L ගණිතය C + IT සම්බන්ධක පාඨමාලාව.",
-        "action": "හැකියා පරීක්ෂණයක් අදාළ වේ. A/L ICT සඳහා සම්බන්ධක පාඨමාලාවෙන් නිදහස් විය හැක."
+        "title": "SLIIT / Software Engineering",
+        "pill": "2026 Intake උදාහරණය",
+        "body": "Physical Science / Engineering Tech subjects වලින් S සාමාර්ථ 3ක්; නැත්නම් වෙනත් stream එකකින් S 3ක් + O/L Maths C + IT bridge course.",
+        "action": "Aptitude test එකක් තියෙනවා. A/L ICT තියෙන අයට bridge course එකෙන් නිදහස් වෙන්න පුළුවන්."
       }
     },
     "generic": {
-      "title": "{career} වීමට ඔබේ මාර්ගය ගවේෂණය කරන්න",
-      "description": "ඔබේ වත්මන් අදියරෙන් අරඹා ඔබ තෝරාගත් වැඩසටහනේ අවශ්‍යතා පරීක්ෂා කරන්න.",
-      "routes": "අධ්‍යයන මාර්ග",
-      "exploreUniversities": "විශ්වවිද්‍යාල ගවේෂණය කරන්න",
-      "where": "මෙම කුසලතා වැදගත් වන ස්ථාන",
-      "note": "මේවා වෘත්තීය උදාහරණ වේ. නාමාවලිය වර්ධනය වන විට සවිස්තරාත්මක ඇතුළත්වීමේ අවශ්‍යතා සහ අවස්ථා එක් කෙරේ."
+      "title": "{career} කෙනෙක් වෙන්න ඔයාගෙ path එක explore කරන්න",
+      "description": "ඔයා දැන් ඉන්න තැනින් පටන් අරන් කැමති degree එකේ requirements check කරගන්න.",
+      "routes": "Study pathways",
+      "exploreUniversities": "Universities හොයන්න",
+      "where": "මේ skills අවශ්‍ය වන fields",
+      "note": "මේවා career උදාහරණ පමණි. වැඩිදුර admission requirements ඉදිරියේදී එකතු වේ."
     },
     "cta": {
-      "title": "ඔබේ අනාගතය කුඩා පියවරකින් ඇරඹේ.",
-      "body": "මෙම වෘත්තිය සුරකින්න, O/L → A/L → උපාධි මාර්ග සිතියම භාවිතයෙන් ඊළඟ පියවර සැලසුම් කරන්න."
+      "title": "ඔයාගෙ future එක පොඩි පියවරකින් පටන් ගන්න.",
+      "body": "මේ career එක save කරගන්න, O/L → A/L → Degree roadmap එක use කරලා ඊළඟ step එක plan කරගන්න."
     },
     "school": {
-      "title": "ඔබේ ගමන පාසලෙන් ඇරඹේ",
-      "description": "ශ්‍රී ලාංකික සිසුන් සඳහා ප්‍රායෝගික පියවර — ඔබ සිටින අදියර තෝරන්න.",
+      "title": "ඔයාගෙ journey එක ඉස්කෝලෙන් පටන් ගන්න",
+      "description": "ශ්‍රී ලාංකික සිසුන් වෙනුවෙන්ම හැදූ steps — ඔයා දැන් ඉන්න stage එක තෝරගන්න.",
       "ol": {
-        "stage": "O/L සිසුවා",
-        "title": "ඔබේ පදනම ගොඩනඟන්න",
-        "badge": "10–11 ශ්‍රේණි",
+        "stage": "O/L ශිෂ්‍යයා",
+        "title": "පදනම ශක්තිමත් කරගන්න",
+        "badge": "Grade 10–11",
         "steps": {
           "1": {
-            "title": "හැකි නම් ICT තෝරන්න",
-            "copy": "මුල් අත්දැකීමට ප්‍රයෝජනවත්, නමුත් අනිවාර්ය නොවේ."
+            "title": "පුළුවන් නම් ICT තෝරගන්න",
+            "copy": "මුලින්ම experience එකක් ගන්න ගොඩක් හොඳයි, හැබැයි අනිවාර්ය නැහැ."
           },
           "2": {
-            "title": "ගණිතයට සහ ඉංග්‍රීසියට ප්‍රමුඛතාව දෙන්න",
-            "copy": "තර්කනය, වීජ ගණිතය, කියවීම සහ සන්නිවේදනය."
+            "title": "Maths සහ English වලට මුල්තැන දෙන්න",
+            "copy": "Logic, algebra, reading සහ communication skills හදාගන්න."
           },
           "3": {
-            "title": "A/L වලට පෙර කේතනය උත්සාහ කරන්න",
-            "copy": "Scratch, HTML හෝ මූලික Python සමඟ අරඹන්න."
+            "title": "A/L වලට කලින් coding ටිකක් try කරන්න",
+            "copy": "Scratch, HTML හෝ basic Python වලින් පටන් ගන්න."
           },
           "4": {
-            "title": "කුඩා ව්‍යාපෘතියක් සාදන්න",
-            "copy": "සරල වෙබ් අඩවියක්, ගණක යන්ත්‍රයක් හෝ කුඩා ක්‍රීඩාවක්."
+            "title": "පොඩි project එකක් හදන්න",
+            "copy": "සරල website එකක්, calculator එකක් හරි mini-game එකක් හදන්න."
           }
         },
-        "note": "හොඳම පියවර: ගවේෂණය කරන්න, පුහුණු වන්න, කුතුහලය රඳවාගන්න."
+        "note": "හොඳම දේ: explore කරන්න, practice කරන්න, අලුත් දේවල් ඉගෙන ගන්න ආසාව තියාගන්න."
       },
       "al": {
-        "stage": "A/L සිසුවා",
-        "title": "සුදුසු මාර්ගයක් තෝරන්න",
-        "badge": "12–13 ශ්‍රේණි",
+        "stage": "A/L ශිෂ්‍යයා",
+        "title": "ගැළපෙන stream එකක් තෝරගන්න",
+        "badge": "Grade 12–13",
         "steps": {
           "1": {
-            "title": "ගණිත විෂය ධාරාව සලකා බලන්න",
-            "copy": "සංයුක්ත ගණිතය + භෞතික විද්‍යාව බොහෝ රාජ්‍ය මාර්ග විවෘත කරයි."
+            "title": "Maths stream එක ගැන හිතන්න",
+            "copy": "Combined Maths + Physics කළොත් government university paths ගොඩක් විවෘත වෙනවා."
           },
           "2": {
-            "title": "ICT ගැළපෙන තැන පරීක්ෂා කරන්න",
-            "copy": "ඇතැම් විෂය සංයෝජනවල ICT පිළිගනු ලැබිය හැක."
+            "title": "ICT ගැළපෙන විදිහ බලන්න",
+            "copy": "සමහර subject combinations වලට ICT පිළිගන්නවා."
           },
           "3": {
-            "title": "ශ්‍රේණි සහ Z-ලකුණු කෙරෙහි අවධානය යොමු කරන්න",
-            "copy": "ඇතුළත්වීම නිශ්චිත පාඨමාලාව සහ බඳවාගැනීම මත රඳා පවතී."
+            "title": "Grades සහ Z-score ගැන අවධානය යොමු කරන්න",
+            "copy": "Admission එක තීරණය වෙන්නේ අදාළ course එක සහ intake එක අනුවයි."
           },
           "4": {
-            "title": "ඔබේ කුසලතා ගොඩනඟමින් සිටින්න",
-            "copy": "Python, Git, වෙබ් මූලික කරුණු සහ ගැටලු විසඳීම."
+            "title": "Skills දිගටම build කරගන්න",
+            "copy": "Python, Git, basic web development සහ problem solving පුරුදු වෙන්න."
           }
         },
-        "note": "සියලු උපාධි සඳහා එකම A/L විෂය ධාරාව අවශ්‍ය නොවේ."
+        "note": "හැම IT degree එකකටම එකම A/L stream එක ඕනෙ වෙන්නෙ නැහැ."
       },
       "after": {
-        "stage": "A/L වලට පසු",
-        "title": "කුසලතා අත්දැකීම් බවට පත් කරන්න",
-        "badge": "ඔබේ ඊළඟ පියවර",
+        "stage": "A/L ඉවර වුණාට පස්සෙ",
+        "title": "Skills වලින් practical experience ගන්න",
+        "badge": "ඔයාගෙ ඊළඟ පියවර",
         "steps": {
           "1": {
-            "title": "අධ්‍යයන මාර්ග සසඳන්න",
-            "copy": "CS, මෘදුකාංග ඉංජිනේරු විද්‍යාව, IT හෝ අදාළ උපාධි."
+            "title": "Degree pathways compare කරන්න",
+            "copy": "CS, Software Engineering, IT හෝ related degrees සසඳන්න."
           },
           "2": {
-            "title": "නිශ්චිත ඇතුළත්වීමේ නීති තහවුරු කරගන්න",
-            "copy": "UGC සහ එක් එක් ආයතනයේ වත්මන් දැන්වීම් පරීක්ෂා කරන්න."
+            "title": "Admission rules හරියටම check කරගන්න",
+            "copy": "UGC සහ අදාළ institutes වල latest guidelines බලන්න."
           },
           "3": {
-            "title": "GitHub portfolio එකක් ගොඩනඟන්න",
-            "copy": "ව්‍යාපෘති දෙකක් සාදා ඔබේ ක්‍රියාවලිය ලේඛනගත කරන්න."
+            "title": "GitHub portfolio එකක් හදාගන්න",
+            "copy": "Projects දෙක තුනක් කරලා ඒවා clean විදිහට code කරලා upload කරන්න."
           },
           "4": {
-            "title": "සැබෑ අත්දැකීම් සොයාගන්න",
-            "copy": "Hackathon, ආධුනික පුහුණු (internship), විවෘත මූලාශ්‍ර (open-source) කටයුතු."
+            "title": "Real-world experience හොයාගන්න",
+            "copy": "Hackathons, internships සහ open-source projects වලට සම්බන්ධ වෙන්න."
           }
         },
-        "note": "ඔබට අනුමත සම්බන්ධක හෝ පදනම් පාඨමාලා මාර්ගද ගවේෂණය කළ හැක."
+        "note": "Foundation courses හෝ bridge programs හරහාත් degree එකකට යන්න පුළුවන්."
       }
     },
     "roles": {
-      "title": "ඔබට කළ හැකි රැකියා මොනවාද?",
-      "description": "මෘදුකාංග ඉංජිනේරු විද්‍යාව ඉගෙනීමෙන් පසු ඔබට ගවේෂණය කළ හැකි දිශා හයක්.",
+      "title": "ඔයාට යන්න පුළුවන් roles මොනවද?",
+      "description": "Software Engineering ඉගෙන ගත්තම ඔයාට තෝරගන්න පුළුවන් directions 6ක්.",
       "items": {
         "frontend": {
-          "title": "Front-End සංවර්ධක",
-          "copy": "මිනිසුන් ප්‍රිය කරන වෙබ් අත්දැකීම්"
+          "title": "Front-End Developer",
+          "copy": "Users ලා ආස කරන visual web experiences හදන්න"
         },
         "backend": {
-          "title": "Back-End ඉංජිනේරු",
-          "copy": "API, සේවා සහ දත්ත සමුදාය"
+          "title": "Back-End Engineer",
+          "copy": "APIs, server architecture සහ databases හසුරුවන්න"
         },
         "fullstack": {
-          "title": "Full-Stack ඉංජිනේරු",
-          "copy": "සම්බන්ධිත නිෂ්පාදන ගොඩනඟන්න"
+          "title": "Full-Stack Engineer",
+          "copy": "Front-end එකයි back-end එකයි දෙකම එකතු කරලා products හදන්න"
         },
         "mobile": {
-          "title": "ජංගම යෙදුම් සංවර්ධක",
-          "copy": "එදිනෙදා ජීවිතය සඳහා යෙදුම් සාදන්න"
+          "title": "Mobile App Developer (ජංගම යෙදුම්)",
+          "copy": "Android සහ iOS mobile apps නිර්මාණය කරන්න"
         },
         "devops": {
-          "title": "Cloud / DevOps ඉංජිනේරු",
-          "copy": "පද්ධති විශාල පරිමාණයෙන් ධාවනය කරන්න"
+          "title": "Cloud / DevOps Engineer",
+          "copy": "Systems scale කරලා cloud servers manage කරන්න"
         },
         "data": {
-          "title": "දත්ත / AI ඉංජිනේරු",
-          "copy": "දත්ත බුද්ධිමත් පද්ධති බවට පත් කරන්න"
+          "title": "Data / AI Engineer",
+          "copy": "Data පාවිච්චි කරලා smart AI models build කරන්න"
         }
       }
     },
     "employers": {
-      "title": "මෙම කුසලතා වැදගත් වන සමාගම්",
-      "description": "උදාහරණ මෘදුකාංග සේවායෝජකයින් සහ ඔවුන් වැඩ කරන තාක්ෂණ වර්ග — සජීවී රැකියා දැන්වීම් නොවේ.",
-      "footnote": "සමාගම් වෘත්තීය උදාහරණ ලෙස පෙන්වා ඇත; බඳවාගැනීම්, වැටුප් සහ ආරම්භක මට්ටමේ අවස්ථා ගම්‍ය නොවේ.",
+      "title": "මේ skills අවශ්‍ය වන top companies",
+      "description": "ලංකාවේ leading software employers සහ ඔවුන් වැඩ කරන technologies — sample list එකක් පමණි.",
+      "footnote": "සමාගම් දක්වා ඇත්තේ උදාහරණ ලෙස පමණි; සජීවී බඳවාගැනීම් හෝ ආරම්භක වැටුප් මෙයින් අදහස් නොකෙරේ.",
       "items": {
         "wso2": {
-          "description": "API කළමනාකරණය, අනන්‍යතාව සහ ඒකාබද්ධ කිරීම",
-          "detail": "නිෂ්පාදන ඉංජිනේරු විද්‍යාව / ව්‍යවසාය මෘදුකාංග"
+          "description": "API management, identity සහ open-source integration",
+          "detail": "Enterprise middleware සහ product engineering"
         },
         "99x": {
-          "description": "සේවාදායකයන් සඳහා ඩිජිටල් නිෂ්පාදන ඉංජිනේරු විද්‍යාව",
-          "detail": "නිෂ්පාදන නිර්මාණය / වේදිකා සංවර්ධනය"
+          "description": "International clients වෙනුවෙන් digital product engineering",
+          "detail": "SaaS product development සහ agile engineering"
         },
         "sysco": {
-          "description": "ගෝලීය ආහාර සේවා සැපයුම් දාම සඳහා තාක්ෂණය",
-          "detail": "Cloud, දත්ත සහ ලොජිස්ටික්ස් වේදිකා"
+          "description": "Global food service logistics සඳහා high-scale enterprise tech",
+          "detail": "Cloud architectures, data analytics සහ supply chain tech"
         },
         "ifs": {
-          "description": "කර්මාන්ත සඳහා ව්‍යවසාය cloud මෘදුකාංග",
-          "detail": "ERP, සේවා සහ වත්කම් කළමනාකරණය"
+          "description": "කර්මාන්ත සඳහා enterprise cloud මෘදුකාංග",
+          "detail": "ERP solutions, asset management සහ field service"
         },
         "virtusa": {
-          "description": "ඩිජිටල් ඉංජිනේරු විද්‍යාව සහ IT උපදේශනය",
-          "detail": "මෘදුකාංග බෙදාහැරීම සහ නවීකරණය"
+          "description": "Digital business transformation සහ IT consulting",
+          "detail": "Software delivery, cloud migration සහ financial tech"
         },
         "lseg": {
-          "description": "මූල්‍ය වෙළඳපොළ දත්ත සහ තාක්ෂණය",
-          "detail": "වෙළඳාම, විශ්ලේෂණ සහ දත්ත පද්ධති"
+          "description": "Global financial markets infrastructure සහ analytics",
+          "detail": "High-performance trading systems සහ market data platforms"
         }
       }
     },
     "study": {
-      "title": "මෘදුකාංග ඉංජිනේරු විද්‍යාව හැදෑරිය හැක්කේ කොහේද?",
-      "description": "එක් එක් ආයතනයේ උපාධි නම් ගවේෂණය කරන්න — සෘජු මෘදුකාංග මාර්ග සහ අදාළ පරිගණක වැඩසටහන්.",
-      "programmes": "වැඩසටහන් {count}ක්",
+      "title": "Software Engineering ඉගෙන ගන්න පුළුවන් කොහෙද?",
+      "description": "ලංකාවේ institutes වල තියෙන degree programs — direct software pathways සහ computing degrees.",
+      "programmes": "Programs {count}ක්",
       "fit": {
-        "external": "බාහිර",
+        "external": "External",
         "strong": "ඉතා ගැළපේ",
-        "related": "අදාළ"
+        "related": "Related"
       },
-      "officialList": "නිල වැඩසටහන් ලැයිස්තුව",
-      "footnote": "උපාධි අදාළත්වය වෘත්තීය ගැළපීම පෙන්වයි, ඇතුළත්වීමේ සුදුසුකම නොවේ. වැඩසටහන් නාම, A/L නිර්ණායක, ගාස්තු සහ බඳවාගැනීම නිල වෙබ් අඩවිවලින් තහවුරු කරගන්න.",
+      "officialList": "Official programs ලැයිස්තුව",
+      "footnote": "මෙහි දක්වා ඇත්තේ career match එක මිස admission සුදුසුකම නොවේ. Degree නම්, A/L requirements, fees සහ intakes official websites වලින් තහවුරු කරගන්න.",
       "routes": {
         "moratuwa": {
           "type": "රාජ්‍ය විශ්වවිද්‍යාලය",
-          "note": "CSE යනු ඉංජිනේරු විශේෂිතකරණයකි; BIT යනු බාහිර මාර්ගයකි."
+          "note": "CSE යනු Engineering specialization එකකි; BIT යනු external degree එකකි."
         },
         "peradeniya": {
           "type": "රාජ්‍ය විශ්වවිද්‍යාලය",
-          "note": "පරිගණක විද්‍යා ගෞරව (Honours) ආරම්භක BSc අධ්‍යයනයෙන් පසු තෝරා ගැනේ."
+          "note": "Computer Science Honours තෝරාගන්නේ මුල් BSc studies වලින් පසුවයි."
         },
         "ruhuna": {
           "type": "රාජ්‍ය විශ්වවිද්‍යාලය",
-          "note": "BCS විශේෂ / ගෞරව යනු BCS මාර්ගයේ ඉදිරි ප්‍රගමනයකි."
+          "note": "BCS Special / Honours කියන්නේ BCS pathway එකේ advanced stage එකයි."
         },
         "sliit": {
-          "type": "රාජ්‍ය නොවන උපාධි සපයන්නා",
-          "note": "විශේෂිතකරණ සහ සම්බන්ධක / ඇතුළත්වීමේ අවශ්‍යතා උපාධිය අනුව වෙනස් වේ."
+          "type": "රාජ්‍ය නොවන උපාධි ආයතනය",
+          "note": "Specializations සහ entry / bridge requirements degree එක අනුව වෙනස් වේ."
         },
         "nsbm": {
-          "type": "රාජ්‍ය නොවන උපාධි සපයන්නා",
-          "note": "NSBM සහ Plymouth මගින් පිරිනමන සුදුසුකම් වෙන වෙනම ලැයිස්තුගත කර ඇත."
+          "type": "රාජ්‍ය නොවන උපාධි ආයතනය",
+          "note": "NSBM සහ Plymouth university degrees වෙන වෙනම දක්වා ඇත."
         },
         "iit": {
-          "type": "රාජ්‍ය නොවන ආයතනය / විදේශීය සුදුසුකම්",
-          "note": "වැඩසටහන් පවතින බව සහ සුදුසුකම පිරිනමන විශ්වවිද්‍යාලය බඳවාගැනීම අනුව වෙනස් විය හැක."
+          "type": "රාජ්‍ය නොවන ආයතනය / Foreign degrees",
+          "note": "Programs සහ awarding university එක intake එක අනුව වෙනස් විය හැක."
         }
       }
     }
   },
   "universities": {
-    "meta": "විශ්වවිද්‍යාල",
-    "eyebrow": "ශ්‍රී ලංකාවේ විශ්වවිද්‍යාල",
-    "title": "විශ්වවිද්‍යාල සොයාගන්න.",
-    "intro": "ශ්‍රී ලංකාවේ රජයේ විශ්වවිද්‍යාල සහ පෞද්ගලික උසස් අධ්‍යාපන ආයතන ගවේෂණය කරන්න.<br></br>අධ්‍යයන වැඩසටහන්, ස්ථාන, ප්‍රවේශ මාර්ග සහ ශිෂ්‍ය අවස්ථා සසඳන්න.",
+    "meta": "Universities",
+    "eyebrow": "ශ්‍රී ලංකාවේ Universities",
+    "title": "Universities හොයාගන්න.",
+    "intro": "ශ්‍රී ලංකාවේ රජයේ universities සහ private higher education institutes ගැන හොයන්න.<br></br>Degree programs, campus locations, entry requirements සහ student opportunities සසඳන්න.",
     "search": {
-      "label": "විශ්වවිද්‍යාල, පාඨමාලා හෝ ස්ථාන සොයන්න",
-      "placeholder": "විශ්වවිද්‍යාල, පාඨමාලා හෝ ස්ථාන සොයන්න...",
-      "submit": "විශ්වවිද්‍යාල සොයන්න"
+      "label": "Universities, courses හෝ locations search කරන්න",
+      "placeholder": "Universities, courses හෝ locations search කරන්න...",
+      "submit": "Search කරන්න"
     },
     "filters": {
-      "location": "ස්ථානය",
-      "allLocations": "සියලු ස්ථාන",
-      "area": "අධ්‍යයන ක්ෂේත්‍රය",
-      "allAreas": "සියලු අධ්‍යයන ක්ෂේත්‍ර",
-      "degreeType": "උපාධි වර්ගය",
-      "funding": "මූල්‍ය විකල්ප",
-      "more": "තවත් පෙරහන්",
-      "clear": "පෙරහන් ඉවත් කරන්න",
-      "moreNotice": "ආයතන වැඩසටහන් විස්තර එක් කරන විට උපාධි සහ මූල්‍ය පෙරහන් ලබාගත හැකි වනු ඇත. දැනට ඔබට ස්ථානය, අධ්‍යයන ක්ෂේත්‍රය සහ ආයතන වර්ගය අනුව පෙරහන් කළ හැක."
+      "location": "Location එක",
+      "allLocations": "සියලුම locations",
+      "area": "Study field එක",
+      "allAreas": "සියලුම fields",
+      "degreeType": "Degree type එක",
+      "funding": "Funding options",
+      "more": "තවත් filters",
+      "clear": "Filters clear කරන්න",
+      "moreNotice": "Institutes වල අලුත් විස්තර එකතු වන විට degree සහ funding filters ලැබෙනු ඇත. දැනට location, study field සහ institute type අනුව filter කරගත හැක."
     },
     "category": {
-      "title": "ආයතන වර්ගය අනුව බලන්න",
-      "subtitle": "පවතින විකල්ප ගවේෂණය කිරීමට කාණ්ඩයක් තෝරන්න.",
-      "all": "සියලු ආයතන",
-      "government": "රජයේ",
-      "nonState": "පෞද්ගලික / රාජ්‍ය නොවන"
+      "title": "Institute type එක අනුව බලන්න",
+      "subtitle": "ඔයාට ගැළපෙන category එකක් තෝරගන්න.",
+      "all": "සියලුම ආයතන",
+      "government": "රජයේ (State)",
+      "nonState": "Private / Non-state"
     },
     "results": {
-      "title": "විශ්වවිද්‍යාල සහ ආයතන ගවේෂණය කරන්න",
-      "description": "ශ්‍රී ලංකාවේ උසස් අධ්‍යාපන ආයතනවල ආරම්භක තේරීමක්.",
-      "count": "ආයතන {count}ක් පෙන්වමින්",
-      "empty": "ඔබේ පෙරහන්වලට ගැළපෙන විශ්වවිද්‍යාල නැත"
+      "title": "Universities සහ Institutes",
+      "description": "ශ්‍රී ලංකාවේ උසස් අධ්‍යාපන ආයතන කිහිපයක්.",
+      "count": "ආයතන {count}ක් හමුවුණා",
+      "empty": "ඔයා search කරපු filters වලට ගැළපෙන universities හමු වුණේ නැහැ"
     },
     "sort": {
-      "label": "විශ්වවිද්‍යාල පිළිවෙළට සකසන්න",
-      "featured": "පිළිවෙළ: විශේෂිත",
-      "az": "පිළිවෙළ: නම (A–Z)",
-      "za": "පිළිවෙළ: නම (Z–A)"
+      "label": "පිළිවෙළ සකසන්න",
+      "featured": "Featured මුලින්",
+      "az": "නම (A–Z)",
+      "za": "නම (Z–A)"
     },
     "compare": {
-      "title": "ඔබේ අනාගතයට ගැළපෙනම තේරීම සොයන්න",
-      "subtitle": "තීරණය කිරීමට පෙර ස්ථාන, පාඨමාලා සහ ප්‍රවේශ මාර්ග සසඳන්න.",
-      "selected": "විශ්වවිද්‍යාල {max}න් {count}ක් තෝරා ඇත",
-      "run": "තෝරාගත් දේ සසඳන්න",
-      "start": "විශ්වවිද්‍යාල සසඳන්න",
-      "resultsLabel": "විශ්වවිද්‍යාල සංසන්දනය",
-      "resultsTitle": "ඔබේ විශ්වවිද්‍යාල සංසන්දනය",
-      "close": "සංසන්දනය වසන්න",
-      "university": "විශ්වවිද්‍යාලය",
-      "type": "ආයතන වර්ගය",
-      "location": "ස්ථානය",
-      "areas": "අධ්‍යයන ක්ෂේත්‍ර"
+      "title": "ඔයාගෙ future එකට හොඳම තේරීම හොයාගන්න",
+      "subtitle": "Campus location, courses සහ entry requirements සසඳලා බලන්න.",
+      "selected": "Universities {max}න් {count}ක් තෝරාගෙන ඇත",
+      "run": "Compare කරලා බලන්න",
+      "start": "Universities compare කරන්න",
+      "resultsLabel": "University comparison",
+      "resultsTitle": "ඔයා compare කරපු universities",
+      "close": "Close කරන්න",
+      "university": "University එක",
+      "type": "Institute type එක",
+      "location": "Location එක",
+      "areas": "Study fields"
     },
     "card": {
       "location": "{location}, ශ්‍රී ලංකාව",
-      "explore": "{name} ගවේෂණය කරන්න",
-      "compare": "මෙම විශ්වවිද්‍යාලය සසඳන්න"
+      "explore": "{name} ගැන බලන්න",
+      "compare": "Compare කරන්න එකතු කරගන්න"
     },
     "resources": {
-      "title": "ඔබේ විශ්වවිද්‍යාල ගමන සැලසුම් කරන්න",
-      "description": "උසස් අධ්‍යාපනයට සූදානම් වන සිසුන් සඳහා ප්‍රයෝජනවත් සම්පත්.",
+      "title": "ඔයාගෙ university journey එක plan කරගන්න",
+      "description": "Higher education වලට සූදානම් වෙන students ලාට වැදගත් වන resources.",
       "admission": {
-        "title": "විශ්වවිද්‍යාල ප්‍රවේශ මාර්ගෝපදේශය",
-        "description": "A/L සුදුසුකම්, අයදුම්පත් සහ ඇතුළත්වීමේ අවශ්‍යතා අවබෝධ කරගන්න."
+        "title": "University Admission මඟපෙන්වීම (Guide)",
+        "description": "A/L requirements, application process එක සහ cut-off marks තේරුම් ගන්න."
       },
       "funding": {
-        "title": "ශිෂ්‍යත්ව සහ මූල්‍ය සහාය",
-        "description": "ශිෂ්‍යත්ව, ශිෂ්‍ය ණය සහ මූල්‍ය සහාය ගවේෂණය කරන්න."
+        "title": "Scholarships සහ Financial Aid",
+        "description": "Scholarships, student loans සහ financial support options ගැන දැනගන්න."
       },
       "guidance": {
-        "title": "පාඨමාලා සහ වෘත්තීය මඟපෙන්වීම",
-        "description": "ඔබේ අභිලාෂයන්ට ගැළපෙන අධ්‍යයන මාර්ග සොයාගන්න."
+        "title": "Courses සහ Career Guidance",
+        "description": "ඔයාගෙ future goals වලට හරියන study pathways තෝරගන්න."
       }
     }
   },
   "universityDetail": {
-    "notFoundTitle": "විශ්වවිද්‍යාලය හමු නොවීය",
-    "breadcrumb": "සංචාලන මාවත",
-    "universities": "විශ්වවිද්‍යාල",
+    "notFoundTitle": "University එක හමු වුණේ නැහැ",
+    "breadcrumb": "Breadcrumb navigation",
+    "universities": "Universities",
     "badge": {
-      "public": "රජයේ විශ්වවිද්‍යාලය",
+      "public": "රජයේ විශ්වවිද්‍යාලය (State)",
       "higher": "උසස් අධ්‍යාපනය"
     },
     "ruhunaTitle": "රුහුණ<br></br>විශ්වවිද්‍යාලය",
-    "introRuhuna": "ශ්‍රී ලංකාවේ ස්ථාපිත රාජ්‍ය විශ්වවිද්‍යාලයක පීඨ, උපාධි පාඨමාලා, ප්‍රවේශ මාර්ග, කැම්පස් ජීවිතය සහ නිල සබැඳි ගවේෂණය කරන්න.",
-    "intro": "{name} හි පීඨ, උපාධි පාඨමාලා, ප්‍රවේශ මාර්ග, කැම්පස් ජීවිතය සහ නිල සබැඳි ගවේෂණය කරන්න.",
-    "established": "1978 ස්ථාපිත",
+    "introRuhuna": "ලංකාවේ ප්‍රමුඛ රාජ්‍ය විශ්වවිද්‍යාලයක faculties, degrees, admission details, campus life සහ official links ගැන මෙතනින් දැනගන්න.",
+    "intro": "{name} හි faculties, degrees, admission details, campus life සහ official links ගැන මෙතනින් දැනගන්න.",
+    "established": "1978 දී ආරම්භ විය",
     "locationRuhuna": "{location} · දකුණු පළාත",
     "locationOther": "{location}, ශ්‍රී ලංකාව",
-    "facultyCount": "පීඨ 10ක්",
+    "facultyCount": "Faculties 10ක්",
     "ruhunaShort": "රුහුණ",
     "metrics": {
       "faculties": {
         "value": "10",
-        "label": "පීඨ"
+        "label": "පීඨ (Faculties)"
       },
       "founded": {
         "value": "1978",
-        "label": "ස්ථාපිත"
+        "label": "ආරම්භ කළ වර්ෂය"
       },
       "campus": {
         "value": "මාතර",
@@ -898,177 +900,274 @@
       },
       "type": {
         "value": "රජයේ",
-        "label": "විශ්වවිද්‍යාල වර්ගය"
+        "label": "ආයතන වර්ගය"
       }
     },
-    "sections": "විශ්වවිද්‍යාල අංශ",
+    "sections": "University sections",
     "tabs": {
-      "overview": "දළ විශ්ලේෂණය",
-      "faculties": "පීඨ",
-      "degrees": "උපාධි",
-      "admissions": "ඇතුළත්වීම්",
-      "rankings": "ශ්‍රේණිගත කිරීම්",
-      "campusLife": "කැම්පස් ජීවිතය",
-      "gallery": "ඡායාරූප"
+      "overview": "Overview",
+      "faculties": "පීඨ (Faculties)",
+      "degrees": "උපාධි (Degrees)",
+      "admissions": "Admissions",
+      "rankings": "Rankings",
+      "campusLife": "Campus Life",
+      "gallery": "Photos",
+      "heritage": "ගෘහ නිර්මාණ උරුමය",
+      "facilities": "පහසුකම් සහ ශිෂ්‍ය ජීවිතය",
+      "resources": "නිල සබැඳි"
     },
     "getToKnow": "{name} ගැන දැනගන්න",
-    "overviewTitleRuhuna": "දකුණු ශ්‍රී ලංකාව පුරා විහිදුණු විශ්වවිද්‍යාලයක්",
-    "overviewRuhuna": "1978 දී රුහුණ විශ්වවිද්‍යාල කොලීජියක් ලෙස ස්ථාපිත කර 1984 දී විශ්වවිද්‍යාල තත්ත්වයට උසස් කරන ලද රුහුණ විශ්වවිද්‍යාලය, වැල්ලමඩම ප්‍රධාන කැම්පස් සහ මාතර හා ගාල්ලේ පීඨ ස්ථාන හරහා සිසුන්ට සේවය කරයි.",
-    "overviewOther": "{name}, {location} හි {areas} ගවේෂණය කරන්න. වත්මන් වැඩසටහන් සහ ඇතුළත්වීමේ අවශ්‍යතා සඳහා ආයතනයේ නිල වෙබ් අඩවියට පිවිසෙන්න.",
-    "overviewTagline": "{type} ආයතනය • උපාධි, පශ්චාත් උපාධි සහ පර්යේෂණ මාර්ග",
+    "overviewTitleRuhuna": "දකුණු පළාත පුරා විහිදුණු ප්‍රමුඛ විශ්වවිද්‍යාලයක්",
+    "overviewRuhuna": "1978 දී University College එකක් විදිහට පටන් අරන් 1984 දී පූර්ණ විශ්වවිද්‍යාලයක් බවට පත් වූ රුහුණ විශ්වවිද්‍යාලය, වැල්ලමඩම main campus එක සහ මාතර, ගාල්ල, කඹුරුපිටිය faculties හරහා දහස් ගණනක් සිසුන්ට අධ්‍යාපනය ලබා දෙනවා.",
+    "overviewOther": "{name}, {location} හි {areas} ගැන explore කරන්න. අලුත්ම courses සහ admission requirements සඳහා නිල website එකට පිවිසෙන්න.",
+    "overviewTagline": "{type} ආයතනය • Undergraduate, postgraduate සහ research pathways",
     "rankings": {
-      "title": "විශ්වවිද්‍යාල ශ්‍රේණිගත කිරීම්",
+      "title": "University Rankings",
       "source": "Webometrics · 2026 ජනවාරි",
-      "nationalValue": "5 වන",
+      "nationalValue": "5 වන තැන",
       "national": "ශ්‍රී ලංකාව",
       "worldValue": "2,779",
-      "world": "ලෝක ස්ථානය",
-      "note": "ශ්‍රේණිගත කිරීම් ප්‍රකාශකයා සහ වර්ෂය අනුව වෙනස් වේ. මෙය QS ශ්‍රේණියක් නොවේ."
+      "world": "ලෝක ශ්‍රේණිගත කිරීම",
+      "note": "Rankings වර්ෂය සහ criteria අනුව වෙනස් විය හැක. මෙය QS ranking එකක් නොවේ."
     },
     "locations": {
-      "eyebrow": "ඇතුළත්වීම",
-      "title": "පීඨ පිහිටීම්",
-      "description": "ඔබට හැදෑරිය හැකි ස්ථාන සහ ශ්‍රී ලංකාවේ රාජ්‍ය විශ්වවිද්‍යාල ඇතුළත්වීම ක්‍රියාත්මක වන ආකාරය අවබෝධ කරගන්න.",
-      "heading": "පීඨ පිහිටා ඇති ස්ථාන",
+      "eyebrow": "Admissions",
+      "title": "Faculties පිහිටා ඇති ස්ථාන",
+      "description": "ඔයාට ඉගෙන ගන්න පුළුවන් තැන් සහ ලංකාවේ state university selection වෙන විදිහ තේරුම් ගන්න.",
+      "heading": "පීඨ පිහිටි ස්ථාන",
       "items": {
         "matara": {
           "title": "මාතර · වැල්ලමඩම",
-          "copy": "විද්‍යා, කලා, කළමනාකරණ, ධීවර, උපාධිධාරී අධ්‍යයන"
+          "copy": "Science, Arts, Management, Fisheries, Graduate Studies"
         },
         "kamburupitiya": {
-          "title": "කඹුරුපිටිය ප්‍රදේශය",
-          "copy": "කෘෂිකර්ම සහ තාක්ෂණ"
+          "title": "කඹුරුපිටිය",
+          "copy": "Agriculture සහ Technology faculties"
         },
         "galle": {
-          "title": "ගාල්ල ප්‍රදේශය",
-          "copy": "ඉංජිනේරු, වෛද්‍ය සහ සම්බන්ධිත සෞඛ්‍ය විද්‍යා"
+          "title": "ගාල්ල (හපුගල / කරාපිටිය)",
+          "copy": "Engineering, Medicine සහ Allied Health Sciences"
         }
       }
     },
     "campus": {
-      "eyebrow": "ශිෂ්‍ය අත්දැකීම",
-      "title": "කැම්පස් ජීවිතය සහ ප්‍රයෝජනවත් සම්පත්",
-      "description": "පාඨමාලා නාමයෙන් ඔබ්බට සැලසුම් කරන්න: පහසුකම්, සහාය සහ ශිෂ්‍ය අත්දැකීම ගවේෂණය කරන්න.",
+      "eyebrow": "Student Life",
+      "title": "Campus life සහ ප්‍රයෝජනවත් resources",
+      "description": "Course එකට අමතරව campus facilities, support systems සහ student experience එක ගැන දැනගන්න.",
       "library": {
-        "title": "පුස්තකාලය සහ පර්යේෂණ",
-        "description": "පුස්තකාල පහසුකම්, පර්යේෂණ ව්‍යාපෘති සහ අධ්‍යයන සහාය සොයාගන්න."
+        "title": "Library සහ Research",
+        "description": "පුස්තකාල පහසුකම්, research projects සහ academic support ලබාගන්න."
       },
       "clubs": {
-        "title": "සමාජ සහ සංගම්",
-        "description": "ශිෂ්‍ය ප්‍රජාවන්, ක්‍රීඩා, සංස්කෘතිය සහ කැම්පස් ක්‍රියාකාරකම් ගවේෂණය කරන්න."
+        "title": "Clubs & Societies",
+        "description": "Student clubs, sports, cultural events සහ campus activities වලට join වෙන්න."
       },
       "faculty": {
-        "title": "පීඨ මාර්ග",
-        "description": "දෙපාර්තමේන්තු වෙබ් අඩවි, ආධුනික පුහුණු, ප්‍රායෝගික කටයුතු සහ ව්‍යාපෘති පරීක්ෂා කරන්න."
+        "title": "Faculty Resources",
+        "description": "Department websites, internships, practical labs සහ projects ගැන විස්තර බලන්න."
       }
     },
     "ready": {
-      "title": "{name} ගවේෂණය කිරීමට සූදානම්ද?",
-      "body": "යාවත්කාලීන ප්‍රවේශ, පීඨ සහ උපාධි තොරතුරු සඳහා නිල වෙබ් අඩවිය භාවිත කරන්න. SkillBridge SL හි ඔබේ අධ්‍යයන කෙටි ලැයිස්තුවට මෙම විශ්වවිද්‍යාලය සුරකින්න.",
-      "visit": "නිල වෙබ් අඩවියට පිවිසෙන්න"
+      "title": "{name} ගැන තව විස්තර බලන්න ready ද?",
+      "body": "නවතම admissions, faculties සහ degree විස්තර සඳහා official website එක බලන්න. SkillBridge SL එකේ ඔයාගෙ shortlist එකටත් මේ university එක save කරගන්න පුළුවන්.",
+      "visit": "Official website එකට යන්න"
     },
     "academics": {
-      "eyebrow": "අධ්‍යයන ක්ෂේත්‍ර ගවේෂණය",
-      "title": "රුහුණ විශ්වවිද්‍යාලයේ පීඨ 10",
-      "description": "පීඨයක් තෝරා එහි ක්ෂේත්‍ර සහ පවතින වැඩසටහන් ගැන දැනගන්න."
+      "eyebrow": "Academic Fields",
+      "title": "රුහුණ විශ්වවිද්‍යාලයේ Faculties 10",
+      "description": "Faculty එකක් select කරලා එහි study fields සහ available degree programs ගැන බලන්න."
     },
     "faculties": {
       "engineering": {
-        "title": "ඉංජිනේරු",
-        "copy": "ඉංජිනේරු විද්‍යාව · ගාල්ල"
+        "title": "Engineering",
+        "copy": "ඉංජිනේරු පීඨය · ගාල්ල (හපුගල)"
       },
       "medicine": {
-        "title": "වෛද්‍ය",
-        "copy": "සෞඛ්‍ය විද්‍යා · ගාල්ල"
+        "title": "Medicine",
+        "copy": "වෛද්‍ය පීඨය · ගාල්ල (කරාපිටිය)"
       },
       "science": {
-        "title": "විද්‍යා",
-        "copy": "පරිගණක · ස්වභාවික විද්‍යා"
+        "title": "Science",
+        "copy": "පරිගණක හා ස්වභාවික විද්‍යා · මාතර"
       },
       "agriculture": {
-        "title": "කෘෂිකර්ම",
-        "copy": "ගොවිතැන · හරිත තාක්ෂණය"
+        "title": "Agriculture",
+        "copy": "කෘෂිකර්මය හා හරිත තාක්ෂණය · මාපලාන"
       },
       "management": {
-        "title": "කළමනාකරණ සහ මූල්‍ය",
-        "copy": "ව්‍යාපාර · කළමනාකරණය"
+        "title": "Management & Finance",
+        "copy": "ව්‍යාපාර හා මූල්‍ය අධ්‍යයන · මාතර"
       },
       "humanities": {
-        "title": "මානවශාස්ත්‍ර සහ සමාජ විද්‍යා",
-        "copy": "කලා · සමාජ විද්‍යා"
+        "title": "Humanities & Social Sciences",
+        "copy": "කලා හා සමාජීය විද්‍යා · මාතර"
       },
       "fisheries": {
-        "title": "ධීවර සහ සාගර විද්‍යා",
-        "copy": "සාගර · මිරිදිය"
+        "title": "Fisheries & Marine Sciences",
+        "copy": "සාගර හා මත්ස්‍ය විද්‍යාව · මාතර"
       },
       "allied": {
-        "title": "සම්බන්ධිත සෞඛ්‍ය විද්‍යා",
-        "copy": "හෙද · ඖෂධවේද · MLS"
+        "title": "සම්බන්ධිත සෞඛ්‍ය විද්‍යා (Allied Health)",
+        "copy": "Nursing · Pharmacy · MLS · ගාල්ල"
       },
       "technology": {
-        "title": "තාක්ෂණ",
-        "copy": "ඉංජිනේරු · ICT · ජෛව පද්ධති"
+        "title": "Technology",
+        "copy": "Engineering Tech · ICT · Bio Systems"
       },
       "graduate": {
-        "title": "උපාධිධාරී අධ්‍යයන",
-        "copy": "පශ්චාත් උපාධි සහ පර්යේෂණ"
+        "title": "Graduate Studies",
+        "copy": "Postgraduate degrees සහ research"
       }
     },
     "degrees": {
-      "eyebrow": "අධ්‍යයන විකල්ප",
-      "title": "උපාධි පාඨමාලා",
-      "description": "උපාධි මාර්ග පිළිබඳ සවිස්තරාත්මක දළ විශ්ලේෂණයක්; විශේෂිතකරණ, සුදුසුකම් සහ වත්මන් පැවැත්ම සඳහා පීඨ වෙබ් අඩවි පරීක්ෂා කරන්න.",
-      "footnote": "වැඩසටහන් නාම සහ ඉංජිනේරු විශේෂිතකරණ ප්‍රකාශිත නිල මාර්ග නිදර්ශනය කරයි; වත්මන් බඳවාගැනීම සඳහා නවතම විශ්වවිද්‍යාල අත්පොත බලන්න."
+      "eyebrow": "Study Options",
+      "title": "උපාධි පාඨමාලා (Degree Programs)",
+      "description": "Degrees පිළිබඳ සවිස්තරාත්මක overview එකක්; specializations, entry requirements සහ details සඳහා faculty websites බලන්න.",
+      "footnote": "මෙහි දැක්වෙන්නේ official pathways පිළිබඳ නිදර්ශනයකි; අදාළ වසරේ admission criteria සඳහා UGC handbook එක බලන්න."
     },
     "degreeGroups": {
       "engineering": {
-        "title": "ඉංජිනේරු",
-        "faculty": "ඉංජිනේරු පීඨය"
+        "title": "Engineering",
+        "faculty": "Faculty of Engineering"
       },
       "health": {
-        "title": "සෞඛ්‍ය සහ වෛද්‍ය",
-        "faculty": "වෛද්‍ය + සම්බන්ධිත සෞඛ්‍ය"
+        "title": "Healthcare & Medicine",
+        "faculty": "Faculty of Medicine + Allied Health"
       },
       "science": {
-        "title": "විද්‍යා සහ පරිගණක",
-        "faculty": "විද්‍යා පීඨය"
+        "title": "Science & Computing",
+        "faculty": "Faculty of Science"
       },
       "technology": {
-        "title": "තාක්ෂණ",
-        "faculty": "තාක්ෂණ පීඨය"
+        "title": "Technology",
+        "faculty": "Faculty of Technology"
       },
       "agriculture": {
-        "title": "කෘෂිකර්ම",
-        "faculty": "කෘෂිකර්ම පීඨය"
+        "title": "Agriculture",
+        "faculty": "Faculty of Agriculture"
       },
       "other": {
-        "title": "වෙනත් විෂය ක්ෂේත්‍ර",
-        "faculty": "අමතර පීඨ"
+        "title": "වෙනත් Fields",
+        "faculty": "අමතර Faculties"
       }
     },
     "gallery": {
-      "label": "{name} කැම්පස් ඡායාරූප",
-      "eyebrow": "කැම්පස් ඡායාරූප",
-      "main": "{name} කැම්පස් ඡායාරූපය",
-      "life": "කැම්පස් ජීවිතය",
-      "buildings": "පීඨ ගොඩනැඟිලි",
-      "placeholder": "කැම්පස් ඡායාරූප මෙහි දිස්වනු ඇත."
+      "label": "{name} campus photos",
+      "eyebrow": "Campus Photos",
+      "main": "{name} campus photo",
+      "life": "Campus life",
+      "buildings": "Faculty buildings",
+      "placeholder": "Campus photos මෙතනින් පෙන්වනු ඇත.",
+      "title": "රුහුණ විශ්වවිද්‍යාලය ඡායාරූප තුළින් බලන්න",
+      "subtitle": "වෙල්ලමඩම වෙරළබඩ පරිශ්‍රය, ජෙෆ්රි බාවාගේ නිර්මාණ සහ පීඨවල සැබෑ ඡායාරූප.",
+      "photo1Badge": "ගුවනින් දසුනක්",
+      "photo1Title": "වෙල්ලමඩම වෙරළබඩ පරිශ්‍රය සහ ඉන්දියන් සාගරය",
+      "photo1Desc": "මාතර-කතරගම ප්‍රධාන මාර්ගයේ මුහුදු තීරයට මුහුණලා පිහිටි ප්‍රධාන පරිශ්‍රය.",
+      "photo2Badge": "ජෙෆ්රි බාවා ගෘහ නිර්මාණය",
+      "photo2Title": "කඳු බෑවුම් ඔස්සේ විහිදුණු විවෘත මණ්ඩප",
+      "photo2Desc": "ස්වභාවික කළුගල් පර්වත හා හරිත වටපිටාව නොනසා නිර්මාණය කළ රතු උළු සෙවිලි කළ මණ්ඩප.",
+      "photo3Badge": "ඉංජිනේරු පීඨය",
+      "photo3Title": "ඉංජිනේරු පීඨය (හපුගල, ගාල්ල)",
+      "photo3Desc": "හපුගල හරිත කඳුකරයේ පිහිටි නවීන ඉංජිනේරු පරිශ්‍රය.",
+      "photo4Badge": "කැම්පස් වටපිටාව",
+      "photo4Title": "විවෘත අංගණ සහ මුහුදු සුළං කොරිඩෝ",
+      "photo4Desc": "ස්වභාවික සුළං ගමන් කරන විවෘත කොරිඩෝ සහ සෙවන සහිත ඇවිදුම් මාවත්.",
+      "photo5Badge": "පර්යේෂණාගාර",
+      "photo5Title": "විදුලි හා තොරතුරු ඉංජිනේරු දෙපාර්තමේන්තුව",
+      "photo5Desc": "නවීන පරිගණක හා විදුලි ඉංජිනේරු ප්‍රායෝගික පර්යේෂණාගාර.",
+      "attribution": "ඡායාරූප මූලාශ්‍රය: විකිමීඩියා කොමන්ස් සහ රුහුණ ප්‍රජාව (CC BY-SA 3.0).",
+      "close": "වසන්න",
+      "viewFull": "ඡායාරූපය බලන්න"
+    },
+    "motto": "පඤ්ඤාය නරානං රතනං · ප්‍රඥාව මිනිසාට මාණික්‍යයකි",
+    "taglineRuhuna": "දකුණු ලක ප්‍රමුඛතම ජාතික විශ්වවිද්‍යාලය",
+    "establishedDetail": "1978 සැප්තැම්බර් 1 ආරම්භය · 1984 පෙබරවාරි 1 පූර්ණ විශ්වවිද්‍යාල තත්ත්වය",
+    "bawaHeritageBadge": "ජෙෆ්රි බාවා ගෘහ නිර්මාණ උරුමය",
+    "tagoreBadge": "තාගෝර් අනුස්මරණ ශ්‍රවණාගාරය (ආසන 1,500)",
+    "heritage": {
+      "eyebrow": "ගෘහ නිර්මාණ උරුමය",
+      "title": "ජෙෆ්රි බාවාගේ අද්විතීය නිර්මාණයක්",
+      "description": "1980-1988 අතරතුර කීර්තිමත් ගෘහ නිර්මාණ ශිල්පී ජෙෆ්රි බාවා විසින් නිර්මාණය කළ වෙල්ලමඩම පරිශ්‍රය, ස්වභාවධර්මය සමඟ මුසු වූ ලොව අගනාම නිදර්ශනයකි.",
+      "bawaCard1Title": "ඉන්දියන් සාගර දසුන සහ ස්වභාවික පාෂාණ",
+      "bawaCard1Desc": "අක්කර 72ක වෙරළබඩ කඳුකරයේ ස්වභාවික පාෂාණ සහ සාගර සුළං ප්‍රවාහ ආරක්ෂා කරමින් පරිසර හිතකාමී ලෙස ගොඩනංවා ඇත.",
+      "bawaCard2Title": "මණ්ඩප 50කට අධික සංඛ්‍යාවක්",
+      "bawaCard2Desc": "කොන්ක්‍රීට් තට්ටු ගොඩනැඟිලි වෙනුවට එකිනෙකට සම්බන්ධ වන විවෘත මණ්ඩප සහ ආලින්ද මඟින් සිසුන්ට නිදහස් ඉගෙනුම් පරිසරයක් නිර්මාණය කර ඇත.",
+      "tagoreTitle": "රබීන්ද්‍රනාත් තාගෝර් අනුස්මරණ ශ්‍රවණාගාරය",
+      "tagoreDesc": "ඉන්දීය රජයේ ප්‍රදානයක් ලෙස ඉදිකළ ආසන 1,500කින් සමන්විත මෙම ශ්‍රවණාගාරය, ශ්‍රී ලංකාවේ විශ්වවිද්‍යාලයක පිහිටි විශාලතම ශ්‍රවණාගාරයයි."
+    },
+    "facultyExplorer": {
+      "eyebrow": "පීඨ නාමාවලිය",
+      "title": "රුහුණේ පීඨ 10 මෙතනින් බලන්න",
+      "description": "ඉංජිනේරු, වෛද්‍ය, සාගර සහ කෘෂිකාර්මික අධ්‍යාපනය වඩාත් ප්‍රායෝගිකව ලබා දීම සඳහා පීඨ මාතර, ගාල්ල සහ කඹුරුපිටිය පුරා පිහිටුවා ඇත.",
+      "filterAll": "සියලුම පීඨ (10)",
+      "filterMatara": "වෙල්ලමඩම, මාතර (5)",
+      "filterGalle": "ගාල්ල (3)",
+      "filterKamburupitiya": "කඹුරුපිටිය (2)",
+      "streamLabel": "A/L විෂය ධාරාව:",
+      "estLabel": "ආරම්භය:",
+      "locationLabel": "පිහිටීම:",
+      "visitFaculty": "පීඨ වෙබ් අඩවිය"
+    },
+    "facilitiesSection": {
+      "eyebrow": "පහසුකම් සහ ශිෂ්‍ය ජීවිතය",
+      "title": "උසස් පහසුකම් සහ සක්‍රීය ශිෂ්‍ය ප්‍රජාව",
+      "description": "නවීන පර්යේෂණාගාර, සාගරයට මුහුණලා ඇති පුස්තකාල ශාලා, ක්‍රීඩාංගණ සහ සක්‍රීය ශිෂ්‍ය සමාජ රුහුණ සතුයි.",
+      "tagoreFacilityTitle": "රබීන්ද්‍රනාත් තාගෝර් ශ්‍රවණාගාරය",
+      "tagoreFacilityDesc": "ශ්‍රී ලංකාවේ විශ්වවිද්‍යාලයක ඇති විශාලතම (ආසන 1,500) උසස් ධ්වනි තාක්ෂණයෙන් යුත් සම්මන්ත්‍රණ හා උත්සව ශාලාව.",
+      "libraryFacilityTitle": "ප්‍රධාන පුස්තකාලය සහ පර්යේෂණ අංශය",
+      "libraryFacilityDesc": "පොත් 200,000කට අධික සංඛ්‍යාවක්, ඩිජිටල් සඟරා සහ මාතර, ගාල්ල, මාපලාන පුස්තකාල ජාලය.",
+      "sportsFacilityTitle": "ක්‍රීඩා සංකීර්ණය සහ මලල ක්‍රීඩාංගණය",
+      "sportsFacilityDesc": "ගෘහස්ථ ක්‍රීඩාගාරය, මලල ක්‍රීඩාංගණය, බැඩ්මින්ටන්, ටෙනිස් සහ වාර්ෂික වර්ණ ප්‍රදානෝත්සවය.",
+      "marineFacilityTitle": "සාගර පර්යේෂණ මධ්‍යස්ථානය",
+      "marineFacilityDesc": "සාගර පර්යේෂණ යාත්‍රා, ජලජීවී වගා මධ්‍යස්ථාන සහ වෙරළබඩ පාරිසරික නිරීක්ෂණාගාර.",
+      "societiesFacilityTitle": "ශිෂ්‍ය සංගම් සහ සමාජ 30කට අධික සංඛ්‍යාවක්",
+      "societiesFacilityDesc": "IEEE Ruhuna, AIESEC, Rotaract, කලා සංසදය, පරිසර සංගමය ඇතුළු සක්‍රීය ශිෂ්‍ය සංවිධාන රැසක්.",
+      "labsFacilityTitle": "උසස් ඉංජිනේරු සහ විද්‍යා පර්යේෂණාගාර",
+      "labsFacilityDesc": "අධි-වෝල්ටීයතා පරීක්ෂණාගාර, රොබෝ තාක්ෂණ මධ්‍යස්ථාන සහ පරිගණක දත්ත පර්යේෂණාගාර."
+    },
+    "admissionsGuide": {
+      "eyebrow": "ඇතුළත්වීමේ මඟපෙන්වීම",
+      "title": "රුහුණ විශ්වවිද්‍යාලයට තේරී පත්වන්නේ කෙසේද?",
+      "description": "ජාතික විශ්වවිද්‍යාල ප්‍රවේශය බලාපොරොත්තු වන ලාංකික සිසුන් වෙනුවෙන්ම සැකසූ පැහැදිලි මඟපෙන්වීම.",
+      "step1Title": "1. නිවැරදි A/L විෂය ධාරාව තෝරාගන්න",
+      "step1Desc": "ඉංජිනේරු පීඨයට Physical Science (Maths), වෛද්‍ය හා සෞඛ්‍ය විද්‍යාවට Bio Science, තාක්ෂණ පීඨයට Technology, කළමනාකරණය හා කලා පීඨයට අදාළ විෂය ධාරා තෝරාගත යුතුය.",
+      "step2Title": "2. Z-ලකුණ සහ UGC ප්‍රවේශ ක්‍රමය",
+      "step2Desc": "විශ්වවිද්‍යාල ප්‍රතිපාදන කොමිෂන් සභාව (UGC) මගින් 40%ක සමස්ත ලංකා කුසලතාව සහ 60%ක දිස්ත්‍රික් කෝටාව (අවම පහසුකම් සහිත දිස්ත්‍රික්ක 5% ඇතුළුව) පදනම් කරගෙන තේරීම් සිදු කෙරේ.",
+      "step3Title": "3. හැකියා පරීක්ෂණ සහ විශේෂ සුදුසුකම්",
+      "step3Desc": "සමහර විශේෂ උපාධි පාඨමාලා සඳහා වාර්ෂික UGC අත්පොතේ දැක්වෙන පරිදි Aptitude Test හෝ O/L ඉංග්‍රීසි සාමාර්ථ අවශ්‍ය විය හැක.",
+      "ugcAction": "නිල UGC අත්පොත බලන්න",
+      "ugcLinkText": "UGC Sri Lanka වෙබ් අඩවියට යන්න"
+    },
+    "resourcesHub": {
+      "eyebrow": "නිල සබැඳි",
+      "title": "රුහුණ විශ්වවිද්‍යාලයේ නිල සබැඳි",
+      "description": "විශ්වවිද්‍යාලයේ නිල වෙබ් අඩවි, ශිෂ්‍ය තොරතුරු පද්ධති සහ පුස්තකාල සේවා.",
+      "mainPortal": "ප්‍රධාන විශ්වවිද්‍යාල වෙබ් අඩවිය",
+      "mainPortalDesc": "නිල නිවේදන, පාලන අධිකාරිය සහ පුවත් (ruh.ac.lk).",
+      "libraryPortal": "පුස්තකාල ජාලය",
+      "libraryPortalDesc": "ඩිජිටල් පොත් නාමාවලිය, නිබන්ධන සහ විද්‍යුත් සඟරා (lib.ruh.ac.lk).",
+      "examPortal": "විභාග සහ ශිෂ්‍ය තොරතුරු",
+      "examPortalDesc": "ශිෂ්‍ය ලියාපදිංචිය, විභාග කාලසටහන් සහ අධ්‍යයන දින දර්ශනය.",
+      "cintaPortal": "ජාත්‍යන්තර කටයුතු මධ්‍යස්ථානය (CINTA)",
+      "cintaPortalDesc": "ජාත්‍යන්තර විශ්වවිද්‍යාල සබඳතා, ශිෂ්‍ය හුවමාරු සහ පර්යේෂණ ප්‍රදාන.",
+      "ugcPortal": "විශ්වවිද්‍යාල ප්‍රතිපාදන කොමිෂන් සභාව (UGC)",
+      "ugcPortalDesc": "විශ්වවිද්‍යාල ප්‍රවේශ ප්‍රතිපත්ති, Z-ලකුණු සහ ලියාපදිංචිය (ugc.ac.lk)."
     }
   },
   "path": {
-    "meta": "ඔබේ මාර්ගය සැලසුම් කරන්න",
+    "meta": "ඔයාගෙ Path එක හදාගන්න",
     "hero": {
-      "eyebrow": "ඔබේ මාර්ගය සැලසුම් කරන්න",
-      "title": "ඔබේ අනාගතය,<br></br><accent>පියවරෙන් පියවර.</accent>",
-      "intro": "පැහැදිලි සැලැස්මක් සමඟ විශාල සිහින පහසු වේ. එහි ඔබව රැගෙන යා හැකි විෂයයන්,<br></br>පාඨමාලා සහ සන්ධිස්ථාන සොයාගන්න.",
-      "build": "මගේ මාර්ග සිතියම සකසන්න",
-      "example": "උදාහරණයක් බලන්න",
-      "note": "O/L සිට ඔබේ පළමු වෘත්තිය දක්වා ශ්‍රී ලාංකික සිසුන් සඳහා නිර්මාණය කර ඇත."
+      "eyebrow": "ඔයාගෙ Path එක හදාගන්න",
+      "title": "ඔයාගෙ future එක,<br></br><accent>පියවරෙන් පියවර.</accent>",
+      "intro": "පැහැදිලි plan එකක් තියෙනකොට ලොකු goals වුණත් achieve කරගන්න ලේසියි. ඔයාට ගැළපෙන subjects,<br></br>courses සහ milestones මෙතනින් හොයාගන්න.",
+      "build": "මගේ Roadmap එක හදාගන්න",
+      "example": "Sample එකක් බලන්න",
+      "note": "O/L ඉඳන් ඔයාගෙ first job එක දක්වා ශ්‍රී ලාංකික students ලා වෙනුවෙන්ම හදපු roadmap එකක්."
     },
     "journey": {
-      "eyebrow": "ඔබේ ගමන එක බැල්මකින්",
-      "badge": "එක් ඉලක්කයක්. බොහෝ මාර්ග.",
-      "caption": "ඔබේ විකල්ප ගවේෂණය කරන්න. ඔබට ඕනෑම වේලාවක මාර්ගය යාවත්කාලීන කළ හැක.",
+      "eyebrow": "ඔයාගෙ journey එක එක බැල්මකින්",
+      "badge": "එකම goal එකට pathways කිහිපයක්.",
+      "caption": "ඔයාගෙ options explore කරන්න. ඔයාට ඕනෑම වෙලාවක මේ path එක update කරගන්න පුළුවන්.",
       "stations": {
         "ol": {
           "title": "O/L",
@@ -1076,243 +1175,243 @@
         },
         "al": {
           "title": "A/L",
-          "copy": "අවධානය තෝරන්න"
+          "copy": "Stream එක තෝරගන්න"
         },
         "degree": {
-          "title": "උපාධිය",
-          "copy": "කුසලතා වර්ධනය"
+          "title": "Degree / Diploma",
+          "copy": "Skills හදාගන්න"
         },
         "career": {
-          "title": "වෘත්තිය",
-          "copy": "රැකියාව අරඹන්න"
+          "title": "Career එක",
+          "copy": "Job එක පටන් ගන්න"
         }
       }
     },
     "stage": {
-      "title": "ඔබ සිටින තැනින් අරඹන්න",
-      "description": "ඔබේ වත්මන් අධ්‍යාපන අදියර තෝරන්න. ඔබේ මාර්ග සිතියම ඔබ සමඟ වර්ධනය විය හැක.",
+      "title": "ඔයා දැන් ඉන්න තැනින් පටන් ගන්න",
+      "description": "ඔයාගෙ education stage එක තෝරගන්න. Roadmap එක ඔයා එක්කම ඉදිරියට යයි.",
       "step": "පියවර 03න් 01"
     },
     "stages": {
       "ol": {
-        "label": "O/L සිසුවා",
-        "description": "ඔබේ ශක්තීන් සොයාගන්න",
-        "detail": "විෂයයන් • පළමු කුසලතා"
+        "label": "O/L ශිෂ්‍යයා",
+        "description": "ඔයාගෙ හැකියාවන් හඳුනාගන්න",
+        "detail": "Subjects • මුල් skills"
       },
       "al": {
-        "label": "A/L සිසුවා",
-        "description": "ඔබේ විෂය ධාරාව සකසන්න",
-        "detail": "විෂයයන් • ප්‍රවේශ මාර්ග"
+        "label": "A/L ශිෂ්‍යයා",
+        "description": "ඔයාගෙ stream එක තෝරගන්න",
+        "detail": "Subjects • Entry paths"
       },
       "after-al": {
-        "label": "A/L වලට පසු",
-        "description": "ඔබේ ඊළඟ පියවර තෝරන්න",
-        "detail": "උපාධි • විකල්ප"
+        "label": "A/L ඉවර වුණාට පසු",
+        "description": "ඊළඟ step එක තෝරගන්න",
+        "detail": "Degrees • Options"
       },
       "university": {
-        "label": "විශ්වවිද්‍යාල සිසුවා",
-        "description": "කර්මාන්තයට සූදානම් වන්න",
-        "detail": "ව්‍යාපෘති • ආධුනික පුහුණු"
+        "label": "University / Higher Education",
+        "description": "Industry එකට ලෑස්ති වෙන්න",
+        "detail": "Projects • Internships"
       }
     },
     "builder": {
-      "title": "ඔබට ගැළපෙන ලෙස සකසන්න",
-      "subtitle": "ඉලක්කයක් තෝරා ඔබේ ඊළඟ පියවර සඳහා ප්‍රයෝජනවත් විෂයයන් සොයාගන්න.",
+      "title": "ඔයාට ගැළපෙන විදිහට plan කරගන්න",
+      "subtitle": "Career goal එකක් තෝරගෙන ඊළඟ steps වලට උදව් වෙන subjects දැනගන්න.",
       "steps": {
-        "goal": "වෘත්තීය ඉලක්කය",
-        "focus": "අවධානය යොමු කළ යුතු ක්ෂේත්‍ර",
-        "review": "මාර්ගය සමාලෝචනය"
+        "goal": "Career goal එක",
+        "focus": "අවධානය දිය යුතු දේවල්",
+        "review": "Roadmap එක බලන්න"
       },
-      "goalLegend": "1 ඔබ කැමති වෘත්තිය කුමක්ද?",
-      "goalHint": "උදාහරණ තේරීම් — ඔබට පසුව ඉලක්කය වෙනස් කළ හැක.",
-      "focusLegend": "2 ඔබේ පදනම ගොඩනඟන්න",
-      "focusHint": "“{stage}” සහ “{goal}” ඉලක්කය සඳහා යෝජිත අවධානය යොමු ක්ෂේත්‍ර.",
-      "noticeSoftware": "ICT ප්‍රයෝජනවත් වුවත් මෘදුකාංග-සම්බන්ධ සෑම මාර්ගයක් සඳහාම අනිවාර්ය නොවේ.",
-      "noticeOther": "අදාළ විෂයයන් ගවේෂණය කර එක් එක් වැඩසටහනේ ඇතුළත්වීමේ අවශ්‍යතා පරීක්ෂා කරන්න.",
-      "noticeSmall": "A/L විෂය ධාරා සහ විශ්වවිද්‍යාල ඇතුළත්වීමේ අවශ්‍යතා වැඩසටහන අනුව වෙනස් වේ.",
-      "create": "මගේ මාර්ග සිතියම සාදන්න",
-      "paceNote": "ඔබේම වේගයෙන් ඊළඟ පියවර ගවේෂණය කරන්න.",
-      "ready": "ඔබේ මාර්ග සිතියම සූදානම්. ඊළඟ පියවර සමාලෝචනය කර එය මගේ මාර්ගයට සුරකින්න.",
-      "saved": "මෙම උපාංගයේ සුරැකිණි. ඔබේ මාර්ග සිතියම මගේ මාර්ගයේ දැකගත හැක.",
-      "storageError": "ඔබේ බ්‍රවුසරයට මෙම මාර්ග සිතියම සුරැකීමට නොහැකි විය. කරුණාකර දේශීය ගබඩාව සක්‍රිය කරන්න."
+      "goalLegend": "1 ඔයා කැමති career එක මොකක්ද?",
+      "goalHint": "Sample තේරීම් — ඔයාට පස්සෙ වුණත් goal එක වෙනස් කරගන්න පුළුවන්.",
+      "focusLegend": "2 ඔයාගෙ foundation එක හදාගන්න",
+      "focusHint": "“{stage}” සහ “{goal}” goal එකට ගැළපෙන subjects සහ skills.",
+      "noticeSoftware": "ICT ප්‍රයෝජනවත් වුණත් Software career එකකට යන හැමෝටම ඒක අනිවාර්ය නැහැ.",
+      "noticeOther": "අදාළ subjects ගැන හොයලා බලලා තමන් තෝරගන්න institute එකේ requirements check කරගන්න.",
+      "noticeSmall": "A/L streams සහ university admission requirements course එක අනුව වෙනස් වේ.",
+      "create": "මගේ Roadmap එක හදාගන්න",
+      "paceNote": "ඔයාගෙම වේගයෙන් ඊළඟ steps ටික explore කරන්න.",
+      "ready": "ඔයාගෙ roadmap එක ready! Steps ටික බලලා මේක 'මගේ Path එක'ට save කරගන්න.",
+      "saved": "මේ device එකට save කරගත්තා. ඔයාගෙ roadmap එක 'මගේ Path එක' පිටුවෙන් බලන්න පුළුවන්.",
+      "storageError": "Browser එකෙන් roadmap එක save කරගන්න බැරි වුණා. කරුණාකර local storage enable කරගන්න."
     },
     "goals": {
       "software": {
-        "title": "මෘදුකාංග ඉංජිනේරු",
-        "description": "යෙදුම්, පද්ධති සහ AI"
+        "title": "Software Engineer",
+        "description": "Apps, systems සහ AI"
       },
       "doctor": {
-        "title": "වෛද්‍යවරයා",
-        "description": "සෞඛ්‍ය සහ රැකවරණය"
+        "title": "Doctor (වෛද්‍යවරයා)",
+        "description": "Healthcare සහ රෝගී සත්කාරය"
       },
       "designer": {
-        "title": "නිර්මාණකරු",
-        "description": "නිර්මාණශීලී ගැටලු විසඳීම"
+        "title": "Designer (නිර්මාණකරු)",
+        "description": "Creative problem solving"
       }
     },
     "focus": {
-      "maths": "ගණිතය",
-      "english": "ඉංග්‍රීසි",
+      "maths": "ගණිතය (Maths)",
+      "english": "ඉංග්‍රීසි (English)",
       "ict": "ICT (අත්‍යවශ්‍ය නොවේ)",
-      "coding": "කේතන මූලිකාංග",
+      "coding": "Coding basics",
       "creative": "නිර්මාණශීලී චින්තනය",
-      "biology": "ජීව විද්‍යාව",
-      "chemistry": "රසායන විද්‍යාව",
-      "communication": "සන්නිවේදනය",
-      "scientific": "විද්‍යාත්මක චින්තනය",
-      "art": "කලා සහ නිර්මාණ",
-      "digital": "ඩිජිටල් මෙවලම්",
-      "portfolio": "Portfolio"
+      "biology": "ජීව විද්‍යාව (Biology)",
+      "chemistry": "රසායන විද්‍යාව (Chemistry)",
+      "communication": "Communication skills",
+      "scientific": "විද්‍යාත්මක ක්‍රමවේදය",
+      "art": "Art & Visual design",
+      "digital": "Digital tools",
+      "portfolio": "Portfolio එක"
     },
     "preview": {
-      "label": "ඔබේ මාර්ග සිතියම පෙරදසුන",
-      "badge": "නිදර්ශන මාර්ග සිතියම · {stage}",
-      "yourPathTo": "ඔබේ ඉලක්කය කරා මාර්ගය",
-      "pathTo": "{goal} වීමට ඔබේ මාර්ගය",
-      "milestones": "ආරම්භ කිරීමට සන්ධිස්ථාන {count}ක්",
-      "saved": "මෙම උපාංගයේ සුරැකිණි",
-      "add": "මගේ මාර්ගයට එක් කරන්න"
+      "label": "ඔයාගෙ roadmap preview එක",
+      "badge": "Sample roadmap · {stage}",
+      "yourPathTo": "ඔයාගෙ goal එක කරා මාර්ගය",
+      "pathTo": "{goal} කෙනෙක් වෙන්න ඔයාගෙ path එක",
+      "milestones": "පටන් ගන්න milestones {count}ක්",
+      "saved": "මේ device එකේ save කර ඇත",
+      "add": "මගේ Path එකට add කරගන්න"
     },
     "roadmap": {
       "labels": {
         "1": "දැන් • O/L",
         "2": "ඊළඟ • A/L",
         "3": "A/L වලට පසු",
-        "4": "වෘත්තිය ආරම්භය"
+        "4": "Career එකේ ආරම්භය"
       },
       "software": {
         "1": {
-          "title": "ගණිතය සහ ඉංග්‍රීසිය ශක්තිමත් කරන්න",
-          "description": "ICT ගවේෂණය කර කුඩා කේතන ව්‍යාපෘතියක් උත්සාහ කරන්න."
+          "title": "Maths සහ English හොඳින් හදාගන්න",
+          "description": "ICT ගැන හොයලා පොඩි coding project එකක් කරලා බලන්න."
         },
         "2": {
-          "title": "සුදුසු විෂය ධාරාවක් තෝරන්න",
-          "description": "පාඨමාලාව අනුව ගණිතය / ICT සුදුසුකම් සමාලෝචනය කරන්න."
+          "title": "ගැළපෙන A/L stream එකක් තෝරගන්න",
+          "description": "Degree එක අනුව Maths / ICT requirements පරීක්ෂා කරන්න."
         },
         "3": {
-          "title": "අදාළ උපාධි සසඳන්න",
-          "description": "CS, මෘදුකාංග ඉංජිනේරු විද්‍යාව හෝ IT මාර්ග."
+          "title": "Degrees සසඳලා තෝරගන්න",
+          "description": "CS, Software Engineering හෝ IT pathways බලන්න."
         },
         "4": {
-          "title": "ව්‍යාපෘති ගොඩනඟා අයදුම් කරන්න",
-          "description": "GitHub portfolio, ආධුනික පුහුණු, පළමු තනතුර."
+          "title": "Projects කරලා job එකකට apply කරන්න",
+          "description": "GitHub portfolio එකක් හදලා internship එකකින් පටන් ගන්න."
         }
       },
       "doctor": {
         "1": {
-          "title": "ඔබේ විද්‍යා පදනම ගොඩනඟන්න",
-          "description": "විද්‍යාව, ඉංග්‍රීසිය සහ අධ්‍යයන පුරුදු කෙරෙහි අවධානය යොමු කරන්න."
+          "title": "Science පදනම ශක්තිමත් කරගන්න",
+          "description": "Science, English සහ study habits හොඳින් ගොඩනඟාගන්න."
         },
         "2": {
-          "title": "සුදුසු විෂය ධාරාවක් තෝරන්න",
-          "description": "වෛද්‍ය විද්‍යාව සඳහා අවශ්‍ය විද්‍යා විෂයයන් පරීක්ෂා කරන්න."
+          "title": "Bio Science stream එක තෝරගන්න",
+          "description": "Medical faculty එකට අවශ්‍ය Biology, Chemistry, Physics හදාරන්න."
         },
         "3": {
-          "title": "අදාළ උපාධි සසඳන්න",
-          "description": "පිළිගත් වෛද්‍ය වැඩසටහන් සහ ඇතුළත්වීමේ නිර්ණායක සමාලෝචනය කරන්න."
+          "title": "MBBS admission එක තහවුරු කරගන්න",
+          "description": "UGC Z-score හෝ පිළිගත් foreign medical programs පරීක්ෂා කරන්න."
         },
         "4": {
-          "title": "පුහුණුව සහ ලියාපදිංචිය සම්පූර්ණ කරන්න",
-          "description": "අධීක්ෂණය යටතේ පුහුණුව සහ ලියාපදිංචි අවශ්‍යතා තහවුරු කරගන්න."
+          "title": "Internship සහ SLMC ලියාපදිංචිය",
+          "description": "වෛද්‍ය පුහුණුව අවසන් කර ලියාපදිංචි වෛද්‍යවරයෙකු ලෙස සේවය අරඹන්න."
         }
       },
       "designer": {
         "1": {
-          "title": "දෘශ්‍ය අදහස් ගවේෂණය කරන්න",
-          "description": "චිත්‍ර ඇඳීම, නිරීක්ෂණය සහ නිර්මාණශීලී චින්තනය පුහුණු කරන්න."
+          "title": "Visual ideas explore කරන්න",
+          "description": "Sketching, observation සහ creative thinking පුරුදු වෙන්න."
         },
         "2": {
-          "title": "සුදුසු විෂය ධාරාවක් තෝරන්න",
-          "description": "නිර්මාණ වැඩසටහන් ඇතුළත්වීමේ අවශ්‍යතා සමාලෝචනය කරන්න."
+          "title": "A/L සහ creative skills හදාගන්න",
+          "description": "Design programs වල admission requirements බලන්න."
         },
         "3": {
-          "title": "අදාළ උපාධි සසඳන්න",
-          "description": "නිර්මාණ උපාධි සහ portfolio අවශ්‍යතා සසඳන්න."
+          "title": "Design degrees සහ portfolio හදන්න",
+          "description": "Graphic, UI/UX හෝ Industrial Design courses සසඳන්න."
         },
         "4": {
-          "title": "portfolio එකක් ගොඩනඟා අයදුම් කරන්න",
-          "description": "පෞද්ගලික ව්‍යාපෘති, ආධුනික පුහුණු සහ ඔබේ පළමු තනතුර."
+          "title": "Portfolio එකෙන් careers වලට යන්න",
+          "description": "Real projects, internships සහ agency/freelance වැඩ අරඹන්න."
         }
       }
     },
     "flexible": {
-      "title": "අද සරලයි. හෙට වෙනස් කළ හැකියි.",
-      "description": "ඔබේ මාර්ගය මඟපෙන්වීමක් මිස ස්ථාවර නීතියක් නොවේ. ඔබේ රුචිකත්ව සහ විකල්ප වෙනස් වන විට එය නැවත බලන්න.",
+      "title": "අදට සරලයි. ඕනෑම වෙලාවක වෙනස් කරන්න පුළුවන්.",
+      "description": "Roadmap එකක් කියන්නේ ඔයාට මඟපෙන්වීමක් විතරයි, ඒක වෙනස් කරන්න බැරි නීතියක් නෙවෙයි. ඔයාගෙ කැමැත්ත වෙනස් වෙද්දි මේක update කරගන්න.",
       "discover": {
-        "title": "ඔබට ගැළපෙන දේ සොයාගන්න",
-        "description": "වෘත්තීය ඉලක්ක සසඳා විශ්වාසය ගොඩනඟාගන්න."
+        "title": "ඔයාට හරියන දේ හොයාගන්න",
+        "description": "Career goals සසඳලා ආත්මවිශ්වාසය වැඩි කරගන්න."
       },
       "understand": {
-        "title": "අවශ්‍ය දේ අවබෝධ කරගන්න",
-        "description": "පරීක්ෂා කළ යුතු විෂයයන් සහ ඇතුළත්වීමේ නීති දැනගන්න."
+        "title": "අවශ්‍ය දේවල් හරියටම දැනගන්න",
+        "description": "කරන්න ඕන subjects සහ entry rules පැහැදිලිව තේරුම් ගන්න."
       },
       "progress": {
-        "title": "ප්‍රගතිය දෘශ්‍යමාන කරන්න",
-        "description": "විශාල අභිලාෂයක් කුඩා ඊළඟ පියවර බවට පත් කරන්න."
+        "title": "Progress එක ඇස් ඉදිරිපිටම දකින්න",
+        "description": "ලොකු අරමුණක් සරල ඊළඟ පියවරවල් බවට පත් කරගන්න."
       }
     }
   },
   "myPath": {
-    "meta": "මගේ මාර්ගය",
-    "eyebrow": "ඔබේ ගමන",
-    "title": "ඔබේ අනාගතය, එකම තැනක.",
-    "intro": "ඔබ කැමති වෘත්තීන්, විශ්වවිද්‍යාල සහ ඊළඟ පියවර එක්ව තබාගන්න.",
-    "deviceNote": "ඔබේ කෙටි ලැයිස්තුව සහ මාර්ග සිතියම් මෙම උපාංගයේ සුරැකේ.",
+    "meta": "මගේ Path එක",
+    "eyebrow": "ඔයාගෙ Journey එක",
+    "title": "ඔයාගෙ future එක, එකම තැනක.",
+    "intro": "ඔයා කැමති careers, universities සහ ඊළඟ steps ටික එකතු කරලා තියාගන්න.",
+    "deviceNote": "ඔයාගෙ shortlist එකයි roadmaps යි මේ device එකේ save වෙලා තියෙනවා.",
     "empty": {
-      "title": "ඔබේ ඊළඟ පරිච්ඡේදය මෙතැනින් ඇරඹේ.",
-      "body": "වෘත්තියක් හෝ විශ්වවිද්‍යාලයක් සුරකින්න, නැතහොත් ඔබේ පළමු මාර්ග සිතියම සාදන්න.",
-      "action": "මගේ මාර්ගය සකසන්න"
+      "title": "ඔයාගෙ ඊළඟ chapter එක මෙතනින් පටන් ගන්න.",
+      "body": "Career එකක් හරි university එකක් හරි save කරගන්න, නැත්නම් ඔයාගෙ පළමු roadmap එක හදාගන්න.",
+      "action": "මගේ Path එක හදාගන්න"
     },
     "kind": {
-      "career": "වෘත්තිය",
-      "university": "විශ්වවිද්‍යාලය"
+      "career": "Career එක",
+      "university": "University එක"
     },
     "explore": {
-      "career": "වෘත්තිය ගවේෂණය",
-      "university": "විශ්වවිද්‍යාලය ගවේෂණය"
+      "career": "Career එක ගැන බලන්න",
+      "university": "University එක ගැන බලන්න"
     },
-    "roadmaps": "ඔබේ මාර්ග සිතියම්",
-    "removeRoadmap": "මාර්ග සිතියම ඉවත් කරන්න"
+    "roadmaps": "ඔයාගෙ Roadmaps",
+    "removeRoadmap": "Roadmap එක අයින් කරන්න"
   },
   "about": {
     "meta": "අප ගැන",
     "eyebrow": "SKILLBRIDGE SL ගැන",
-    "title": "ඔබේ ගමන වෙනුවෙන් නිර්මාණය කර ඇත.",
-    "intro": "ඉංජිනේරු සිසුවෙකු විසින් නිර්මාණය කළ වෘත්තීය සහ අධ්‍යාපන මඟපෙන්වීම් අවකාශයක්,<br></br>ඊළඟට කළ යුත්තේ කුමක්දැයි සිතන ශ්‍රී ලාංකික සිසුන් වෙනුවෙන්.",
+    "title": "ඔයාගෙ journey එක වෙනුවෙන්ම හැදූ තැනක්.",
+    "intro": "ඉංජිනේරු ශිෂ්‍යයෙක් විසින් නිර්මාණය කළ career සහ education guidance platform එකක්,<br></br>ඊළඟට මොකද කරන්නේ කියලා හිතන ලාංකික students ලා වෙනුවෙන්මයි.",
     "note": {
-      "title": "ඔබේ තැන සිටි කෙනෙකුගෙන්",
-      "body": "අයියා කෙනෙකු මාර්ග සිතියම බෙදාගත් විට විශාල තීරණ පහසු වේ.<br></br>සෑම සිසුවෙකුටම SkillBridge SL මගින් ලබා දීමට මා කැමති හැඟීම එයයි."
+      "title": "ඔයා ඉන්න තැනම හිටපු කෙනෙක්ගෙන්",
+      "body": "අයියා කෙනෙක් හරි senior කෙනෙක් හරි roadmap එකක් කියලා දුන්නම ලොකු තීරණ ගන්න හරිම ලේසියි.<br></br>සෑම student කෙනෙකුටම SkillBridge SL එකෙන් දෙන්න ඕන වුණෙත් අන්න ඒ සහයෝගයයි."
     },
     "founder": {
-      "addPhoto": "ඔබේ ඡායාරූපය එක් කරන්න",
-      "placeholder": "ඔබේ ඡායාරූපය මෙහි යොදන්න • මෙම රූප ස්ථරය ප්‍රතිස්ථාපනය කරන්න",
-      "eyebrow": "නිර්මාතෘ හමුවන්න",
-      "title": "ඉංජිනේරු සිසුවෙක්. අයියා කෙනෙක්.",
+      "addPhoto": "ඔයාගෙ photo එකක් දාන්න",
+      "placeholder": "Photo එක මෙතනට දාන්න • Replace image",
+      "eyebrow": "Creator හමුවෙන්න",
+      "title": "ඉංජිනේරු ශිෂ්‍යයෙක්. ඔයාගෙම අයියා කෙනෙක්.",
       "faculty": "ඉංජිනේරු පීඨය · රුහුණ විශ්වවිද්‍යාලය",
       "disclaimer": "ස්වාධීන ශිෂ්‍ය ව්‍යාපෘතියකි • නිල විශ්වවිද්‍යාල සේවාවක් නොවේ"
     },
     "story": {
       "eyebrow": "SKILLBRIDGE පිටුපස කතාව",
-      "title": "මම SkillBridge SL ආරම්භ කළේ ඇයි",
-      "description": "කුඩා ශිෂ්‍ය අදහසක්, විශාල අරමුණක් සහිතව.",
-      "hi": "ආයුබෝවන්, මම SkillBridge SL පිටුපස සිටින සිසුවා.",
-      "p1": "මම රුහුණ විශ්වවිද්‍යාලයේ ඉංජිනේරු පීඨයේ අධ්‍යයනය කරමි. පාසල් විෂයයන්, උපාධි තේරීම් සහ සැබෑ වෘත්තීන් සම්බන්ධ කිරීම<br></br>කොතරම් අසීරු විය හැකිදැයි මම දනිමි.",
-      "p2": "ඒ තොරතුරු එකම මිත්‍රශීලී තැනකට ගෙන ඒමට මම SkillBridge SL නිර්මාණය කළෙමි—<br></br>එවිට ඊළඟ සිසුවාට සියල්ල තනිවම සොයාගැනීමට අවශ්‍ය නොවේ.",
-      "tag": "රුහුණ ඉංජිනේරු සිසුවෙකු විසින් නිර්මිතයි"
+      "title": "මම SkillBridge SL පටන් ගත්තේ ඇයි",
+      "description": "කුඩා ශිෂ්‍ය අදහසක්, ලොකු අරමුණක් එක්ක.",
+      "hi": "හායි, මම තමයි SkillBridge SL නිර්මාණය කළ ශිෂ්‍යයා.",
+      "p1": "මම රුහුණ විශ්වවිද්‍යාලයේ Engineering Faculty එකේ ඉගෙනුම ලබනවා. School subjects, degrees සහ real careers එකිනෙකට match කරගන්න එක<br></br>කොච්චර අමාරුද කියලා මම හොඳටම දන්නවා.",
+      "p2": "ඒ තොරතුරු ඔක්කොම එකම friendly තැනකට ගේන්නයි මම SkillBridge SL හැදුවේ—<br></br>එතකොට ඊළඟට එන student කෙනෙකුට තනියම අතරමං වෙන්න වෙන්නේ නැහැ.",
+      "tag": "රුහුණේ engineering ශිෂ්‍යයෙකුගේ නිර්මාණයක්"
     },
     "values": {
-      "title": "මට වැදගත් දේ",
+      "title": "මට වැදගත් දේවල්",
       "clarity": {
-        "title": "පැහැදිලිකම",
-        "copy": "අධික පාරිභාෂිත වචන නොමැතිව පැහැදිලි පියවර."
+        "title": "පැහැදිලි බව (Clarity)",
+        "copy": "අමාරු, බර වචන නැතිව තේරුම් ගන්න පුළුවන් සරල steps."
       },
       "guidance": {
-        "title": "සැබෑ මඟපෙන්වීම",
-        "copy": "අධ්‍යයන අදියර පුරා ප්‍රයෝජනවත් සන්දර්භය."
+        "title": "නියම Guidance එක",
+        "copy": "O/L ඉඳන්ම හැම stage එකකටම ගැළපෙන ප්‍රායෝගික මඟපෙන්වීම."
       },
       "student": {
-        "title": "සිසුවා මුල්තැන",
-        "copy": "අප සැබවින්ම අසන ප්‍රශ්න වටා ගොඩනඟා ඇත."
+        "title": "Student-first",
+        "copy": "අපිට ඇත්තටම තියෙන ප්‍රශ්නවලට උත්තර දෙන්න හැදූ තැනක්."
       }
     }
   }
