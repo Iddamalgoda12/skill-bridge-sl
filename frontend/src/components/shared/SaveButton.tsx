@@ -23,7 +23,7 @@ export function SaveButton({ id, title, kind = "career", compact = false, iconAs
 
   return (
     <>
-      <Button type="button" className={`glass-button save-button ${compact ? "compact-save" : ""}`} aria-label={compact ? (saved ? t("removeLabel", { title }) : t("saveLabel", { title })) : undefined} aria-pressed={saved} onClick={toggle}>
+      <Button type="button" variant="glass" className={`glass-button save-button ${compact ? "compact-save" : ""}`} aria-label={compact ? (saved ? t("removeLabel", { title }) : t("saveLabel", { title })) : undefined} aria-pressed={saved} onClick={toggle}>
         {saved ? <Check size={16} /> : iconAsset ? <DesignAsset src={iconAsset} /> : <Bookmark size={16} />}
         {!compact && (saved ? t("saved") : kind === "university" ? t("addUniversity") : t("addCareer"))}
       </Button>

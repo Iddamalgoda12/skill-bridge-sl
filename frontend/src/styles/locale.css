@@ -38,6 +38,11 @@ html[data-locale="si"] .about-hero h1 { font-size: clamp(32px, 4.6vw, 52px); }
 html[data-locale="si"] .auth-form h1 { font-size: 32px; }
 html[data-locale="si"] .intro-description { font-size: 15px; line-height: 1.85; }
 html[data-locale="si"] .muted { line-height: 1.75; }
+html[data-locale="si"] .glass-button { padding: 10px 16px; line-height: 1.5; font-size: 12.5px; }
+html[data-locale="si"] .hero-button-row .glass-button { min-height: 48px; }
+html[data-locale="si"] .home-actions .glass-button { padding: 8px 12px; font-size: 12px; line-height: 1.45; }
+html[data-locale="si"] .trending-info strong { font-size: 13.5px; line-height: 1.4; }
+html[data-locale="si"] .trending-info p { font-size: 10.5px; line-height: 1.5; }
 @media (max-width: 700px) {
   html[data-locale="si"] h1,
   html[data-locale="si"] .path-hero h1,
