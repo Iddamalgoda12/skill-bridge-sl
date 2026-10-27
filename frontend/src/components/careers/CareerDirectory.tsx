@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { ReactNode } from "react";
 import { useTranslations } from "next-intl";
-import { Compass, SlidersHorizontal, Sparkles, ShieldCheck, DollarSign, GraduationCap, Info } from "lucide-react";
+import { Compass, SlidersHorizontal, Sparkles } from "lucide-react";
 import { ActionLink } from "@/components/shared/ActionLink";
 import { DesignAsset } from "@/components/shared/DesignAsset";
 import { SaveButton } from "@/components/shared/SaveButton";
@@ -182,35 +182,6 @@ export function CareerDirectory({ careers, artwork }: { careers: LocalizedCareer
           </div>
         </div>
       </section>
-
-      <div className="career-source-note glass-panel section-block" role="note" aria-label="Official advisory">
-        <div className="source-note-header">
-          <span className="eyebrow-pill">
-            <ShieldCheck size={14} aria-hidden="true" />
-            <span>{t("notes.badge")}</span>
-          </span>
-        </div>
-        <div className="source-note-grid">
-          <div className="source-note-item">
-            <span className="source-note-icon"><DollarSign size={16} aria-hidden="true" /></span>
-            <div>
-              <strong>{t("notes.salaryTitle")}</strong>
-              <p>{t("notes.salary")}</p>
-            </div>
-          </div>
-          <div className="source-note-item">
-            <span className="source-note-icon"><GraduationCap size={16} aria-hidden="true" /></span>
-            <div>
-              <strong>{t("notes.entryTitle")}</strong>
-              <p>{t("notes.entry")}</p>
-            </div>
-          </div>
-        </div>
-        <div className="source-note-footer">
-          <Info size={13} aria-hidden="true" />
-          <small>{t("notes.confirm")}</small>
-        </div>
-      </div>
     </>
   );
 }

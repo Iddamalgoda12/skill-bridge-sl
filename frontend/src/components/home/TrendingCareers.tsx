@@ -4,46 +4,106 @@ import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { ActionLink } from "@/components/shared/ActionLink";
 import { TrendingViewport } from "./TrendingViewport";
-import assets from "@/lib/design/assets.json";
+import { sampleCareers } from "@/lib/data/careers";
+import { localizeCareer, formatSalary, type LocalizedCareer } from "@/lib/i18n/catalog";
 
-const trends = [
-  { key: "engineer", slug: "civil-engineer", universities: 8, left: "-40.38%", width: "738.46%" },
-  { key: "doctor", slug: "doctor", universities: 6, left: "-151.92%", width: "738.46%" },
-  { key: "accountant", slug: "accountant", universities: 5, left: "-361.86%", width: "714.42%" },
-  { key: "designer", slug: "ui-ux-designer", universities: 4, left: "-489.86%", width: "742.03%" },
-  { key: "teacher", slug: "school-teacher", universities: 6, left: "-600.48%", width: "742.03%" },
-] as const;
+// Synchronized with main careers page: authentic Sri Lankan career paths
+const featuredSlugs = [
+  "engineer",
+  "doctor",
+  "tea-plantation-manager",
+  "wildlife-conservationist",
+  "marine-biologist",
+  "ayurvedic-doctor",
+  "accountant",
+  "gemologist",
+  "airline-pilot",
+  "lawyer",
+  "architect",
+  "agricultural-scientist",
+  "veterinarian",
+  "dentist",
+  "hospitality-manager",
+  "air-traffic-controller",
+];
 
-type Trend = (typeof trends)[number];
-
-async function CareerCard({ career, duplicate = false }: { career: Trend; duplicate?: boolean }) {
-  const t = await getTranslations("home.trendingCards");
+function CareerCard({
+  career,
+  salaryText,
+  duplicate = false,
+}: {
+  career: LocalizedCareer;
+  salaryText: string;
+  duplicate?: boolean;
+}) {
   return (
-    <Link href={`/careers/${career.slug}`} className="trending-card glass-panel" tabIndex={duplicate ? -1 : undefined} aria-hidden={duplicate || undefined}>
-      <div className="career-photo-crop"><Image src={assets.home.imgCareerPhotograph} alt="" width={1920} height={2400} unoptimized style={{ left: career.left, width: career.width }} /></div>
+    <Link
+      href={`/careers/${career.slug}`}
+      className="trending-card glass-panel"
+      tabIndex={duplicate ? -1 : undefined}
+      aria-hidden={duplicate || undefined}
+    >
+      <div className="career-photo-crop">
+        <Image
+          src={career.image || "/images/careers/engineer.jpg"}
+          alt={career.display.title}
+          fill
+          sizes="260px"
+          style={{ objectFit: "cover" }}
+        />
+        <span className="trending-category">{career.display.category}</span>
+      </div>
       <div className="trending-info">
-        <div>
-          <strong>{t(`${career.key}.name`)}</strong>
-          <p>{t(`${career.key}.focus`)}<span aria-hidden="true"> · </span>{t("universities", { count: career.universities })}</p>
+        <div style={{ minWidth: 0, flex: 1 }}>
+          <strong className="trending-name">{career.display.title}</strong>
+          <p className="trending-salary">{salaryText}</p>
         </div>
-        <span className="round-arrow" aria-hidden="true"><ArrowRight size={15} /></span>
+        <span className="round-arrow" aria-hidden="true">
+          <ArrowRight size={15} />
+        </span>
       </div>
     </Link>
   );
 }
 
 export async function TrendingCareers() {
-  const t = await getTranslations("home");
+  const [t, catalog] = await Promise.all([
+    getTranslations("home"),
+    getTranslations("catalog"),
+  ]);
+
+  const careersList: LocalizedCareer[] = featuredSlugs
+    .map((slug) => sampleCareers.find((c) => c.slug === slug))
+    .filter((c): c is NonNullable<typeof c> => Boolean(c))
+    .map((career) => localizeCareer(catalog, career));
+
   return (
     <section className="trending-careers" aria-labelledby="trending-heading">
       <div className="trending-title">
         <h2 id="trending-heading">{t("trending")}</h2>
         <ActionLink href="/careers">{t("viewAll")}</ActionLink>
       </div>
-      <TrendingViewport label={t("trending")} pauseLabel={t("pauseTrending")} playLabel={t("playTrending")}>
+      <TrendingViewport
+        label={t("trending")}
+        pauseLabel={t("pauseTrending")}
+        playLabel={t("playTrending")}
+      >
         <div className="trending-track">
-          {trends.map((career) => <CareerCard career={career} key={career.slug} />)}
-          {trends.map((career) => <CareerCard career={career} duplicate key={`duplicate-${career.slug}`} />)}
+          {careersList.map((career) => (
+            <CareerCard
+              career={career}
+              salaryText={formatSalary(catalog, career)}
+              key={career.slug}
+            />
+          ))}
+          {careersList.map((career) => (
+            <CareerCard
+              career={career}
+              salaryText={formatSalary(catalog, career)}
+              duplicate
+              key={`duplicate-${career.slug}`}
+            />
+          ))}
         </div>
       </TrendingViewport>
     </section>

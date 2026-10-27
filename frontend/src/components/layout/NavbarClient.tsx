@@ -4,13 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Home } from "lucide-react";
 import assets from "@/lib/design/assets.json";
 import { DesignAsset } from "@/components/shared/DesignAsset";
 import LanguageSwitcher from "./LanguageSwitcher";
 import MobileNavigationPanel from "./MobileNavigationPanel";
 
 const navigation = [
+  { href: "/", key: "home", icon: null },
   { href: "/careers", key: "careers", icon: assets.template.imgIconCompass },
   { href: "/build-your-path", key: "path", icon: assets.template.imgIconRoute },
   { href: "/universities", key: "universities", icon: assets.template.imgIconUniversity },
@@ -44,10 +45,11 @@ export default function NavbarClient({ signedIn }: { signedIn: boolean }) {
         <div className="nav-divider" />
         <div className="desktop-links">
           {navigation.map((item) => {
-            const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
+            const active = item.href === "/" ? pathname === "/" : pathname === item.href || pathname.startsWith(`${item.href}/`);
             return (
               <Link key={item.href} href={item.href} className={`nav-link ${active ? "active" : ""}`} aria-current={active ? "page" : undefined}>
-                <DesignAsset src={item.icon} />{t(item.key)}
+                {item.icon ? <DesignAsset src={item.icon} /> : <Home size={15} aria-hidden="true" />}
+                {t(item.key)}
               </Link>
             );
           })}

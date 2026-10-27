@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { X } from "lucide-react";
+import { X, Home } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { DesignAsset } from "@/components/shared/DesignAsset";
 
 const destinations = [
+  { href: "/", key: "home", icon: null, chevron: "/design/mobile-sidebar/icons/explore-careers-chevron.svg" },
   { href: "/careers", key: "careers", icon: "/design/mobile-sidebar/icons/explore-careers-icon-background.svg", chevron: "/design/mobile-sidebar/icons/explore-careers-chevron.svg" },
   { href: "/build-your-path", key: "path", icon: "/design/mobile-sidebar/icons/build-your-path-icon-background.svg", chevron: "/design/mobile-sidebar/icons/build-your-path-chevron.svg" },
   { href: "/universities", key: "universities", icon: "/design/mobile-sidebar/icons/universities-icon-background.svg", chevron: "/design/mobile-sidebar/icons/build-your-path-chevron.svg" },
@@ -27,10 +28,16 @@ export default function MobileNavigationPanel({ pathname, signedIn, onNavigate }
         </div>
         <div className="mobile-nav-destinations">
           {destinations.map((item) => {
-            const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
+            const active = item.href === "/" ? pathname === "/" : pathname === item.href || pathname.startsWith(`${item.href}/`);
             return (
               <Link key={item.href} href={item.href} className={`mobile-nav-card ${active ? "active" : ""}`} onClick={onNavigate} aria-current={active ? "page" : undefined}>
-                <DesignAsset className="mobile-nav-icon" src={item.icon} />
+                {item.icon ? (
+                  <DesignAsset className="mobile-nav-icon" src={item.icon} />
+                ) : (
+                  <span className="mobile-nav-icon" style={{ display: "grid", placeItems: "center", background: "linear-gradient(135deg, rgba(255,255,255,0.9), rgba(250,225,154,0.4))", borderRadius: "14px", color: "var(--forest)" }}>
+                    <Home size={18} aria-hidden="true" />
+                  </span>
+                )}
                 <span className="mobile-nav-copy"><strong>{t(item.key)}</strong><small>{m(`description.${item.key}`)}</small></span>
                 <DesignAsset className="mobile-nav-arrow" src={item.chevron} />
               </Link>

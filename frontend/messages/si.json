@@ -6,7 +6,7 @@
   "nav": {
     "skipToContent": "ප්‍රධාන කොටසට යන්න",
     "mainNavigation": "ප්‍රධාන මෙනුව",
-    "home": "SkillBridge SL මුල් පිටුව",
+    "home": "මුල් පිටුව",
     "logoAlt": "SkillBridge SL — ඔයාගෙ අනාගතය. ඔයාගෙම path එක.",
     "careers": "Careers හොයන්න",
     "path": "ඔයාගෙ Path එක",
@@ -29,7 +29,8 @@
       "careers": "ඔයාට හරියන career එක හොයාගන්න",
       "path": "ඔයාගෙම roadmap එක හදාගන්න",
       "universities": "ඔයාට ගැළපෙන university එක හොයාගන්න",
-      "about": "SkillBridge ගැන තව විස්තර දැනගන්න"
+      "about": "SkillBridge ගැන තව විස්තර දැනගන්න",
+      "home": "ප්‍රධාන මුල් පිටුවට පිවිසෙන්න"
     },
     "accountDescription": "ඔයාගෙ profile එකයි password එකයි manage කරගන්න",
     "loginDescription": "ඔයාගෙ journey එකයි progress එකයි save කරගන්න",
@@ -115,7 +116,7 @@
         "copy": "ඔයාගෙ ඊළඟ පියවරට වඩාත්ම ගැළපෙන තැන තෝරගන්න."
       }
     },
-    "trending": "දැන් trending වෙන career paths",
+    "trending": "ප්‍රධාන වෘත්තීය මාර්ග (Top Career Paths)",
     "viewAll": "ඔක්කොම බලන්න",
     "trendingCards": {
       "universities": "Universities {count}ක්",

@@ -6,7 +6,7 @@
   "nav": {
     "skipToContent": "Skip to content",
     "mainNavigation": "Main navigation",
-    "home": "SkillBridge SL home",
+    "home": "Home",
     "logoAlt": "SkillBridge SL — Your future. Your path.",
     "careers": "Explore Careers",
     "path": "Build Your Path",
@@ -29,7 +29,8 @@
       "careers": "Discover the right career for you",
       "path": "Create your personal roadmap",
       "universities": "Find your ideal university",
-      "about": "Learn more about SkillBridge"
+      "about": "Learn more about SkillBridge",
+      "home": "Return to the main overview"
     },
     "accountDescription": "Manage your profile and password",
     "loginDescription": "Save your journey and progress",
@@ -115,7 +116,7 @@
         "copy": "Find the right place for your next step."
       }
     },
-    "trending": "Trending career paths",
+    "trending": "Top Career Paths",
     "viewAll": "View all",
     "trendingCards": {
       "universities": "{count, plural, one {# university} other {# universities}}",
