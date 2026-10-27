@@ -27,7 +27,6 @@ import { RuhunaFacilities } from "@/components/universities/RuhunaFacilities";
 import { RuhunaOfficialLinks } from "@/components/universities/RuhunaOfficialLinks";
 import { SaveButton } from "@/components/shared/SaveButton";
 import { ActionLink } from "@/components/shared/ActionLink";
-import Footer from "@/components/layout/Footer";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -300,8 +299,6 @@ export default async function UniversityPage({ params }: Props) {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

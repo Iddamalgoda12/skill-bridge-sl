@@ -5,7 +5,6 @@ import { PageIntro } from "@/components/shared/PageIntro";
 import { GlassPanel } from "@/components/shared/GlassPanel";
 import { DesignAsset } from "@/components/shared/DesignAsset";
 import { SectionHeading } from "@/components/shared/SectionHeading";
-import Footer from "@/components/layout/Footer";
 import assets from "@/lib/design/assets.json";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -66,7 +65,6 @@ export default async function AboutPage() {
           </GlassPanel>
         </div>
       </section>
-      <Footer />
     </div>
   );
 }

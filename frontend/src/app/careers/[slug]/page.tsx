@@ -14,7 +14,6 @@ import { CareerRoles } from "@/components/careers/CareerRoles";
 import { Employers } from "@/components/careers/Employers";
 import { StudyOptions } from "@/components/careers/StudyOptions";
 import { SectionHeading } from "@/components/shared/SectionHeading";
-import Footer from "@/components/layout/Footer";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -105,7 +104,6 @@ export default async function CareerPage({ params }: Props) {
         <div><h3>{t("cta.title")}</h3><p className="muted">{t("cta.body")}</p></div>
         <SaveButton id={career.slug} title={career.display.title} />
       </div>
-      <Footer />
     </div>
   );
 }

@@ -193,7 +193,120 @@ h1 { font-size: 54px; } h2 { font-size: 34px; } h3 { font-size: 21px; font-weigh
 .glass-panel:hover .icon-bubble { transform: scale(1.05); }
 .tone-mint { background: var(--mint); }.tone-lavender { background: var(--lavender); }.tone-peach { background: var(--peach); }.tone-ice { background: var(--ice); }
 .inline-icon { display: inline-flex; align-items: center; gap: 8px; }
-.site-footer { margin: 50px 0 0; border-top: 1px solid rgba(215,200,159,.65); padding: 18px 0 0; display: flex; justify-content: space-between; gap: 16px; font-size: 11px; color: var(--muted-ink); }.site-footer strong { color: var(--forest); }
+/* ==========================================================================
+   Simple, Compact Liquid-Glass Global Footer
+   ========================================================================== */
+.site-footer-compact {
+  width: 100%;
+  margin-top: 50px;
+  border-top: 1px solid rgba(215, 200, 159, 0.65);
+  background: rgba(255, 252, 244, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 -4px 20px rgba(128, 96, 40, 0.04), var(--glass-specular);
+}
+
+.footer-compact-container {
+  max-width: 1525px;
+  margin: 0 auto;
+  padding: 16px 62px;
+}
+
+.footer-compact-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-compact-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.footer-compact-logo {
+  display: flex;
+  align-items: center;
+  transition: opacity 0.2s ease;
+}
+
+.footer-compact-logo:hover {
+  opacity: 0.88;
+}
+
+.footer-logo-img {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+}
+
+.footer-dot-sep {
+  color: #cfbe95;
+  font-size: 11px;
+}
+
+.footer-compact-tagline {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--forest);
+}
+
+.footer-compact-note {
+  font-size: 11.5px;
+  color: #647367;
+}
+
+.footer-compact-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.footer-compact-copy {
+  font-size: 11.5px;
+  color: #728075;
+}
+
+.footer-back-to-top-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(215, 200, 159, 0.7);
+  color: var(--forest);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(128, 96, 40, 0.05);
+  transition: all 0.2s var(--ease-spring);
+}
+
+.footer-back-to-top-btn:hover {
+  background: #ffffff;
+  border-color: var(--forest);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(128, 96, 40, 0.1);
+}
+
+@media (max-width: 850px) {
+  .footer-compact-container {
+    padding: 14px 24px;
+  }
+  .footer-compact-main {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .footer-compact-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
 .empty-state { padding: 50px 25px; text-align: center; }.empty-state h2 { font-size: 25px; margin-bottom: 12px; }.empty-state p { margin-bottom: 20px; }
 .form-control {
   width: 100%;
@@ -225,7 +338,7 @@ h1 { font-size: 54px; } h2 { font-size: 34px; } h3 { font-size: 21px; font-weigh
 @media(max-width:1050px) { .desktop-links { display: none; }.nav-divider { display: none; }.menu-toggle { display: grid; }.grid-4 { grid-template-columns: repeat(2,minmax(0,1fr)); } }
 @media(max-width:700px) {
   h1 { font-size: 40px; } h2 { font-size: 27px; } h3 { font-size: 18px; }
-  .site-header { padding: 20px 8px 0 15px; }.navbar { padding: 0 9px 0 15px; gap: 6px; }.brand { width: 190px; height: 51px; }.brand img { width: 190px; }.nav-actions { gap: 4px; }.login-link { display: none; }.language-switcher { height: 35px; padding: 2px; border-radius: 13px; gap: 0; }.language-switcher button { height: 28px; padding: 0 6px; font-size: 10px; }.page-container { padding: 35px 24px 24px; }.grid-2,.grid-3 { grid-template-columns: 1fr; }.grid-4 { gap: 12px; }.section-heading { align-items: flex-start; gap: 12px; flex-wrap: wrap; }.section-block { margin-top: 32px; }.site-footer { flex-direction: column; gap: 8px; }.intro-description { font-size: 14px; }.background-desktop { display: none; }.background-mobile { display: block; }.golden-background { background-image: linear-gradient(105.0149deg,var(--gold-cream) 9.6%,var(--gold-light) 28.8%,var(--gold-main) 53.6%,var(--gold-soft) 73.6%,var(--gold-ivory) 89.6%); }.precision-grid { background-size: 52px 52px; }.cream-aurora { left: -280px; top: -250px; }.champagne-aurora { left: 97px; top: 132px; }.mint-aurora { left: -255px; top: 555px; }.peach-aurora { left: 20px; top: 730px; }.glass-orb-one { left: 164px; top: 174px; }.glass-orb-two { left: -240px; top: 625px; }
+  .site-header { padding: 20px 8px 0 15px; }.navbar { padding: 0 9px 0 15px; gap: 6px; }.brand { width: 190px; height: 51px; }.brand img { width: 190px; }.nav-actions { gap: 4px; }.login-link { display: none; }.language-switcher { height: 35px; padding: 2px; border-radius: 13px; gap: 0; }.language-switcher button { height: 28px; padding: 0 6px; font-size: 10px; }.page-container { padding: 35px 24px 24px; }.grid-2,.grid-3 { grid-template-columns: 1fr; }.grid-4 { gap: 12px; }.section-heading { align-items: flex-start; gap: 12px; flex-wrap: wrap; }.section-block { margin-top: 32px; }.intro-description { font-size: 14px; }.background-desktop { display: none; }.background-mobile { display: block; }.golden-background { background-image: linear-gradient(105.0149deg,var(--gold-cream) 9.6%,var(--gold-light) 28.8%,var(--gold-main) 53.6%,var(--gold-soft) 73.6%,var(--gold-ivory) 89.6%); }.precision-grid { background-size: 52px 52px; }.cream-aurora { left: -280px; top: -250px; }.champagne-aurora { left: 97px; top: 132px; }.mint-aurora { left: -255px; top: 555px; }.peach-aurora { left: 20px; top: 730px; }.glass-orb-one { left: 164px; top: 174px; }.glass-orb-two { left: -240px; top: 625px; }
 }
 @media(max-width:400px) { .brand,.brand img { width: 150px; }.navbar { padding-left: 7px; }.nav-actions { gap: 1px; }.language-switcher button { padding: 0 4px; }.page-container { padding-left: 18px; padding-right: 18px; } }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior: auto; } *,*::before,*::after { transition: none !important; animation: none !important; } .trending-track { animation: career-marquee 30s linear infinite !important; } .trending-viewport[data-paused="true"] .trending-track,.trending-viewport:hover .trending-track,.trending-viewport:focus-within .trending-track { animation-play-state: paused !important; } }

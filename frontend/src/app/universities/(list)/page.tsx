@@ -3,7 +3,6 @@ import { Landmark } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { PageIntro } from "@/components/shared/PageIntro";
 import { UniversityDirectory } from "@/components/universities/UniversityDirectory";
-import Footer from "@/components/layout/Footer";
 import { getUniversities } from "@/lib/api/catalog";
 import { localizeUniversity } from "@/lib/i18n/catalog";
 
@@ -26,7 +25,6 @@ export default async function UniversitiesPage() {
       <UniversityDirectory
         universities={universities.map((u) => localizeUniversity(catalog, u))}
       />
-      <Footer />
     </div>
   );
 }

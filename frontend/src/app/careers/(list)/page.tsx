@@ -4,7 +4,6 @@ import { CareerDirectory } from "@/components/careers/CareerDirectory";
 import { getCareers } from "@/lib/api/catalog";
 import { localizeCareer } from "@/lib/i18n/catalog";
 import { HeroArtwork } from "@/components/home/HeroArtwork";
-import Footer from "@/components/layout/Footer";
 
 export async function generateMetadata(): Promise<Metadata> {
   return { title: (await getTranslations("careers"))("meta") };
@@ -15,7 +14,6 @@ export default async function CareersPage() {
   return (
     <div className="page-container careers-page">
       <CareerDirectory artwork={<HeroArtwork compact />} careers={careers.map((career) => localizeCareer(catalog, career))} />
-      <Footer />
     </div>
   );
 }

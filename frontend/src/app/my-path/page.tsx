@@ -3,7 +3,6 @@ import { Route } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { PageIntro } from "@/components/shared/PageIntro";
 import { SavedPaths } from "@/components/path/SavedPaths";
-import Footer from "@/components/layout/Footer";
 import { getCareers, getUniversities } from "@/lib/api/catalog";
 import { localizeCareer, localizeUniversity } from "@/lib/i18n/catalog";
 
@@ -24,7 +23,6 @@ export default async function MyPathPage() {
         <p>{t("intro")}</p>
       </PageIntro>
       <SavedPaths titles={titles} />
-      <Footer />
     </div>
   );
 }

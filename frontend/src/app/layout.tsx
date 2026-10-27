@@ -5,6 +5,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import GoldenBackground from "@/components/layout/GoldenBackground";
+import Footer from "@/components/layout/Footer";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
 const roboto = Roboto({ variable: "--font-roboto", subsets: ["latin"], display: "swap" });
@@ -60,6 +61,7 @@ export default async function RootLayout({
             <GoldenBackground />
             <Navbar />
             <main id="main-content">{children}</main>
+            <Footer />
           </div>
         </NextIntlClientProvider>
       </body>
