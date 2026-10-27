@@ -53,20 +53,119 @@
 .segmented-control .selected { background: var(--gold-glass-gradient); border-color: rgba(215,200,159,.8); box-shadow: 0 4px 12px rgba(128,96,40,.12); }
 .sort-select { min-width: 210px; border: 1.2px solid rgba(215,200,159,.7); border-radius: 13px; padding: 10px 14px; background: var(--glass-surface); font-size: 12px; font-weight: 500; color: var(--ink); cursor: pointer; transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease; }
 .sort-select:focus { outline: none; border-color: var(--forest); box-shadow: 0 0 0 3px rgba(25, 59, 43, 0.15); background: #ffffff; }
-.university-card { padding: 10px; border-radius: 22px; background: rgba(255,255,255,.88); transition: transform 0.28s var(--ease-spring), box-shadow 0.28s var(--ease-spring), border-color 0.28s ease; }
-.university-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(128,96,40,.15), var(--glass-specular); border-color: #ffffff; }
-.university-illustration { height: 95px; overflow: hidden; border-radius: 14px; position: relative; }
-.university-illustration > img { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); transition: transform 0.4s var(--ease-spring); }
-.university-card:hover .university-illustration > img { transform: translate(-50%,-50%) scale(1.05); }
-.institution-short-name,.institution-type { position: absolute; top: 10px; background: rgba(255,255,255,.92); border-radius: 9px; padding: 6px 13px; font-size: 11px; font-weight: 700; box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
-.institution-short-name { left: 10px; }
-.institution-type { right: 10px; display: flex; align-items: center; gap: 6px; font-size: 10px; }
-.type-dot { width: 7px; height: 7px; border-radius: 50%; background: #647367; }
-.type-dot.non-state { background: #d39b2a; }
-.university-card-body { padding: 17px 10px 7px; }
-.university-card h3 { font-size: 20px; color: var(--forest); margin-bottom: 8px; }
-.university-card .muted { font-size: 11px; }
-.university-card-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 5px; font-size: 10px; }
+.university-card {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.90);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 16px rgba(128, 96, 40, 0.06), var(--glass-specular);
+  transition: transform 0.32s var(--ease-spring), box-shadow 0.32s var(--ease-spring), border-color 0.28s ease;
+}
+.university-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 36px rgba(128, 96, 40, 0.16), var(--glass-specular);
+  border-color: #ffffff;
+}
+.university-card-link {
+  display: flex;
+}
+.university-card-media {
+  height: 165px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+  position: relative;
+  background: #ede6d8;
+}
+.university-card-img {
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.university-card:hover .university-card-img {
+  transform: scale(1.06);
+}
+.university-card-image-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02) 40%, rgba(15, 28, 20, 0.45) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+.institution-short-name,
+.institution-type {
+  position: absolute;
+  top: 10px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 10px;
+  padding: 5px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  letter-spacing: 0.02em;
+}
+.institution-short-name {
+  left: 10px;
+  color: var(--forest);
+}
+.institution-type {
+  right: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  color: #384239;
+}
+.type-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--forest);
+}
+.type-dot.non-state {
+  background: #d39b2a;
+}
+.university-card-body {
+  padding: 16px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.university-card h3 {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--forest);
+  margin-bottom: 6px;
+  line-height: 1.3;
+  transition: color 0.2s ease;
+}
+.university-card:hover h3 {
+  color: #1a4d36;
+}
+.university-card .muted {
+  font-size: 12px;
+  color: #647367;
+}
+.university-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 10px;
+  font-size: 11px;
+  color: #8c826e;
+  font-weight: 500;
+}
 .square-arrow { width: 42px; height: 42px; border: 1.2px solid #e8d8ab; border-radius: 13px; display: grid; place-items: center; background: var(--white); color: var(--forest); box-shadow: 0 2px 6px rgba(128,96,40,0.08); transition: transform 0.22s var(--ease-spring), background 0.22s ease, color 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease; }
 .university-card:hover .square-arrow, .square-arrow:hover { background: var(--forest); color: var(--white); border-color: var(--forest); transform: translate(2px, -2px) scale(1.04); box-shadow: 0 4px 12px rgba(25,59,43,0.25); }
 .comparison-bar { display: flex; align-items: center; gap: 16px; padding: 12px 18px; margin-top: 34px; border-radius: 21px; box-shadow: var(--glass-shadow-md), var(--glass-specular); }
@@ -137,7 +236,7 @@ th,td { padding: 15px; border-bottom: 1px solid rgba(215,200,159,.65); text-alig
 .career-card:hover .career-explore > .design-asset { transform: translateX(3px); }
 @media(max-width:1250px) { .career-browser { grid-template-columns: 210px 1fr; }.career-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }.filter-button { min-width: auto; }.career-stats > div { gap: 9px; padding: 12px; }.career-stats span { font-size: 10px; } }
 @media(max-width:900px) { .career-sidebar { display: none; }.career-browser { grid-template-columns: 1fr; }.institution-category { flex-direction: column; align-items: stretch; }.segmented-control { width: 100%; max-width: 100%; }.university-results .grid-3 { grid-template-columns: repeat(2,minmax(0,1fr)); }.university-card h3 { font-size: 17px; }.comparison-bar { flex-wrap: wrap; }.comparison-bar .glass-button { min-width: 0; } }
-@media(max-width:700px) { .search-row { flex-direction: column; }.search-row .glass-button { width: 100%; }.filter-row { gap: 8px; }.select-control { flex: 1; }.select-control select { min-width: 0; width: 100%; }.filter-button { font-size: 10px; }.clear-filters { padding: 8px; }.institution-category { margin-bottom: 30px; }.segmented-control button { padding: 10px 5px; font-size: 10px; gap: 5px; }.university-results .grid-3 { grid-template-columns: 1fr; }.university-card h3 { font-size: 20px; }.university-illustration { height: 100px; }.comparison-bar .glass-button { width: 100%; margin: 5px 0 0; }.career-directory-hero { grid-template-columns: 1fr; padding: 22px; }.career-directory-hero h1 { font-size: 36px; }.career-directory-hero br { display: none; }.career-directory-hero h1 br { display: block; }.career-stats { gap: 10px; }.career-stats > div { flex-wrap: wrap; gap: 7px; }.career-stats span { width: 100%; margin: 0; }.career-stats strong { font-size: 23px; }.career-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }.career-card h3 { font-size: 13px; }.career-category { max-width: 95px; padding: 4px 6px; }.career-card-media { height: 110px; }.career-card-line { font-size: 10px; }.careers-page { padding: 28px 18px; } }
+@media(max-width:700px) { .search-row { flex-direction: column; }.search-row .glass-button { width: 100%; }.filter-row { gap: 8px; }.select-control { flex: 1; }.select-control select { min-width: 0; width: 100%; }.filter-button { font-size: 10px; }.clear-filters { padding: 8px; }.institution-category { margin-bottom: 30px; }.segmented-control button { padding: 10px 5px; font-size: 10px; gap: 5px; }.university-results .grid-3 { grid-template-columns: 1fr; }.university-card h3 { font-size: 20px; }.university-card-media { height: 155px; }.comparison-bar .glass-button { width: 100%; margin: 5px 0 0; }.career-directory-hero { grid-template-columns: 1fr; padding: 22px; }.career-directory-hero h1 { font-size: 36px; }.career-directory-hero br { display: none; }.career-directory-hero h1 br { display: block; }.career-stats { gap: 10px; }.career-stats > div { flex-wrap: wrap; gap: 7px; }.career-stats span { width: 100%; margin: 0; }.career-stats strong { font-size: 23px; }.career-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }.career-card h3 { font-size: 13px; }.career-category { max-width: 95px; padding: 4px 6px; }.career-card-media { height: 110px; }.career-card-line { font-size: 10px; }.careers-page { padding: 28px 18px; } }
 @media(max-width:370px) { .career-grid { grid-template-columns: 1fr; } }
 .about-page { padding: 59px 71px 28px; min-height: 1564px; display: flex; flex-direction: column; }
 .about-hero { display: grid; grid-template-columns: minmax(0,1.73fr) minmax(0,1fr); gap: 85px; }
