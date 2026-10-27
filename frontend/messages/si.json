@@ -444,14 +444,65 @@
       }
     },
     "university": {
-      "moratuwa": {
-        "name": "මොරටුව විශ්වවිද්‍යාලය (UoM)"
+      "colombo": {
+        "name": "කොළඹ විශ්වවිද්‍යාලය (UoC)"
       },
       "peradeniya": {
         "name": "පේරාදෙණිය විශ්වවිද්‍යාලය (UoP)"
       },
+      "jayewardenepura": {
+        "name": "ශ්‍රී ජයවර්ධනපුර විශ්වවිද්‍යාලය (USJ)"
+      },
+      "kelaniya": {
+        "name": "කැලණිය විශ්වවිද්‍යාලය (UoK)"
+      },
+      "moratuwa": {
+        "name": "මොරටුව විශ්වවිද්‍යාලය (UoM)"
+      },
+      "jaffna": {
+        "name": "යාපනය විශ්වවිද්‍යාලය (UoJ)"
+      },
       "ruhuna": {
         "name": "රුහුණ විශ්වවිද්‍යාලය (UoR)"
+      },
+      "ousl": {
+        "name": "ශ්‍රී ලංකා විවෘත විශ්වවිද්‍යාලය (OUSL)"
+      },
+      "eastern": {
+        "name": "නැගෙනහිර විශ්වවිද්‍යාලය (EUSL)"
+      },
+      "rajarata": {
+        "name": "රජරට විශ්වවිද්‍යාලය (RUSL)"
+      },
+      "wayamba": {
+        "name": "වයඹ විශ්වවිද්‍යාලය (WUSL)"
+      },
+      "sabaragamuwa": {
+        "name": "සබරගමුව විශ්වවිද්‍යාලය (SUSL)"
+      },
+      "southeastern": {
+        "name": "අග්නිදිග විශ්වවිද්‍යාලය (SEUSL)"
+      },
+      "uvpa": {
+        "name": "සෞන්දර්ය කලා විශ්වවිද්‍යාලය (UVPA)"
+      },
+      "uvawellassa": {
+        "name": "ඌව වෙල්ලස්ස විශ්වවිද්‍යාලය (UWU)"
+      },
+      "vavuniya": {
+        "name": "වවුනියාව විශ්වවිද්‍යාලය (UoV)"
+      },
+      "wickramarachchi": {
+        "name": "ගම්පහ වික්‍රමාරච්චි දේශීය වෛද්‍ය විශ්වවිද්‍යාලය"
+      },
+      "kdu": {
+        "name": "කොතලාවල ආරක්ෂක විශ්වවිද්‍යාලය (KDU)"
+      },
+      "univotec": {
+        "name": "වෘත්තීය තාක්ෂණ විශ්වවිද්‍යාලය (UNIVOTEC)"
+      },
+      "ocean": {
+        "name": "ශ්‍රී ලංකා සාගර විශ්වවිද්‍යාලය (Ocean University)"
       },
       "sliit": {
         "name": "SLIIT"
@@ -464,6 +515,12 @@
       },
       "iit": {
         "name": "IIT (Informatics Institute of Technology)"
+      },
+      "horizon": {
+        "name": "Horizon Campus"
+      },
+      "sltc": {
+        "name": "SLTC පර්යේෂණ විශ්වවිද්‍යාලය (SLTC)"
       }
     },
     "location": {
@@ -471,7 +528,22 @@
       "Peradeniya": "පේරාදෙණිය",
       "Matara": "මාතර",
       "Malabe": "මාලබේ",
-      "Homagama": "හෝමාගම"
+      "Homagama": "හෝමාගම",
+      "Colombo": "කොළඹ",
+      "Nugegoda": "නුගේගොඩ",
+      "Kelaniya": "කැලණිය",
+      "Jaffna": "යාපනය",
+      "Nawala": "නාවල",
+      "Batticaloa": "මඩකලපුව",
+      "Mihintale": "මිහින්තලේ",
+      "Kuliyapitiya": "කුලියාපිටිය",
+      "Belihuloya": "බෙලිහුල්ඔය",
+      "Oluvil": "ඔලුවිල්",
+      "Badulla": "බදුල්ල",
+      "Vavuniya": "වවුනියාව",
+      "Yakkala": "යක්කල",
+      "Ratmalana": "රත්මලාන",
+      "Padukka": "පාදුක්ක"
     },
     "area": {
       "Engineering": "Engineering",
@@ -483,7 +555,17 @@
       "Computing": "Computing",
       "Business": "Business & Management",
       "Maritime": "Maritime & නාවික",
-      "Logistics": "Logistics & Supply Chain"
+      "Logistics": "Logistics & Supply Chain",
+      "Medicine": "Medicine & සෞඛ්‍ය",
+      "Law": "Law (නීතිය)",
+      "Arts": "Arts & මානවශාස්ත්‍ර",
+      "Management": "Management & ව්‍යාපාර",
+      "Education": "Education (අධ්‍යාපන)",
+      "Geomatics": "Geomatics (භූමාන)",
+      "Music": "Music & සංගීතය",
+      "Commerce": "Commerce & වාණිජ",
+      "Humanities": "Humanities (මානවශාස්ත්‍ර)",
+      "Health Sciences": "Health Sciences (සෞඛ්‍ය විද්‍යා)"
     },
     "institutionType": {
       "Government": "රජයේ (State)",

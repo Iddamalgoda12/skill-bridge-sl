@@ -1,28 +1,45 @@
 import Link from "next/link";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { MapPin, ArrowUpRight } from "lucide-react";
-import { DesignAsset } from "@/components/shared/DesignAsset";
+import { MapPin } from "lucide-react";
 import type { LocalizedUniversity } from "@/lib/i18n/catalog";
 
-export function UniversityCard({ university, compare, selected, onSelect }: { university: LocalizedUniversity; compare?: boolean; selected?: boolean; onSelect?: () => void }) {
+export function UniversityCard({ university }: { university: LocalizedUniversity }) {
   const t = useTranslations("universities.card");
   const { display } = university;
+  const imageSrc = university.image || `/images/universities/cards/${university.slug}.jpg`;
+
   return (
-    <article className="university-card glass-panel">
-      <div className="university-illustration">
-        <DesignAsset src={university.illustration} />
+    <Link
+      href={`/universities/${university.slug}`}
+      className="university-card glass-panel university-card-link"
+      aria-label={display.name}
+    >
+      <div className="university-illustration university-card-media">
+        <Image
+          src={imageSrc}
+          alt={display.name}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="university-card-img"
+        />
+        <div className="university-card-image-gradient" />
         <span className="institution-short-name">{university.shortName}</span>
-        <span className="institution-type"><span className={university.type === "Government" ? "type-dot" : "type-dot non-state"} />{display.type}</span>
+        <span className="institution-type">
+          <span className={university.type === "Government" ? "type-dot" : "type-dot non-state"} />
+          {display.type}
+        </span>
       </div>
       <div className="university-card-body">
-        <h3><Link href={`/universities/${university.slug}`}>{display.name}</Link></h3>
-        <p className="muted inline-icon"><MapPin size={14} aria-hidden="true" />{t("location", { location: display.location })}</p>
+        <h3>{display.name}</h3>
+        <p className="muted inline-icon">
+          <MapPin size={14} aria-hidden="true" />
+          {t("location", { location: display.location })}
+        </p>
         <div className="university-card-bottom">
           <span>{display.areas.join(" · ")}</span>
-          <Link className="square-arrow" href={`/universities/${university.slug}`} aria-label={t("explore", { name: display.name })}><ArrowUpRight size={18} aria-hidden="true" /></Link>
         </div>
-        {compare && <label className="compare-checkbox"><input type="checkbox" checked={selected} onChange={onSelect} />{t("compare")}</label>}
       </div>
-    </article>
+    </Link>
   );
 }

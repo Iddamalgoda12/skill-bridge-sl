@@ -444,14 +444,65 @@
       }
     },
     "university": {
-      "moratuwa": {
-        "name": "University of Moratuwa"
+      "colombo": {
+        "name": "University of Colombo"
       },
       "peradeniya": {
         "name": "University of Peradeniya"
       },
+      "jayewardenepura": {
+        "name": "University of Sri Jayewardenepura"
+      },
+      "kelaniya": {
+        "name": "University of Kelaniya"
+      },
+      "moratuwa": {
+        "name": "University of Moratuwa"
+      },
+      "jaffna": {
+        "name": "University of Jaffna"
+      },
       "ruhuna": {
         "name": "University of Ruhuna"
+      },
+      "ousl": {
+        "name": "The Open University of Sri Lanka"
+      },
+      "eastern": {
+        "name": "Eastern University, Sri Lanka"
+      },
+      "rajarata": {
+        "name": "Rajarata University of Sri Lanka"
+      },
+      "wayamba": {
+        "name": "Wayamba University of Sri Lanka"
+      },
+      "sabaragamuwa": {
+        "name": "Sabaragamuwa University of Sri Lanka"
+      },
+      "southeastern": {
+        "name": "South Eastern University of Sri Lanka"
+      },
+      "uvpa": {
+        "name": "University of the Visual and Performing Arts"
+      },
+      "uvawellassa": {
+        "name": "Uva Wellassa University"
+      },
+      "vavuniya": {
+        "name": "University of Vavuniya"
+      },
+      "wickramarachchi": {
+        "name": "Gampaha Wickramarachchi University of Indigenous Medicine"
+      },
+      "kdu": {
+        "name": "General Sir John Kotelawala Defence University"
+      },
+      "univotec": {
+        "name": "University of Vocational Technology"
+      },
+      "ocean": {
+        "name": "Ocean University of Sri Lanka"
       },
       "sliit": {
         "name": "SLIIT"
@@ -464,6 +515,12 @@
       },
       "iit": {
         "name": "Informatics Institute of Technology (IIT)"
+      },
+      "horizon": {
+        "name": "Horizon Campus"
+      },
+      "sltc": {
+        "name": "Sri Lanka Technological Campus (SLTC)"
       }
     },
     "location": {
@@ -471,7 +528,22 @@
       "Peradeniya": "Peradeniya",
       "Matara": "Matara",
       "Malabe": "Malabe",
-      "Homagama": "Homagama"
+      "Homagama": "Homagama",
+      "Colombo": "Colombo",
+      "Nugegoda": "Nugegoda",
+      "Kelaniya": "Kelaniya",
+      "Jaffna": "Jaffna",
+      "Nawala": "Nawala",
+      "Batticaloa": "Batticaloa",
+      "Mihintale": "Mihintale",
+      "Kuliyapitiya": "Kuliyapitiya",
+      "Belihuloya": "Belihuloya",
+      "Oluvil": "Oluvil",
+      "Badulla": "Badulla",
+      "Vavuniya": "Vavuniya",
+      "Yakkala": "Yakkala",
+      "Ratmalana": "Ratmalana",
+      "Padukka": "Padukka"
     },
     "area": {
       "Engineering": "Engineering",
@@ -483,7 +555,17 @@
       "Computing": "Computing",
       "Business": "Business",
       "Maritime": "Maritime",
-      "Logistics": "Logistics"
+      "Logistics": "Logistics",
+      "Medicine": "Medicine",
+      "Law": "Law",
+      "Arts": "Arts",
+      "Management": "Management",
+      "Education": "Education",
+      "Geomatics": "Geomatics",
+      "Music": "Music",
+      "Commerce": "Commerce",
+      "Humanities": "Humanities",
+      "Health Sciences": "Health Sciences"
     },
     "institutionType": {
       "Government": "Government",
