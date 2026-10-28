@@ -2,27 +2,34 @@ import type { Metadata } from "next";
 import { Route } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { PageIntro } from "@/components/shared/PageIntro";
-import { SavedPaths } from "@/components/path/SavedPaths";
-import { getCareers, getUniversities } from "@/lib/api/catalog";
-import { localizeCareer, localizeUniversity } from "@/lib/i18n/catalog";
+import { StudentPathDashboard } from "@/components/path/StudentPathDashboard";
 
 export async function generateMetadata(): Promise<Metadata> {
-  return { title: (await getTranslations("myPath"))("meta") };
+  return {
+    title: "My Career Path Dashboard - Milestones & Achievements | SkillBridge SL",
+    description:
+      "Track your active education and career roadmap milestones, complete actionable tasks, monitor your progress, and earn achievement badges.",
+  };
 }
 
 export default async function MyPathPage() {
-  const [t, catalog, careers, universities] = await Promise.all([getTranslations("myPath"), getTranslations("catalog"), getCareers(), getUniversities()]);
-  const translator = catalog;
-  const titles = Object.fromEntries([
-    ...careers.map((c) => [`career:${c.slug}`, localizeCareer(translator, c).display.title]),
-    ...universities.map((u) => [`university:${u.slug}`, localizeUniversity(translator, u).display.name]),
-  ]);
+  const t = await getTranslations("myPath");
+
   return (
-    <div className="page-container">
-      <PageIntro badge={<><Route />{t("eyebrow")}</>} title={t("title")}>
+    <div className="page-container my-path-page">
+      <PageIntro
+        badge={
+          <>
+            <Route />
+            {t("eyebrow")}
+          </>
+        }
+        title={t("title")}
+      >
         <p>{t("intro")}</p>
       </PageIntro>
-      <SavedPaths titles={titles} />
+
+      <StudentPathDashboard />
     </div>
   );
 }

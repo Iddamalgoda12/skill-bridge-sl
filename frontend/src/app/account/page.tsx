@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
-import { UserRound } from "lucide-react";
+import { UserRound, Route } from "lucide-react";
 import { PageIntro } from "@/components/shared/PageIntro";
+import { ActionLink } from "@/components/shared/ActionLink";
 import { ProfileForm } from "@/components/account/ProfileForm";
 import { PasswordForm } from "@/components/account/PasswordForm";
 import { LogoutButton } from "@/components/account/LogoutButton";
@@ -25,6 +26,7 @@ export default async function AccountPage() {
       </PageIntro>
       <div className="account-actions">
         <span className="eyebrow-pill">{t(`role.${user.role}`)}</span>
+        <ActionLink href="/my-path" icon={<Route size={16} />}>My Roadmaps</ActionLink>
         <LogoutButton />
       </div>
       <div className="account-grid section-block">
