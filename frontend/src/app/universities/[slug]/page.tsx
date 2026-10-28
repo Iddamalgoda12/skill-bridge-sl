@@ -11,13 +11,11 @@ import {
   ExternalLink,
   Sparkles,
   Compass,
-  ChevronRight,
 } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { getUniversity } from "@/lib/api/catalog";
 import { localizeUniversity } from "@/lib/i18n/catalog";
 import { PageIntro } from "@/components/shared/PageIntro";
-import { SectionHeading } from "@/components/shared/SectionHeading";
 import { UniversityAcademics } from "@/components/universities/UniversityAcademics";
 import { CampusGallery } from "@/components/universities/CampusGallery";
 import { FacultyExplorer } from "@/components/universities/FacultyExplorer";
@@ -27,6 +25,7 @@ import { RuhunaFacilities } from "@/components/universities/RuhunaFacilities";
 import { RuhunaOfficialLinks } from "@/components/universities/RuhunaOfficialLinks";
 import { SaveButton } from "@/components/shared/SaveButton";
 import { ActionLink } from "@/components/shared/ActionLink";
+import { getUniversityDetail } from "@/lib/data/universityDetails";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -41,13 +40,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-const metrics = [
-  { id: "faculties", Icon: Landmark },
-  { id: "founded", Icon: Calendar },
-  { id: "campus", Icon: MapPin },
-  { id: "type", Icon: GraduationCap },
-] as const;
-
 export default async function UniversityPage({ params }: Props) {
   const record = await getUniversity((await params).slug);
   if (!record) notFound();
@@ -61,24 +53,30 @@ export default async function UniversityPage({ params }: Props) {
   const { name, location, areas, type } = university.display;
   const ruhuna = university.slug === "ruhuna";
 
+  // Detailed verified institutional dataset
+  const detail = getUniversityDetail(record.slug);
+
   const tabs = [
     { id: "overview", label: t("tabs.overview") },
-    ...(ruhuna
-      ? [
-          { id: "heritage", label: t("tabs.heritage") },
-          { id: "gallery", label: t("tabs.gallery") },
-          { id: "faculties", label: t("tabs.faculties") },
-          { id: "degrees", label: t("tabs.degrees") },
-          { id: "facilities", label: t("tabs.facilities") },
-          { id: "admissions", label: t("tabs.admissions") },
-          { id: "rankings", label: t("tabs.rankings") },
-          { id: "resources", label: t("tabs.resources") },
-        ]
-      : [
-          { id: "campus-life", label: t("tabs.campusLife") },
-          { id: "gallery", label: t("tabs.gallery") },
-        ]),
+    { id: "heritage", label: t("tabs.heritage") },
+    { id: "gallery", label: t("tabs.gallery") },
+    { id: "faculties", label: t("tabs.faculties") },
+    { id: "degrees", label: t("tabs.degrees") },
+    { id: "facilities", label: t("tabs.facilities") },
+    { id: "admissions", label: t("tabs.admissions") },
+    { id: "rankings", label: t("tabs.rankings") },
+    { id: "resources", label: t("tabs.resources") },
   ];
+
+  const crestSrc = detail?.crest || (ruhuna ? "/images/universities/ruhuna/ruhuna-crest.png" : null);
+  const stateLabel = detail?.stateLabel || (type === "Government" ? "National State University · Sri Lanka" : "Degree Awarding University · Sri Lanka");
+  const mottoText = (ruhuna && t.has("motto")) ? t("motto") : (detail?.motto || "");
+
+  // Metrics
+  const metricFaculties = detail?.metrics?.faculties || (ruhuna ? t("metrics.faculties.value") : `${areas.length} Study Streams`);
+  const metricFounded = detail?.metrics?.founded || (ruhuna ? t("metrics.founded.value") : "Chartered");
+  const metricCampus = detail?.metrics?.campus || (ruhuna ? t("metrics.campus.value") : location);
+  const metricType = detail?.metrics?.type || (ruhuna ? t("metrics.type.value") : type);
 
   return (
     <div className="page-container university-detail">
@@ -94,12 +92,12 @@ export default async function UniversityPage({ params }: Props) {
       {/* Hero Section */}
       <section className="university-detail-hero">
         <div className="hero-details-column">
-          {ruhuna && (
+          {crestSrc && (
             <div className="ruhuna-crest-badge-row">
               <div className="ruhuna-crest-wrapper">
                 <Image
-                  src="/images/universities/ruhuna/ruhuna-crest.png"
-                  alt="University of Ruhuna Crest"
+                  src={crestSrc}
+                  alt={`${name} Official Crest`}
                   width={34}
                   height={48}
                   className="ruhuna-crest-img"
@@ -107,8 +105,8 @@ export default async function UniversityPage({ params }: Props) {
                 />
               </div>
               <div className="ruhuna-crest-text">
-                <span className="ruhuna-state-label">National State University · Sri Lanka</span>
-                <span className="ruhuna-motto-text">{t("motto")}</span>
+                <span className="ruhuna-state-label">{stateLabel}</span>
+                {mottoText && <span className="ruhuna-motto-text">{mottoText}</span>}
               </div>
             </div>
           )}
@@ -122,7 +120,11 @@ export default async function UniversityPage({ params }: Props) {
             }
             title={ruhuna ? t.rich("ruhunaTitle", { br: () => <br /> }) : name}
           >
-            <p className="hero-lead-paragraph">{ruhuna ? t("introRuhuna") : t("intro", { name })}</p>
+            <p className="hero-lead-paragraph">
+              {ruhuna
+                ? t("introRuhuna")
+                : detail?.overview?.description || t("intro", { name })}
+            </p>
           </PageIntro>
 
           {/* Quick CTA row */}
@@ -137,65 +139,92 @@ export default async function UniversityPage({ params }: Props) {
               {t("ready.visit")}
             </ActionLink>
             <SaveButton id={university.slug} title={name} kind="university" />
-            {ruhuna && (
-              <a href="#faculties" className="glass-button hero-explore-btn">
-                <span>{t("tabs.faculties")}</span>
-                <ChevronRight size={14} aria-hidden="true" />
-              </a>
-            )}
+            <a href="#faculties" className="button button-ghost hero-secondary-btn">
+              <span>{t("tabs.faculties")}</span>
+            </a>
           </div>
 
-          {/* Badges Pill Row */}
-          <div className="university-badges">
-            {ruhuna && (
+          {/* Hero Metadata Badges */}
+          <div className="hero-eyebrow-row">
+            {ruhuna ? (
               <>
                 <span className="eyebrow-pill">
-                  <Calendar size={12} />
-                  {t("establishedDetail")}
-                </span>
-                <span className="eyebrow-pill">
                   <MapPin size={12} />
-                  {t("locationRuhuna", { location })}
+                  {t("locationRuhuna")}
                 </span>
                 <span className="eyebrow-pill">
                   <Landmark size={12} />
-                  {t("facultyCount")}
+                  {t("establishedDetail")}
                 </span>
                 <span className="eyebrow-pill accent-pill">
                   <Sparkles size={12} />
                   {t("bawaHeritageBadge")}
                 </span>
               </>
-            )}
-            {!ruhuna && (
-              <span className="eyebrow-pill">
-                <MapPin size={12} />
-                {t("locationOther", { location })}
-              </span>
+            ) : (
+              <>
+                <span className="eyebrow-pill">
+                  <MapPin size={12} />
+                  {t("locationOther", { location: detail?.location || location })}
+                </span>
+                <span className="eyebrow-pill">
+                  <Landmark size={12} />
+                  Est. {detail?.metrics?.founded || "Chartered"}
+                </span>
+                {detail?.heritage?.imageBadge && (
+                  <span className="eyebrow-pill accent-pill">
+                    <Sparkles size={12} />
+                    {detail.heritage.imageBadge}
+                  </span>
+                )}
+              </>
             )}
           </div>
         </div>
 
-        {/* Real Photo Gallery in Hero Area */}
+        {/* Real Authentic Photo Gallery in Hero Area */}
         <div className="hero-gallery-column">
-          <CampusGallery name={ruhuna ? t("ruhunaShort") : university.shortName} isRuhuna={ruhuna} />
+          <CampusGallery
+            name={ruhuna ? t("ruhunaShort") : university.shortName}
+            photos={detail?.gallery}
+            isRuhuna={ruhuna}
+            galleryTitle={detail?.overview?.title}
+            gallerySubtitle={detail?.overview?.description}
+          />
         </div>
       </section>
 
       {/* University Visual Metrics */}
-      {ruhuna && (
-        <div className="university-metrics glass-panel">
-          {metrics.map(({ id, Icon }) => (
-            <div key={id}>
-              <Icon size={22} aria-hidden="true" />
-              <span>
-                <strong>{t(`metrics.${id}.value`)}</strong>
-                <small>{t(`metrics.${id}.label`)}</small>
-              </span>
-            </div>
-          ))}
+      <div className="university-metrics glass-panel">
+        <div>
+          <Landmark size={22} aria-hidden="true" />
+          <span>
+            <strong>{metricFaculties}</strong>
+            <small>{t("metrics.faculties.label")}</small>
+          </span>
         </div>
-      )}
+        <div>
+          <Calendar size={22} aria-hidden="true" />
+          <span>
+            <strong>{metricFounded}</strong>
+            <small>{t("metrics.founded.label")}</small>
+          </span>
+        </div>
+        <div>
+          <MapPin size={22} aria-hidden="true" />
+          <span>
+            <strong>{metricCampus}</strong>
+            <small>{t("metrics.campus.label")}</small>
+          </span>
+        </div>
+        <div>
+          <GraduationCap size={22} aria-hidden="true" />
+          <span>
+            <strong>{metricType}</strong>
+            <small>{t("metrics.type.label")}</small>
+          </span>
+        </div>
+      </div>
 
       {/* Sticky Section Navigation */}
       <nav className="section-tabs glass-panel" aria-label={t("sections")}>
@@ -210,71 +239,82 @@ export default async function UniversityPage({ params }: Props) {
       <section id="overview" className="university-overview">
         <article className="glass-panel overview-article">
           <p className="eyebrow">{t("getToKnow", { name: university.shortName })}</p>
-          <h2>{ruhuna ? t("overviewTitleRuhuna") : name}</h2>
-          <p>{ruhuna ? t("overviewRuhuna") : t("overviewOther", { areas: areas.join(", "), name, location })}</p>
-          <strong className="tagline-highlight">{t("overviewTagline", { type })}</strong>
+          <h2>{ruhuna ? t("overviewTitleRuhuna") : detail?.overview?.title || name}</h2>
+          <p>
+            {ruhuna
+              ? t("overviewRuhuna")
+              : detail?.overview?.description || t("overviewOther", { areas: areas.join(", "), name, location })}
+          </p>
+          <strong className="tagline-highlight">
+            {detail?.overview?.tagline || t("overviewTagline", { type })}
+          </strong>
         </article>
 
-        {ruhuna && (
-          <article id="rankings" className="ranking-card glass-panel">
-            <div className="ranking-card-header">
-              <Award size={24} aria-hidden="true" className="trophy-icon" />
-              <div>
-                <h3>{t("rankings.title")}</h3>
-                <p className="muted">{t("rankings.source")}</p>
-              </div>
+        <article id="rankings" className="ranking-card glass-panel">
+          <div className="ranking-card-header">
+            <Award size={24} aria-hidden="true" className="trophy-icon" />
+            <div>
+              <h3>{t("rankings.title")}</h3>
+              <p className="muted">{detail?.rankings?.source || t("rankings.source")}</p>
             </div>
-            <div className="ranking-stats-row">
-              <div className="ranking-stat-box">
-                <strong>{t("rankings.nationalValue")}</strong>
-                <small>{t("rankings.national")}</small>
-              </div>
-              <div className="ranking-stat-box">
-                <strong>{t("rankings.worldValue")}</strong>
-                <small>{t("rankings.world")}</small>
-              </div>
+          </div>
+          <div className="ranking-stats-row">
+            <div className="ranking-stat-box">
+              <strong>{detail?.rankings?.nationalValue || t("rankings.nationalValue")}</strong>
+              <small>{detail?.rankings?.nationalLabel || t("rankings.national")}</small>
             </div>
-            <p className="ranking-note-text muted">{t("rankings.note")}</p>
-          </article>
-        )}
+            <div className="ranking-stat-box">
+              <strong>{detail?.rankings?.worldValue || t("rankings.worldValue")}</strong>
+              <small>{detail?.rankings?.worldLabel || t("rankings.world")}</small>
+            </div>
+          </div>
+          <p className="ranking-note-text muted">
+            {detail?.rankings?.note || t("rankings.note")}
+          </p>
+        </article>
       </section>
 
-      {/* Ruhuna Exclusive Specialized Sections */}
-      {ruhuna && (
-        <>
-          {/* Architectural Heritage Section */}
-          <RuhunaHeritage />
+      {/* Architectural Heritage Section */}
+      <RuhunaHeritage
+        heritage={detail?.heritage}
+        isRuhuna={ruhuna}
+        universityName={name}
+      />
 
-          {/* Interactive All 10 Faculties Explorer */}
-          <FacultyExplorer />
+      {/* Interactive All Faculties Explorer */}
+      <FacultyExplorer
+        faculties={detail?.faculties}
+        isRuhuna={ruhuna}
+        universityName={name}
+      />
 
-          {/* Degrees & Study Opportunities */}
-          <UniversityAcademics />
+      {/* Degrees & Study Opportunities */}
+      <UniversityAcademics
+        degreeGroups={detail?.degreeGroups}
+        isRuhuna={ruhuna}
+        universityName={name}
+      />
 
-          {/* Campus Facilities & Life */}
-          <RuhunaFacilities />
+      {/* Campus Facilities & Life */}
+      <RuhunaFacilities
+        facilities={detail?.facilities}
+        isRuhuna={ruhuna}
+        universityName={name}
+      />
 
-          {/* Admissions Guidance for Sri Lankan Students */}
-          <RuhunaAdmissions />
+      {/* Admissions Guidance for Sri Lankan Students */}
+      <RuhunaAdmissions
+        admissions={detail?.admissions}
+        isRuhuna={ruhuna}
+        universityName={name}
+      />
 
-          {/* Verified Official Links Hub */}
-          <RuhunaOfficialLinks />
-        </>
-      )}
-
-      {/* Non-Ruhuna Generic Fallback */}
-      {!ruhuna && (
-        <section id="campus-life" className="section-block">
-          <SectionHeading
-            eyebrow={t("campus.eyebrow")}
-            title={t("campus.title")}
-            description={t("campus.description")}
-          />
-          <div className="glass-panel" style={{ padding: "30px", borderRadius: "24px" }}>
-            <p className="muted">{t("overviewOther", { areas: areas.join(", "), name, location })}</p>
-          </div>
-        </section>
-      )}
+      {/* Verified Official Links Hub */}
+      <RuhunaOfficialLinks
+        links={detail?.officialLinks}
+        isRuhuna={ruhuna}
+        universityName={name}
+      />
 
       {/* Bottom CTA Card */}
       <section className="university-bottom glass-panel section-block">

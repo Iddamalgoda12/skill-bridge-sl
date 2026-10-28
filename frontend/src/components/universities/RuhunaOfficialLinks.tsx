@@ -1,10 +1,19 @@
 import { Globe, BookOpen, GraduationCap, Building2, ExternalLink } from "lucide-react";
 import { getTranslations } from "next-intl/server";
+import type { OfficialLinkItem } from "@/lib/data/universityDetails";
 
-export async function RuhunaOfficialLinks() {
+export async function RuhunaOfficialLinks({
+  links: propLinks,
+  isRuhuna = true,
+  universityName,
+}: {
+  links?: OfficialLinkItem[];
+  isRuhuna?: boolean;
+  universityName?: string;
+}) {
   const t = await getTranslations("universityDetail.resourcesHub");
 
-  const links = [
+  const ruhunaLinks = [
     {
       id: "portal",
       icon: Globe,
@@ -39,21 +48,76 @@ export async function RuhunaOfficialLinks() {
     },
   ];
 
+  if (isRuhuna && !propLinks) {
+    return (
+      <section id="resources" className="section-block ruhuna-resources-section">
+        <div className="section-heading-centered">
+          <p className="eyebrow">{t("eyebrow")}</p>
+          <h2 className="section-title">{t("title")}</h2>
+          <p className="section-description muted">{t("description")}</p>
+        </div>
+
+        <div className="resources-links-grid">
+          {ruhunaLinks.map((link) => {
+            const Icon = link.icon;
+            return (
+              <a
+                key={link.id}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="resource-link-card glass-panel"
+              >
+                <div className="resource-icon-wrapper">
+                  <Icon size={22} aria-hidden="true" />
+                </div>
+                <div className="resource-link-info">
+                  <div className="resource-title-row">
+                    <h3>{link.title}</h3>
+                    <ExternalLink size={14} className="external-arrow" aria-hidden="true" />
+                  </div>
+                  <p className="resource-desc muted">{link.desc}</p>
+                  <span className="resource-url-tag">{link.urlLabel}</span>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </section>
+    );
+  }
+
+  // Dynamic links for other universities
+  const links = propLinks || [];
+  const iconList = [Globe, BookOpen, GraduationCap, Building2];
+
+  const getDomain = (url: string) => {
+    try {
+      return new URL(url).hostname.replace("www.", "");
+    } catch {
+      return url;
+    }
+  };
+
   return (
     <section id="resources" className="section-block ruhuna-resources-section">
       <div className="section-heading-centered">
-        <p className="eyebrow">{t("eyebrow")}</p>
-        <h2 className="section-title">{t("title")}</h2>
-        <p className="section-description muted">{t("description")}</p>
+        <p className="eyebrow">OFFICIAL UNIVERSITY PORTALS</p>
+        <h2 className="section-title">{`Official Resources & Portals of ${universityName || "the University"}`}</h2>
+        <p className="section-description muted">
+          Direct links to the official senate website, faculty administration desks, student portals, and national higher education guidelines.
+        </p>
       </div>
 
       <div className="resources-links-grid">
-        {links.map((link) => {
-          const Icon = link.icon;
+        {links.map((link, idx) => {
+          const Icon = iconList[idx % iconList.length];
+          const domain = getDomain(link.url);
+
           return (
             <a
-              key={link.id}
-              href={link.href}
+              key={idx}
+              href={link.url}
               target="_blank"
               rel="noopener noreferrer"
               className="resource-link-card glass-panel"
@@ -63,11 +127,11 @@ export async function RuhunaOfficialLinks() {
               </div>
               <div className="resource-link-info">
                 <div className="resource-title-row">
-                  <h3>{link.title}</h3>
+                  <h3>{link.label}</h3>
                   <ExternalLink size={14} className="external-arrow" aria-hidden="true" />
                 </div>
-                <p className="resource-desc muted">{link.desc}</p>
-                <span className="resource-url-tag">{link.urlLabel}</span>
+                <p className="resource-desc muted">{link.description}</p>
+                <span className="resource-url-tag">{domain}</span>
               </div>
             </a>
           );
@@ -76,4 +140,3 @@ export async function RuhunaOfficialLinks() {
     </section>
   );
 }
-
