@@ -1,133 +1,152 @@
 import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
-import assets from "@/lib/design/assets.json";
-import { Sparkles, Route, Check, Wallet, Clock, Briefcase, GraduationCap } from "lucide-react";
+import { Route } from "lucide-react";
 import { getTranslations } from "next-intl/server";
+import { getCareerDetail, getAllCareerSlugs } from "@/lib/data/careerDetails";
 import { getCareer } from "@/lib/api/catalog";
 import { localizeCareer } from "@/lib/i18n/catalog";
-import { PageIntro } from "@/components/shared/PageIntro";
-import { HeroArtwork } from "@/components/home/HeroArtwork";
+import { CareerHero } from "@/components/careers/CareerHero";
+import { CareerOverviewSection } from "@/components/careers/CareerOverviewSection";
+import { CareerSalaryCard } from "@/components/careers/CareerSalaryCard";
+import { CareerEducationSection } from "@/components/careers/CareerEducationSection";
+import { CareerUniversitiesSection } from "@/components/careers/CareerUniversitiesSection";
+import { CareerRoadmapSection } from "@/components/careers/CareerRoadmapSection";
+import { CareerSkillsSuitability } from "@/components/careers/CareerSkillsSuitability";
+import { CareerFutureOutlook } from "@/components/careers/CareerFutureOutlook";
+import { CareerRelatedSection } from "@/components/careers/CareerRelatedSection";
+import { EngineeringFields } from "@/components/careers/EngineeringFields";
 import { SaveButton } from "@/components/shared/SaveButton";
 import { ActionLink } from "@/components/shared/ActionLink";
-import { SchoolRoadmap } from "@/components/careers/SchoolRoadmap";
-import { CareerRoles } from "@/components/careers/CareerRoles";
-import { Employers } from "@/components/careers/Employers";
-import { StudyOptions } from "@/components/careers/StudyOptions";
-import { SectionHeading } from "@/components/shared/SectionHeading";
-import { EngineeringFields } from "@/components/careers/EngineeringFields";
 
 type Props = { params: Promise<{ slug: string }> };
 
-const ENGINEERING_SUBFIELDS = [
-  "software-engineer",
+// Subfield redirects for engineering specializations
+const ENGINEERING_SPECIALIZATIONS = [
+  "civil-engineer",
+  "mechanical-engineer",
+  "electrical-engineer",
   "cloud-architect",
   "cybersecurity-analyst",
   "ai-engineer",
   "data-analyst",
   "designer",
-  "civil-engineer",
-  "mechanical-engineer",
-  "electrical-engineer",
 ];
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const canonicalSlug = ENGINEERING_SUBFIELDS.includes(slug) ? "engineer" : slug;
-  const [career, catalog, t] = await Promise.all([getCareer(canonicalSlug), getTranslations("catalog"), getTranslations("careerDetail")]);
-  return { title: career ? localizeCareer(catalog, career).display.title : t("notFoundTitle") };
+  if (ENGINEERING_SPECIALIZATIONS.includes(slug)) {
+    return { title: "Engineering Fields in Sri Lanka | SkillBridge SL" };
+  }
+
+  const detail = getCareerDetail(slug);
+  if (detail) {
+    return {
+      title: `${detail.title} in Sri Lanka - Salary, Degrees, Requirements & Career Guide | SkillBridge SL`,
+      description: detail.tagline,
+    };
+  }
+
+  const [record, catalog, t] = await Promise.all([
+    getCareer(slug),
+    getTranslations("catalog"),
+    getTranslations("careerDetail"),
+  ]);
+  return {
+    title: record ? localizeCareer(catalog, record).display.title : t("notFoundTitle"),
+  };
 }
 
-const metrics = [
-  { id: "pay", Icon: Wallet },
-  { id: "range", Icon: Wallet },
-  { id: "pathways", Icon: Clock },
-  { id: "roles", Icon: Briefcase },
-] as const;
+export function generateStaticParams() {
+  return getAllCareerSlugs().map((slug) => ({ slug }));
+}
 
 export default async function CareerPage({ params }: Props) {
   const { slug } = await params;
-  if (ENGINEERING_SUBFIELDS.includes(slug)) {
-    redirect("/careers/engineer");
+
+  // Handle specialized sub-disciplines
+  if (ENGINEERING_SPECIALIZATIONS.includes(slug)) {
+    redirect("/careers/engineer#disciplines");
   }
 
-  const record = await getCareer(slug);
-  if (!record) notFound();
-  const [t, catalog] = await Promise.all([getTranslations("careerDetail"), getTranslations("catalog")]);
-  const career = localizeCareer(catalog, record);
-  const isEngineer = career.slug === "engineer";
-  const software = career.slug === "software-engineer";
+  // Load detailed career record
+  const detail = getCareerDetail(slug);
+  const isEngineer = slug === "engineer";
+
+  if (!detail) {
+    // Fallback to legacy catalog if exists, or 404
+    const record = await getCareer(slug);
+    if (!record) notFound();
+    redirect(`/careers/${record.slug}`);
+  }
 
   return (
-    <div className="page-container career-detail">
-      <section className="career-detail-hero">
-        <div>
-          <PageIntro badge={<><Sparkles />{t("eyebrow")}</>} title={software ? t.rich("softwareTitle", { br: () => <br /> }) : career.display.title}>
-            <p>{career.display.summary}<br />{t("startHint")}</p>
-          </PageIntro>
-          <div className="hero-button-row">
-            <SaveButton id={career.slug} title={career.display.title} />
-            <ActionLink href={software ? "#school-roadmap" : isEngineer ? "#engineering-disciplines" : "/build-your-path"} icon={<Route size={17} />}>{t("jumpToRoadmap")}</ActionLink>
-            <span className="eyebrow-pill"><Check size={14} />{t("sriLankaFocus")}</span>
-          </div>
-        </div>
-        <HeroArtwork compact imageSrc={career.image || assets.career.imgGeneratedAiHeroPortraitTransparentPng} imageAlt={t("heroAlt")} />
-      </section>
+    <div className="page-container career-detail-page">
+      {/* 1. Hero Section with authentic photo, badges, quick jump links & CTAs */}
+      <CareerHero career={detail} />
 
-      {isEngineer ? (
-        <div id="engineering-disciplines">
+      {/* 2. Overview: What they do, Why it matters, Responsibilities, Sri Lankan Success Story */}
+      <CareerOverviewSection career={detail} />
+
+      {/* Specialized Engineering Disciplines Explorer (Preserved for Engineer) */}
+      {isEngineer && (
+        <section id="disciplines" className="section-block engineering-explorer-wrap">
           <EngineeringFields />
-        </div>
-      ) : software ? (
-        <>
-          <div className="grid-4 detail-metrics">
-            {metrics.map(({ id, Icon }) => (
-              <div className="glass-panel" key={id}>
-                <p className="eyebrow"><Icon size={19} aria-hidden="true" />{t(`metrics.${id}.label`)}</p>
-                <strong>{t(`metrics.${id}.value`)}</strong>
-                <small>{t(`metrics.${id}.note`)}</small>
-              </div>
-            ))}
-          </div>
-          <p className="section-footnote">{t("salaryFootnote")}</p>
-          <SchoolRoadmap />
-          <section className="section-block">
-            <SectionHeading title={t("entry.title")} description={t("entry.description")} />
-            <div className="grid-2">
-              {(["public", "sliit"] as const).map((id) => (
-                <article className="entry-card glass-panel" key={id}>
-                  <h3><GraduationCap size={23} aria-hidden="true" />{t(`entry.${id}.title`)} <span className="small-pill">{t(`entry.${id}.pill`)}</span></h3>
-                  <p>{t(`entry.${id}.body`)}</p>
-                  <strong>{t(`entry.${id}.action`)}</strong>
-                </article>
-              ))}
-            </div>
-          </section>
-          <CareerRoles />
-          <Employers />
-          <StudyOptions />
-        </>
-      ) : (
-        <section className="section-block">
-          <SectionHeading title={t("generic.title", { career: career.display.title })} description={t("generic.description")} />
-          <div className="grid-2">
-            <article className="entry-card glass-panel">
-              <h3>{t("generic.routes")}</h3>
-              <p>{career.display.entry}</p>
-              <ActionLink href="/universities">{t("generic.exploreUniversities")}</ActionLink>
-            </article>
-            <article className="entry-card glass-panel">
-              <h3>{t("generic.where")}</h3>
-              <p>{career.display.employers}</p>
-              <p className="muted">{t("generic.note")}</p>
-            </article>
-          </div>
         </section>
       )}
 
-      <div className="comparison-bar glass-panel section-block">
-        <span className="icon-bubble"><Route size={23} aria-hidden="true" /></span>
-        <div><h3>{t("cta.title")}</h3><p className="muted">{t("cta.body")}</p></div>
-        <SaveButton id={career.slug} title={career.display.title} />
+      {/* 3. Sri Lankan Salary Benchmarks: Entry, Mid, Senior, Govt vs Pvt, Overseas */}
+      <CareerSalaryCard salary={detail.salary} careerTitle={detail.title} />
+
+      {/* 4. O/L & A/L Requirements, Z-Score benchmarks, Alternative pathways */}
+      <CareerEducationSection education={detail.education} careerTitle={detail.title} />
+
+      {/* 5. State & Non-State Universities & Degrees in Sri Lanka (Linking to SkillBridge SL pages) */}
+      <CareerUniversitiesSection
+        universities={detail.universities}
+        careerTitle={detail.title}
+      />
+
+      {/* 6. Step-by-Step 6-Stage Visual Career Roadmap */}
+      <CareerRoadmapSection roadmap={detail.roadmap} careerTitle={detail.title} />
+
+      {/* 7. Skills, School Subjects, Trait Fit & Interactive Self-Assessment Quiz */}
+      <CareerSkillsSuitability
+        skills={detail.skills}
+        suitability={detail.suitability}
+        careerTitle={detail.title}
+      />
+
+      {/* 8. 5-10 Year Future Outlook, AI Disruption & Emerging Specializations */}
+      <CareerFutureOutlook
+        futureOutlook={detail.futureOutlook}
+        careerTitle={detail.title}
+      />
+
+      {/* 9. Related Career Pathways */}
+      <CareerRelatedSection
+        relatedCareers={detail.relatedCareers}
+        currentCareerTitle={detail.title}
+      />
+
+      {/* Bottom Sticky CTA Comparison Bar */}
+      <div className="career-bottom-cta glass-panel section-block">
+        <div className="cta-left-content">
+          <span className="cta-icon-bubble">
+            <Route size={22} aria-hidden="true" />
+          </span>
+          <div>
+            <h3>Ready to build your personalized career roadmap?</h3>
+            <p className="cta-sub">
+              Map out your O/L, A/L subject combinations, universities, and milestone goals on SkillBridge SL.
+            </p>
+          </div>
+        </div>
+        <div className="cta-right-actions">
+          <SaveButton id={detail.slug} title={detail.title} />
+          <ActionLink href="/build-your-path" icon={<Route size={16} />}>
+            Build My Career Path
+          </ActionLink>
+        </div>
       </div>
     </div>
   );

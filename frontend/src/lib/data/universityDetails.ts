@@ -30,9 +30,6 @@ export interface FacultyItem {
 
 export interface DegreeItem {
   name: string;
-  duration: string;
-  stream: string;
-  zscore?: string;
   tag?: string;
 }
 
@@ -382,25 +379,13 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-peach",
         "degrees": [
           {
-            "name": "MBBS Doctor of Medicine (5 Years - SLMC / WHO / GMC Accredited)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Medicine",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "MBBS Doctor of Medicine (5 Years - SLMC / WHO / GMC Accredited)"
           },
           {
-            "name": "BSc (Hons) in Physiotherapy (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Medicine",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Physiotherapy (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Medical Laboratory Science (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Medicine",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Medical Laboratory Science (4 Years)"
           }
         ]
       },
@@ -411,32 +396,16 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-ice",
         "degrees": [
           {
-            "name": "BSc (Hons) in Computer Science (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "School of Computing (UCSC) & Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Computer Science (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Software Engineering (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "School of Computing (UCSC) & Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Software Engineering (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Information Systems (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "School of Computing (UCSC) & Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Information Systems (4 Years)"
           },
           {
-            "name": "Bachelor of Information Technology - BIT External (3 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "School of Computing (UCSC) & Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "Bachelor of Information Technology - BIT External (3 Years)"
           }
         ]
       },
@@ -447,18 +416,10 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-lavender",
         "degrees": [
           {
-            "name": "Bachelor of Laws - LL.B (Hons) (4 Years - Direct qualification for Attorney-at-Law)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Law",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "Bachelor of Laws - LL.B (Hons) (4 Years - Direct qualification for Attorney-at-Law)"
           },
           {
-            "name": "LL.M Master of Laws Postgraduate Programme",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Law",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "LL.M Master of Laws Postgraduate Programme"
           }
         ]
       },
@@ -469,39 +430,19 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-mint",
         "degrees": [
           {
-            "name": "BSc (Hons) in Chemistry (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Chemistry (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Physics & Computational Physics (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Physics & Computational Physics (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Mathematics & Statistics (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Mathematics & Statistics (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Molecular Biology & Plant Biotechnology (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Molecular Biology & Plant Biotechnology (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Biochemistry & Cell Biology (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Biochemistry & Cell Biology (4 Years)"
           }
         ]
       },
@@ -512,32 +453,16 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-peach",
         "degrees": [
           {
-            "name": "BBA (Hons) in Accounting (4 Years - CIMA / ACCA / CA Sri Lanka Accredited)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Management & Finance",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BBA (Hons) in Accounting (4 Years - CIMA / ACCA / CA Sri Lanka Accredited)"
           },
           {
-            "name": "BBA (Hons) in Finance (4 Years - CFA Institute University Affiliate)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Management & Finance",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BBA (Hons) in Finance (4 Years - CFA Institute University Affiliate)"
           },
           {
-            "name": "BBA (Hons) in Marketing (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Management & Finance",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BBA (Hons) in Marketing (4 Years)"
           },
           {
-            "name": "BBA (Hons) in Human Resource Management (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Management & Finance",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BBA (Hons) in Human Resource Management (4 Years)"
           }
         ]
       }
@@ -855,39 +780,19 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-ice",
         "degrees": [
           {
-            "name": "BSc Engineering (Hons) in Civil Engineering (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Engineering",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc Engineering (Hons) in Civil Engineering (4 Years)"
           },
           {
-            "name": "BSc Engineering (Hons) in Electrical & Electronic (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Engineering",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc Engineering (Hons) in Electrical & Electronic (4 Years)"
           },
           {
-            "name": "BSc Engineering (Hons) in Mechanical Engineering (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Engineering",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc Engineering (Hons) in Mechanical Engineering (4 Years)"
           },
           {
-            "name": "BSc Engineering (Hons) in Computer Engineering (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Engineering",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc Engineering (Hons) in Computer Engineering (4 Years)"
           },
           {
-            "name": "BSc Engineering (Hons) in Chemical & Process Engineering (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Engineering",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc Engineering (Hons) in Chemical & Process Engineering (4 Years)"
           }
         ]
       },
@@ -898,39 +803,19 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-peach",
         "degrees": [
           {
-            "name": "MBBS Doctor of Medicine (5 Years - SLMC / WHO / GMC)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculties of Medicine, Dental & Veterinary",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "MBBS Doctor of Medicine (5 Years - SLMC / WHO / GMC)"
           },
           {
-            "name": "BDS Bachelor of Dental Surgery (5 Years - Sole State Degree)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculties of Medicine, Dental & Veterinary",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BDS Bachelor of Dental Surgery (5 Years - Sole State Degree)"
           },
           {
-            "name": "BVSc Bachelor of Veterinary Science (5 Years - Sole State Degree)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculties of Medicine, Dental & Veterinary",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BVSc Bachelor of Veterinary Science (5 Years - Sole State Degree)"
           },
           {
-            "name": "BSc (Hons) in Nursing (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculties of Medicine, Dental & Veterinary",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Nursing (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Physiotherapy (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculties of Medicine, Dental & Veterinary",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Physiotherapy (4 Years)"
           }
         ]
       },
@@ -941,25 +826,13 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-mint",
         "degrees": [
           {
-            "name": "BSc (Hons) in Agricultural Technology & Management (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Agriculture",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Agricultural Technology & Management (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Food Science & Technology (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Agriculture",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Food Science & Technology (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Animal Science & Fisheries (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Agriculture",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Animal Science & Fisheries (4 Years)"
           }
         ]
       },
@@ -970,39 +843,19 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-ice",
         "degrees": [
           {
-            "name": "BSc (Hons) in Computer Science (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Computer Science (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Molecular Biology & Biotechnology (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Molecular Biology & Biotechnology (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Geology (4 Years - Sole State Honours in Geology)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Geology (4 Years - Sole State Honours in Geology)"
           },
           {
-            "name": "BSc (Hons) in Chemistry (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Chemistry (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Statistics & Operations Research (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Statistics & Operations Research (4 Years)"
           }
         ]
       }
@@ -1300,53 +1153,25 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-ice",
         "degrees": [
           {
-            "name": "BSc Engineering (Hons) in Computer Science & Engineering (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Engineering",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc Engineering (Hons) in Computer Science & Engineering (4 Years)"
           },
           {
-            "name": "BSc Engineering (Hons) in Electronic & Telecommunication (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Engineering",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc Engineering (Hons) in Electronic & Telecommunication (4 Years)"
           },
           {
-            "name": "BSc Engineering (Hons) in Civil Engineering (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Engineering",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc Engineering (Hons) in Civil Engineering (4 Years)"
           },
           {
-            "name": "BSc Engineering (Hons) in Mechanical Engineering (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Engineering",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc Engineering (Hons) in Mechanical Engineering (4 Years)"
           },
           {
-            "name": "BSc Engineering (Hons) in Biomedical Engineering (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Engineering",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc Engineering (Hons) in Biomedical Engineering (4 Years)"
           },
           {
-            "name": "BSc Engineering (Hons) in Chemical & Process (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Engineering",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc Engineering (Hons) in Chemical & Process (4 Years)"
           },
           {
-            "name": "BSc Engineering (Hons) in Materials Science (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Engineering",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc Engineering (Hons) in Materials Science (4 Years)"
           }
         ]
       },
@@ -1357,25 +1182,13 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-ice",
         "degrees": [
           {
-            "name": "BSc (Hons) in Information Technology (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Information Technology",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Information Technology (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Information Technology & Management (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Information Technology",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Information Technology & Management (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Artificial Intelligence (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Information Technology",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Artificial Intelligence (4 Years)"
           }
         ]
       },
@@ -1386,32 +1199,16 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-lavender",
         "degrees": [
           {
-            "name": "B.Arch Bachelor of Architecture (5 Years - RIBA Part I & II)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Architecture",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "B.Arch Bachelor of Architecture (5 Years - RIBA Part I & II)"
           },
           {
-            "name": "BSc (Hons) in Quantity Surveying (4 Years - RICS Accredited)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Architecture",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Quantity Surveying (4 Years - RICS Accredited)"
           },
           {
-            "name": "BSc (Hons) in Facilities Management (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Architecture",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Facilities Management (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Town & Country Planning (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Architecture",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Town & Country Planning (4 Years)"
           }
         ]
       }
@@ -1728,46 +1525,22 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-peach",
         "degrees": [
           {
-            "name": "BSc (Hons) in Accounting (4 Years - CIMA / ACCA / CA Sri Lanka)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Management Studies & Commerce",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Accounting (4 Years - CIMA / ACCA / CA Sri Lanka)"
           },
           {
-            "name": "BSc (Hons) in Finance (4 Years - CFA Institute University Partner)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Management Studies & Commerce",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Finance (4 Years - CFA Institute University Partner)"
           },
           {
-            "name": "BSc (Hons) in Marketing Management (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Management Studies & Commerce",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Marketing Management (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Human Resource Management (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Management Studies & Commerce",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Human Resource Management (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Business Information Systems (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Management Studies & Commerce",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Business Information Systems (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Entrepreneurship (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Management Studies & Commerce",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Entrepreneurship (4 Years)"
           }
         ]
       },
@@ -1778,32 +1551,16 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-peach",
         "degrees": [
           {
-            "name": "MBBS Doctor of Medicine (5 Years - SLMC / WHO / GMC)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Medical Sciences & Allied Health",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "MBBS Doctor of Medicine (5 Years - SLMC / WHO / GMC)"
           },
           {
-            "name": "BSc (Hons) in Nursing (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Medical Sciences & Allied Health",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Nursing (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Medical Laboratory Science (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Medical Sciences & Allied Health",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Medical Laboratory Science (4 Years)"
           },
           {
-            "name": "BPharm (Hons) in Pharmacy (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Medical Sciences & Allied Health",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BPharm (Hons) in Pharmacy (4 Years)"
           }
         ]
       },
@@ -1814,39 +1571,19 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-mint",
         "degrees": [
           {
-            "name": "BSc (Hons) in Computer Science (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Applied Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Computer Science (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Software Engineering (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Applied Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Software Engineering (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Food Science & Technology (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Applied Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Food Science & Technology (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Forestry & Environmental Science (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Applied Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Forestry & Environmental Science (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Polymer Chemistry (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Applied Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Polymer Chemistry (4 Years)"
           }
         ]
       },
@@ -1857,32 +1594,16 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-ice",
         "degrees": [
           {
-            "name": "BSc Engineering (Hons) in Civil / Electrical / Mechanical (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculties of Engineering & Technology",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc Engineering (Hons) in Civil / Electrical / Mechanical (4 Years)"
           },
           {
-            "name": "Bachelor of Engineering Technology - BET (Hons) (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculties of Engineering & Technology",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "Bachelor of Engineering Technology - BET (Hons) (4 Years)"
           },
           {
-            "name": "Bachelor of Biosystems Technology - BBST (Hons) (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculties of Engineering & Technology",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "Bachelor of Biosystems Technology - BBST (Hons) (4 Years)"
           },
           {
-            "name": "Bachelor of Information & Communication Technology - BICT (Hons) (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculties of Engineering & Technology",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "Bachelor of Information & Communication Technology - BICT (Hons) (4 Years)"
           }
         ]
       }
@@ -2200,25 +1921,13 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-peach",
         "degrees": [
           {
-            "name": "MBBS Doctor of Medicine (5 Years - SLMC / WHO / GMC)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Medicine",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "MBBS Doctor of Medicine (5 Years - SLMC / WHO / GMC)"
           },
           {
-            "name": "BSc (Hons) in Speech & Hearing Sciences (4 Years - Sole State Degree)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Medicine",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Speech & Hearing Sciences (4 Years - Sole State Degree)"
           },
           {
-            "name": "BSc (Hons) in Occupational Therapy (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Medicine",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Occupational Therapy (4 Years)"
           }
         ]
       },
@@ -2229,39 +1938,19 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-peach",
         "degrees": [
           {
-            "name": "BCom (Hons) in Commerce (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Commerce & Management Studies",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BCom (Hons) in Commerce (4 Years)"
           },
           {
-            "name": "BBM (Hons) in Accountancy (4 Years - CIMA / ACCA / CA Sri Lanka)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Commerce & Management Studies",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BBM (Hons) in Accountancy (4 Years - CIMA / ACCA / CA Sri Lanka)"
           },
           {
-            "name": "BBM (Hons) in Finance (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Commerce & Management Studies",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BBM (Hons) in Finance (4 Years)"
           },
           {
-            "name": "BBM (Hons) in Marketing (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Commerce & Management Studies",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BBM (Hons) in Marketing (4 Years)"
           },
           {
-            "name": "BBM (Hons) in Human Resource Management (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Commerce & Management Studies",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BBM (Hons) in Human Resource Management (4 Years)"
           }
         ]
       },
@@ -2272,39 +1961,19 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-mint",
         "degrees": [
           {
-            "name": "BSc (Hons) in Microbiology (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Microbiology (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Molecular Biology & Plant Biotechnology (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Molecular Biology & Plant Biotechnology (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Industrial Chemistry (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Industrial Chemistry (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Environmental Conservation & Management (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Environmental Conservation & Management (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Physics & Electronics (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Physics & Electronics (4 Years)"
           }
         ]
       },
@@ -2315,32 +1984,16 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-ice",
         "degrees": [
           {
-            "name": "BSc (Hons) in Computer Science (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Computing & Technology",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Computer Science (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Software Engineering (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Computing & Technology",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Software Engineering (4 Years)"
           },
           {
-            "name": "Bachelor of Engineering Technology - BET (Hons) (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Computing & Technology",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "Bachelor of Engineering Technology - BET (Hons) (4 Years)"
           },
           {
-            "name": "Bachelor of Information & Communication Technology - BICT (Hons) (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Computing & Technology",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "Bachelor of Information & Communication Technology - BICT (Hons) (4 Years)"
           }
         ]
       }
@@ -2656,32 +2309,16 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-peach",
         "degrees": [
           {
-            "name": "MBBS Doctor of Medicine (5 Years - SLMC / WHO / GMC)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Medicine & Allied Health",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "MBBS Doctor of Medicine (5 Years - SLMC / WHO / GMC)"
           },
           {
-            "name": "BSc (Hons) in Nursing (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Medicine & Allied Health",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Nursing (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Medical Laboratory Science (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Medicine & Allied Health",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Medical Laboratory Science (4 Years)"
           },
           {
-            "name": "BPharm (Hons) in Pharmacy (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Medicine & Allied Health",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BPharm (Hons) in Pharmacy (4 Years)"
           }
         ]
       },
@@ -2692,32 +2329,16 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-ice",
         "degrees": [
           {
-            "name": "BSc Engineering (Hons) in Civil Engineering (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Engineering",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc Engineering (Hons) in Civil Engineering (4 Years)"
           },
           {
-            "name": "BSc Engineering (Hons) in Electrical & Electronic (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Engineering",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc Engineering (Hons) in Electrical & Electronic (4 Years)"
           },
           {
-            "name": "BSc Engineering (Hons) in Mechanical Engineering (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Engineering",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc Engineering (Hons) in Mechanical Engineering (4 Years)"
           },
           {
-            "name": "BSc Engineering (Hons) in Computer Engineering (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Engineering",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc Engineering (Hons) in Computer Engineering (4 Years)"
           }
         ]
       },
@@ -2728,32 +2349,16 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-mint",
         "degrees": [
           {
-            "name": "BSc (Hons) in Computer Science (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Computer Science (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Physics (4 Years - Clean Energy Specialization)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Physics (4 Years - Clean Energy Specialization)"
           },
           {
-            "name": "BSc (Hons) in Chemistry (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Chemistry (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Mathematics & Statistics (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Mathematics & Statistics (4 Years)"
           }
         ]
       },
@@ -2764,18 +2369,10 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-mint",
         "degrees": [
           {
-            "name": "BSc (Hons) in Agriculture (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Agriculture",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Agriculture (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Food Production & Technology (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Agriculture",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Food Production & Technology (4 Years)"
           }
         ]
       }
@@ -3104,39 +2701,19 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-ice",
         "degrees": [
           {
-            "name": "BSc Engineering (Hons) in Civil & Environmental (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Engineering",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc Engineering (Hons) in Civil & Environmental (4 Years)"
           },
           {
-            "name": "BSc Engineering (Hons) in Electrical & Information (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Engineering",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc Engineering (Hons) in Electrical & Information (4 Years)"
           },
           {
-            "name": "BSc Engineering (Hons) in Mechanical & Manufacturing (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Engineering",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc Engineering (Hons) in Mechanical & Manufacturing (4 Years)"
           },
           {
-            "name": "BSc Engineering (Hons) in Computer Engineering (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Engineering",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc Engineering (Hons) in Computer Engineering (4 Years)"
           },
           {
-            "name": "BSc Engineering (Hons) in Marine Engineering & Naval Architecture (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Engineering",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc Engineering (Hons) in Marine Engineering & Naval Architecture (4 Years)"
           }
         ]
       },
@@ -3147,32 +2724,16 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-peach",
         "degrees": [
           {
-            "name": "MBBS Doctor of Medicine (5 Years - SLMC / WHO / GMC)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculties of Medicine & Allied Health",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "MBBS Doctor of Medicine (5 Years - SLMC / WHO / GMC)"
           },
           {
-            "name": "BSc (Hons) in Nursing (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculties of Medicine & Allied Health",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Nursing (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Medical Laboratory Science (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculties of Medicine & Allied Health",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Medical Laboratory Science (4 Years)"
           },
           {
-            "name": "BPharm (Hons) in Pharmacy (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculties of Medicine & Allied Health",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BPharm (Hons) in Pharmacy (4 Years)"
           }
         ]
       },
@@ -3183,18 +2744,10 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-ice",
         "degrees": [
           {
-            "name": "BSc (Hons) in Fisheries & Marine Sciences (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Fisheries & Marine Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Fisheries & Marine Sciences (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Marine & Freshwater Sciences (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Fisheries & Marine Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Marine & Freshwater Sciences (4 Years)"
           }
         ]
       },
@@ -3205,32 +2758,16 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-mint",
         "degrees": [
           {
-            "name": "BSc (Hons) in Computer Science (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Computer Science (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Chemistry (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Chemistry (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Physics (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Physics (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Financial Mathematics & Industrial Statistics (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Financial Mathematics & Industrial Statistics (4 Years)"
           }
         ]
       },
@@ -3241,25 +2778,13 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-ice",
         "degrees": [
           {
-            "name": "Bachelor of Engineering Technology - BET (Hons) (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Technology",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "Bachelor of Engineering Technology - BET (Hons) (4 Years)"
           },
           {
-            "name": "Bachelor of Biosystems Technology - BBST (Hons) (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Technology",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "Bachelor of Biosystems Technology - BBST (Hons) (4 Years)"
           },
           {
-            "name": "Bachelor of Information & Communication Technology - BICT (Hons) (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Technology",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "Bachelor of Information & Communication Technology - BICT (Hons) (4 Years)"
           }
         ]
       }
@@ -3569,32 +3094,16 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-ice",
         "degrees": [
           {
-            "name": "Bachelor of Software Engineering - BSE (Hons) (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Engineering Technology",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "Bachelor of Software Engineering - BSE (Hons) (4 Years)"
           },
           {
-            "name": "Bachelor of Technology - BTech (Hons) in Civil (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Engineering Technology",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "Bachelor of Technology - BTech (Hons) in Civil (4 Years)"
           },
           {
-            "name": "Bachelor of Technology - BTech (Hons) in Electrical & Computer (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Engineering Technology",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "Bachelor of Technology - BTech (Hons) in Electrical & Computer (4 Years)"
           },
           {
-            "name": "Bachelor of Technology - BTech (Hons) in Mechanical (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Engineering Technology",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "Bachelor of Technology - BTech (Hons) in Mechanical (4 Years)"
           }
         ]
       },
@@ -3605,18 +3114,10 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-lavender",
         "degrees": [
           {
-            "name": "Bachelor of Laws - LL.B (Hons) (4 Years - Selection via National Admission Test)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Humanities & Social Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "Bachelor of Laws - LL.B (Hons) (4 Years - Selection via National Admission Test)"
           },
           {
-            "name": "Master of Laws (LL.M)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Humanities & Social Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "Master of Laws (LL.M)"
           }
         ]
       },
@@ -3627,25 +3128,13 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-peach",
         "degrees": [
           {
-            "name": "BSc (Hons) in Nursing (3-4 Years - Post-RN & Direct)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Health Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Nursing (3-4 Years - Post-RN & Direct)"
           },
           {
-            "name": "BSc (Hons) in Medical Laboratory Science (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Health Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Medical Laboratory Science (4 Years)"
           },
           {
-            "name": "Bachelor of Pharmacy (BPharm Hons) (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Health Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "Bachelor of Pharmacy (BPharm Hons) (4 Years)"
           }
         ]
       },
@@ -3656,18 +3145,10 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-mint",
         "degrees": [
           {
-            "name": "BSc (Hons) in Computer Science (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Natural Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Computer Science (4 Years)"
           },
           {
-            "name": "BSc Degree in Natural Sciences (Chemistry, Physics, Mathematics, Botany, Zoology)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Natural Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc Degree in Natural Sciences (Chemistry, Physics, Mathematics, Botany, Zoology)"
           }
         ]
       }
@@ -3983,18 +3464,10 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-peach",
         "degrees": [
           {
-            "name": "MBBS Doctor of Medicine (5 Years - SLMC / WHO Accredited)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Health-Care Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "MBBS Doctor of Medicine (5 Years - SLMC / WHO Accredited)"
           },
           {
-            "name": "BSc (Hons) in Nursing (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Health-Care Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Nursing (4 Years)"
           }
         ]
       },
@@ -4005,18 +3478,10 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-mint",
         "degrees": [
           {
-            "name": "BSc (Hons) in Agriculture (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Agriculture",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Agriculture (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Agribusiness Management (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Agriculture",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Agribusiness Management (4 Years)"
           }
         ]
       },
@@ -4027,32 +3492,16 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-ice",
         "degrees": [
           {
-            "name": "BSc (Hons) in Computer Science (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Computer Science (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Physics (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Physics (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Chemistry (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Chemistry (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Mathematics (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Mathematics (4 Years)"
           }
         ]
       },
@@ -4063,25 +3512,13 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-peach",
         "degrees": [
           {
-            "name": "BBA (Hons) in Marketing (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Commerce & Management",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BBA (Hons) in Marketing (4 Years)"
           },
           {
-            "name": "BBA (Hons) in Human Resource Management (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Commerce & Management",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BBA (Hons) in Human Resource Management (4 Years)"
           },
           {
-            "name": "BCom (Hons) in Accounting & Finance (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Commerce & Management",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BCom (Hons) in Accounting & Finance (4 Years)"
           }
         ]
       }
@@ -4391,18 +3828,10 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-peach",
         "degrees": [
           {
-            "name": "MBBS Doctor of Medicine (5 Years - SLMC / WHO Accredited)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Medicine & Allied Health Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "MBBS Doctor of Medicine (5 Years - SLMC / WHO Accredited)"
           },
           {
-            "name": "BSc (Hons) in Health Promotion (4 Years - Pioneering National Degree)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Medicine & Allied Health Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Health Promotion (4 Years - Pioneering National Degree)"
           }
         ]
       },
@@ -4413,32 +3842,16 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-mint",
         "degrees": [
           {
-            "name": "BSc (Hons) in Information Technology (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Applied Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Information Technology (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Applied Biology (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Applied Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Applied Biology (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Industrial Chemistry (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Applied Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Industrial Chemistry (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Physics (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Applied Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Physics (4 Years)"
           }
         ]
       },
@@ -4449,18 +3862,10 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-mint",
         "degrees": [
           {
-            "name": "BSc (Hons) in Agriculture (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Agriculture",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Agriculture (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Food & Agri-Enterprise Management (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Agriculture",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Food & Agri-Enterprise Management (4 Years)"
           }
         ]
       },
@@ -4471,25 +3876,13 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-peach",
         "degrees": [
           {
-            "name": "BSc (Hons) in Accountancy & Finance (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Management Studies",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Accountancy & Finance (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Tourism & Hospitality Management (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Management Studies",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Tourism & Hospitality Management (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Marketing Management (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Management Studies",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Marketing Management (4 Years)"
           }
         ]
       }
@@ -4801,18 +4194,10 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-mint",
         "degrees": [
           {
-            "name": "BSc (Hons) in Food Science & Nutrition (4 Years - Professional Dietetics)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Livestock, Fisheries & Nutrition",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Food Science & Nutrition (4 Years - Professional Dietetics)"
           },
           {
-            "name": "BSc (Hons) in Food Production & Technology Management (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Livestock, Fisheries & Nutrition",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Food Production & Technology Management (4 Years)"
           }
         ]
       },
@@ -4823,25 +4208,13 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-ice",
         "degrees": [
           {
-            "name": "BSc (Hons) in Industrial Management (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Applied Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Industrial Management (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Applied Electronics (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Applied Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Applied Electronics (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Computer Science (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Applied Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Computer Science (4 Years)"
           }
         ]
       },
@@ -4852,11 +4225,7 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-peach",
         "degrees": [
           {
-            "name": "MBBS Doctor of Medicine (5 Years - SLMC Accredited)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Medicine",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "MBBS Doctor of Medicine (5 Years - SLMC Accredited)"
           }
         ]
       },
@@ -4867,25 +4236,13 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-peach",
         "degrees": [
           {
-            "name": "BSc (Hons) in Insurance & Valuation (4 Years - Sole State Degree)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Business Studies & Finance",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Insurance & Valuation (4 Years - Sole State Degree)"
           },
           {
-            "name": "BSc (Hons) in Banking & Finance (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Business Studies & Finance",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Banking & Finance (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Accountancy (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Business Studies & Finance",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Accountancy (4 Years)"
           }
         ]
       }
@@ -5210,32 +4567,16 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-ice",
         "degrees": [
           {
-            "name": "BSc (Hons) in Surveying Sciences (Surveying & Mapping) (4 Years - Sole State Degree)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Geomatics",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Surveying Sciences (Surveying & Mapping) (4 Years - Sole State Degree)"
           },
           {
-            "name": "BSc (Hons) in Surveying Sciences (Photogrammetry & Remote Sensing) (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Geomatics",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Surveying Sciences (Photogrammetry & Remote Sensing) (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Surveying Sciences (Cartography & GIS) (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Geomatics",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Surveying Sciences (Cartography & GIS) (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Surveying Sciences (Hydrographic Surveying) (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Geomatics",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Surveying Sciences (Hydrographic Surveying) (4 Years)"
           }
         ]
       },
@@ -5246,11 +4587,7 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-peach",
         "degrees": [
           {
-            "name": "MBBS Doctor of Medicine (5 Years - SLMC Accredited)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Medicine",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "MBBS Doctor of Medicine (5 Years - SLMC Accredited)"
           }
         ]
       },
@@ -5261,32 +4598,16 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-mint",
         "degrees": [
           {
-            "name": "BSc (Hons) in Food Science & Technology (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Applied Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Food Science & Technology (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Computing & Information Systems (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Applied Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Computing & Information Systems (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Environmental Management & Forestry (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Applied Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Environmental Management & Forestry (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Sports Science & Management (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Applied Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Sports Science & Management (4 Years)"
           }
         ]
       },
@@ -5297,32 +4618,16 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-peach",
         "degrees": [
           {
-            "name": "BSc (Hons) in Tourism Management (4 Years - Premier State Degree)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Management Studies",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Tourism Management (4 Years - Premier State Degree)"
           },
           {
-            "name": "BSc (Hons) in Hospitality Management (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Management Studies",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Hospitality Management (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Financial Management (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Management Studies",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Financial Management (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Marketing Management (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Management Studies",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Marketing Management (4 Years)"
           }
         ]
       }
@@ -5633,32 +4938,16 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-ice",
         "degrees": [
           {
-            "name": "BSc Engineering (Hons) in Civil Engineering (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Engineering",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc Engineering (Hons) in Civil Engineering (4 Years)"
           },
           {
-            "name": "BSc Engineering (Hons) in Electrical & Telecommunication (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Engineering",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc Engineering (Hons) in Electrical & Telecommunication (4 Years)"
           },
           {
-            "name": "BSc Engineering (Hons) in Mechanical Engineering (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Engineering",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc Engineering (Hons) in Mechanical Engineering (4 Years)"
           },
           {
-            "name": "BSc Engineering (Hons) in Computer Science & Engineering (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Engineering",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc Engineering (Hons) in Computer Science & Engineering (4 Years)"
           }
         ]
       },
@@ -5669,25 +4958,13 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-lavender",
         "degrees": [
           {
-            "name": "BA (Hons) in Islamic Banking & Finance (4 Years - Sole State Degree)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Islamic Studies & Arabic Language",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BA (Hons) in Islamic Banking & Finance (4 Years - Sole State Degree)"
           },
           {
-            "name": "BA (Hons) in Islamic Studies (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Islamic Studies & Arabic Language",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BA (Hons) in Islamic Studies (4 Years)"
           },
           {
-            "name": "BA (Hons) in Arabic Language (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Islamic Studies & Arabic Language",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BA (Hons) in Arabic Language (4 Years)"
           }
         ]
       },
@@ -5698,32 +4975,16 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-mint",
         "degrees": [
           {
-            "name": "BSc (Hons) in Computer Science (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Applied Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Computer Science (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Applied Biology (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Applied Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Applied Biology (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Chemistry (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Applied Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Chemistry (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Mathematics (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Applied Sciences",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Mathematics (4 Years)"
           }
         ]
       }
@@ -5987,32 +5248,16 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-peach",
         "degrees": [
           {
-            "name": "Bachelor of Fine Arts - BFA (Hons) in Painting (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Visual Arts",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "Bachelor of Fine Arts - BFA (Hons) in Painting (4 Years)"
           },
           {
-            "name": "Bachelor of Fine Arts - BFA (Hons) in Sculpture (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Visual Arts",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "Bachelor of Fine Arts - BFA (Hons) in Sculpture (4 Years)"
           },
           {
-            "name": "Bachelor of Fine Arts - BFA (Hons) in Visual Communication Design (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Visual Arts",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "Bachelor of Fine Arts - BFA (Hons) in Visual Communication Design (4 Years)"
           },
           {
-            "name": "Bachelor of Fine Arts - BFA (Hons) in Textile & Wearable Arts (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Visual Arts",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "Bachelor of Fine Arts - BFA (Hons) in Textile & Wearable Arts (4 Years)"
           }
         ]
       },
@@ -6023,32 +5268,16 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-lavender",
         "degrees": [
           {
-            "name": "Bachelor of Fine Arts - BFA (Hons) in Kandyan Dance (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Dance & Drama",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "Bachelor of Fine Arts - BFA (Hons) in Kandyan Dance (4 Years)"
           },
           {
-            "name": "Bachelor of Fine Arts - BFA (Hons) in Low Country Dance (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Dance & Drama",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "Bachelor of Fine Arts - BFA (Hons) in Low Country Dance (4 Years)"
           },
           {
-            "name": "Bachelor of Fine Arts - BFA (Hons) in Indigenous Percussion Music / Drumming (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Dance & Drama",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "Bachelor of Fine Arts - BFA (Hons) in Indigenous Percussion Music / Drumming (4 Years)"
           },
           {
-            "name": "Bachelor of Fine Arts - BFA (Hons) in Theatre & Drama (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Dance & Drama",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "Bachelor of Fine Arts - BFA (Hons) in Theatre & Drama (4 Years)"
           }
         ]
       },
@@ -6059,32 +5288,16 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-mint",
         "degrees": [
           {
-            "name": "Bachelor of Fine Arts - BFA (Hons) in North Indian Classical Vocal (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Music",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "Bachelor of Fine Arts - BFA (Hons) in North Indian Classical Vocal (4 Years)"
           },
           {
-            "name": "Bachelor of Fine Arts - BFA (Hons) in Sitar, Violin & Flute (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Music",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "Bachelor of Fine Arts - BFA (Hons) in Sitar, Violin & Flute (4 Years)"
           },
           {
-            "name": "Bachelor of Fine Arts - BFA (Hons) in Western Music (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Music",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "Bachelor of Fine Arts - BFA (Hons) in Western Music (4 Years)"
           },
           {
-            "name": "Bachelor of Fine Arts - BFA (Hons) in Applied Music & Sound Technology (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Music",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "Bachelor of Fine Arts - BFA (Hons) in Applied Music & Sound Technology (4 Years)"
           }
         ]
       }
@@ -6353,25 +5566,13 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-ice",
         "degrees": [
           {
-            "name": "BSc (Hons) in Computer Science & Technology - CST (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science & Technology",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Computer Science & Technology - CST (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Industrial Information Technology - IIT (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science & Technology",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Industrial Information Technology - IIT (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Mineral Resources & Technology (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Science & Technology",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Mineral Resources & Technology (4 Years)"
           }
         ]
       },
@@ -6382,32 +5583,16 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-mint",
         "degrees": [
           {
-            "name": "BSc (Hons) in Tea Technology & Value Addition (4 Years - Sole State Degree)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Animal Science & Export Agriculture",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Tea Technology & Value Addition (4 Years - Sole State Degree)"
           },
           {
-            "name": "BSc (Hons) in Palm & Latex Technology and Value Addition (4 Years - Sole State Degree)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Animal Science & Export Agriculture",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Palm & Latex Technology and Value Addition (4 Years - Sole State Degree)"
           },
           {
-            "name": "BSc (Hons) in Export Agriculture (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Animal Science & Export Agriculture",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Export Agriculture (4 Years)"
           },
           {
-            "name": "BSc (Hons) in Aquatic Resources Technology (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Animal Science & Export Agriculture",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BSc (Hons) in Aquatic Resources Technology (4 Years)"
           }
         ]
       },
@@ -6418,18 +5603,10 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "tone": "tone-peach",
         "degrees": [
           {
-            "name": "BBM (Hons) in Entrepreneurship & Management (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Management",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BBM (Hons) in Entrepreneurship & Management (4 Years)"
           },
           {
-            "name": "BBM (Hons) in Hospitality, Tourism & Events Management (4 Years)",
-            "duration": "3 - 4 Years",
-            "stream": "Faculty of Management",
-            "tag": "Degree Programme",
-            "zscore": "UGC / Direct"
+            "name": "BBM (Hons) in Hospitality, Tourism & Events Management (4 Years)"
           }
         ]
       }
@@ -6687,23 +5864,14 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "degrees": [
           {
             "name": "B.Sc. (Hons) in Computer Science",
-            "duration": "4 Years",
-            "stream": "Physical Science",
-            "zscore": "1.4280",
             "tag": "High Demand"
           },
           {
             "name": "B.Sc. (Hons) in Information Technology",
-            "duration": "4 Years",
-            "stream": "Physical Science",
-            "zscore": "1.3650",
             "tag": "Industry Aligned"
           },
           {
             "name": "B.Sc. in Environmental Science",
-            "duration": "3 Years",
-            "stream": "Biological Science",
-            "zscore": "1.2150",
             "tag": "Eco Research"
           }
         ]
@@ -6716,23 +5884,14 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "degrees": [
           {
             "name": "B.B.M. (Hons) in Human Resource Management",
-            "duration": "4 Years",
-            "stream": "Commerce",
-            "zscore": "1.2840",
             "tag": "Corporate HR"
           },
           {
             "name": "B.B.M. (Hons) in Accounting & Finance",
-            "duration": "4 Years",
-            "stream": "Commerce",
-            "zscore": "1.3410",
             "tag": "Chartered Route"
           },
           {
             "name": "B.B.M. (Hons) in Marketing Management",
-            "duration": "4 Years",
-            "stream": "Commerce",
-            "zscore": "1.2290",
             "tag": "Enterprise"
           }
         ]
@@ -6745,16 +5904,10 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "degrees": [
           {
             "name": "Bachelor of Information & Communication Tech (BICT Hons)",
-            "duration": "4 Years",
-            "stream": "Technology",
-            "zscore": "1.2950",
             "tag": "NVQ Level 7"
           },
           {
             "name": "Bachelor of Biosystems Technology (BBST Hons)",
-            "duration": "4 Years",
-            "stream": "Technology",
-            "zscore": "1.2480",
             "tag": "Agro-Tech"
           }
         ]
@@ -7017,16 +6170,10 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "degrees": [
           {
             "name": "Bachelor of Ayurvedic Medicine & Surgery (BAMS)",
-            "duration": "6 Years (incl. Internship)",
-            "stream": "Biological Science",
-            "zscore": "1.4920",
             "tag": "Medical License"
           },
           {
             "name": "B.Sc. (Hons) in Herbal Pharmacy",
-            "duration": "4 Years",
-            "stream": "Biological / Physical Science",
-            "zscore": "1.3250",
             "tag": "Pharmaceutical"
           }
         ]
@@ -7039,16 +6186,10 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "degrees": [
           {
             "name": "B.Sc. (Hons) in Health Tourism & Hospitality",
-            "duration": "4 Years",
-            "stream": "Any Stream",
-            "zscore": "1.2180",
             "tag": "Global Tourism"
           },
           {
             "name": "B.Sc. (Hons) in Yoga & Alternative Healthcare",
-            "duration": "4 Years",
-            "stream": "Any Stream",
-            "zscore": "1.1890",
             "tag": "Holistic Health"
           }
         ]
@@ -7338,23 +6479,14 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "degrees": [
           {
             "name": "Bachelor of Medicine & Bachelor of Surgery (MBBS)",
-            "duration": "5 Years",
-            "stream": "Biological Science",
-            "zscore": "Direct / Cadets & Civilians",
             "tag": "SLMC Recognized"
           },
           {
             "name": "B.Sc. (Hons) in Nursing",
-            "duration": "4 Years",
-            "stream": "Biological Science",
-            "zscore": "Direct",
             "tag": "Clinical Training"
           },
           {
             "name": "B.Sc. (Hons) in Medical Laboratory Science",
-            "duration": "4 Years",
-            "stream": "Biological Science",
-            "zscore": "Direct",
             "tag": "Diagnostic Tech"
           }
         ]
@@ -7367,23 +6499,14 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "degrees": [
           {
             "name": "B.Sc. (Hons) in Aeronautical Engineering",
-            "duration": "4 Years",
-            "stream": "Physical Science",
-            "zscore": "Direct / IESL",
             "tag": "Aviation Leader"
           },
           {
             "name": "B.Sc. (Hons) in Biomedical Engineering",
-            "duration": "4 Years",
-            "stream": "Physical Science",
-            "zscore": "Direct / IESL",
             "tag": "Health Tech"
           },
           {
             "name": "B.Sc. (Hons) in Mechatronics Engineering",
-            "duration": "4 Years",
-            "stream": "Physical Science",
-            "zscore": "Direct / IESL",
             "tag": "Robotics & AI"
           }
         ]
@@ -7396,16 +6519,10 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "degrees": [
           {
             "name": "B.Sc. (Hons) in Software Engineering",
-            "duration": "4 Years",
-            "stream": "Physical Science / Maths",
-            "zscore": "Direct Entry",
             "tag": "Industry Placements"
           },
           {
             "name": "Bachelor of Laws (LL.B.)",
-            "duration": "4 Years",
-            "stream": "Any Stream",
-            "zscore": "Direct Entry",
             "tag": "High Prestige"
           }
         ]
@@ -7667,23 +6784,14 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "degrees": [
           {
             "name": "B.Tech in Mechatronics Technology",
-            "duration": "3 - 4 Years",
-            "stream": "NVQ Level 5/6 / A/L Tech",
-            "zscore": "Direct Application",
             "tag": "Industrial Automation"
           },
           {
             "name": "B.Tech in Building Services Technology",
-            "duration": "3 - 4 Years",
-            "stream": "NVQ Level 5/6 / A/L Tech",
-            "zscore": "Direct Application",
             "tag": "HVAC & Facilities"
           },
           {
             "name": "B.Tech in Food Process Technology",
-            "duration": "3 - 4 Years",
-            "stream": "NVQ Level 5/6 / A/L Bio",
-            "zscore": "Direct Application",
             "tag": "Food Quality"
           }
         ]
@@ -7696,23 +6804,14 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "degrees": [
           {
             "name": "B.Tech in Software Technology",
-            "duration": "3 - 4 Years",
-            "stream": "NVQ Level 5/6 / A/L Maths/IT",
-            "zscore": "Direct Application",
             "tag": "Enterprise Dev"
           },
           {
             "name": "B.Tech in Network Technology",
-            "duration": "3 - 4 Years",
-            "stream": "NVQ Level 5/6 / A/L Tech",
-            "zscore": "Direct Application",
             "tag": "Cyber & Cloud"
           },
           {
             "name": "B.Tech in Multimedia & Web Technology",
-            "duration": "3 - 4 Years",
-            "stream": "NVQ Level 5/6 / Any A/L",
-            "zscore": "Direct Application",
             "tag": "UI/UX & VFX"
           }
         ]
@@ -7975,16 +7074,10 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "degrees": [
           {
             "name": "B.Sc. (Hons) in Marine Fisheries & Oceanography",
-            "duration": "4 Years",
-            "stream": "Biological Science",
-            "zscore": "Direct / A/L Bio",
             "tag": "Marine Explorer"
           },
           {
             "name": "B.Sc. (Hons) in Aquaculture & Seafood Tech",
-            "duration": "4 Years",
-            "stream": "Biological Science",
-            "zscore": "Direct / A/L Bio",
             "tag": "Blue Agri"
           }
         ]
@@ -7997,16 +7090,10 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "degrees": [
           {
             "name": "B.Sc. (Hons) in Marine Engineering",
-            "duration": "4 Years",
-            "stream": "Physical Science",
-            "zscore": "Direct / A/L Maths",
             "tag": "Seagoing Officer"
           },
           {
             "name": "B.Tech (Hons) in Maritime Technology",
-            "duration": "4 Years",
-            "stream": "Technology",
-            "zscore": "Direct / A/L Tech",
             "tag": "Offshore & Port"
           }
         ]
@@ -8019,9 +7106,6 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "degrees": [
           {
             "name": "B.Sc. (Hons) in Maritime Transportation & Logistics",
-            "duration": "4 Years",
-            "stream": "Any Stream",
-            "zscore": "Direct / A/L",
             "tag": "Shipping Leader"
           }
         ]
@@ -8307,23 +7391,14 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "degrees": [
           {
             "name": "B.Sc. (Hons) in Information Technology (Software Engineering)",
-            "duration": "4 Years",
-            "stream": "Any A/L Stream",
-            "zscore": "Direct Entry / 3 A/L Passes",
             "tag": "Top Tech Career"
           },
           {
             "name": "B.Sc. (Hons) in Computer Systems & Network Engineering",
-            "duration": "4 Years",
-            "stream": "Maths / Science",
-            "zscore": "Direct Entry",
             "tag": "Cloud & Telecom"
           },
           {
             "name": "B.Sc. (Hons) in IT (Data Science & AI)",
-            "duration": "4 Years",
-            "stream": "Maths / Science",
-            "zscore": "Direct Entry",
             "tag": "High Growth"
           }
         ]
@@ -8336,23 +7411,14 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "degrees": [
           {
             "name": "B.Sc. (Hons) in Civil Engineering (IESL Accredited)",
-            "duration": "4 Years",
-            "stream": "Maths Stream",
-            "zscore": "Direct Entry / Maths Passes",
             "tag": "IESL Recognized"
           },
           {
             "name": "B.Sc. (Hons) in Electrical & Electronic Engineering",
-            "duration": "4 Years",
-            "stream": "Maths Stream",
-            "zscore": "Direct Entry",
             "tag": "IESL Recognized"
           },
           {
             "name": "B.Sc. (Hons) in Mechanical Engineering (Mechatronics)",
-            "duration": "4 Years",
-            "stream": "Maths Stream",
-            "zscore": "Direct Entry",
             "tag": "IESL Recognized"
           }
         ]
@@ -8365,16 +7431,10 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "degrees": [
           {
             "name": "B.B.A. (Hons) in Business Analytics",
-            "duration": "4 Years",
-            "stream": "Any A/L Stream",
-            "zscore": "Direct Entry",
             "tag": "FinTech Ready"
           },
           {
             "name": "B.Sc. (Hons) in Biotechnology",
-            "duration": "4 Years",
-            "stream": "Bio Science",
-            "zscore": "Direct Entry",
             "tag": "Life Sciences"
           }
         ]
@@ -8656,23 +7716,14 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "degrees": [
           {
             "name": "B.Sc. in Business Management (HRM / Marketing / Logistics)",
-            "duration": "3 - 4 Years",
-            "stream": "Any A/L Stream",
-            "zscore": "Direct Entry",
             "tag": "Corporate Leadership"
           },
           {
             "name": "B.Sc. in Accounting & Financial Management",
-            "duration": "4 Years",
-            "stream": "Commerce / Maths",
-            "zscore": "Direct Entry",
             "tag": "CIMA / ACCA Exemptions"
           },
           {
             "name": "B.Sc. in International Business",
-            "duration": "3 Years",
-            "stream": "Any Stream",
-            "zscore": "Direct Entry",
             "tag": "Global Trade"
           }
         ]
@@ -8685,23 +7736,14 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "degrees": [
           {
             "name": "B.Sc. (Hons) in Software Engineering",
-            "duration": "4 Years",
-            "stream": "Maths / Science / Tech",
-            "zscore": "Direct Entry",
             "tag": "Tech Giant Placements"
           },
           {
             "name": "B.Sc. (Hons) in Computer Security",
-            "duration": "3 - 4 Years",
-            "stream": "Any A/L Stream",
-            "zscore": "Direct Entry",
             "tag": "High Demand"
           },
           {
             "name": "B.Sc. (Hons) in Data Science",
-            "duration": "4 Years",
-            "stream": "Maths / Science",
-            "zscore": "Direct Entry",
             "tag": "AI & Big Data"
           }
         ]
@@ -8714,16 +7756,10 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "degrees": [
           {
             "name": "B.Sc. (Hons) in Biomedical Science",
-            "duration": "3 - 4 Years",
-            "stream": "Bio Science",
-            "zscore": "Direct Entry",
             "tag": "Clinical Labs"
           },
           {
             "name": "B.Sc. (Hons) in Mechatronics Engineering",
-            "duration": "4 Years",
-            "stream": "Maths Stream",
-            "zscore": "Direct Entry",
             "tag": "Robotics & IoT"
           }
         ]
@@ -9004,16 +8040,10 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "degrees": [
           {
             "name": "B.Sc. (Hons) in Nautical Science (Officer Cadet)",
-            "duration": "3 - 4 Years",
-            "stream": "Maths / Science Passes",
-            "zscore": "Direct / Medical Fit",
             "tag": "Seagoing Captain"
           },
           {
             "name": "B.Sc. (Hons) in Marine Engineering (Chief Engineer)",
-            "duration": "4 Years",
-            "stream": "Maths Stream",
-            "zscore": "Direct / Medical Fit",
             "tag": "Seagoing Engineer"
           }
         ]
@@ -9026,23 +8056,14 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "degrees": [
           {
             "name": "B.Sc. (Hons) in International Transportation & Logistics",
-            "duration": "4 Years",
-            "stream": "Any A/L Stream",
-            "zscore": "Direct Entry",
             "tag": "CILT UK Accredited"
           },
           {
             "name": "B.Sc. (Hons) in Aviation Science (Flight Dispatch)",
-            "duration": "3 Years",
-            "stream": "Maths / Science",
-            "zscore": "Direct Entry",
             "tag": "Airline Careers"
           },
           {
             "name": "B.Sc. in Supply Chain Management",
-            "duration": "3 - 4 Years",
-            "stream": "Any Stream",
-            "zscore": "Direct Entry",
             "tag": "Port & Freight"
           }
         ]
@@ -9289,23 +8310,14 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "degrees": [
           {
             "name": "B.Eng. (Hons) in Software Engineering (Univ of Westminster)",
-            "duration": "4 Years (incl. 1 Yr Internship)",
-            "stream": "Any A/L Stream",
-            "zscore": "Direct Entry",
             "tag": "100% Employed"
           },
           {
             "name": "B.Sc. (Hons) in Computer Science (Univ of Westminster)",
-            "duration": "4 Years (incl. 1 Yr Internship)",
-            "stream": "Maths / Science Passes",
-            "zscore": "Direct Entry",
             "tag": "Algorithmic Focus"
           },
           {
             "name": "B.Sc. (Hons) in Artificial Intelligence & Data Science",
-            "duration": "4 Years (incl. 1 Yr Internship)",
-            "stream": "Maths / Science Passes",
-            "zscore": "Direct Entry",
             "tag": "Next-Gen AI"
           }
         ]
@@ -9318,16 +8330,10 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "degrees": [
           {
             "name": "B.Sc. (Hons) in Business Information Systems (BIS)",
-            "duration": "4 Years (incl. 1 Yr Internship)",
-            "stream": "Any A/L Stream",
-            "zscore": "Direct Entry",
             "tag": "Tech Consultant"
           },
           {
             "name": "B.Sc. (Hons) in Business Data Analytics",
-            "duration": "3 - 4 Years",
-            "stream": "Any A/L Stream",
-            "zscore": "Direct Entry",
             "tag": "FinTech & BI"
           }
         ]
@@ -9606,23 +8612,14 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "degrees": [
           {
             "name": "Bachelor of Education (B.Ed. Hons) in Biological Science",
-            "duration": "4 Years",
-            "stream": "Bio Science Passes",
-            "zscore": "Direct / IFSLS",
             "tag": "Licensed Teacher"
           },
           {
             "name": "Bachelor of Education (B.Ed. Hons) in Physical Science",
-            "duration": "4 Years",
-            "stream": "Maths Science Passes",
-            "zscore": "Direct / IFSLS",
             "tag": "Secondary Teaching"
           },
           {
             "name": "Bachelor of Education (B.Ed. Hons) in English ELT",
-            "duration": "4 Years",
-            "stream": "Any A/L Stream",
-            "zscore": "Direct / IFSLS",
             "tag": "Language Master"
           }
         ]
@@ -9635,16 +8632,10 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "degrees": [
           {
             "name": "Bachelor of Laws (LL.B. - University of London)",
-            "duration": "3 Years",
-            "stream": "Any Stream Passes",
-            "zscore": "Direct Entry",
             "tag": "London Internal"
           },
           {
             "name": "B.Sc. (Hons) in Information Technology",
-            "duration": "4 Years",
-            "stream": "Any A/L Stream",
-            "zscore": "Direct / IFSLS",
             "tag": "Tech Degree"
           }
         ]
@@ -9925,23 +8916,14 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "degrees": [
           {
             "name": "B.Sc. (Hons) in Electronics & Power Systems",
-            "duration": "4 Years",
-            "stream": "Maths Stream",
-            "zscore": "Direct / A/L Passes",
             "tag": "IESL Aligned"
           },
           {
             "name": "B.Sc. (Hons) in Telecommunications Engineering",
-            "duration": "4 Years",
-            "stream": "Maths Stream",
-            "zscore": "Direct / A/L Passes",
             "tag": "Telecom Leader"
           },
           {
             "name": "B.Sc. (Hons) in Civil Engineering",
-            "duration": "4 Years",
-            "stream": "Maths Stream",
-            "zscore": "Direct / A/L Passes",
             "tag": "Structural Tech"
           }
         ]
@@ -9954,16 +8936,10 @@ export const universityDetails: Record<string, UniversityDetail> = {
         "degrees": [
           {
             "name": "B.Sc. (Hons) in Software Engineering",
-            "duration": "4 Years",
-            "stream": "Any A/L Stream",
-            "zscore": "Direct / IFSLS",
             "tag": "High Employability"
           },
           {
             "name": "Bachelor of Technology (Hons) in Biosystems Tech",
-            "duration": "4 Years",
-            "stream": "Bio / Tech Stream",
-            "zscore": "Direct / IFSLS",
             "tag": "Agri-Tech & Bio"
           }
         ]
