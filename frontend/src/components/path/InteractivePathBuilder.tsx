@@ -52,7 +52,7 @@ export function InteractivePathBuilder() {
     "tech_coding",
     "building_infra",
   ]);
-  const [selectedCareerSlug, setSelectedCareerSlug] = useState<string>("software-engineer");
+  const [selectedCareerSlug, setSelectedCareerSlug] = useState<string>("engineer");
   const [careerSearchQuery, setCareerSearchQuery] = useState<string>("");
   const [isSaving, setIsSaving] = useState<boolean>(false);
   const [savedSuccess, setSavedSuccess] = useState<boolean>(false);

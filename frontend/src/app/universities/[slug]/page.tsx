@@ -12,7 +12,7 @@ import {
   Sparkles,
   Compass,
 } from "lucide-react";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import { getUniversity } from "@/lib/api/catalog";
 import { localizeUniversity } from "@/lib/i18n/catalog";
 import { PageIntro } from "@/components/shared/PageIntro";
@@ -44,10 +44,12 @@ export default async function UniversityPage({ params }: Props) {
   const record = await getUniversity((await params).slug);
   if (!record) notFound();
 
-  const [t, catalog] = await Promise.all([
+  const [t, catalog, locale] = await Promise.all([
     getTranslations("universityDetail"),
     getTranslations("catalog"),
+    getLocale(),
   ]);
+  const isSi = locale === "si";
 
   const university = localizeUniversity(catalog, record);
   const { name, location, areas, type } = university.display;
@@ -69,12 +71,16 @@ export default async function UniversityPage({ params }: Props) {
   ];
 
   const crestSrc = detail?.crest || (ruhuna ? "/images/universities/ruhuna/ruhuna-crest.png" : null);
-  const stateLabel = detail?.stateLabel || (type === "Government" ? "National State University · Sri Lanka" : "Degree Awarding University · Sri Lanka");
+  const stateLabel = isSi
+    ? (type === "Government" || university.type === "Government"
+        ? "ජාතික රාජ්‍ය විශ්වවිද්‍යාලය · ශ්‍රී ලංකාව"
+        : "පිළිගත් උපාධි ප්‍රදානය කරන ආයතනය · ශ්‍රී ලංකාව")
+    : (detail?.stateLabel || (type === "Government" ? "National State University · Sri Lanka" : "Degree Awarding University · Sri Lanka"));
   const mottoText = (ruhuna && t.has("motto")) ? t("motto") : (detail?.motto || "");
 
   // Metrics
-  const metricFaculties = detail?.metrics?.faculties || (ruhuna ? t("metrics.faculties.value") : `${areas.length} Study Streams`);
-  const metricFounded = detail?.metrics?.founded || (ruhuna ? t("metrics.founded.value") : "Chartered");
+  const metricFaculties = detail?.metrics?.faculties || (ruhuna ? t("metrics.faculties.value") : (isSi ? `අධ්‍යයන ක්ෂේත්‍ර ${areas.length}ක්` : `${areas.length} Study Streams`));
+  const metricFounded = detail?.metrics?.founded || (ruhuna ? t("metrics.founded.value") : (isSi ? "ස්ථාපිත" : "Chartered"));
   const metricCampus = detail?.metrics?.campus || (ruhuna ? t("metrics.campus.value") : location);
   const metricType = detail?.metrics?.type || (ruhuna ? t("metrics.type.value") : type);
 
@@ -169,7 +175,7 @@ export default async function UniversityPage({ params }: Props) {
                 </span>
                 <span className="eyebrow-pill">
                   <Landmark size={12} />
-                  Est. {detail?.metrics?.founded || "Chartered"}
+                  {isSi ? `ආරම්භය: ${detail?.metrics?.founded || "ස්ථාපිත"}` : `Est. ${detail?.metrics?.founded || "Chartered"}`}
                 </span>
                 {detail?.heritage?.imageBadge && (
                   <span className="eyebrow-pill accent-pill">
@@ -321,7 +327,7 @@ export default async function UniversityPage({ params }: Props) {
         <div className="bottom-cta-content">
           <span className="eyebrow-pill">
             <Compass size={13} aria-hidden="true" />
-            <span>Start Your Journey</span>
+            <span>{isSi ? "ඔබේ ගමන අරඹන්න" : "Start Your Journey"}</span>
           </span>
           <h2>{t("ready.title", { name })}</h2>
           <p className="muted">{t("ready.body")}</p>

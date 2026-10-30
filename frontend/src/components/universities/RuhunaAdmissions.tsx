@@ -1,5 +1,5 @@
 import { GraduationCap, CheckCircle2, Award, ExternalLink } from "lucide-react";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import type { AdmissionsData } from "@/lib/data/universityDetails";
 
 export async function RuhunaAdmissions({
@@ -11,7 +11,11 @@ export async function RuhunaAdmissions({
   isRuhuna?: boolean;
   universityName?: string;
 }) {
-  const t = await getTranslations("universityDetail.admissionsGuide");
+  const [t, locale] = await Promise.all([
+    getTranslations("universityDetail.admissionsGuide"),
+    getLocale(),
+  ]);
+  const isSi = locale === "si";
 
   if (isRuhuna && !propAdmissions) {
     return (
@@ -87,7 +91,7 @@ export async function RuhunaAdmissions({
   return (
     <section id="admissions" className="section-block ruhuna-admissions-section">
       <div className="section-heading-centered">
-        <p className="eyebrow">{adm.eyebrow || "ADMISSIONS GUIDANCE"}</p>
+        <p className="eyebrow">{adm.eyebrow || (isSi ? "විශ්වවිද්‍යාල ප්‍රවේශ මාර්ගෝපදේශය" : "ADMISSIONS GUIDANCE")}</p>
         <h2 className="section-title">{adm.title}</h2>
         <p className="section-description muted">{adm.description}</p>
       </div>
@@ -121,13 +125,13 @@ export async function RuhunaAdmissions({
           <div className="quota-breakdown-box">
             <div className="quota-bar">
               <span className="quota-segment merit" style={{ width: adm.isGovernment ? "40%" : "50%" }}>
-                {adm.quotaMerit}
+                {isSi ? adm.quotaMerit.replace("National Merit", "ජාතික කුසලතා").replace("Merit Selection", "කුසලතා තේරීම") : adm.quotaMerit}
               </span>
               <span className="quota-segment district" style={{ width: adm.isGovernment ? "45%" : "30%" }}>
-                {adm.quotaDistrict}
+                {isSi ? adm.quotaDistrict.replace("District Quota", "දිස්ත්‍රික් Quota").replace("Direct Intake", "සෘජු බඳවා ගැනීම්") : adm.quotaDistrict}
               </span>
               <span className="quota-segment special" style={{ width: adm.isGovernment ? "15%" : "20%" }}>
-                {adm.quotaSpecial}
+                {isSi ? adm.quotaSpecial.replace("Special & Under-Privileged", "විශේෂ හා අනෙකුත්").replace("International / Lateral", "ජාත්‍යන්තර / විකල්ප") : adm.quotaSpecial}
               </span>
             </div>
             {adm.quotaNote && <small className="muted">{adm.quotaNote}</small>}
@@ -148,7 +152,7 @@ export async function RuhunaAdmissions({
               rel="noopener noreferrer"
               className="ugc-portal-link"
             >
-              <span>{adm.portalLabel || "Visit Official Admissions Portal"}</span>
+              <span>{isSi ? "නිල ප්‍රවේශ පද්ධතියට පිවිසෙන්න" : (adm.portalLabel || "Visit Official Admissions Portal")}</span>
               <ExternalLink size={13} aria-hidden="true" />
             </a>
           </div>

@@ -4,7 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { PageIntro } from "@/components/shared/PageIntro";
 import { ActionLink } from "@/components/shared/ActionLink";
 import { JourneyIllustration } from "@/components/path/JourneyIllustration";
-import { InteractivePathBuilder } from "@/components/path/InteractivePathBuilder";
+import { CareerPathArchitect } from "@/components/path/CareerPathArchitect";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { ResourceCards } from "@/components/shared/ResourceCards";
 import assets from "@/lib/design/assets.json";
@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "Build Your Career Path - Personalized Education Roadmap | SkillBridge SL",
     description:
-      "Design your customized education and career journey in Sri Lanka. Choose from Before O/L, O/L, A/L, or University stages and get actionable milestones, subject guidance, and university degrees.",
+      "Select your dream profession and discover your complete Sri Lankan journey: required G.C.E. O/L subjects, A/L stream, UGC university degrees, and professional courses.",
   };
 }
 
@@ -39,8 +39,8 @@ export default async function BuildYourPathPage() {
             <p>{t.rich("hero.intro", { br: () => <br /> })}</p>
           </PageIntro>
           <div className="hero-button-row">
-            <ActionLink href="#interactive-builder" icon={<Sparkles size={18} />}>
-              Start Building My Path
+            <ActionLink href="#career-architect" icon={<Sparkles size={18} />}>
+              Choose Your Career
             </ActionLink>
             <ActionLink href="/my-path">View My Active Dashboard</ActionLink>
           </div>
@@ -52,9 +52,9 @@ export default async function BuildYourPathPage() {
         <JourneyIllustration />
       </section>
 
-      {/* Main Interactive Path Builder Component */}
-      <div id="interactive-builder">
-        <InteractivePathBuilder />
+      {/* Main Career-Driven Path Architect Component */}
+      <div id="career-architect">
+        <CareerPathArchitect />
       </div>
 
       <section className="section-block">

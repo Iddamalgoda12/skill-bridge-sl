@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useLocale } from "next-intl";
 import { Sparkles, Route, Check, DollarSign, BookOpen, GraduationCap, Compass, Brain, TrendingUp } from "lucide-react";
 import { SaveButton } from "@/components/shared/SaveButton";
 import { ActionLink } from "@/components/shared/ActionLink";
@@ -9,16 +12,35 @@ interface CareerHeroProps {
   career: CareerDetail;
 }
 
+const CATEGORY_SI: Record<string, string> = {
+  Technology: "තාක්ෂණය",
+  Engineering: "ඉංජිනේරු",
+  Healthcare: "සෞඛ්‍ය හා වෛද්‍ය",
+  Business: "ව්‍යාපාර හා මූල්‍ය",
+  Creative: "නිර්මාණශීලී හා කලා",
+  Education: "අධ්‍යාපන හා විද්‍යා",
+  Legal: "නීති ක්ෂේත්‍රය",
+  Hospitality: "සංචාරක හා හෝටල්",
+  "Skilled Trades": "ගුවන්, නාවික හා කාර්මික",
+};
+
 export function CareerHero({ career }: CareerHeroProps) {
+  const locale = useLocale();
+  const isSi = locale === "si";
+
   const navItems = [
-    { href: "#overview", label: "Overview", icon: Compass },
-    { href: "#salary", label: "Sri Lankan Salary", icon: DollarSign },
-    { href: "#education", label: "O/L & A/L Requirements", icon: BookOpen },
-    { href: "#universities", label: "Degrees & Unis", icon: GraduationCap },
-    { href: "#roadmap", label: "Career Roadmap", icon: Route },
-    { href: "#skills", label: "Skills & Suitability", icon: Brain },
-    { href: "#future", label: "Future Outlook", icon: TrendingUp },
+    { href: "#overview", label: isSi ? "විස්තරය" : "Overview", icon: Compass },
+    { href: "#salary", label: isSi ? "සාමාන්‍ය වැටුප" : "Sri Lankan Salary", icon: DollarSign },
+    { href: "#education", label: isSi ? "O/L & A/L අවශ්‍යතා" : "O/L & A/L Requirements", icon: BookOpen },
+    { href: "#universities", label: isSi ? "උපාධි & Universities" : "Degrees & Unis", icon: GraduationCap },
+    { href: "#roadmap", label: isSi ? "වෘත්තීය පියවර" : "Career Roadmap", icon: Route },
+    { href: "#skills", label: isSi ? "කුසලතා & ගැළපීම" : "Skills & Suitability", icon: Brain },
+    { href: "#future", label: isSi ? "අනාගත ඉල්ලුම" : "Future Outlook", icon: TrendingUp },
   ];
+
+  const primaryTitle = isSi && career.sinhalaTitle ? career.sinhalaTitle : career.title;
+  const secondaryTitle = isSi ? career.title : career.sinhalaTitle;
+  const categoryLabel = isSi && CATEGORY_SI[career.category] ? CATEGORY_SI[career.category] : career.category;
 
   return (
     <section className="career-hero-container">
@@ -27,7 +49,7 @@ export function CareerHero({ career }: CareerHeroProps) {
           <div className="career-hero-badges">
             <span className="career-category-pill">
               <Sparkles size={13} aria-hidden="true" />
-              {career.category}
+              {categoryLabel}
             </span>
             <span className="career-salary-pill">
               <DollarSign size={13} aria-hidden="true" />
@@ -35,14 +57,14 @@ export function CareerHero({ career }: CareerHeroProps) {
             </span>
             <span className="career-verified-pill">
               <Check size={13} aria-hidden="true" />
-              Verified SL UGC / Professional
+              {isSi ? "තහවුරු කළ UGC / වෘත්තීය සුදුසුකම්" : "Verified SL UGC / Professional"}
             </span>
           </div>
 
           <h1 className="career-hero-title">
-            {career.title}
-            {career.sinhalaTitle && (
-              <span className="career-sinhala-subtitle">{career.sinhalaTitle}</span>
+            {primaryTitle}
+            {secondaryTitle && (
+              <span className="career-sinhala-subtitle">{secondaryTitle}</span>
             )}
           </h1>
 
@@ -51,17 +73,17 @@ export function CareerHero({ career }: CareerHeroProps) {
           <div className="career-hero-actions">
             <SaveButton id={career.slug} title={career.title} />
             <ActionLink href="/build-your-path" icon={<Route size={16} />}>
-              Build My Career Path
+              {isSi ? "මගේ Career Path එක හදන්න" : "Build My Career Path"}
             </ActionLink>
             <Link href="/universities" className="career-hero-secondary-btn">
               <GraduationCap size={16} aria-hidden="true" />
-              Explore Universities
+              {isSi ? "විශ්වවිද්‍යාල බලන්න" : "Explore Universities"}
             </Link>
           </div>
 
           {/* Quick Jump Navigation Bar */}
           <nav className="career-quick-nav" aria-label="Career sections">
-            <span className="career-quick-nav-label">Jump to:</span>
+            <span className="career-quick-nav-label">{isSi ? "පෙරළන්න:" : "Jump to:"}</span>
             <div className="career-quick-nav-pills">
               {navItems.map((item) => {
                 const Icon = item.icon;
@@ -96,9 +118,9 @@ export function CareerHero({ career }: CareerHeroProps) {
                 <GraduationCap size={18} />
               </div>
               <div>
-                <p className="floating-badge-sub">Top Degree Pathway</p>
+                <p className="floating-badge-sub">{isSi ? "ප්‍රධාන උපාධි පාඨමාලාව" : "Top Degree Pathway"}</p>
                 <p className="floating-badge-main">
-                  {career.universities[0]?.degreeName.split("(")[0].trim() || "Recognized Bachelor's"}
+                  {career.universities[0]?.degreeName.split("(")[0].trim() || (isSi ? "පිළිගත් උපාධිය" : "Recognized Bachelor's")}
                 </p>
               </div>
             </div>

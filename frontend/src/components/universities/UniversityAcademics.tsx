@@ -1,5 +1,5 @@
 import { Check, GraduationCap } from "lucide-react";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { degreeGroups as ruhunaDegreeGroups } from "@/lib/data/faculties";
 import type { DegreeGroupItem, DegreeItem } from "@/lib/data/universityDetails";
@@ -13,19 +13,25 @@ export async function UniversityAcademics({
   isRuhuna?: boolean;
   universityName?: string;
 }) {
-  const t = await getTranslations("universityDetail");
+  const [t, locale] = await Promise.all([
+    getTranslations("universityDetail"),
+    getLocale(),
+  ]);
+  const isSi = locale === "si";
 
   const groups = propDegreeGroups || (isRuhuna ? (ruhunaDegreeGroups as unknown as DegreeGroupItem[]) : []);
 
   const eyebrowText = isRuhuna
     ? t("degrees.eyebrow")
-    : "UNDERGRADUATE DEGREE PROGRAMMES";
+    : (isSi ? "උපාධි පාඨමාලා" : "UNDERGRADUATE DEGREE PROGRAMMES");
   const titleText = isRuhuna
     ? t("degrees.title")
-    : `Degree Pathways at ${universityName || "the University"}`;
+    : (isSi ? `${universityName || "විශ්වවිද්‍යාලයේ"} උපාධි පාඨමාලා` : `Degree Pathways at ${universityName || "the University"}`);
   const descText = isRuhuna
     ? t("degrees.description")
-    : `Explore verified undergraduate honours degrees, entry qualifications, and curriculum structures offered across academic faculties.`;
+    : (isSi
+        ? "විවිධ පීඨ ඔස්සේ හැදෑරිය හැකි පිළිගත් උපාධි පාඨමාලා, ප්‍රවේශ සුදුසුකම් සහ අධ්‍යයන ව්‍යුහය."
+        : `Explore verified undergraduate honours degrees, entry qualifications, and curriculum structures offered across academic faculties.`);
 
   return (
     <section id="degrees" className="section-block">
@@ -73,9 +79,7 @@ export async function UniversityAcademics({
         })}
       </div>
       <p className="section-footnote">
-        {isRuhuna
-          ? t("degrees.footnote")
-          : "* Course intakes, minimum Z-scores, and entry prerequisites are gazetted annually by the University Grants Commission (UGC) of Sri Lanka and institutional governing councils."}
+        {t("degrees.footnote")}
       </p>
     </section>
   );

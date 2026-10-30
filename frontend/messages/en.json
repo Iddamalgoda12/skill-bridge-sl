@@ -10,6 +10,7 @@
     "logoAlt": "SkillBridge SL — Your future. Your path.",
     "careers": "Explore Careers",
     "path": "Build Your Path",
+    "myPath": "My Path",
     "universities": "Universities",
     "about": "About",
     "account": "Account",
@@ -28,6 +29,7 @@
     "description": {
       "careers": "Discover the right career for you",
       "path": "Create your personal roadmap",
+      "myPath": "Track your active roadmap and tasks",
       "universities": "Find your ideal university",
       "about": "Learn more about SkillBridge",
       "home": "Return to the main overview"
@@ -479,9 +481,9 @@
       },
       "engineer": {
         "title": "Engineer",
-        "summary": "Design systems, develop infrastructure, and lead technical innovation across all industries.",
-        "employers": "Access · Maga · CEB · MAS · Dialog",
-        "entry": "A/L Combined Maths + accredited B.Sc. Engineering"
+        "summary": "Design infrastructure, software platforms, cloud systems, and lead technical innovation across all industries.",
+        "employers": "WSO2 · Sysco LABS · Access · Maga · CEB · MAS · Dialog",
+        "entry": "A/L Combined Maths / Science / Tech + accredited B.Sc. Engineering (Software, Civil, Mech, Elec)"
       },
       "lawyer": {
         "title": "Lawyer",

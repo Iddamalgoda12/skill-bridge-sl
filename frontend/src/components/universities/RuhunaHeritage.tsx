@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Landmark, Sparkles, Building2, BookOpen, Compass } from "lucide-react";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import type { HeritageData } from "@/lib/data/universityDetails";
 
 export async function RuhunaHeritage({
@@ -12,7 +12,11 @@ export async function RuhunaHeritage({
   isRuhuna?: boolean;
   universityName?: string;
 }) {
-  const t = await getTranslations("universityDetail.heritage");
+  const [t, locale] = await Promise.all([
+    getTranslations("universityDetail.heritage"),
+    getLocale(),
+  ]);
+  const isSi = locale === "si";
 
   if (isRuhuna && !propHeritage) {
     return (
@@ -90,7 +94,7 @@ export async function RuhunaHeritage({
         <div className="heritage-content">
           <span className="eyebrow-pill">
             <Sparkles size={12} aria-hidden="true" />
-            <span>{heritage.eyebrow || "CAMPUS HERITAGE & ARCHITECTURE"}</span>
+            <span>{heritage.eyebrow || (isSi ? "කැම්පස් උරුමය සහ ගෘහ නිර්මාණ ශිල්පය" : "CAMPUS HERITAGE & ARCHITECTURE")}</span>
           </span>
           <h2 className="heritage-title">{heritage.title}</h2>
           <p className="heritage-description">{heritage.description}</p>

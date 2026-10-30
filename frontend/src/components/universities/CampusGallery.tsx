@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { Camera, Maximize2, X, ChevronLeft, ChevronRight, MapPin, ShieldCheck } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import type { PhotoItem } from "@/lib/data/universityDetails";
 
 const RUHUNA_FALLBACK_PHOTOS: PhotoItem[] = [
@@ -83,6 +83,8 @@ export function CampusGallery({
   gallerySubtitle?: string;
 }) {
   const t = useTranslations("universityDetail.gallery");
+  const locale = useLocale();
+  const isSi = locale === "si";
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const photoList = (photos && photos.length > 0) ? photos : RUHUNA_FALLBACK_PHOTOS;
@@ -119,11 +121,11 @@ export function CampusGallery({
 
   const getPhotoBadge = (p: PhotoItem) => {
     if (isRuhuna && p.badgeKey && t.has(p.badgeKey)) return t(p.badgeKey);
-    return p.badge || "Campus Life";
+    return p.badge || (isSi ? "කැම්පස් ජීවිතය" : "Campus Life");
   };
 
-  const displayTitle = galleryTitle || (isRuhuna ? t("title") : `Explore ${name} in Pictures`);
-  const displaySubtitle = gallerySubtitle || (isRuhuna ? t("subtitle") : `Authentic verified photography from campus grounds, laboratories, and student faculties.`);
+  const displayTitle = galleryTitle || (isRuhuna ? t("title") : (isSi ? `${name} කැම්පස් ඡායාරූප ගැලරිය` : `Explore ${name} in Pictures`));
+  const displaySubtitle = gallerySubtitle || (isRuhuna ? t("subtitle") : (isSi ? "විශ්වවිද්‍යාල භූමිය, නවීන පර්යේෂණාගාර සහ ශිෂ්‍ය පීඨ වල සැබෑ ඡායාරූප." : `Authentic verified photography from campus grounds, laboratories, and student faculties.`));
 
   return (
     <section id="gallery" className="campus-gallery-real glass-panel" aria-label={t("label", { name })}>
@@ -134,7 +136,7 @@ export function CampusGallery({
         </div>
         <span className="gallery-badge-verified">
           <ShieldCheck size={14} aria-hidden="true" />
-          <span>Authentic Photography</span>
+          <span>{isSi ? "තහවුරු කළ සැබෑ ඡායාරූප" : "Authentic Photography"}</span>
         </span>
       </div>
 
@@ -218,7 +220,11 @@ export function CampusGallery({
       </div>
 
       <div className="gallery-attribution-footer">
-        <small className="muted">{photoList[0].credit ? `Photography courtesy of ${photoList[0].credit}` : t("attribution")}</small>
+        <small className="muted">
+          {photoList[0].credit
+            ? (isSi ? `ඡායාරූප අනුග්‍රහය: ${photoList[0].credit}` : `Photography courtesy of ${photoList[0].credit}`)
+            : t("attribution")}
+        </small>
       </div>
 
       {/* Lightbox Modal */}
@@ -266,25 +272,25 @@ export function CampusGallery({
                   <button
                     className="lightbox-nav-btn"
                     onClick={() =>
-                      setSelectedIndex((prev) =>
-                        prev !== null && prev > 0 ? prev - 1 : photoList.length - 1
-                      )
-                    }
-                    aria-label="Previous photo"
-                  >
-                    <ChevronLeft size={18} />
-                  </button>
-                  <button
-                    className="lightbox-nav-btn"
-                    onClick={() =>
-                      setSelectedIndex((prev) =>
-                        prev !== null && prev < photoList.length - 1 ? prev + 1 : 0
-                      )
-                    }
-                    aria-label="Next photo"
-                  >
-                    <ChevronRight size={18} />
-                  </button>
+                    setSelectedIndex((prev) =>
+                      prev !== null && prev > 0 ? prev - 1 : photoList.length - 1
+                    )
+                  }
+                  aria-label={isSi ? "පෙර ඡායාරූපය" : "Previous photo"}
+                >
+                  <ChevronLeft size={18} />
+                </button>
+                <button
+                  className="lightbox-nav-btn"
+                  onClick={() =>
+                    setSelectedIndex((prev) =>
+                      prev !== null && prev < photoList.length - 1 ? prev + 1 : 0
+                    )
+                  }
+                  aria-label={isSi ? "ඊළඟ ඡායාරූපය" : "Next photo"}
+                >
+                  <ChevronRight size={18} />
+                </button>
                 </div>
               </div>
             </div>

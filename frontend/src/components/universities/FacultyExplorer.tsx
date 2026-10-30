@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { MapPin, ExternalLink, Calendar, GraduationCap, ChevronRight } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { faculties as ruhunaFaculties } from "@/lib/data/faculties";
 import { DesignAsset } from "@/components/shared/DesignAsset";
 import type { FacultyItem } from "@/lib/data/universityDetails";
@@ -17,6 +17,8 @@ export function FacultyExplorer({
   universityName?: string;
 }) {
   const t = useTranslations("universityDetail");
+  const locale = useLocale();
+  const isSi = locale === "si";
 
   // Determine list of faculties
   const facultyList = propFaculties || (isRuhuna ? (ruhunaFaculties as unknown as FacultyItem[]) : []);
@@ -36,7 +38,7 @@ export function FacultyExplorer({
     const zones = Array.from(new Set(facultyList.map((f) => f.campusZone).filter(Boolean))) as string[];
     if (zones.length > 1 && zones.length <= 5) {
       return [
-        { id: "all", label: "All Campuses" },
+        { id: "all", label: isSi ? "සියලු මණ්ඩප" : "All Campuses" },
         ...zones.map((z) => ({ id: z, label: z })),
       ];
     }
@@ -44,13 +46,13 @@ export function FacultyExplorer({
     const streams = Array.from(new Set(facultyList.map((f) => f.stream).filter(Boolean))) as string[];
     if (streams.length > 1 && streams.length <= 6) {
       return [
-        { id: "all", label: "All Streams" },
+        { id: "all", label: isSi ? "සියලු විෂය ධාරා" : "All Streams" },
         ...streams.map((s) => ({ id: s, label: s })),
       ];
     }
 
-    return [{ id: "all", label: "All Faculties" }];
-  }, [isRuhuna, propFaculties, facultyList, t]);
+    return [{ id: "all", label: isSi ? "සියලු පීඨ" : "All Faculties" }];
+  }, [isRuhuna, propFaculties, facultyList, t, isSi]);
 
   const [activeFilter, setActiveFilter] = useState<string>("all");
 
@@ -63,13 +65,15 @@ export function FacultyExplorer({
 
   const eyebrowText = isRuhuna
     ? t("facultyExplorer.eyebrow")
-    : "FACULTIES & ACADEMIC DIVISIONS";
+    : (isSi ? "පීඨ සහ අධ්‍යයන අංශ" : "FACULTIES & ACADEMIC DIVISIONS");
   const titleText = isRuhuna
     ? t("facultyExplorer.title")
-    : `Explore Faculties at ${universityName || "the University"}`;
+    : (isSi ? `${universityName || "විශ්වවිද්‍යාලයේ"} පීඨ ගවේෂණය කරන්න` : `Explore Faculties at ${universityName || "the University"}`);
   const descText = isRuhuna
     ? t("facultyExplorer.description")
-    : `Comprehensive academic faculties offering specialized degree programmes, advanced research laboratories, and interdisciplinary study pathways.`;
+    : (isSi
+        ? "සුවිශේෂී උපාධි පාඨමාලා, උසස් පර්යේෂණාගාර සහ විවිධ විෂය ධාරා ඔස්සේ විහිදුනු අධ්‍යයන පීඨ."
+        : `Comprehensive academic faculties offering specialized degree programmes, advanced research laboratories, and interdisciplinary study pathways.`);
 
   return (
     <section id="faculties" className="section-block faculty-explorer-section">
@@ -117,7 +121,7 @@ export function FacultyExplorer({
                   </span>
                   <span className="faculty-est-pill">
                     <Calendar size={11} aria-hidden="true" />
-                    <span>Est. {faculty.established}</span>
+                    <span>{isSi ? `ආරම්භය: ${faculty.established}` : `Est. ${faculty.established}`}</span>
                   </span>
                 </div>
               </div>
@@ -129,13 +133,13 @@ export function FacultyExplorer({
                 <div className="faculty-stream-tag">
                   <GraduationCap size={13} aria-hidden="true" />
                   <span>
-                    <strong>{isRuhuna ? t("facultyExplorer.streamLabel") : "Stream:"}</strong> {faculty.stream}
+                    <strong>{isSi ? "විෂය ධාරාව:" : (isRuhuna ? t("facultyExplorer.streamLabel") : "Stream:")}</strong> {faculty.stream}
                   </span>
                 </div>
 
                 {faculty.departments && faculty.departments.length > 0 && (
                   <div className="faculty-depts-preview">
-                    <strong>Key Departments & Research:</strong>
+                    <strong>{isSi ? "ප්‍රධාන අධ්‍යයනාංශ සහ පර්යේෂණ:" : "Key Departments & Research:"}</strong>
                     <ul>
                       {faculty.departments.map((dept) => (
                         <li key={dept}>{dept}</li>
@@ -154,13 +158,13 @@ export function FacultyExplorer({
                     className="faculty-portal-btn"
                     aria-label={`${title} Official Website`}
                   >
-                    <span>{isRuhuna ? t("facultyExplorer.visitFaculty") : "Official Faculty Portal"}</span>
+                    <span>{isRuhuna ? t("facultyExplorer.visitFaculty") : (isSi ? "නිල පීඨ Portal එක" : "Official Faculty Portal")}</span>
                     <ExternalLink size={13} aria-hidden="true" />
                   </a>
                 )}
 
                 <a href="#degrees" className="faculty-degrees-link">
-                  <span>View Degrees</span>
+                  <span>{isSi ? "උපාධි පාඨමාලා බලන්න" : "View Degrees"}</span>
                   <ChevronRight size={13} aria-hidden="true" />
                 </a>
               </div>

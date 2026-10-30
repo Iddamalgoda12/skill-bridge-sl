@@ -1,5 +1,5 @@
 import { Globe, BookOpen, GraduationCap, Building2, ExternalLink } from "lucide-react";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import type { OfficialLinkItem } from "@/lib/data/universityDetails";
 
 export async function RuhunaOfficialLinks({
@@ -11,7 +11,11 @@ export async function RuhunaOfficialLinks({
   isRuhuna?: boolean;
   universityName?: string;
 }) {
-  const t = await getTranslations("universityDetail.resourcesHub");
+  const [t, locale] = await Promise.all([
+    getTranslations("universityDetail.resourcesHub"),
+    getLocale(),
+  ]);
+  const isSi = locale === "si";
 
   const ruhunaLinks = [
     {
@@ -102,10 +106,16 @@ export async function RuhunaOfficialLinks({
   return (
     <section id="resources" className="section-block ruhuna-resources-section">
       <div className="section-heading-centered">
-        <p className="eyebrow">OFFICIAL UNIVERSITY PORTALS</p>
-        <h2 className="section-title">{`Official Resources & Portals of ${universityName || "the University"}`}</h2>
+        <p className="eyebrow">{isSi ? "නිල විශ්වවිද්‍යාල ප්‍රවේශ හා සේවා" : "OFFICIAL UNIVERSITY PORTALS"}</p>
+        <h2 className="section-title">
+          {isSi
+            ? `${universityName || "විශ්වවිද්‍යාලයේ"} නිල සම්පත් සහ වෙබ් අඩවි`
+            : `Official Resources & Portals of ${universityName || "the University"}`}
+        </h2>
         <p className="section-description muted">
-          Direct links to the official senate website, faculty administration desks, student portals, and national higher education guidelines.
+          {isSi
+            ? "සනාතන සභා නිල වෙබ් අඩවිය, පීඨ පරිපාලන අංශ, ශිෂ්‍ය තොරතුරු පද්ධති සහ උසස් අධ්‍යාපන මාර්ගෝපදේශ සඳහා සෘජු ප්‍රවේශයන්."
+            : "Direct links to the official senate website, faculty administration desks, student portals, and national higher education guidelines."}
         </p>
       </div>
 

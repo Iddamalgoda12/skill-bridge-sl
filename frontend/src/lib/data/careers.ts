@@ -3,6 +3,7 @@ import type { Career } from "@/types/catalog";
 // Direct curated local photographic images in /images/careers/
 // All values represent verified 2026 Sri Lankan average monthly compensation benchmarks.
 const careerPresentation: Record<string, { image: string; salaryK: number; salaryVaries?: boolean }> = {
+  "software-engineer": { image: "/images/careers/software-engineer.jpg", salaryK: 180.0 },
   engineer: { image: "/images/careers/engineer.jpg", salaryK: 175.0 },
   doctor: { image: "/images/careers/doctor.jpg", salaryK: 165.0 },
   "ayurvedic-doctor": { image: "/images/careers/ayurvedic-doctor.jpg", salaryK: 140.0 },
@@ -40,9 +41,9 @@ const careerPresentation: Record<string, { image: string; salaryK: number; salar
 };
 
 // Main curated jobs in Sri Lanka
-// All engineering/tech subfields (Civil, Mechanical, Electrical, Software, Cloud, Cybersecurity, AI/ML, Data Systems, UI/UX) are housed inside the single "Engineer" profile.
+// All engineering & tech subfields (Software, Cloud, Cybersecurity, AI/ML, Civil, Mechanical, Electrical) are housed inside the single "Engineer" profile.
 const entries: [string, string, string, string, string, string][] = [
-  ["engineer", "Engineer", "Engineering", "Design systems, infrastructure, software platforms, and lead technical innovation across all industries.", "Access · Maga · CEB · MAS · WSO2 · Dialog", "A/L Combined Maths + accredited B.Sc. Engineering"],
+  ["engineer", "Engineer", "Engineering", "Design physical infrastructure, software platforms, cloud architectures, and lead technical innovation across industries.", "WSO2 · Sysco LABS · IFS · Access · Maga · CEB · MAS · Dialog", "A/L Combined Maths / Science / Tech + accredited B.Sc. Engineering (Software, Civil, Mech, Elec)"],
   ["doctor", "Doctor", "Healthcare", "Help people live healthier lives through medicine, hospital care, and clinical diagnosis.", "Government hospitals · Asiri · Nawaloka", "A/L Bio → MBBS → SLMC registration"],
   ["ayurvedic-doctor", "Ayurvedic Medical Doctor", "Healthcare", "Heal patients through holistic indigenous medicine, herbal pharmacology, and Panchakarma therapies.", "Ayurvedic Teaching Hospitals · Siddhalepa · Link Natural", "A/L Bio Science → BAMS (Colombo / Gampaha) → Ayurvedic Council"],
   ["dentist", "Dental Surgeon", "Healthcare", "Diagnose dental health, perform oral surgeries, and treat orthodontic conditions.", "Government Dental Institutes · Private Dental Hospitals · Asiri", "A/L Bio Science → BDS (Peradeniya) → SLMC registration"],

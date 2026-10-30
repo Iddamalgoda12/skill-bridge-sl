@@ -52,7 +52,16 @@ export function CareerDirectory({ careers, artwork }: { careers: LocalizedCareer
   const filtered = useMemo(() => {
     const needle = query.trim().toLowerCase();
     return careers
-      .filter((career) => category === ALL || career.category === category)
+      .filter((career) => {
+        if (category === ALL) return true;
+        if (category === "Engineering") {
+          return career.category === "Engineering" || career.slug === "engineer";
+        }
+        if (category === "Technology") {
+          return career.category === "Technology" || career.slug === "engineer";
+        }
+        return career.category === category;
+      })
       .filter((career) => !studyRoute || matchesStudyRoute(career, studyRoute))
       .filter((career) => !needle || `${career.display.title} ${career.display.summary} ${career.display.employers} ${career.title} ${career.employers}`.toLowerCase().includes(needle))
       .sort((a, b) => (sort === "az" ? a.display.title.localeCompare(b.display.title) : 0));

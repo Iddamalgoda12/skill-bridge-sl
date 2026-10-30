@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useLocale } from "next-intl";
 import { Brain, Wrench, HeartHandshake, BookOpen, Sparkles, CheckCircle2, AlertCircle, HelpCircle, Trophy } from "lucide-react";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import type { CareerSkills, CareerSuitability } from "@/lib/data/careerDetails";
@@ -16,6 +17,8 @@ export function CareerSkillsSuitability({
   suitability,
   careerTitle,
 }: CareerSkillsSuitabilityProps) {
+  const locale = useLocale();
+  const isSi = locale === "si";
   const [checkedAnswers, setCheckedAnswers] = useState<Record<number, boolean>>({});
 
   const toggleCheck = (index: number) => {
@@ -29,21 +32,35 @@ export function CareerSkillsSuitability({
   const answeredCount = Object.values(checkedAnswers).filter(Boolean).length;
   const scorePercent = totalQuestions > 0 ? Math.round((answeredCount / totalQuestions) * 100) : 0;
 
-  let assessmentFeedback = "Select the statements that describe your interests and traits.";
+  let assessmentFeedback = isSi
+    ? "ඔබේ කැමැත්තට සහ පෞරුෂයට ගැළපෙන ප්‍රකාශ තෝරන්න."
+    : "Select the statements that describe your interests and traits.";
   if (answeredCount === totalQuestions) {
-    assessmentFeedback = "🌟 Outstanding Match! Your natural interests and personality align exceptionally well with this career.";
+    assessmentFeedback = isSi
+      ? "🌟 විශිෂ්ට ගැළපීමක්! ඔබගේ සහජ කුසලතා සහ පෞරුෂය මෙම වෘත්තියට 100%ක් මනාව ගැළපේ."
+      : "🌟 Outstanding Match! Your natural interests and personality align exceptionally well with this career.";
   } else if (answeredCount >= Math.ceil(totalQuestions / 2)) {
-    assessmentFeedback = "👍 Promising Match! You demonstrate strong potential. Developing key technical skills will make you a great fit.";
+    assessmentFeedback = isSi
+      ? "👍 ඉතා ඉහළ ගැළපීමක්! ඔබට මෙම ක්ෂේත්‍රයේ විශිෂ්ට සාර්ථකත්වයක් අත්පත් කරගත හැක. තාක්ෂණික කුසලතා වැඩිදියුණු කරගන්න."
+      : "👍 Promising Match! You demonstrate strong potential. Developing key technical skills will make you a great fit.";
   } else if (answeredCount > 0) {
-    assessmentFeedback = "💡 Emerging Potential! Review the day-to-day realities to explore whether this aligns with your long-term passion.";
+    assessmentFeedback = isSi
+      ? "💡 හොඳ ආරම්භයක්! මෙම ක්ෂේත්‍රයේ දෛනික රාජකාරි සහ විකල්ප අංශ තවදුරටත් අධ්‍යයනය කර බලන්න."
+      : "💡 Emerging Potential! Review the day-to-day realities to explore whether this aligns with your long-term passion.";
   }
+
+  const shortTitle = careerTitle.split("/")[0].trim();
 
   return (
     <section id="skills" className="section-block career-skills-section">
       <SectionHeading
-        eyebrow="CAPABILITIES & PERSONAL SUITABILITY"
-        title={`Skills & Personal Fit for a ${careerTitle.split("/")[0].trim()}`}
-        description="Master essential technical capabilities, cultivate high-value soft skills, and test your personal suitability with our interactive assessment."
+        eyebrow={isSi ? "කුසලතා සහ පුද්ගල ගැළපීම" : "CAPABILITIES & PERSONAL SUITABILITY"}
+        title={isSi ? `${shortTitle} සඳහා අවශ්‍ය කුසලතා සහ ඔබගේ ගැළපීම` : `Skills & Personal Fit for a ${shortTitle}`}
+        description={
+          isSi
+            ? "අවශ්‍ය තාක්ෂණික කුසලතා, ප්‍රධාන මෘදු කුසලතා (Soft Skills) සහ ඔබ මෙම වෘත්තියට කෙතරම් ගැළපේදැයි දැනගැනීමට ස්වයං ඇගයීම."
+            : "Master essential technical capabilities, cultivate high-value soft skills, and test your personal suitability with our interactive assessment."
+        }
       />
 
       {/* Grid: Technical vs Soft Skills */}
@@ -55,8 +72,8 @@ export function CareerSkillsSuitability({
               <Wrench size={18} aria-hidden="true" />
             </span>
             <div>
-              <h3>Essential Technical Skills</h3>
-              <p>Core competencies required in the workplace</p>
+              <h3>{isSi ? "අත්‍යවශ්‍ය තාක්ෂණික කුසලතා" : "Essential Technical Skills"}</h3>
+              <p>{isSi ? "සේවා ස්ථානයේ සාර්ථක වීමට ප්‍රගුණ කළ යුතු හැකියාවන්" : "Core competencies required in the workplace"}</p>
             </div>
           </div>
           <div className="skill-items-list">
@@ -76,8 +93,8 @@ export function CareerSkillsSuitability({
               <HeartHandshake size={18} aria-hidden="true" />
             </span>
             <div>
-              <h3>Critical Soft Skills</h3>
-              <p>Communication, leadership, and emotional traits</p>
+              <h3>{isSi ? "වැදගත් මෘදු කුසලතා (Soft Skills)" : "Critical Soft Skills"}</h3>
+              <p>{isSi ? "සන්නිවේදනය, නායකත්වය සහ ගැටලු නිරාකරණය" : "Communication, leadership, and emotional traits"}</p>
             </div>
           </div>
           <div className="skill-items-list">
@@ -96,7 +113,7 @@ export function CareerSkillsSuitability({
         <div className="sub-card glass-panel">
           <div className="sub-card-header">
             <BookOpen size={16} aria-hidden="true" />
-            <h4>Important School Subjects</h4>
+            <h4>{isSi ? "පාසලේදී වැඩි අවධානයක් දිය යුතු විෂයයන්" : "Important School Subjects"}</h4>
           </div>
           <div className="subjects-tags-row">
             {skills.importantSchoolSubjects.map((sub, idx) => (
@@ -110,7 +127,7 @@ export function CareerSkillsSuitability({
         <div className="sub-card glass-panel">
           <div className="sub-card-header">
             <Sparkles size={16} aria-hidden="true" />
-            <h4>Recommended Extracurriculars & Projects</h4>
+            <h4>{isSi ? "නිර්දේශිත ප්‍රායෝගික ව්‍යාපෘති & ක්‍රියාකාරකම්" : "Recommended Extracurriculars & Projects"}</h4>
           </div>
           <ul className="projects-list">
             {skills.recommendedProjects.map((proj, idx) => (
@@ -128,7 +145,7 @@ export function CareerSkillsSuitability({
         <div className="traits-card glass-panel">
           <h4 className="traits-title">
             <Brain size={16} aria-hidden="true" />
-            You Might Love This Career If:
+            {isSi ? "ඔබට මේ වෘත්තිය විශේෂයෙන් ගැළපෙන්නේ නම්:" : "You Might Love This Career If:"}
           </h4>
           <ul className="traits-list">
             {suitability.traits.map((trait, idx) => (
@@ -143,7 +160,7 @@ export function CareerSkillsSuitability({
         <div className="challenges-card glass-panel">
           <h4 className="challenges-title">
             <AlertCircle size={16} aria-hidden="true" />
-            Key Challenges to Consider:
+            {isSi ? "සැලකිලිමත් විය යුතු ප්‍රධාන අභියෝග:" : "Key Challenges to Consider:"}
           </h4>
           <ul className="challenges-list">
             {suitability.challenges.map((chal, idx) => (
@@ -164,15 +181,17 @@ export function CareerSkillsSuitability({
               <HelpCircle size={20} aria-hidden="true" />
             </span>
             <div>
-              <h3>Interactive Self-Suitability Check</h3>
-              <p>Check all statements that describe your natural strengths and interests:</p>
+              <h3>{isSi ? "ඔබගේ පෞද්ගලික ගැළපීම පරීක්ෂා කර බලන්න" : "Interactive Self-Suitability Check"}</h3>
+              <p>{isSi ? "ඔබේ කැමැත්තට සහ දක්ෂතාවලට අදාළ ප්‍රකාශ තෝරන්න:" : "Check all statements that describe your natural strengths and interests:"}</p>
             </div>
           </div>
 
           <div className="assessment-score-badge">
             <Trophy size={16} aria-hidden="true" />
             <span>
-              {answeredCount} of {totalQuestions} Matched ({scorePercent}%)
+              {isSi
+                ? `ප්‍රශ්න ${totalQuestions}න් ${answeredCount}ක් ගැළපේ (${scorePercent}%)`
+                : `${answeredCount} of ${totalQuestions} Matched (${scorePercent}%)`}
             </span>
           </div>
         </div>
