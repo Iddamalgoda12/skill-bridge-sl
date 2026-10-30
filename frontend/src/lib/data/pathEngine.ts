@@ -22,6 +22,9 @@ export interface StudentProfileInput {
   olTargetOrActual?: Record<string, string>; // e.g. { maths: 'A', english: 'A', science: 'B' }
   alTargetOrActual?: Record<string, string>; // e.g. { zScore: '1.85', stream: 'Physical Science' }
   targetCareerSlug?: string;
+  targetSpecialization?: string;
+  targetUniversity?: { name: string; slug: string; degreeName: string; type: string; duration?: string; faculty?: string };
+  preferredRoute?: "STATE_UGC" | "PRIVATE_GLOBAL" | "PROFESSIONAL_BODY";
 }
 
 export interface GeneratedTask {
@@ -272,7 +275,7 @@ export function generatePersonalizedPath(
   targetCareerSlug: string,
   profile: StudentProfileInput
 ): GeneratedCareerPath {
-  const career = getCareerDetail(targetCareerSlug) || careerDetails["software-engineer"];
+  const career = getCareerDetail(targetCareerSlug) || careerDetails["engineer"];
   const stage = profile.educationStage || "ol";
   const stream = profile.currentStream || "General / Open Stream";
   const district = profile.district || "Colombo";
@@ -382,52 +385,60 @@ export function generatePersonalizedPath(
   }
 
   // Stage 4: University / Degree Admission (Applicable to all stages)
-  const topUni = career.universities[0] || {
+  const chosenUni = profile.targetUniversity || career.universities[0] || {
     name: "Recognized Sri Lankan University",
     slug: "colombo",
     degreeName: "Bachelor's Honours Degree",
-    type: "State University"
+    type: "State University",
+    duration: "3 - 4 Years",
+    faculty: "Faculty of Applied Sciences"
   };
+
+  const chosenSpecialization = profile.targetSpecialization || career.futureOutlook.growingSpecializations[0] || "Core Discipline";
 
   milestones.push({
     stageKey: "DEGREE_ADMISSION",
-    title: `University Degree: ${topUni.degreeName}`,
-    description: `Enroll in a recognized degree programme at ${topUni.name} or affiliated institute (${topUni.duration}).`,
-    whyItMatters: "A recognized undergraduate degree provides the foundational qualification for career licensure, charter, and high-paying jobs.",
-    prerequisites: "Qualifying A/L Z-score or recognized foundation / diploma entry",
-    durationMonths: 36,
+    title: `University Degree: ${chosenUni.degreeName} at ${chosenUni.name}`,
+    description: `Enroll in ${chosenUni.degreeName} (${chosenUni.faculty || "Undergraduate Faculty"}) at ${chosenUni.name} with focus on ${chosenSpecialization}.`,
+    whyItMatters: "A recognized undergraduate degree provides the foundational qualification for career licensure, charter, and high-paying jobs in Sri Lanka and abroad.",
+    prerequisites: profile.preferredRoute === "PRIVATE_GLOBAL"
+      ? "3 'S' passes in G.C.E. A/L or recognized Foundation Diploma"
+      : `Qualifying A/L Z-score benchmark (${district} district quota applies)`,
+    durationMonths: chosenUni.duration?.includes("5") ? 60 : 48,
     tasks: [
       {
-        title: `Explore ${topUni.name} profile and admission requirements on SkillBridge SL`,
-        resourceUrl: `/universities/${topUni.slug}`,
+        title: `Explore ${chosenUni.name} profile and faculty details on SkillBridge SL`,
+        resourceUrl: `/universities/${chosenUni.slug}`,
         resourceType: "UNIVERSITY",
-        notes: "Review faculties, facilities, degree accreditation, and campus life."
+        notes: `Review degree accreditation, facilities, and campus life at ${chosenUni.name}.`
       },
       {
-        title: "Submit UGC University Admission Handbook preference choices or private institute application",
-        resourceUrl: "https://ugc.ac.lk",
+        title: profile.preferredRoute === "PRIVATE_GLOBAL"
+          ? `Submit direct undergraduate admission application to ${chosenUni.name}`
+          : `List ${chosenUni.name} preferences in UGC Sri Lanka University Admission Handbook`,
+        resourceUrl: profile.preferredRoute === "PRIVATE_GLOBAL" ? `/universities/${chosenUni.slug}` : "https://ugc.ac.lk",
         resourceType: "OFFICIAL_GUIDE",
-        notes: "Carefully order course preferences based on previous year cutoff Z-scores."
+        notes: "Prioritize your preferred degree programme and check entry benchmarks."
       },
       {
-        title: "Maintain strong academic GPA (First Class or Second Upper honours target)",
-        notes: "Crucial for postgraduate scholarships and competitive recruitment."
+        title: `Excel in foundational coursework and maintain strong GPA in ${chosenSpecialization}`,
+        notes: "Target First Class or Second Upper honours."
       }
     ]
   });
 
-  // Stage 5: Industry Training, Internships & Licensure
+  // Stage 5: Specialization Training, Internships & Licensure
   milestones.push({
     stageKey: "PRACTICAL_TRAINING",
-    title: "Internships, Practical Articleship & Professional Licensure",
-    description: "Complete mandatory industrial training, clinical rotations, or professional examinations to attain recognized credentials.",
+    title: `Specialization & Industry Licensure: ${chosenSpecialization}`,
+    description: `Complete mandatory industrial training, practical articleship, and gain specialized competencies in ${chosenSpecialization}.`,
     whyItMatters: "Employers and professional councils require verified real-world practical experience before conferring full chartered or registered status.",
     prerequisites: "Undergraduate degree study (3rd/4th year) or professional exams",
     durationMonths: 18,
     tasks: [
       {
         title: "Complete industrial training / articleship at approved Sri Lankan firms",
-        notes: "Gain hands-on industry experience under chartered mentors."
+        notes: `Gain hands-on industry experience in ${chosenSpecialization} under chartered mentors.`
       },
       {
         title: "Build portfolio and master key technical tools: " + career.skills.technical.slice(0, 2).map(t => t.name).join(", "),
@@ -479,7 +490,9 @@ export function generatePersonalizedPath(
   });
 
   return {
-    title: `${career.title.split("/")[0].trim()} Career Roadmap`,
+    title: profile.targetSpecialization
+      ? `${career.title.split("/")[0].trim()} (${profile.targetSpecialization}) Roadmap`
+      : `${career.title.split("/")[0].trim()} Career Roadmap`,
     targetCareerSlug: career.slug,
     educationStage: stage,
     currentStream: stream,

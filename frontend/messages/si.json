@@ -10,6 +10,7 @@
     "logoAlt": "SkillBridge SL — ඔයාගෙ අනාගතය. ඔයාගෙම path එක.",
     "careers": "Careers හොයන්න",
     "path": "ඔයාගෙ Path එක",
+    "myPath": "මගේ Roadmap එක",
     "universities": "Universities",
     "about": "අප ගැන",
     "account": "Account එක",
@@ -28,6 +29,7 @@
     "description": {
       "careers": "ඔයාට හරියන career එක හොයාගන්න",
       "path": "ඔයාගෙම roadmap එක හදාගන්න",
+      "myPath": "ඔයාගෙ active roadmap එක සහ tasks බලන්න",
       "universities": "ඔයාට ගැළපෙන university එක හොයාගන්න",
       "about": "SkillBridge ගැන තව විස්තර දැනගන්න",
       "home": "ප්‍රධාන මුල් පිටුවට පිවිසෙන්න"
@@ -479,9 +481,9 @@
       },
       "engineer": {
         "title": "Engineer (ඉංජිනේරුවරයා)",
-        "summary": "රටේ යටිතල පහසුකම්, අලුත් තාක්ෂණික පද්ධති සහ යන්ත්‍ර සූත්‍ර නිර්මාණය කර මෙහෙයවන්න.",
-        "employers": "Access · Maga · CEB · MAS · Dialog",
-        "entry": "A/L Combined Maths + පිළිගත් B.Sc. Engineering degree එකක්"
+        "summary": "මෘදුකාංග පද්ධති (Software), ක්ලවුඩ් ආකෘති, යටිතල පහසුකම් සහ කාර්මික තාක්ෂණයන් නිර්මාණය කර මෙහෙයවන්න.",
+        "employers": "WSO2 · Sysco LABS · Access · Maga · CEB · MAS · Dialog",
+        "entry": "A/L Combined Maths / Science / Tech + පිළිගත් B.Sc. Engineering degree එකක් (Software, Civil, Mech, Elec)"
       },
       "lawyer": {
         "title": "Lawyer (නීතිඥවරයා)",

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useLocale } from "next-intl";
 import {
   Building2,
   Cpu,
@@ -383,11 +384,21 @@ const disciplines: Discipline[] = [
 ];
 
 export function EngineeringFields() {
+  const locale = useLocale();
+  const isSi = locale === "si";
   const [activeFilter, setActiveFilter] = useState<"all" | "civil" | "mechanical" | "computing" | "specialized">("all");
   const [selectedDiscipline, setSelectedDiscipline] = useState<string | null>("software-engineering");
 
   const filtered = disciplines.filter((d) => activeFilter === "all" || d.category === activeFilter);
   const activeItem = disciplines.find((d) => d.id === selectedDiscipline) || disciplines[0];
+
+  const filterTabs = [
+    { key: "all", label: isSi ? `සියලු අංශ (${disciplines.length})` : `All Disciplines (${disciplines.length})` },
+    { key: "computing", label: isSi ? "Software & IT ක්ෂේත්‍ර" : "Software, Cloud & Tech" },
+    { key: "civil", label: isSi ? "සිවිල් & ඉදිකිරීම්" : "Infrastructure & Built" },
+    { key: "mechanical", label: isSi ? "යාන්ත්‍රික & බලශක්ති" : "Machinery & Power" },
+    { key: "specialized", label: isSi ? "විශේෂඥ ඉංජිනේරු අංශ" : "High-Tech & Specialized" },
+  ];
 
   return (
     <div className="engineering-fields-experience section-block">
@@ -395,31 +406,27 @@ export function EngineeringFields() {
       <section className="glass-panel" style={{ padding: "28px 24px", marginBottom: "32px", borderRadius: "24px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px", flexWrap: "wrap" }}>
           <span className="eyebrow-pill" style={{ margin: 0 }}>
-            <Award size={15} /> Washington Accord & IESL Accredited
+            <Award size={15} /> {isSi ? "IESL & Washington Accord පිළිගත්" : "Washington Accord & IESL Accredited"}
           </span>
           <span className="eyebrow-pill" style={{ margin: 0, background: "rgba(22, 101, 52, 0.1)", color: "#166534" }}>
-            <CheckCircle2 size={15} /> All 17 Engineering & Tech Branches
+            <CheckCircle2 size={15} /> {isSi ? "ශ්‍රී ලංකාවේ සියලුම ඉංජිනේරු අංශ 17" : "All 17 Engineering & Tech Branches"}
           </span>
         </div>
         <h2 style={{ fontSize: "28px", fontWeight: 700, margin: "10px 0 12px", color: "var(--forest)" }}>
-          All Engineering Disciplines & Tech Specialisations in Sri Lanka
+          {isSi
+            ? "ශ්‍රී ලංකාවේ සියලුම ඉංජිනේරු සහ තාක්ෂණික විශේෂඥ අංශ"
+            : "All Engineering Disciplines & Tech Specialisations in Sri Lanka"}
         </h2>
         <p className="muted" style={{ fontSize: "14.5px", lineHeight: 1.6, maxWidth: "880px", margin: 0 }}>
-          All technical, software, cloud, cybersecurity, AI, hardware, civil, mechanical, and industrial engineering branches
-          are unified under the Engineering discipline. Undergraduates begin with foundational physical science and engineering mathematics
-          before advancing to their specialized engineering domains.
+          {isSi
+            ? "මෘදුකාංග, ක්ලවුඩ්, AI, හාඩ්වෙයාර්, සිවිල්, යාන්ත්‍රික ඇතුළු සියලුම තාක්ෂණික අංශ ඉංජිනේරු ක්ෂේත්‍රය යටතට අයත් වේ. උසස් පෙළ ගණිත අංශයෙන් ඇතුළත් වන සිසුන් මූලික ඉංජිනේරු විද්‍යාව හැදෑරීමෙන් පසු තම විශේෂඥ අංශය තෝරා ගනී."
+            : "All technical, software, cloud, cybersecurity, AI, hardware, civil, mechanical, and industrial engineering branches are unified under the Engineering discipline. Undergraduates begin with foundational physical science and engineering mathematics before advancing to their specialized engineering domains."}
         </p>
       </section>
 
       {/* Filter Tabs */}
       <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginBottom: "24px" }}>
-        {[
-          { key: "all", label: `All Disciplines (${disciplines.length})` },
-          { key: "computing", label: "Software, Cloud & Tech" },
-          { key: "civil", label: "Infrastructure & Built" },
-          { key: "mechanical", label: "Machinery & Power" },
-          { key: "specialized", label: "High-Tech & Specialized" },
-        ].map((tab) => (
+        {filterTabs.map((tab) => (
           <button
             key={tab.key}
             type="button"
@@ -563,7 +570,7 @@ export function EngineeringFields() {
         >
           <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "8px" }}>
             <span className="eyebrow-pill" style={{ margin: 0 }}>
-              <Sparkles size={14} /> In-Depth Field Spotlight
+              <Sparkles size={14} /> {isSi ? "ක්ෂේත්‍රය පිළිබඳ ගැඹුරු විමසුම" : "In-Depth Field Spotlight"}
             </span>
             <span style={{ fontSize: "12px", color: "var(--muted-ink)" }}>
               {activeItem.degree}
@@ -571,21 +578,21 @@ export function EngineeringFields() {
           </div>
 
           <h2 style={{ fontSize: "26px", fontWeight: 700, margin: "6px 0 2px", color: "var(--forest)" }}>
-            {activeItem.titleEn}
+            {isSi ? activeItem.titleSi : activeItem.titleEn}
           </h2>
           <p style={{ fontSize: "15px", color: "#64748b", margin: "0 0 16px", fontWeight: 500 }}>
-            {activeItem.titleSi}
+            {isSi ? activeItem.titleEn : activeItem.titleSi}
           </p>
 
           <p style={{ fontSize: "14.5px", lineHeight: 1.6, color: "#334155", marginBottom: "22px" }}>
-            {activeItem.summaryEn} {activeItem.summarySi}
+            {isSi ? activeItem.summarySi : `${activeItem.summaryEn} ${activeItem.summarySi}`}
           </p>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "20px" }}>
             {/* Core Specialisations */}
             <div className="glass-panel" style={{ padding: "18px", borderRadius: "16px", background: "rgba(255,255,255,0.8)" }}>
               <h4 style={{ fontSize: "14px", fontWeight: 700, color: "var(--forest)", marginBottom: "10px", display: "flex", alignItems: "center", gap: "6px" }}>
-                <BookOpen size={16} /> Key Study Areas & Modules
+                <BookOpen size={16} /> {isSi ? "ප්‍රධාන අධ්‍යයන විෂයයන් සහ මොඩියුල" : "Key Study Areas & Modules"}
               </h4>
               <ul style={{ margin: 0, paddingLeft: "18px", fontSize: "13px", lineHeight: 1.6, color: "#475569" }}>
                 {activeItem.specialisations.map((spec) => (
@@ -597,7 +604,7 @@ export function EngineeringFields() {
             {/* Top Employers */}
             <div className="glass-panel" style={{ padding: "18px", borderRadius: "16px", background: "rgba(255,255,255,0.8)" }}>
               <h4 style={{ fontSize: "14px", fontWeight: 700, color: "var(--forest)", marginBottom: "10px", display: "flex", alignItems: "center", gap: "6px" }}>
-                <Briefcase size={16} /> Top Employers in Sri Lanka
+                <Briefcase size={16} /> {isSi ? "ශ්‍රී ලංකාවේ ප්‍රමුඛ සේවා යෝජකයින්" : "Top Employers in Sri Lanka"}
               </h4>
               <ul style={{ margin: 0, paddingLeft: "18px", fontSize: "13px", lineHeight: 1.6, color: "#475569" }}>
                 {activeItem.employers.map((emp) => (
@@ -609,7 +616,7 @@ export function EngineeringFields() {
             {/* Where to Study */}
             <div className="glass-panel" style={{ padding: "18px", borderRadius: "16px", background: "rgba(255,255,255,0.8)" }}>
               <h4 style={{ fontSize: "14px", fontWeight: 700, color: "var(--forest)", marginBottom: "10px", display: "flex", alignItems: "center", gap: "6px" }}>
-                <GraduationCap size={16} /> Universities Offering This Field
+                <GraduationCap size={16} /> {isSi ? "මෙම ක්ෂේත්‍රය පවතින විශ්වවිද්‍යාල" : "Universities Offering This Field"}
               </h4>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "7px" }}>
                 {activeItem.universities.map((uni) => (
@@ -651,6 +658,29 @@ export function EngineeringFields() {
               </div>
             </div>
           </div>
+
+          <div style={{ marginTop: "24px", paddingTop: "18px", borderTop: "1px dashed rgba(171, 131, 39, 0.3)", display: "flex", gap: "12px", flexWrap: "wrap", alignItems: "center" }}>
+            <Link
+              href="/build-your-path?career=engineer"
+              className="glass-button gold-glass"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                padding: "10px 18px",
+                borderRadius: "14px",
+                fontWeight: 700,
+                fontSize: "13.5px",
+              }}
+            >
+              <span>
+                {isSi
+                  ? `${activeItem.titleSi} ඉලක්ක කරගත් Roadmap එක හදන්න`
+                  : `Build Your Engineering Roadmap (${activeItem.titleEn})`}
+              </span>
+              <ArrowRight size={14} />
+            </Link>
+          </div>
         </section>
       )}
 
@@ -658,13 +688,15 @@ export function EngineeringFields() {
       <section className="section-block">
         <div style={{ textAlign: "center", maxWidth: "720px", margin: "0 auto 32px" }}>
           <span className="eyebrow-pill">
-            <Compass size={14} /> Professional Journey
+            <Compass size={14} /> {isSi ? "වෘත්තීය ගමන් මග" : "Professional Journey"}
           </span>
           <h2 style={{ fontSize: "28px", fontWeight: 700, margin: "10px 0 8px", color: "var(--forest)" }}>
-            Pathway to Becoming a Chartered Engineer (CEng)
+            {isSi ? "වරලත් ඉංජිනේරුවරයෙකු (CEng) වීමේ නිල පියවර" : "Pathway to Becoming a Chartered Engineer (CEng)"}
           </h2>
           <p className="muted" style={{ fontSize: "14.5px" }}>
-            The official step-by-step pathway in Sri Lanka accredited by the Institution of Engineers, Sri Lanka (IESL) and the Washington Accord.
+            {isSi
+              ? "ශ්‍රී ලංකා ඉංජිනේරු ආයතනය (IESL) සහ Washington Accord විසින් පිළිගත් නිල පියවරෙන් පියවර මාර්ගය."
+              : "The official step-by-step pathway in Sri Lanka accredited by the Institution of Engineers, Sri Lanka (IESL) and the Washington Accord."}
           </p>
         </div>
 

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Landmark, BookOpen, Trophy, Compass, Users2, Cpu } from "lucide-react";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import type { FacilityItem } from "@/lib/data/universityDetails";
 
 const toneToClass: Record<string, string> = {
@@ -23,7 +23,11 @@ export async function RuhunaFacilities({
   isRuhuna?: boolean;
   universityName?: string;
 }) {
-  const t = await getTranslations("universityDetail.facilitiesSection");
+  const [t, locale] = await Promise.all([
+    getTranslations("universityDetail.facilitiesSection"),
+    getLocale(),
+  ]);
+  const isSi = locale === "si";
 
   const ruhunaFacilities = [
     {
@@ -84,13 +88,15 @@ export async function RuhunaFacilities({
 
   const items = propFacilities || (isRuhuna ? ruhunaFacilities : []);
 
-  const eyebrowText = isRuhuna ? t("eyebrow") : "CAMPUS INFRASTRUCTURE & LIFE";
+  const eyebrowText = isSi ? "පහසුකම් සහ ශිෂ්‍ය ජීවිතය" : (isRuhuna ? t("eyebrow") : "CAMPUS INFRASTRUCTURE & LIFE");
   const titleText = isRuhuna
     ? t("title")
-    : `World-Class Amenities at ${universityName || "the University"}`;
+    : (isSi ? `${universityName || "විශ්වවිද්‍යාලයේ"} විශිෂ්ට පහසුකම්` : `World-Class Amenities at ${universityName || "the University"}`);
   const descText = isRuhuna
     ? t("description")
-    : `From cutting-edge digital libraries and specialised research centres to vibrant residential hostels and athletic arenas.`;
+    : (isSi
+        ? "ඩිජිටල් පුස්තකාල, විශේෂිත පර්යේෂණාගාර, ක්‍රීඩා සංකීර්ණ සහ සුවපහසු ශිෂ්‍ය නේවාසිකාගාර."
+        : `From cutting-edge digital libraries and specialised research centres to vibrant residential hostels and athletic arenas.`);
 
   return (
     <section id="facilities" className="section-block ruhuna-facilities-section">

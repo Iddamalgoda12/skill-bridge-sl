@@ -422,58 +422,59 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "engineer": {
     "slug": "engineer",
-    "title": "Chartered Engineer",
-    "sinhalaTitle": "වෘත්තීය ඉංජිනේරුවරයා (Civil / Mech / Elec)",
+    "title": "Engineer (Software, Civil, Mech, Elec)",
+    "sinhalaTitle": "වෘත්තීය ඉංජිනේරුවරයා (Software / Civil / Mech / Elec)",
     "category": "Engineering",
-    "tagline": "Design modern infrastructure, renewable energy grids, robotics, and industrial technology shaping Sri Lanka's future.",
+    "tagline": "Design cutting-edge software platforms, modern infrastructure, renewable energy grids, robotics, and industrial technology shaping Sri Lanka's future.",
     "heroImage": "/images/careers/engineer.jpg",
     "roleOverview": {
-      "whatTheyDo": "Engineers apply mathematics, physics, and computational sciences to conceive, design, build, and optimize physical and digital systems — from towering high-rises, expressways, and sea ports to renewable solar grids, automated factories, and aerospace components.",
-      "whyItMatters": "Engineers are the physical builders of civilizations. In Sri Lanka, engineers drive national mega-projects (Colombo Port City, Moragahakanda, highway networks), maintain energy security at the CEB, and power high-tech manufacturing exports (MAS, Brandix, Hayleys).",
+      "whatTheyDo": "Engineers apply mathematics, physics, computational sciences, and software systems design to build both digital and physical systems — from enterprise cloud platforms and artificial intelligence engines to towering infrastructure, expressways, renewable solar grids, automated manufacturing lines, and telecommunications networks.",
+      "whyItMatters": "Engineers build and power national infrastructure and digital economies. In Sri Lanka, engineers create multi-billion dollar tech exports at WSO2 and Sysco LABS, execute mega-projects (Colombo Port City, highway networks), maintain energy security at the CEB, and drive high-tech automated manufacturing at MAS and Brandix.",
       "dailyResponsibilities": [
-        "Formulate structural, electrical, or mechanical engineering designs using CAD and finite element analysis (FEA) software.",
-        "Inspect construction sites, manufacturing assembly lines, and electrical substations for quality and safety compliance.",
-        "Calculate bills of quantities (BOQs), material specifications, project cost estimates, and procurement schedules.",
-        "Collaborate with architects, quantity surveyors, project managers, and environmental authorities.",
-        "Diagnose mechanical failures, power transmission grid faults, and implement industrial automation."
+        "Architect scalable cloud backends, microservices, CAD structural frameworks, or mechanical automation systems.",
+        "Inspect site construction, automated manufacturing assembly lines, or code CI/CD test pipelines for safety and quality compliance.",
+        "Calculate bills of quantities (BOQs), algorithmic complexity benchmarks, material specifications, and project budgets.",
+        "Collaborate with architects, product managers, quantity surveyors, and environmental authorities.",
+        "Diagnose distributed system failures, mechanical breakdowns, and implement high-reliability automation."
       ],
-      "workEnvironment": "Split between modern design consultancies (air-conditioned engineering offices, computer workstations) and rugged field environments (construction sites, industrial factories, power stations, ports).",
-      "lifestyleAndBalance": "Structured 45-hour work weeks in corporate and design consultancy roles, with periodic demanding project milestone sprints and on-site oversight during concrete pours or commissioning.",
+      "workEnvironment": "Split between modern tech & design consultancies (high-performance workstations, air-conditioned engineering offices) and field environments (construction sites, manufacturing facilities, power stations, ports).",
+      "lifestyleAndBalance": "Structured 45-hour work weeks in software tech and design consultancy roles, with periodic demanding project milestone sprints or on-site commissioning oversight.",
       "typicalEmployers": [
+        "WSO2 · Sysco LABS · IFS · London Stock Exchange Group (LSEG)",
         "Access Engineering · Maga Engineering · ICC",
-        "Ceylon Electricity Board (CEB) · Sri Lanka Telecom (SLT)",
+        "Ceylon Electricity Board (CEB) · Sri Lanka Telecom (SLT) · Dialog Axiata",
         "Central Engineering Consultancy Bureau (CECB) · RDA",
         "MAS Holdings · Brandix · Unilever Sri Lanka",
         "Global Engineering Consultancies (Arup, WSP, Jacobs)"
       ],
-      "sriLankanSuccessStory": "An A/L physical science graduate from Galle enters University of Moratuwa Civil Engineering, leads a bridge construction project at Access Engineering, gains IESL Charter (CEng), and progresses to Regional Project Director overseeing international infrastructure tenders across South Asia."
+      "sriLankanSuccessStory": "An A/L student from Galle completes Moratuwa Engineering, architects core distributed cloud engines at WSO2, attains Chartered Engineer (CEng) status from IESL, and progresses to VP of Global Engineering leading multi-million-dollar technology infrastructure."
     },
     "salary": {
       "entryLevel": {
-        "min": 90000,
-        "max": 165000,
-        "label": "LKR 90k – 165k / month"
+        "min": 100000,
+        "max": 200000,
+        "label": "LKR 100k – 200k / month"
       },
       "midLevel": {
-        "min": 220000,
-        "max": 450000,
-        "label": "LKR 220k – 450k / month"
+        "min": 240000,
+        "max": 650000,
+        "label": "LKR 240k – 650k / month"
       },
       "seniorLevel": {
-        "min": 500000,
-        "max": 1600000,
-        "label": "LKR 500k – 1.6M+ / month"
+        "min": 600000,
+        "max": 2500000,
+        "label": "LKR 600k – 2.5M+ / month"
       },
       "govSector": "Public sector engineering officers at CEB, CECB, RDA, and Irrigation Department start at executive salary scales of LKR 85,000–120,000 + allowances, reaching LKR 250,000+ for Chief Engineers.",
-      "privateSector": "Top private construction giants, manufacturing conglomerates (MAS, Brandix), and multinational consultancies pay LKR 120,000–180,000 for fresh graduates and over LKR 600,000–1,200,000 for Chartered Chief Engineers and Project Managers.",
-      "overseasOpportunities": "IESL Washington Accord accredited engineers have immediate mutual recognition in Australia, UK, Canada, and the Gulf (Dubai, Qatar, Saudi Arabia), earning USD $3,500 to $10,000/month (LKR 1M–3M/mo tax-free).",
+      "privateSector": "Top private tech product firms (WSO2, Sysco LABS, IFS) and construction giants (Access, Maga) pay LKR 140,000–220,000 for top fresh graduates and LKR 750,000–2,500,000+ for Lead Architects, Chartered Chief Engineers, and Engineering Directors.",
+      "overseasOpportunities": "IESL Washington Accord accredited engineers and elite software architects have immediate mutual recognition in Australia, UK, Canada, Singapore, and the Gulf, earning USD $4,000 to $14,000/month (LKR 1.2M–4.2M/mo).",
       "factors": [
-        "Chartered Engineer (CEng) status from IESL",
-        "Washington Accord degree accreditation",
-        "Mega-project management experience (FIDIC contracts)",
-        "Sub-specialty (structural, MEP, mechatronics)"
+        "Chartered Engineer (CEng) status from IESL / BCS / IEEE",
+        "Washington Accord / SLIIT / state university degree accreditation",
+        "High-scale system architecture and distributed cloud expertise",
+        "Sub-specialty (Software/AI, Structural, MEP, Mechatronics)"
       ],
-      "source": "Institution of Engineers Sri Lanka (IESL), Construction Industry Development Authority (CIDA) & Top Employer Surveys",
+      "source": "Institution of Engineers Sri Lanka (IESL), SLASSCOM IT-BPM Salary Survey & CIDA Reports",
       "lastUpdated": "October 2026"
     },
     "education": {
@@ -685,24 +686,25 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "The engineering sector is pivoting rapidly toward renewable energy transitions (solar/wind/green hydrogen), smart automated factories, climate-resilient civil infrastructure, and electric mobility.",
       "aiImpact": "Generative CAD, automated structural topology optimization, and AI predictive maintenance will accelerate routine engineering calculations, empowering engineers to focus on higher-level architecture and safety.",
       "growingSpecializations": [
-        "Renewable Energy & Smart Grid Engineering",
+        "Software Engineering & Cloud Architectures",
+        "Artificial Intelligence & Machine Learning Systems",
         "Robotics & Industrial Automation (Mechatronics)",
-        "Environmental & Coastal Resilient Engineering",
-        "Biomedical Equipment Engineering",
-        "Data Centre & Mission-Critical Facilities Engineering"
+        "Civil & Structural Infrastructure",
+        "Renewable Energy & Smart Grid Engineering",
+        "Electronic & Telecommunications Engineering"
       ],
-      "globalDemand": "Massive global engineering shortage across Australia (Engineers Australia fast-track PR), Canada, Germany, and the Gulf Cooperation Council (GCC) for Washington Accord graduates.",
+      "globalDemand": "Massive global engineering shortage across Australia (Engineers Australia fast-track PR), Canada, Germany, UK, and the Gulf Cooperation Council (GCC) for Washington Accord graduates and software architects.",
       "challenges": [
+        "Keeping pace with rapid AI and cloud architectural transformations",
         "Fluctuations in local construction sector investment cycles",
-        "Rising material costs requiring creative value-engineering",
         "Mandate to integrate carbon-neutral and eco-friendly green materials"
       ]
     },
     "relatedCareers": [
       {
-        "slug": "software-engineer",
-        "title": "Software Engineer",
-        "category": "Technology"
+        "slug": "architect",
+        "title": "Architect",
+        "category": "Creative"
       },
       {
         "slug": "quantity-surveyor",
@@ -710,14 +712,14 @@ export const careerDetails: Record<string, CareerDetail> = {
         "category": "Construction"
       },
       {
-        "slug": "architect",
-        "title": "Architect",
-        "category": "Creative"
-      },
-      {
         "slug": "marine-officer",
         "title": "Marine Officer",
         "category": "Maritime"
+      },
+      {
+        "slug": "airline-pilot",
+        "title": "Airline Pilot",
+        "category": "Aviation"
       },
       {
         "slug": "air-traffic-controller",
@@ -730,7 +732,7 @@ export const careerDetails: Record<string, CareerDetail> = {
     "slug": "software-engineer",
     "title": "Software Engineer & Tech Lead",
     "sinhalaTitle": "මෘදුකාංග ඉංජිනේරුවරයා",
-    "category": "Technology",
+    "category": "Engineering",
     "tagline": "Architect high-scale cloud platforms, enterprise mobile apps, and cutting-edge AI systems powering global software giants.",
     "heroImage": "/images/careers/software-engineer.jpg",
     "roleOverview": {

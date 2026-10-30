@@ -1,7 +1,7 @@
 import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
 import { Route } from "lucide-react";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { getCareerDetail, getAllCareerSlugs } from "@/lib/data/careerDetails";
 import { getCareer } from "@/lib/api/catalog";
 import { localizeCareer } from "@/lib/i18n/catalog";
@@ -22,6 +22,7 @@ type Props = { params: Promise<{ slug: string }> };
 
 // Subfield redirects for engineering specializations
 const ENGINEERING_SPECIALIZATIONS = [
+  "software-engineer",
   "civil-engineer",
   "mechanical-engineer",
   "electrical-engineer",
@@ -71,6 +72,8 @@ export default async function CareerPage({ params }: Props) {
   // Load detailed career record
   const detail = getCareerDetail(slug);
   const isEngineer = slug === "engineer";
+  const locale = await getLocale();
+  const isSi = locale === "si";
 
   if (!detail) {
     // Fallback to legacy catalog if exists, or 404
@@ -135,16 +138,22 @@ export default async function CareerPage({ params }: Props) {
             <Route size={22} aria-hidden="true" />
           </span>
           <div>
-            <h3>Ready to build your personalized career roadmap?</h3>
+            <h3>
+              {isSi
+                ? "ඔයාගෙම වෘත්තීය මාර්ග සැලසුම හදාගන්න සූදානම්ද?"
+                : "Ready to build your personalized career roadmap?"}
+            </h3>
             <p className="cta-sub">
-              Map out your O/L, A/L subject combinations, universities, and milestone goals on SkillBridge SL.
+              {isSi
+                ? "O/L, A/L විෂය ධාරාව, විශ්වවිද්‍යාල සහ ඉලක්කගත ජයග්‍රහණ SkillBridge SL හරහා පහසුවෙන්ම සැලසුම් කරන්න."
+                : "Map out your O/L, A/L subject combinations, universities, and milestone goals on SkillBridge SL."}
             </p>
           </div>
         </div>
         <div className="cta-right-actions">
           <SaveButton id={detail.slug} title={detail.title} />
           <ActionLink href="/build-your-path" icon={<Route size={16} />}>
-            Build My Career Path
+            {isSi ? "මගේ Career Path එක හදන්න" : "Build My Career Path"}
           </ActionLink>
         </div>
       </div>

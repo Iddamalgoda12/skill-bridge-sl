@@ -9,6 +9,7 @@ const destinations = [
   { href: "/", key: "home", icon: null, chevron: "/design/mobile-sidebar/icons/explore-careers-chevron.svg" },
   { href: "/careers", key: "careers", icon: "/design/mobile-sidebar/icons/explore-careers-icon-background.svg", chevron: "/design/mobile-sidebar/icons/explore-careers-chevron.svg" },
   { href: "/build-your-path", key: "path", icon: "/design/mobile-sidebar/icons/build-your-path-icon-background.svg", chevron: "/design/mobile-sidebar/icons/build-your-path-chevron.svg" },
+  { href: "/my-path", key: "myPath", icon: "/design/mobile-sidebar/icons/build-your-path-icon-background.svg", chevron: "/design/mobile-sidebar/icons/build-your-path-chevron.svg" },
   { href: "/universities", key: "universities", icon: "/design/mobile-sidebar/icons/universities-icon-background.svg", chevron: "/design/mobile-sidebar/icons/build-your-path-chevron.svg" },
   { href: "/about", key: "about", icon: "/design/mobile-sidebar/icons/about-icon-background.svg", chevron: "/design/mobile-sidebar/icons/build-your-path-chevron.svg" },
 ] as const;

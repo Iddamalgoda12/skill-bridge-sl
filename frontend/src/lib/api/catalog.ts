@@ -15,7 +15,6 @@ async function catalog<T>(resource: string, sample: T[], required: (keyof T)[]):
 export const getCareers = () => catalog<Career>("careers/public", sampleCareers, ["slug", "title", "category"]);
 export const getUniversities = () => catalog<University>("universities/public", sampleUniversities, ["slug", "name", "areas", "type"]);
 const ENGINEERING_SLUGS = [
-  "software-engineer",
   "cloud-architect",
   "cybersecurity-analyst",
   "ai-engineer",
