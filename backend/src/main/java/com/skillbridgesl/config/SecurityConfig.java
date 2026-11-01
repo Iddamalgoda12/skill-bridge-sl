@@ -32,6 +32,8 @@ public class SecurityConfig {
         "/auth/**",
         "/contact",
         "/courses/public/**",
+        "/careers/public/**",
+        "/universities/public/**",
         "/categories/**",
         "/actuator/health",
         "/actuator/info",

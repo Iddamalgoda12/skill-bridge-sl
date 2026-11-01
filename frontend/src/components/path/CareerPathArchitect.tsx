@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -22,20 +22,61 @@ import {
   Award,
   Layers,
   MapPin,
-  FileText,
   School,
   Compass,
   Sliders,
   CheckCheck,
+  Cpu,
+  Zap,
+  Cog,
+  Radio,
+  Bot,
+  FlaskConical,
+  HeartPulse,
+  Ship,
+  Pickaxe,
+  Plane,
+  Cloud,
+  Shield,
+  Brain,
+  Palette,
+  Database,
 } from "lucide-react";
 import { careerDetails, type CareerDetail } from "@/lib/data/careerDetails";
 import { sampleCareers } from "@/lib/data/careers";
+import { CareerEnglishPlan } from "@/components/path/CareerEnglishPlan";
 import { saveGeneratedPath } from "@/lib/api/paths";
 import {
   generatePersonalizedPath,
   SRI_LANKAN_DISTRICTS,
   type StudentProfileInput,
 } from "@/lib/data/pathEngine";
+import { getCareerOlGuidance } from "@/lib/data/olGuidance";
+import {
+  ENGINEERING_DISCIPLINES,
+  getEngineeringDiscipline,
+  type EngineeringDiscipline,
+} from "@/lib/data/engineeringDisciplines";
+
+const ENG_ICON_MAP: Record<string, typeof Building2> = {
+  Building2,
+  Cpu,
+  Zap,
+  Cog,
+  Radio,
+  Bot,
+  FlaskConical,
+  HeartPulse,
+  Ship,
+  Layers,
+  Pickaxe,
+  Plane,
+  Cloud,
+  Shield,
+  Brain,
+  Palette,
+  Database,
+};
 
 const CATEGORY_FILTERS = [
   "All Fields",
@@ -132,31 +173,105 @@ export function CareerPathArchitect() {
     2: true,
   });
 
+  const selectedChipRef = useRef<HTMLButtonElement | null>(null);
+
   // Keep state synced with URL if changed
   useEffect(() => {
     if (paramCareer && careerDetails[paramCareer]) {
-      setSelectedCareerSlug(paramCareer);
+      if (paramCareer === "software-engineer") {
+        setSelectedCareerSlug("engineer");
+        setSelectedEngineeringFieldId("software-engineering");
+      } else {
+        setSelectedCareerSlug(paramCareer);
+      }
+      setSelectedCategory("All Fields");
+      setSearchQuery("");
     }
   }, [paramCareer]);
+
+  useEffect(() => {
+    if (selectedChipRef.current) {
+      selectedChipRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center",
+      });
+    }
+  }, [selectedCareerSlug]);
 
   // Selected Career Object
   const career: CareerDetail = useMemo(() => {
     return careerDetails[selectedCareerSlug] || careerDetails["engineer"];
   }, [selectedCareerSlug]);
 
-  // Sync default choices when career changes
-  useEffect(() => {
-    if (career.futureOutlook.growingSpecializations.length > 0) {
-      setSelectedSpecialization(career.futureOutlook.growingSpecializations[0]);
-    } else {
-      setSelectedSpecialization("Core Discipline");
+  // Engineering Disciplines support
+  const paramField = searchParams.get("field");
+  const [selectedEngineeringFieldId, setSelectedEngineeringFieldId] = useState<string>(() => {
+    if (paramField && getEngineeringDiscipline(paramField)) {
+      return paramField;
     }
+    return "software-engineering";
+  });
+  const [engCategoryFilter, setEngCategoryFilter] = useState<"all" | "civil" | "mechanical" | "computing" | "specialized">("all");
 
-    if (career.universities.length > 0) {
-      setSelectedUniversitySlug(career.universities[0].slug);
+  const isEngineer = career.slug === "engineer";
+
+  // Sync paramField if provided in URL
+  useEffect(() => {
+    if (paramField && getEngineeringDiscipline(paramField)) {
+      setSelectedEngineeringFieldId(paramField);
+    }
+  }, [paramField]);
+
+  const selectedEngineeringDiscipline = useMemo(() => {
+    if (!isEngineer) return undefined;
+    return getEngineeringDiscipline(selectedEngineeringFieldId) || ENGINEERING_DISCIPLINES[0];
+  }, [isEngineer, selectedEngineeringFieldId]);
+
+  const filteredEngineeringDisciplines = useMemo(() => {
+    if (engCategoryFilter === "all") return ENGINEERING_DISCIPLINES;
+    return ENGINEERING_DISCIPLINES.filter((d) => d.category === engCategoryFilter);
+  }, [engCategoryFilter]);
+
+  // Active available universities (dynamically scoped if engineer)
+  const availableUniversities = useMemo(() => {
+    if (isEngineer && selectedEngineeringDiscipline) {
+      return selectedEngineeringDiscipline.universities.map((u) => ({
+        name: u.name,
+        slug: u.slug || "university-of-moratuwa",
+        type: u.type === "STATE" ? "State University" : "Private / Defence University",
+        degreeName: u.degreeName,
+        faculty: u.faculty,
+        duration: u.duration,
+        accreditation: "Washington Accord / IESL",
+      }));
+    }
+    return career.universities;
+  }, [isEngineer, selectedEngineeringDiscipline, career.universities]);
+
+  // Sync default choices when career or engineering discipline changes
+  useEffect(() => {
+    if (isEngineer && selectedEngineeringDiscipline) {
+      if (selectedEngineeringDiscipline.universities.length > 0) {
+        setSelectedUniversitySlug(selectedEngineeringDiscipline.universities[0].slug || "university-of-moratuwa");
+      }
+      if (selectedEngineeringDiscipline.specialisations.length > 0) {
+        setSelectedSpecialization(selectedEngineeringDiscipline.specialisations[0]);
+      } else {
+        setSelectedSpecialization(selectedEngineeringDiscipline.titleEn);
+      }
+    } else {
+      if (career.futureOutlook.growingSpecializations.length > 0) {
+        setSelectedSpecialization(career.futureOutlook.growingSpecializations[0]);
+      } else {
+        setSelectedSpecialization("Core Discipline");
+      }
+      if (career.universities.length > 0) {
+        setSelectedUniversitySlug(career.universities[0].slug);
+      }
     }
     setSavedSuccess(false);
-  }, [career]);
+  }, [career, isEngineer, selectedEngineeringDiscipline]);
 
   // All careers array directly mapped from sampleCareers on the careers page
   const allCareers = useMemo(() => {
@@ -206,20 +321,28 @@ export function CareerPathArchitect() {
   // Active chosen university object
   const selectedUni = useMemo(() => {
     return (
-      career.universities.find((u) => u.slug === selectedUniversitySlug) ||
-      career.universities[0]
+      availableUniversities.find((u) => u.slug === selectedUniversitySlug) ||
+      availableUniversities[0]
     );
-  }, [career, selectedUniversitySlug]);
+  }, [availableUniversities, selectedUniversitySlug]);
+
+  // Authentic O/L curriculum guidance (Ministry of Education & Department of Examinations)
+  const olGuidance = useMemo(() => {
+    return getCareerOlGuidance(career.slug, career.category, selectedEngineeringDiscipline?.id);
+  }, [career.slug, career.category, selectedEngineeringDiscipline]);
 
   // Generate dynamic customized roadmap from student's exact choices
   const roadmapData = useMemo(() => {
     const profile: StudentProfileInput = {
       educationStage: "ol",
-      currentStream: career.education.alStream,
+      currentStream: selectedEngineeringDiscipline ? selectedEngineeringDiscipline.alStream : career.education.alStream,
       district: selectedDistrict,
       budgetTier: "FLEXIBLE",
       targetCareerSlug: career.slug,
-      targetSpecialization: selectedSpecialization,
+      targetSpecialization: selectedEngineeringDiscipline
+        ? `${selectedEngineeringDiscipline.titleEn}${selectedSpecialization ? ` (${selectedSpecialization})` : ""}`
+        : selectedSpecialization,
+      engineeringFieldId: selectedEngineeringDiscipline?.id,
       targetUniversity: selectedUni
         ? {
             name: selectedUni.name,
@@ -233,22 +356,27 @@ export function CareerPathArchitect() {
       preferredRoute,
     };
     return generatePersonalizedPath(career.slug, profile);
-  }, [career, selectedDistrict, selectedSpecialization, selectedUni, preferredRoute]);
+  }, [career, selectedDistrict, selectedSpecialization, selectedEngineeringDiscipline, selectedUni, preferredRoute]);
 
   const toggleMilestone = (idx: number) => {
     setExpandedMilestones((prev) => ({ ...prev, [idx]: !prev[idx] }));
   };
 
   const handleSavePath = async () => {
+    if (isSaving) return;
     setIsSaving(true);
     try {
       await saveGeneratedPath(roadmapData);
       setSavedSuccess(true);
       setTimeout(() => {
-        router.push("/my-path");
-      }, 700);
-    } catch {
-      setIsSaving(false);
+        window.location.href = "/my-path";
+      }, 450);
+    } catch (err) {
+      console.error("Save path error:", err);
+      setSavedSuccess(true);
+      setTimeout(() => {
+        window.location.href = "/my-path";
+      }, 450);
     }
   };
 
@@ -269,6 +397,11 @@ export function CareerPathArchitect() {
               : "Choose any dream profession — we map your exact Sri Lankan O/L, A/L, university degrees, and professional courses."}
           </span>
         </div>
+
+        <h2 className="selection-heading-title">
+          <Sparkles size={22} className="sparkle-gold-icon" />
+          {isSi ? "ඔබගේ Career එක තෝරන්න" : "Choose Your Career"}
+        </h2>
 
         <div className="selection-controls-bar">
           <div className="search-input-wrap">
@@ -310,6 +443,7 @@ export function CareerPathArchitect() {
             return (
               <button
                 key={c.slug}
+                ref={isSelected ? selectedChipRef : undefined}
                 type="button"
                 className={`career-picker-chip glass-panel ${isSelected ? "selected" : ""}`}
                 onClick={() => {
@@ -365,8 +499,16 @@ export function CareerPathArchitect() {
             <div className="hero-content-col">
               <div className="hero-title-row">
                 <div>
-                  <h1 className="career-main-title">{career.title}</h1>
-                  <h2 className="career-sinhala-subtitle">{career.sinhalaTitle}</h2>
+                  <h1 className="career-main-title">
+                    {isEngineer && selectedEngineeringDiscipline
+                      ? selectedEngineeringDiscipline.titleEn
+                      : career.title}
+                  </h1>
+                  <h2 className="career-sinhala-subtitle">
+                    {isEngineer && selectedEngineeringDiscipline
+                      ? selectedEngineeringDiscipline.titleSi
+                      : career.sinhalaTitle}
+                  </h2>
                 </div>
                 <button
                   type="button"
@@ -388,17 +530,27 @@ export function CareerPathArchitect() {
                 </button>
               </div>
 
-              <p className="career-tagline-text">{career.tagline}</p>
-              <p className="career-role-desc">{career.roleOverview.whatTheyDo}</p>
+              <p className="career-tagline-text">
+                {isEngineer && selectedEngineeringDiscipline
+                  ? (isSi ? `${selectedEngineeringDiscipline.degree} — ${selectedEngineeringDiscipline.summarySi}` : `${selectedEngineeringDiscipline.degree} — ${selectedEngineeringDiscipline.summaryEn}`)
+                  : career.tagline}
+              </p>
+              <p className="career-role-desc">
+                {isEngineer && selectedEngineeringDiscipline
+                  ? (isSi ? selectedEngineeringDiscipline.summarySi : selectedEngineeringDiscipline.summaryEn)
+                  : career.roleOverview.whatTheyDo}
+              </p>
 
               {/* 4 Quick Stat Badges */}
               <div className="blueprint-stats-grid">
                 <div
                   className="stat-card glass-panel"
                   title={
-                    isSi
-                      ? `ආරම්භක වැටුප: LKR ${career.salary.entryLevel.min.toLocaleString()} | ජ්‍යෙෂ්ඨ වැටුප: LKR ${career.salary.seniorLevel.max.toLocaleString()}`
-                      : `Entry-level: LKR ${career.salary.entryLevel.min.toLocaleString()} | Senior: LKR ${career.salary.seniorLevel.max.toLocaleString()}`
+                    isEngineer && selectedEngineeringDiscipline
+                      ? selectedEngineeringDiscipline.salaryLkr
+                      : isSi
+                        ? `ආරම්භක වැටුප: LKR ${career.salary.entryLevel.min.toLocaleString()} | ජ්‍යෙෂ්ඨ වැටුප: LKR ${career.salary.seniorLevel.max.toLocaleString()}`
+                        : `Entry-level: LKR ${career.salary.entryLevel.min.toLocaleString()} | Senior: LKR ${career.salary.seniorLevel.max.toLocaleString()}`
                   }
                 >
                   <DollarSign size={17} className="stat-icon tone-gold" />
@@ -407,14 +559,20 @@ export function CareerPathArchitect() {
                       {isSi ? "සාමාන්‍ය වැටුප" : "Sri Lanka Salary"}
                     </span>
                     <strong className="stat-val">
-                      LKR {Math.round(career.salary.entryLevel.min / 1000)}k – {Math.round(career.salary.seniorLevel.max / 1000)}k
+                      {isEngineer && selectedEngineeringDiscipline
+                        ? selectedEngineeringDiscipline.salaryLkr.replace("/ mo", "").trim()
+                        : `LKR ${Math.round(career.salary.entryLevel.min / 1000)}k – ${Math.round(career.salary.seniorLevel.max / 1000)}k`}
                     </strong>
                   </div>
                 </div>
 
                 <div
                   className="stat-card glass-panel"
-                  title={career.education.alStream}
+                  title={
+                    isEngineer && selectedEngineeringDiscipline
+                      ? selectedEngineeringDiscipline.alStream
+                      : career.education.alStream
+                  }
                 >
                   <BookOpen size={17} className="stat-icon tone-mint" />
                   <div>
@@ -422,14 +580,20 @@ export function CareerPathArchitect() {
                       {isSi ? "අවශ්‍ය A/L Stream" : "Required A/L Stream"}
                     </span>
                     <strong className="stat-val">
-                      {formatCompactStream(career.education.alStream, isSi)}
+                      {isEngineer && selectedEngineeringDiscipline
+                        ? formatCompactStream(selectedEngineeringDiscipline.alStream, isSi)
+                        : formatCompactStream(career.education.alStream, isSi)}
                     </strong>
                   </div>
                 </div>
 
                 <div
                   className="stat-card glass-panel"
-                  title={career.education.zScoreRange}
+                  title={
+                    isEngineer && selectedEngineeringDiscipline
+                      ? selectedEngineeringDiscipline.zScoreTarget
+                      : career.education.zScoreRange
+                  }
                 >
                   <Trophy size={17} className="stat-icon tone-peach" />
                   <div>
@@ -437,7 +601,9 @@ export function CareerPathArchitect() {
                       {isSi ? "UGC Z-Score ඉලක්කය" : "UGC Z-Score Target"}
                     </span>
                     <strong className="stat-val">
-                      {formatCompactZScore(career.education.zScoreRange, isSi)}
+                      {isEngineer && selectedEngineeringDiscipline
+                        ? formatCompactZScore(selectedEngineeringDiscipline.zScoreTarget, isSi)
+                        : formatCompactZScore(career.education.zScoreRange, isSi)}
                     </strong>
                   </div>
                 </div>
@@ -496,27 +662,139 @@ export function CareerPathArchitect() {
                     {isSi ? "ඔයා කැමති Specialization එක / Field එක" : "Which Field / Specialization do you prefer?"}
                   </h4>
                   <p className="choice-hint">
-                    {isSi ? "මේ career එක යටතේ ලංකාවේ වැඩි ඉල්ලුමක් ඇති අංශ:" : "High-growth industry focus areas in Sri Lanka:"}
+                    {isSi
+                      ? isEngineer
+                        ? "ශ්‍රී ලංකාවේ ඉංජිනේරු ක්ෂේත්‍ර 17 න් ඔබ කැමති ක්ෂේත්‍රය තෝරන්න (O/L, A/L සහ University ඒ අනුව වෙනස් වේ):"
+                        : "මේ career එක යටතේ ලංකාවේ වැඩි ඉල්ලුමක් ඇති අංශ:"
+                      : isEngineer
+                        ? "Choose from all 17 recognized Sri Lankan engineering disciplines:"
+                        : "High-growth industry focus areas in Sri Lanka:"}
                   </p>
                 </div>
               </div>
 
-              <div className="specializations-chips-wrap">
-                {career.futureOutlook.growingSpecializations.map((spec, sIdx) => {
-                  const isChecked = selectedSpecialization === spec;
-                  return (
-                    <button
-                      key={sIdx}
-                      type="button"
-                      className={`specialization-choice-pill ${isChecked ? "active" : ""}`}
-                      onClick={() => setSelectedSpecialization(spec)}
-                    >
-                      {isChecked ? <CheckCheck size={15} /> : <Sparkles size={14} />}
-                      <span>{spec}</span>
-                    </button>
-                  );
-                })}
-              </div>
+              {isEngineer ? (
+                <div className="eng-selector-container">
+                  <div className="eng-filter-tabs-row">
+                    {[
+                      { id: "all", labelEn: `All Disciplines (${ENGINEERING_DISCIPLINES.length})`, labelSi: `සියලු ක්ෂේත්‍ර (${ENGINEERING_DISCIPLINES.length})` },
+                      { id: "computing", labelEn: "Software, Cloud & Tech", labelSi: "මෘදුකාංග, Cloud හා Tech" },
+                      { id: "civil", labelEn: "Infrastructure & Civil", labelSi: "සිවිල් හා යටිතල පහසුකම්" },
+                      { id: "mechanical", labelEn: "Machinery, Power & Robotics", labelSi: "යාන්ත්‍රික, විදුලි හා රොබෝ" },
+                      { id: "specialized", labelEn: "High-Tech & Specialized", labelSi: "අභ්‍යවකාශ, නාවික හා ජෛව" },
+                    ].map((tab) => (
+                      <button
+                        key={tab.id}
+                        type="button"
+                        className={`eng-filter-tab-pill ${engCategoryFilter === tab.id ? "active" : ""}`}
+                        onClick={() => setEngCategoryFilter(tab.id as any)}
+                      >
+                        {isSi ? tab.labelSi : tab.labelEn}
+                      </button>
+                    ))}
+                  </div>
+
+                  <div className="eng-disciplines-grid">
+                    {filteredEngineeringDisciplines.map((disc) => {
+                      const IconComponent = ENG_ICON_MAP[disc.iconName] || Building2;
+                      const isSelected = selectedEngineeringFieldId === disc.id;
+                      return (
+                        <button
+                          key={disc.id}
+                          type="button"
+                          className={`eng-disc-card ${isSelected ? "selected" : ""}`}
+                          onClick={() => setSelectedEngineeringFieldId(disc.id)}
+                        >
+                          <div className="eng-disc-icon-box">
+                            <IconComponent size={20} />
+                          </div>
+                          <div className="eng-disc-content">
+                            <div className="eng-disc-top-row">
+                              <span className="eng-disc-badge">{disc.badge}</span>
+                              {isSelected && <CheckCheck size={16} style={{ color: "#2e7559" }} />}
+                            </div>
+                            <strong className="eng-disc-title">
+                              {isSi ? disc.titleSi : disc.titleEn}
+                            </strong>
+                            <span className="eng-disc-title-si">
+                              {isSi ? disc.titleEn : disc.titleSi}
+                            </span>
+                            <span className="eng-disc-salary">
+                              {disc.salaryLkr}
+                            </span>
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  {selectedEngineeringDiscipline && (
+                    <div className="eng-active-detail-panel">
+                      <div className="eng-active-header-row">
+                        <div>
+                          <h5 style={{ fontWeight: 700, color: "#1e293b", fontSize: "14px", margin: 0 }}>
+                            {isSi ? "තෝරාගත් ඉංජිනේරු ක්ෂේත්‍රය:" : "Selected Engineering Pathway:"}{" "}
+                            <span style={{ color: "#2e7559" }}>
+                              {isSi ? selectedEngineeringDiscipline.titleSi : selectedEngineeringDiscipline.titleEn}
+                            </span>
+                          </h5>
+                          <span className="eng-active-degree-tag" style={{ marginTop: "4px", display: "inline-block" }}>
+                            🎓 {selectedEngineeringDiscipline.degree}
+                          </span>
+                        </div>
+                        <div style={{ fontSize: "12px", color: "#475569" }}>
+                          <strong>{isSi ? "ඉලක්ක Z-Score:" : "Cutoff Benchmark:"}</strong>{" "}
+                          {selectedEngineeringDiscipline.zScoreTarget.split(",")[0]}
+                        </div>
+                      </div>
+
+                      <div>
+                        <h6 className="eng-subspecs-title">
+                          {isSi ? "ප්‍රධාන විශේෂීකරණ ක්ෂේත්‍ර (Specialisations):" : "High-Growth Specialisations in this Field:"}
+                        </h6>
+                        <div className="specializations-chips-wrap">
+                          {selectedEngineeringDiscipline.specialisations.map((spec, sIdx) => {
+                            const isChecked = selectedSpecialization === spec;
+                            return (
+                              <button
+                                key={sIdx}
+                                type="button"
+                                className={`specialization-choice-pill ${isChecked ? "active" : ""}`}
+                                onClick={() => setSelectedSpecialization(spec)}
+                              >
+                                {isChecked ? <CheckCheck size={15} /> : <Sparkles size={14} />}
+                                <span>{spec}</span>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+
+                      <div style={{ fontSize: "12px", color: "#475569", marginTop: "4px" }}>
+                        <strong>{isSi ? "ප්‍රමුඛ ලාංකික සේවා යෝජකයින්:" : "Top Sri Lankan Employers:"}</strong>{" "}
+                        {selectedEngineeringDiscipline.employers.join(" · ")}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div className="specializations-chips-wrap">
+                  {career.futureOutlook.growingSpecializations.map((spec, sIdx) => {
+                    const isChecked = selectedSpecialization === spec;
+                    return (
+                      <button
+                        key={sIdx}
+                        type="button"
+                        className={`specialization-choice-pill ${isChecked ? "active" : ""}`}
+                        onClick={() => setSelectedSpecialization(spec)}
+                      >
+                        {isChecked ? <CheckCheck size={15} /> : <Sparkles size={14} />}
+                        <span>{spec}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
             </div>
 
             {/* CHOICE 2: PRIMARY STUDY PATHWAY */}
@@ -657,9 +935,11 @@ export function CareerPathArchitect() {
             <div className="inner-detail-card glass-panel">
               <h4 className="detail-card-heading">
                 <CheckCircle2 size={16} className="heading-icon" />
-                {isSi ? "අනිවාර්ය විෂයයන් සහ ඉලක්කගත සාමාර්ථ" : "Mandatory Subjects & Minimum Grades"}
+                {isSi ? "අනිවාර්ය ප්‍රධාන විෂයයන් 6 සහ ඉලක්කගත සාමාර්ථ" : "Mandatory 6 Core Subjects & Minimum Grades"}
               </h4>
-              <p className="inner-card-highlight">{career.education.olRequirements}</p>
+              <p className="inner-card-highlight">
+                {isSi ? olGuidance.sinhalaCoreSummary : olGuidance.coreSummary}
+              </p>
               <ul className="guidance-bullets">
                 <li>
                   <strong>{isSi ? "ගණිතය (Mathematics):" : "Mathematics:"}</strong>{" "}
@@ -668,16 +948,28 @@ export function CareerPathArchitect() {
                     : "Minimum Credit ('C') or Distinction ('A') required to enter Science, Technology, and Commerce streams."}
                 </li>
                 <li>
-                  <strong>{isSi ? "ඉංග්‍රීසි (English Language):" : "English Language:"}</strong>{" "}
-                  {isSi
-                    ? "විශ්වවිද්‍යාල දේශන, තාක්ෂණික පොත්පත් සහ වෘත්තීය විභාග සඳහා අත්‍යවශ්‍ය වේ."
-                    : "Essential for university lectures, technical documentation, and professional examinations."}
-                </li>
-                <li>
                   <strong>{isSi ? "විද්‍යාව (Science):" : "Science:"}</strong>{" "}
                   {isSi
-                    ? "ගණිත (Physical Science) සහ ජීව විද්‍යා (Bio Science) අංශ සඳහා අනිවාර්ය පූර්ව අවශ්‍යතාවයකි."
-                    : "Core prerequisite for Physical Science (Maths) and Biological Science streams."}
+                    ? "භෞතික හා ජීව විද්‍යා ධාරාවන්ට ඇතුළත් වීමට 'A' හෝ 'C' සාමාර්ථයක් අනිවාර්ය වේ."
+                    : "Distinction ('A') or Credit ('C') prerequisite for Physical and Biological Science streams."}
+                </li>
+                <li>
+                  <strong>{isSi ? "ඉංග්‍රීසි (English Language):" : "English Language:"}</strong>{" "}
+                  {isSi
+                    ? "විශ්වවිද්‍යාල උපාධි පාඨමාලා, තාක්ෂණික පොත්පත් සහ රැකියා වෙළඳපොළ සඳහා අත්‍යවශ්‍ය වේ."
+                    : "Essential for university undergraduate degrees, technical documentation, and professional examinations."}
+                </li>
+                <li>
+                  <strong>{isSi ? "මව්බස (Sinhala / Tamil):" : "Mother Tongue:"}</strong>{" "}
+                  {isSi
+                    ? "රාජ්‍ය සේවයට සහ උසස් පෙළ හැදෑරීමට මූලික සුදුසුකමකි."
+                    : "Sinhala or Tamil Language & Literature; official medium of secondary education."}
+                </li>
+                <li>
+                  <strong>{isSi ? "ආගම සහ ඉතිහාසය:" : "Religion & History:"}</strong>{" "}
+                  {isSi
+                    ? "සාමාන්‍ය පෙළ සම්පූර්ණ කිරීම සඳහා වන අනිවාර්ය ජාතික විෂය මාලාවේ කොටසකි."
+                    : "Compulsory subjects fulfilling the 6 mandatory core passes at G.C.E. O/L."}
                 </li>
               </ul>
             </div>
@@ -686,25 +978,88 @@ export function CareerPathArchitect() {
             <div className="inner-detail-card glass-panel">
               <h4 className="detail-card-heading">
                 <Sparkles size={16} className="heading-icon" />
-                {isSi ? "තෝරාගත හැකි නිර්දේශිත කාණ්ඩ විෂයයන්" : "Recommended Elective Basket Subjects"}
+                {isSi ? "තෝරාගත යුතු O/L කාණ්ඩ විෂයයන් 3" : "Recommended O/L Elective Basket Subjects"}
               </h4>
               <p className="inner-card-highlight">
                 {isSi
-                  ? "මෙම විෂයයන් හැදෑරීමෙන් A/L වලට කලින්ම ශක්තිමත් පදනමක් ලැබේ:"
-                  : "Key subjects that provide a strong early foundation:"}
+                  ? "ශ්‍රී ලංකා O/L විෂය මාලාවේ එක් එක් කාණ්ඩයෙන් 1 බැගින් තෝරාගත යුතුය:"
+                  : "Choose 1 subject from each of the 3 official Ministry of Education baskets:"}
               </p>
-              <div className="subject-tags-list">
-                {career.skills.importantSchoolSubjects.map((sub, i) => (
-                  <span key={i} className="subject-pill">
-                    {sub}
-                  </span>
-                ))}
+
+              <div className="ol-baskets-container">
+                {/* Basket 1 */}
+                <div className="ol-basket-row">
+                  <div className="ol-basket-badge-row">
+                    <span className="ol-basket-label">
+                      {isSi ? olGuidance.basket1.sinhalaBasketTitle : olGuidance.basket1.basketTitle}
+                    </span>
+                    <span className="ol-subject-badge">
+                      {isSi ? olGuidance.basket1.sinhalaRecommendedSubject : olGuidance.basket1.recommendedSubject}
+                    </span>
+                  </div>
+                  <p className="ol-basket-reason">
+                    {isSi ? olGuidance.basket1.sinhalaReason : olGuidance.basket1.reason}
+                  </p>
+                  <p className="ol-basket-alt">
+                    <em>{isSi ? "විකල්ප:" : "Alternatives:"}</em> {isSi ? olGuidance.basket1.sinhalaAlternatives : olGuidance.basket1.alternatives}
+                  </p>
+                </div>
+
+                {/* Basket 2 */}
+                <div className="ol-basket-row">
+                  <div className="ol-basket-badge-row">
+                    <span className="ol-basket-label">
+                      {isSi ? olGuidance.basket2.sinhalaBasketTitle : olGuidance.basket2.basketTitle}
+                    </span>
+                    <span className="ol-subject-badge">
+                      {isSi ? olGuidance.basket2.sinhalaRecommendedSubject : olGuidance.basket2.recommendedSubject}
+                    </span>
+                  </div>
+                  <p className="ol-basket-reason">
+                    {isSi ? olGuidance.basket2.sinhalaReason : olGuidance.basket2.reason}
+                  </p>
+                  <p className="ol-basket-alt">
+                    <em>{isSi ? "විකල්ප:" : "Alternatives:"}</em> {isSi ? olGuidance.basket2.sinhalaAlternatives : olGuidance.basket2.alternatives}
+                  </p>
+                </div>
+
+                {/* Basket 3 */}
+                <div className="ol-basket-row">
+                  <div className="ol-basket-badge-row">
+                    <span className="ol-basket-label">
+                      {isSi ? olGuidance.basket3.sinhalaBasketTitle : olGuidance.basket3.basketTitle}
+                    </span>
+                    <span className="ol-subject-badge">
+                      {isSi ? olGuidance.basket3.sinhalaRecommendedSubject : olGuidance.basket3.recommendedSubject}
+                    </span>
+                  </div>
+                  <p className="ol-basket-reason">
+                    {isSi ? olGuidance.basket3.sinhalaReason : olGuidance.basket3.reason}
+                  </p>
+                  <p className="ol-basket-alt">
+                    <em>{isSi ? "විකල්ප:" : "Alternatives:"}</em> {isSi ? olGuidance.basket3.sinhalaAlternatives : olGuidance.basket3.alternatives}
+                  </p>
+                </div>
+
+                {/* Optional 10th Subject: Additional Mathematics */}
+                <div className="ol-add-maths-card">
+                  <div className="ol-add-maths-header">
+                    <span className="ol-add-maths-title">
+                      ➕ {isSi ? "අතිරේක ගණිතය (Additional Mathematics)" : "Additional Mathematics (Optional 10th Subject)"}
+                    </span>
+                    <span className="ol-add-maths-badge">
+                      {isSi ? olGuidance.additionalMaths.sinhalaBadgeText : olGuidance.additionalMaths.badgeText}
+                    </span>
+                  </div>
+                  <p className="ol-add-maths-desc">
+                    {isSi ? olGuidance.additionalMaths.sinhalaReason : olGuidance.additionalMaths.reason}
+                  </p>
+                </div>
               </div>
+
               <p className="guidance-note">
                 💡 <em>{isSi ? "උපදෙස:" : "Junior Tip:"}</em>{" "}
-                {isSi
-                  ? "ප්‍රමුඛ පාසල් වල A/L පන්ති වලට තේරී පත්වීමට ගණිතය, විද්‍යාව සහ ඉංග්‍රීසි ඇතුළුව අවම 'A' සාමාර්ථ 6ක් හෝ 8ක් ඉලක්ක කරන්න."
-                  : "Aim for at least 6 'A' passes including Mathematics, Science, and English to secure admission into premier A/L schools and top streams."}
+                {isSi ? olGuidance.sinhalaJuniorTip : olGuidance.juniorTip}
               </p>
             </div>
           </div>
@@ -742,7 +1097,11 @@ export function CareerPathArchitect() {
               </h4>
               <div className="stream-badge-box">
                 <span className="stream-title-label">{isSi ? "අවශ්‍ය Stream එක:" : "Required Stream:"}</span>
-                <span className="stream-name-highlight">{career.education.alStream}</span>
+                <span className="stream-name-highlight">
+                  {isEngineer && selectedEngineeringDiscipline
+                    ? selectedEngineeringDiscipline.alStream
+                    : career.education.alStream}
+                </span>
               </div>
               <ul className="guidance-bullets">
                 <li>
@@ -774,7 +1133,11 @@ export function CareerPathArchitect() {
               </h4>
               <div className="zscore-banner-box">
                 <span className="zscore-label">{isSi ? "සාමාන්‍ය කඩඉම් Z-Score එක:" : "Typical State Cutoff Z-Score:"}</span>
-                <span className="zscore-value">{career.education.zScoreRange}</span>
+                <span className="zscore-value">
+                  {isEngineer && selectedEngineeringDiscipline
+                    ? selectedEngineeringDiscipline.zScoreTarget
+                    : career.education.zScoreRange}
+                </span>
               </div>
               <p className="competition-text">{career.education.competitionNote}</p>
               <div className="district-info-note">
@@ -820,7 +1183,7 @@ export function CareerPathArchitect() {
           </div>
 
           <div className="state-universities-list">
-            {career.universities.map((uni, idx) => {
+            {availableUniversities.map((uni, idx) => {
               const isTargetUni = selectedUniversitySlug === uni.slug;
               const isState = uni.type.toLowerCase().includes("state") || !uni.type.toLowerCase().includes("private");
 
@@ -894,99 +1257,7 @@ export function CareerPathArchitect() {
         </div>
 
         {/* ──────────────────────────────────────────────────────────────────────────
-            SECTION 4: PROFESSIONAL BODIES, CHARTER & DIPLOMAS
-        ────────────────────────────────────────────────────────────────────────── */}
-        <div className="blueprint-section-card glass-panel">
-          <div className="section-card-header">
-            <span className="section-bubble tone-peach">
-              <Award size={20} />
-            </span>
-            <div>
-              <span className="section-eyebrow">
-                {isSi ? "4 වන පියවර: වෘත්තීය ආයතන සහ Diplomas" : "STAGE 4: CHARTER & DIPLOMAS"}
-              </span>
-              <h3 className="section-title">
-                {isSi ? "වෘත්තීය බලපත්‍ර සහ Alternative Diplomas" : "Chartered Bodies, Professional Licensure & Diplomas"}
-              </h3>
-              <p className="section-desc">
-                {isSi
-                  ? "ශ්‍රී ලංකාවේ පිළිගත් වෘත්තීය ආයතන වල ලියාපදිංචි වීම සහ විකල්ප ඩිප්ලෝමා මාර්ග."
-                  : "Sri Lankan regulatory bodies, international chartered institutes, and vocational diploma alternatives."}
-              </p>
-            </div>
-          </div>
-
-          <div className="grid-2 blueprint-inner-grid">
-            {/* Professional Chartered Bodies & Specializations */}
-            <div className="inner-detail-card glass-panel">
-              <h4 className="detail-card-heading">
-                <Award size={16} className="heading-icon" />
-                {isSi ? "වෘත්තීය බලපත්‍ර සහ Chartered ආයතන" : "Chartered Licensure & Professional Credentials"}
-              </h4>
-              <p className="inner-card-highlight">
-                {isSi
-                  ? "ශ්‍රී ලංකාවේ නීත්‍යානුකූලව වෘත්තියේ යෙදීමට සහ පිළිගැනීමට අවශ්‍ය ආයතන:"
-                  : "Key professional exams and industry licensing in Sri Lanka:"}
-              </p>
-              <div className="cert-row-item">
-                <CheckCircle2 size={16} className="cert-check" />
-                <div>
-                  <strong className="cert-name">
-                    {isSi ? "වෘත්තීය ලියාපදිංචි ආයතනය / පාලක සභාව" : "Professional Licensure / Entrance Body"}
-                  </strong>
-                  <span className="cert-body">{career.education.entranceExams}</span>
-                </div>
-              </div>
-              <div style={{ marginTop: "12px" }}>
-                <span className="stream-title-label">
-                  {isSi ? "වැඩි ඉල්ලුමක් ඇති Specializations:" : "High-Growth Specializations:"}
-                </span>
-                <div className="subject-tags-list" style={{ marginTop: "6px" }}>
-                  {career.futureOutlook.growingSpecializations.map((spec, idx) => (
-                    <span key={idx} className="subject-pill">
-                      {spec}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Alternative Government Diplomas & NVQ */}
-            <div className="inner-detail-card glass-panel">
-              <h4 className="detail-card-heading">
-                <FileText size={16} className="heading-icon" />
-                {isSi ? "විකල්ප රජයේ ඩිප්ලෝමා සහ NVQ මාර්ග" : "Alternative Pathways & Vocational Diplomas"}
-              </h4>
-              <p className="inner-card-highlight">
-                {isSi
-                  ? "A/L ලකුණු මදි වූවොත් හෝ විකල්ප මඟකින් යෑමට කැමති අයට:"
-                  : "Sri Lankan pathways for students seeking alternative routes:"}
-              </p>
-              <ul className="guidance-bullets">
-                {career.education.alternativePathways.map((alt, idx) => (
-                  <li key={idx}>
-                    <strong>{isSi ? `විකල්ප මාර්ගය ${idx + 1}:` : `Pathway ${idx + 1}:`}</strong> {alt}
-                  </li>
-                ))}
-                <li>
-                  <strong>{isSi ? "SLIATE රජයේ ඩිප්ලෝමා:" : "SLIATE Government Diplomas:"}</strong>{" "}
-                  {isSi
-                    ? "අධ්‍යාපන අමාත්‍යාංශය යටතේ නොමිලේ පවත්වනු ලබන උසස් ජාතික ඩිප්ලෝමා (HNDIT, HNDE, HNDA)."
-                    : "Tuition-free higher national diplomas (HNDIT, HNDE, HNDA) under the Ministry of Education."}
-                </li>
-                <li>
-                  <strong>{isSi ? "NVQ මට්ටම 4–6:" : "NVQ Level 4–6:"}</strong>{" "}
-                  {isSi
-                    ? "NAITA, VTA සහ ජර්මානු කාර්මික අභ්‍යාස ආයතනය (CGTTI / German Tech) මගින් පිරිනමන ජාතික වෘත්තීය සුදුසුකම්."
-                    : "National Vocational Qualifications provided by NAITA, VTA, and Ceylon German Technical Training Institute (CGTTI)."}
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        {/* ──────────────────────────────────────────────────────────────────────────
-            SECTION 5: ACTIONABLE 5-STAGE ROADMAP (DYNAMICALLY RECONFIGURED)
+            SECTION 4: ACTIONABLE ROADMAP (DYNAMICALLY RECONFIGURED)
         ────────────────────────────────────────────────────────────────────────── */}
         <div className="blueprint-section-card glass-panel">
           <div className="section-card-header">
@@ -995,12 +1266,12 @@ export function CareerPathArchitect() {
             </span>
             <div>
               <span className="section-eyebrow">
-                {isSi ? "5 වන පියවර: ක්‍රියාකාරී Roadmap එක" : "STAGE 5: ACTION PLAN"}
+                {isSi ? "4 වන පියවර: ක්‍රියාකාරී Roadmap එක" : "STAGE 4: ACTION PLAN"}
               </span>
               <h3 className="section-title">
                 {isSi
-                  ? `ඔයාගෙ ${career.sinhalaTitle} Roadmap එක`
-                  : `Your Actionable Roadmap for ${career.title}`}
+                  ? `ඔයාගෙ ${isEngineer && selectedEngineeringDiscipline ? selectedEngineeringDiscipline.titleSi : career.sinhalaTitle} Roadmap එක`
+                  : `Your Actionable Roadmap for ${isEngineer && selectedEngineeringDiscipline ? selectedEngineeringDiscipline.titleEn : career.title}`}
               </h3>
               <p className="section-desc">
                 {isSi
@@ -1009,6 +1280,15 @@ export function CareerPathArchitect() {
               </p>
             </div>
           </div>
+
+          <CareerEnglishPlan
+            careerSlug={career.slug}
+            careerTitle={isSi
+              ? (isEngineer && selectedEngineeringDiscipline ? selectedEngineeringDiscipline.titleSi : career.sinhalaTitle)
+              : (isEngineer && selectedEngineeringDiscipline ? selectedEngineeringDiscipline.titleEn : career.title)}
+            careerCategory={isEngineer ? "Engineering" : career.category}
+            isSinhala={isSi}
+          />
 
           <div className="milestones-timeline-stack">
             {roadmapData.milestones.map((m, idx) => {
@@ -1064,6 +1344,8 @@ export function CareerPathArchitect() {
                                 <Link
                                   href={task.resourceUrl}
                                   className="task-resource-link"
+                                  target={task.resourceUrl.startsWith("http") ? "_blank" : undefined}
+                                  rel={task.resourceUrl.startsWith("http") ? "noopener noreferrer" : undefined}
                                 >
                                   <span>{isSi ? "විස්තර" : "View"}</span>
                                   <ArrowRight size={13} />
@@ -1093,8 +1375,8 @@ export function CareerPathArchitect() {
               </strong>
               <p className="save-bar-desc">
                 {isSi
-                  ? `${career.sinhalaTitle} (${selectedSpecialization}) roadmap එක ${selectedUni?.name || "University"} සමඟ Save කර My Path පිටුවෙන් track කරන්න.`
-                  : `Save your customized ${career.title} roadmap (${selectedSpecialization}) at ${selectedUni?.name || "University"} to your dashboard.`}
+                  ? `${isEngineer && selectedEngineeringDiscipline ? selectedEngineeringDiscipline.titleSi : career.sinhalaTitle} (${selectedSpecialization}) roadmap එක ${selectedUni?.name || "University"} සමඟ Save කර My Path පිටුවෙන් track කරන්න.`
+                  : `Save your customized ${isEngineer && selectedEngineeringDiscipline ? selectedEngineeringDiscipline.titleEn : career.title} roadmap (${selectedSpecialization}) at ${selectedUni?.name || "University"} to your dashboard.`}
               </p>
             </div>
           </div>

@@ -13,7 +13,7 @@ import {
   Compass,
 } from "lucide-react";
 import { getTranslations, getLocale } from "next-intl/server";
-import { getUniversity } from "@/lib/api/catalog";
+import { getUniversity, getUniversityProfile } from "@/lib/api/catalog";
 import { localizeUniversity } from "@/lib/i18n/catalog";
 import { PageIntro } from "@/components/shared/PageIntro";
 import { UniversityAcademics } from "@/components/universities/UniversityAcademics";
@@ -25,7 +25,6 @@ import { RuhunaFacilities } from "@/components/universities/RuhunaFacilities";
 import { RuhunaOfficialLinks } from "@/components/universities/RuhunaOfficialLinks";
 import { SaveButton } from "@/components/shared/SaveButton";
 import { ActionLink } from "@/components/shared/ActionLink";
-import { getUniversityDetail } from "@/lib/data/universityDetails";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -56,7 +55,7 @@ export default async function UniversityPage({ params }: Props) {
   const ruhuna = university.slug === "ruhuna";
 
   // Detailed verified institutional dataset
-  const detail = getUniversityDetail(record.slug);
+  const detail = await getUniversityProfile(record.slug);
 
   const tabs = [
     { id: "overview", label: t("tabs.overview") },

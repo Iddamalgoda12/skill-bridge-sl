@@ -3,7 +3,7 @@ import { useRef, useState, type FormEvent } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { ArrowRight, LoaderCircle } from "lucide-react";
+import { ArrowRight, LoaderCircle, Eye, EyeOff } from "lucide-react";
 import { ApiError, apiRequest } from "@/lib/api/client";
 import { validateLogin, validateRegister, type FieldErrors } from "@/lib/auth/validation";
 import { TextField } from "./TextField";
@@ -20,6 +20,9 @@ export function AuthForm({ register = false, next = "/account", passwordChanged 
   const [pending, setPending] = useState(false);
   const [errors, setErrors] = useState<Errors>({});
   const [formError, setFormError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -27,8 +30,8 @@ export function AuthForm({ register = false, next = "/account", passwordChanged 
     const values = {
       firstName: String(data.get("firstName") ?? ""),
       lastName: String(data.get("lastName") ?? ""),
-      email: String(data.get("email") ?? ""),
-      password: String(data.get("password") ?? ""),
+      email: email || String(data.get("email") ?? ""),
+      password: password || String(data.get("password") ?? ""),
     };
 
     const found: Errors = register ? validateRegister(values) : validateLogin(values);
@@ -64,6 +67,7 @@ export function AuthForm({ register = false, next = "/account", passwordChanged 
     <form ref={formRef} onSubmit={submit} noValidate className="auth-form glass-panel" aria-busy={pending}>
       <h1>{t("title")}</h1>
       <p className="muted">{t("subtitle")}</p>
+
       {passwordChanged && !register && <p className="notice" role="status">{t("passwordChanged")}</p>}
       {register && (
         <div className="grid-2">
@@ -71,16 +75,40 @@ export function AuthForm({ register = false, next = "/account", passwordChanged 
           <TextField label={f("lastName")} name="lastName" autoComplete="family-name" required maxLength={100} error={messages.field(errors.lastName)} />
         </div>
       )}
-      <TextField label={f("email")} name="email" type="email" inputMode="email" autoComplete="email" required maxLength={254} error={messages.field(errors.email)} />
+      <TextField
+        label={f("email")}
+        name="email"
+        type="email"
+        inputMode="email"
+        autoComplete="email"
+        required
+        maxLength={254}
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        error={messages.field(errors.email)}
+      />
       <TextField
         label={f("password")}
         name="password"
-        type="password"
+        type={showPassword ? "text" : "password"}
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
         autoComplete={register ? "new-password" : "current-password"}
         required
         maxLength={128}
         hint={register ? f("passwordHint") : undefined}
         error={messages.field(errors.password)}
+        endSlot={
+          <button
+            type="button"
+            className="password-toggle-btn"
+            onClick={() => setShowPassword(!showPassword)}
+            title={showPassword ? "Hide password" : "Show password"}
+            aria-label={showPassword ? "Hide password" : "Show password"}
+          >
+            {showPassword ? <EyeOff size={18} aria-hidden="true" /> : <Eye size={18} aria-hidden="true" />}
+          </button>
+        }
       />
       {formError && <p className="notice notice-error" role="alert">{formError}</p>}
       <button type="submit" className="glass-button button-dark" disabled={pending}>
@@ -88,6 +116,7 @@ export function AuthForm({ register = false, next = "/account", passwordChanged 
         {pending ? t("pending") : t("submit")}
         <ArrowRight size={18} aria-hidden="true" />
       </button>
+
       <p className="auth-alternative">
         {t("alternative")} <Link href={register ? "/login" : "/register"}>{t("alternativeLink")}</Link>
       </p>

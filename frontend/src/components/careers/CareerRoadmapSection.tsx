@@ -2,15 +2,17 @@
 
 import { useLocale } from "next-intl";
 import { Route, CheckCircle, Flag, Clock } from "lucide-react";
+import { ActionLink } from "@/components/shared/ActionLink";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import type { CareerRoadmapStep } from "@/lib/data/careerDetails";
 
 interface CareerRoadmapSectionProps {
   roadmap: CareerRoadmapStep[];
   careerTitle: string;
+  careerSlug?: string;
 }
 
-export function CareerRoadmapSection({ roadmap, careerTitle }: CareerRoadmapSectionProps) {
+export function CareerRoadmapSection({ roadmap, careerTitle, careerSlug }: CareerRoadmapSectionProps) {
   const locale = useLocale();
   const isSi = locale === "si";
   const shortTitle = careerTitle.split("/")[0].trim();
@@ -60,6 +62,23 @@ export function CareerRoadmapSection({ roadmap, careerTitle }: CareerRoadmapSect
           ))}
         </div>
       </div>
+
+      {careerSlug && (
+        <div style={{ marginTop: "28px", display: "flex", justifyContent: "center" }}>
+          <ActionLink
+            href={
+              careerSlug === "software-engineer"
+                ? "/build-your-path?career=engineer&field=software-engineering#career-architect"
+                : `/build-your-path?career=${careerSlug}#career-architect`
+            }
+            icon={<Route size={16} />}
+          >
+            {isSi
+              ? `${shortTitle} සඳහා ඔබගේ Path එක සකසන්න`
+              : `Customize & Build Your ${shortTitle} Roadmap`}
+          </ActionLink>
+        </div>
+      )}
     </section>
   );
 }

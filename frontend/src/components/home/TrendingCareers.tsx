@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { ActionLink } from "@/components/shared/ActionLink";
 import { TrendingViewport } from "./TrendingViewport";
-import { sampleCareers } from "@/lib/data/careers";
+import { getCareers } from "@/lib/api/catalog";
 import { localizeCareer, formatSalary, type LocalizedCareer } from "@/lib/i18n/catalog";
 
 // Synchronized with main careers page: authentic Sri Lankan career paths
@@ -67,13 +67,14 @@ function CareerCard({
 }
 
 export async function TrendingCareers() {
-  const [t, catalog] = await Promise.all([
+  const [t, catalog, careers] = await Promise.all([
     getTranslations("home"),
     getTranslations("catalog"),
+    getCareers(),
   ]);
 
   const careersList: LocalizedCareer[] = featuredSlugs
-    .map((slug) => sampleCareers.find((c) => c.slug === slug))
+    .map((slug) => careers.find((c) => c.slug === slug))
     .filter((c): c is NonNullable<typeof c> => Boolean(c))
     .map((career) => localizeCareer(catalog, career));
 

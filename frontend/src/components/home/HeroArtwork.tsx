@@ -6,9 +6,9 @@ import { DesignAsset } from "@/components/shared/DesignAsset";
 
 const features = [
   { key: "careers", href: "/careers", icon: assets.home.imgIconCompass1, bubble: assets.home.imgFeatureIconBackdrop, slot: "explore" },
-  { key: "saved", href: "/my-path", icon: assets.template.imgIconRoute, bubble: assets.home.imgFeatureIconBackdrop1, slot: "saved" },
+  { key: "about", href: "/about", icon: assets.about.imgIconInfo, bubble: assets.home.imgFeatureIconBackdrop1, slot: "saved" },
   { key: "path", href: "/build-your-path", icon: assets.home.imgIconChart, bubble: assets.home.imgFeatureIconBackdrop2, slot: "journey" },
-  { key: "universities", href: "/universities?compare=true", icon: assets.home.imgIconUniversity, bubble: assets.home.imgFeatureIconBackdrop3, slot: "compare" },
+  { key: "universities", href: "/universities", icon: assets.home.imgIconUniversity, bubble: assets.home.imgFeatureIconBackdrop3, slot: "compare" },
 ] as const;
 
 export async function HeroArtwork({ compact = false, imageSrc = "/Thoughtful Student with Laptop and Pen.png", imageAlt }: { compact?: boolean; imageSrc?: string; imageAlt?: string }) {

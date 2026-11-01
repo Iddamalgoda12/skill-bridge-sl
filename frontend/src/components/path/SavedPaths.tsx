@@ -44,6 +44,18 @@ export function SavedPaths({ titles }: { titles: Record<string, string> }) {
                     <span className="eyebrow">{t(`kind.${item.kind}`)}</span>
                     <h3>{title}</h3>
                     <ActionLink href={`/${item.kind === "career" ? "careers" : "universities"}/${item.id}`}>{t(`explore.${item.kind}`)}</ActionLink>
+                    {item.kind === "career" && (
+                      <ActionLink
+                        href={
+                          item.id === "software-engineer"
+                            ? "/build-your-path?career=engineer&field=software-engineering#career-architect"
+                            : `/build-your-path?career=${item.id}#career-architect`
+                        }
+                        icon={<Route size={15} />}
+                      >
+                        {p("hero.launchArchitect") || "Build Path"}
+                      </ActionLink>
+                    )}
                     <SaveButton id={item.id} title={title} kind={item.kind} />
                   </article>
                 );
