@@ -13,9 +13,9 @@ import MobileNavigationPanel from "./MobileNavigationPanel";
 const navigation = [
   { href: "/", key: "home", icon: null },
   { href: "/careers", key: "careers", icon: assets.template.imgIconCompass },
+  { href: "/universities", key: "universities", icon: assets.template.imgIconUniversity },
   { href: "/build-your-path", key: "path", icon: assets.template.imgIconRoute },
   { href: "/my-path", key: "myPath", icon: assets.path.imgVectorCheck2 },
-  { href: "/universities", key: "universities", icon: assets.template.imgIconUniversity },
   { href: "/about", key: "about", icon: assets.template.imgIconInfo },
 ] as const;
 

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Route, Check, Sparkles } from "lucide-react";
+import { Route, Check } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { PageIntro } from "@/components/shared/PageIntro";
 import { ActionLink } from "@/components/shared/ActionLink";
@@ -39,10 +39,9 @@ export default async function BuildYourPathPage() {
             <p>{t.rich("hero.intro", { br: () => <br /> })}</p>
           </PageIntro>
           <div className="hero-button-row">
-            <ActionLink href="#career-architect" icon={<Sparkles size={18} />}>
-              Choose Your Career
+            <ActionLink href="/my-path" icon={<Route size={16} />}>
+              {t("hero.viewMyPath")}
             </ActionLink>
-            <ActionLink href="/my-path">View My Active Dashboard</ActionLink>
           </div>
           <p className="path-hero-note inline-icon">
             <Check size={15} aria-hidden="true" />

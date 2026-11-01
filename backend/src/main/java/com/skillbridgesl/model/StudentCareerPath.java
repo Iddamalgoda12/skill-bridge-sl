@@ -38,7 +38,7 @@ public class StudentCareerPath {
     @Column(name = "education_stage", nullable = false, length = 50)
     private String educationStage;
 
-    @Column(name = "current_stream", length = 50)
+    @Column(name = "current_stream", length = 255)
     private String currentStream;
 
     @Column(length = 50)

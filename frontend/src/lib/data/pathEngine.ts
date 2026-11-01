@@ -3,6 +3,12 @@
 // and professional regulatory bodies (SLMC, IESL, SLIA, IQSSL, CA Sri Lanka, CAASL).
 
 import { careerDetails, getCareerDetail, type CareerDetail } from "./careerDetails";
+import { getCareerOlGuidance } from "./olGuidance";
+import {
+  getEngineeringDiscipline,
+  ENGINEERING_DISCIPLINES,
+  type EngineeringDiscipline,
+} from "./engineeringDisciplines";
 
 export type EducationStageKey =
   | "before-ol"
@@ -23,6 +29,7 @@ export interface StudentProfileInput {
   alTargetOrActual?: Record<string, string>; // e.g. { zScore: '1.85', stream: 'Physical Science' }
   targetCareerSlug?: string;
   targetSpecialization?: string;
+  engineeringFieldId?: string;
   targetUniversity?: { name: string; slug: string; degreeName: string; type: string; duration?: string; faculty?: string };
   preferredRoute?: "STATE_UGC" | "PRIVATE_GLOBAL" | "PROFESSIONAL_BODY";
 }
@@ -276,8 +283,15 @@ export function generatePersonalizedPath(
   profile: StudentProfileInput
 ): GeneratedCareerPath {
   const career = getCareerDetail(targetCareerSlug) || careerDetails["engineer"];
+  const isEngineer = career.slug === "engineer";
+  const engDiscipline = isEngineer
+    ? (profile.engineeringFieldId ? getEngineeringDiscipline(profile.engineeringFieldId) : undefined) ||
+      getEngineeringDiscipline(profile.targetSpecialization || "") ||
+      getEngineeringDiscipline("software-engineering")
+    : undefined;
+
   const stage = profile.educationStage || "ol";
-  const stream = profile.currentStream || "General / Open Stream";
+  const stream = profile.currentStream || (engDiscipline ? engDiscipline.alStream : career.education.alStream);
   const district = profile.district || "Colombo";
   const budget = profile.budgetTier || "FLEXIBLE";
 
@@ -285,9 +299,11 @@ export function generatePersonalizedPath(
 
   // Determine eligibility status
   let eligibilityStatus: "ELIGIBLE" | "POTENTIALLY_ELIGIBLE" | "ALTERNATIVE_PATHWAY" = "ELIGIBLE";
-  let eligibilityExplanation = `You meet the educational foundations for ${career.title}. Follow the milestones to achieve required benchmarks.`;
+  let eligibilityExplanation = engDiscipline
+    ? `You meet the educational foundations for ${engDiscipline.titleEn}. Follow the roadmap milestones to attain required IESL / university benchmarks.`
+    : `You meet the educational foundations for ${career.title}. Follow the milestones to achieve required benchmarks.`;
 
-  const reqStreamLower = career.education.alStream.toLowerCase();
+  const reqStreamLower = (engDiscipline ? engDiscipline.alStream : career.education.alStream).toLowerCase();
   const studentStreamLower = stream.toLowerCase();
 
   if (
@@ -302,6 +318,9 @@ export function generatePersonalizedPath(
       eligibilityExplanation = `${career.title} requires Biological Science for state medical intake. Alternative foreign / allied health degrees recommended.`;
     }
   }
+
+  // Obtain authentic O/L curriculum guidance for this career
+  const olGuidance = getCareerOlGuidance(career.slug, career.category, engDiscipline?.id);
 
   // Build stage-specific milestones
   // Stage 1: Before O/L
@@ -321,8 +340,8 @@ export function generatePersonalizedPath(
           notes: "Read the daily responsibilities and Sri Lankan success stories."
         },
         {
-          title: "Focus on key school subjects: " + career.skills.importantSchoolSubjects.slice(0, 3).join(", "),
-          notes: "Target distinction grades in term tests."
+          title: `Focus on core subjects: Mathematics, Science, and English (early target: ${olGuidance.basket3.recommendedSubject})`,
+          notes: "Target distinction 'A' grades in term tests to build eligibility for premier A/L streams."
         },
         {
           title: "Join relevant school clubs (Science Society, ICT Club, English Debating, Commerce Society)",
@@ -351,8 +370,10 @@ export function generatePersonalizedPath(
           notes: "Minimum requirement for university admission eligibility."
         },
         {
-          title: "Select elective basket subjects matching future interest (ICT, Health Science, Commerce, Art)",
-          notes: "Provides early head start for A/L."
+          title: `Select recommended elective baskets: ${olGuidance.basket1.recommendedSubject}, ${olGuidance.basket2.recommendedSubject}, ${olGuidance.basket3.recommendedSubject}`,
+          notes: olGuidance.additionalMaths.recommended
+            ? `Take Additional Mathematics (10th subject) as recommended for ${career.title}.`
+            : "Balance basket subjects to achieve maximum distinctions ('A' passes)."
         }
       ]
     });
@@ -360,32 +381,46 @@ export function generatePersonalizedPath(
 
   // Stage 3: A/L Stream Selection & Study (For before-ol, ol, after-ol, al)
   if (stage === "before-ol" || stage === "ol" || stage === "after-ol" || stage === "al") {
+    const streamTitle = engDiscipline ? engDiscipline.alStream : career.education.alStream;
+    const zScoreTarget = engDiscipline ? engDiscipline.zScoreTarget : career.education.zScoreRange;
+
     milestones.push({
       stageKey: "AL_STREAM_PREP",
-      title: `A/L Preparation in ${career.education.alStream.split("or")[0].trim()}`,
-      description: `Follow the recommended A/L stream and target Z-score benchmark: ${career.education.zScoreRange}`,
+      title: `A/L Preparation in ${streamTitle.split("or")[0].split("(")[0].trim()}`,
+      description: `Follow the recommended A/L stream and target Z-score benchmark: ${zScoreTarget}`,
       whyItMatters: `State university intake in Sri Lanka is strictly based on A/L Z-score district quotas (${district} quota applies).`,
       prerequisites: "Qualifying O/L examination passes",
       durationMonths: stage === "al" ? 12 : 24,
       tasks: [
         {
-          title: "Lock in required A/L subject combination",
-          notes: `Target stream: ${career.education.alStream}`
+          title: `Lock in required A/L subject combination: ${streamTitle}`,
+          notes: `Essential core subjects for ${engDiscipline ? engDiscipline.titleEn : career.title}.`
         },
         {
           title: "Complete comprehensive syllabus coverage & model paper revision",
           notes: "Focus on essay structured questions and multiple-choice precision."
         },
         {
-          title: career.education.entranceExams ? `Prepare for ${career.education.entranceExams}` : "Target qualifying district Z-Score",
-          notes: `District context: ${district} quota requirements.`
+          title: career.education.entranceExams ? `Prepare for ${career.education.entranceExams}` : `Target qualifying district Z-Score: ${zScoreTarget}`,
+          notes: `District context: ${district} quota requirements for premier engineering faculties.`
         }
       ]
     });
   }
 
   // Stage 4: University / Degree Admission (Applicable to all stages)
-  const chosenUni = profile.targetUniversity || career.universities[0] || {
+  const defaultUni = engDiscipline
+    ? {
+        name: engDiscipline.universities[0].name,
+        slug: engDiscipline.universities[0].slug || "university-of-moratuwa",
+        degreeName: engDiscipline.degree,
+        type: engDiscipline.universities[0].type === "STATE" ? "State University" : "Private University",
+        duration: engDiscipline.universities[0].duration,
+        faculty: engDiscipline.universities[0].faculty
+      }
+    : career.universities[0];
+
+  const chosenUni = profile.targetUniversity || defaultUni || {
     name: "Recognized Sri Lankan University",
     slug: "colombo",
     degreeName: "Bachelor's Honours Degree",
@@ -394,7 +429,7 @@ export function generatePersonalizedPath(
     faculty: "Faculty of Applied Sciences"
   };
 
-  const chosenSpecialization = profile.targetSpecialization || career.futureOutlook.growingSpecializations[0] || "Core Discipline";
+  const chosenSpecialization = profile.targetSpecialization || (engDiscipline ? engDiscipline.titleEn : career.futureOutlook.growingSpecializations[0]) || "Core Discipline";
 
   milestones.push({
     stageKey: "DEGREE_ADMISSION",
@@ -428,53 +463,155 @@ export function generatePersonalizedPath(
   });
 
   // Stage 5: Specialization Training, Internships & Licensure
-  milestones.push({
-    stageKey: "PRACTICAL_TRAINING",
-    title: `Specialization & Industry Licensure: ${chosenSpecialization}`,
-    description: `Complete mandatory industrial training, practical articleship, and gain specialized competencies in ${chosenSpecialization}.`,
-    whyItMatters: "Employers and professional councils require verified real-world practical experience before conferring full chartered or registered status.",
-    prerequisites: "Undergraduate degree study (3rd/4th year) or professional exams",
-    durationMonths: 18,
-    tasks: [
-      {
-        title: "Complete industrial training / articleship at approved Sri Lankan firms",
-        notes: `Gain hands-on industry experience in ${chosenSpecialization} under chartered mentors.`
-      },
-      {
-        title: "Build portfolio and master key technical tools: " + career.skills.technical.slice(0, 2).map(t => t.name).join(", "),
-        notes: "Document projects and real-world outcomes."
-      },
-      {
-        title: "Apply for graduate membership in professional governing body",
-        notes: "Steps toward full charter and professional licensure."
-      }
-    ]
-  });
+  if (engDiscipline) {
+    milestones.push({
+      stageKey: "PRACTICAL_TRAINING",
+      title: `Specialization & IESL Associate Practice: ${engDiscipline.titleEn}`,
+      description: `Complete mandatory 6-month industrial internship and master practical engineering tools: ${engDiscipline.keyToolsAndProjects.slice(0, 3).join(", ")}.`,
+      whyItMatters: "IESL and international employers require verified industrial internship training under registered professional engineers.",
+      prerequisites: "Undergraduate degree study (3rd/4th year) or recognized HND",
+      durationMonths: 18,
+      tasks: [
+        {
+          title: `Complete 6-month industrial internship at premier Sri Lankan firms: ${engDiscipline.employers.slice(0, 3).join(", ")}`,
+          notes: `Document your engineering logbook under a mentor engineer for ${engDiscipline.titleEn}.`
+        },
+        {
+          title: `Master industry tools: ${engDiscipline.keyToolsAndProjects.join(", ")}`,
+          notes: "Build real projects and portfolio artifacts proving domain competence."
+        },
+        {
+          title: "Register as an Associate Member of IESL (AMIE-SL) upon graduation",
+          resourceUrl: "https://iesl.lk",
+          resourceType: "OFFICIAL_GUIDE",
+          notes: "Initiate formal candidate training towards Chartered Engineer (CEng) licensure."
+        }
+      ]
+    });
+  } else {
+    milestones.push({
+      stageKey: "PRACTICAL_TRAINING",
+      title: `Specialization & Industry Licensure: ${chosenSpecialization}`,
+      description: `Complete mandatory industrial training, practical articleship, and gain specialized competencies in ${chosenSpecialization}.`,
+      whyItMatters: "Employers and professional councils require verified real-world practical experience before conferring full chartered or registered status.",
+      prerequisites: "Undergraduate degree study (3rd/4th year) or professional exams",
+      durationMonths: 18,
+      tasks: [
+        {
+          title: "Complete industrial training / articleship at approved Sri Lankan firms",
+          notes: `Gain hands-on industry experience in ${chosenSpecialization} under chartered mentors.`
+        },
+        {
+          title: "Build portfolio and master key technical tools: " + career.skills.technical.slice(0, 2).map(t => t.name).join(", "),
+          notes: "Document projects and real-world outcomes."
+        },
+        {
+          title: "Apply for graduate membership in professional governing body",
+          notes: "Steps toward full charter and professional licensure."
+        }
+      ]
+    });
+  }
 
   // Stage 6: Career Launch & Senior Progression
-  milestones.push({
-    stageKey: "CAREER_LAUNCH",
-    title: `Career Launch as a ${career.title.split("/")[0].trim()}`,
-    description: `Enter the profession, achieve full registration, and advance from entry-level to senior leadership roles.`,
-    whyItMatters: "Progress toward your long-term earnings potential and contribute meaningfully to Sri Lanka and the global industry.",
-    prerequisites: "Degree completion & licensure",
-    durationMonths: 24,
+  if (engDiscipline) {
+    milestones.push({
+      stageKey: "CAREER_LAUNCH",
+      title: `Career Launch: ${engDiscipline.industryRoleTitle}`,
+      description: `Progress from graduate trainee to senior engineer and achieve full IESL Chartered status (${engDiscipline.charteredTitle}).`,
+      whyItMatters: "Chartered Engineers in Sri Lanka command senior corporate leadership, government directorships, and global Washington Accord mobility.",
+      prerequisites: "Degree completion & monitored professional practice",
+      durationMonths: 36,
+      tasks: [
+        {
+          title: `Apply for positions as ${engDiscipline.industryRoleTitle}`,
+          notes: `Target top organizations: ${engDiscipline.employers.slice(0, 3).join(", ")}`
+        },
+        {
+          title: "Complete 3–4 years of mentored engineering experience and professional logbooks",
+          notes: "Document design reports, project safety leadership, and budget compliance."
+        },
+        {
+          title: `Pass IESL Professional Review Examination for ${engDiscipline.charteredTitle}`,
+          resourceUrl: "https://iesl.lk",
+          resourceType: "OFFICIAL_GUIDE",
+          notes: "Achieve globally mobile CEng / IntPE professional standing."
+        }
+      ]
+    });
+  } else {
+    milestones.push({
+      stageKey: "CAREER_LAUNCH",
+      title: `Career Launch as a ${career.title.split("/")[0].trim()}`,
+      description: `Enter the profession, achieve full registration, and advance from entry-level to senior leadership roles.`,
+      whyItMatters: "Progress toward your long-term earnings potential and contribute meaningfully to Sri Lanka and the global industry.",
+      prerequisites: "Degree completion & licensure",
+      durationMonths: 24,
+      tasks: [
+        {
+          title: "Apply for entry-level positions: " + career.salary.entryLevel.label,
+          notes: `Target top employers: ${career.roleOverview.typicalEmployers.slice(0, 2).join(", ")}`
+        },
+        {
+          title: "Cultivate executive soft skills: " + career.skills.soft.slice(0, 2).map(s => s.name).join(", "),
+          notes: "Leadership, negotiation, and teamwork."
+        },
+        {
+          title: "Plan 5-year progression to senior level: " + career.salary.seniorLevel.label,
+          resourceUrl: `/careers/${career.slug}#roadmap`,
+          resourceType: "CAREER",
+          notes: "Review career progression ladder and emerging specializations."
+        }
+      ]
+    });
+  }
+
+  const englishPractice = career.category === "Healthcare"
+    ? "Practise patient conversations, explaining care clearly, and concise handovers."
+    : career.category === "Legal"
+    ? "Practise client interviews, structured case summaries, and clear professional emails."
+    : career.category === "Business"
+    ? "Practise presentations, meeting contributions, customer calls, and concise reports."
+    : career.category === "Hospitality"
+    ? "Practise welcoming guests, explaining services, and resolving requests politely."
+    : career.slug === "teacher" || career.slug === "university-lecturer"
+    ? "Practise giving instructions, explaining a lesson, and offering useful feedback."
+    : engDiscipline || career.category === "Engineering"
+    ? "Practise explaining a design decision, presenting a project, and writing a short technical update."
+    : "Practise introducing your work, explaining a project, asking clear questions, and answering interview questions.";
+
+  // English communication is a continuing skill goal across every career route.
+  milestones.splice(Math.max(0, milestones.length - 1), 0, {
+    stageKey: "CAREER_COMMUNICATION",
+    title: "Build English communication for your career",
+    description: "Choose a class that matches your current level, then keep practising English alongside your studies and work experience.",
+    whyItMatters: `Clear English can support study, teamwork, interviews, and career growth in ${engDiscipline?.titleEn || career.title}. The level and situations you need will depend on your role.`,
+    prerequisites: "Start from your current level; ask the provider about placement and entry requirements.",
+    durationMonths: 12,
     tasks: [
       {
-        title: "Apply for entry-level positions: " + career.salary.entryLevel.label,
-        notes: `Target top employers: ${career.roleOverview.typicalEmployers.slice(0, 2).join(", ")}`
+        title: "Choose age- and level-appropriate English classes",
+        resourceUrl: "https://www.britishcouncil.lk/english",
+        resourceType: "COURSE",
+        notes: "British Council Sri Lanka has courses for ages 11–17 and adults; its adult modules span A1 to C1. Check the right age group, level check, and current details.",
       },
       {
-        title: "Cultivate executive soft skills: " + career.skills.soft.slice(0, 2).map(s => s.name).join(", "),
-        notes: "Leadership, negotiation, and teamwork."
+        title: "Build a foundation with OUSL English for General Communication (over age 16)",
+        resourceUrl: "https://ou.ac.lk/programme/certificate-in-english-for-general-communication/",
+        resourceType: "COURSE",
+        notes: "One-year certificate covering speaking, listening, reading, writing, and introductory workplace communication. Check the next intake and entry requirements.",
       },
       {
-        title: "Plan 5-year progression to senior level: " + career.salary.seniorLevel.label,
-        resourceUrl: `/careers/${career.slug}#roadmap`,
-        resourceType: "CAREER",
-        notes: "Review career progression ladder and emerging specializations."
-      }
-    ]
+        title: "Explore English for Employment at the Open University of Sri Lanka",
+        resourceUrl: "https://ou.ac.lk/programme/short-course-in-english-for-employment/",
+        resourceType: "COURSE",
+        notes: "A 20-week, 80-hour course for people seeking work, employees, and entrepreneurs. Check the official page for the next intake and current fee.",
+      },
+      {
+        title: `Practise English for ${engDiscipline?.titleEn || career.title}`,
+        notes: englishPractice,
+      },
+    ],
   });
 
   // Alternatives to consider
@@ -489,10 +626,28 @@ export function generatePersonalizedPath(
     };
   });
 
+  const pathTitle = engDiscipline
+    ? `${engDiscipline.titleEn} Career Pathway (${district} District)`
+    : profile.targetSpecialization
+    ? `${career.title.split("/")[0].trim()} (${profile.targetSpecialization}) Roadmap`
+    : `${career.title.split("/")[0].trim()} Career Roadmap`;
+
+  const uniList = engDiscipline
+    ? engDiscipline.universities.map(u => ({
+        name: u.name,
+        slug: u.slug || "university-of-moratuwa",
+        degree: u.degreeName,
+        type: u.type === "STATE" ? "State University" : "Private / Defence University"
+      }))
+    : career.universities.map(u => ({
+        name: u.name,
+        slug: u.slug,
+        degree: u.degreeName,
+        type: u.type
+      }));
+
   return {
-    title: profile.targetSpecialization
-      ? `${career.title.split("/")[0].trim()} (${profile.targetSpecialization}) Roadmap`
-      : `${career.title.split("/")[0].trim()} Career Roadmap`,
+    title: pathTitle,
     targetCareerSlug: career.slug,
     educationStage: stage,
     currentStream: stream,
@@ -502,13 +657,15 @@ export function generatePersonalizedPath(
     eligibilityExplanation,
     alternativeOptions,
     milestones,
-    recommendedUniversities: career.universities.map(u => ({
-      name: u.name,
-      slug: u.slug,
-      degree: u.degreeName,
-      type: u.type
-    })),
-    recommendedSubjects: career.skills.importantSchoolSubjects
+    recommendedUniversities: uniList,
+    recommendedSubjects: [
+      "Mathematics",
+      "Science",
+      "English Language",
+      olGuidance.basket3.recommendedSubject,
+      olGuidance.basket1.recommendedSubject,
+      ...(olGuidance.additionalMaths.recommended ? ["Additional Mathematics"] : [])
+    ]
   };
 }
 

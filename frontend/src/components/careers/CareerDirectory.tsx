@@ -24,17 +24,6 @@ const interests = [
   ["business", "Business"],
   ["creative", "Creative"],
 ] as const;
-const studyRoutes = ["degree", "professional", "diploma", "skills"] as const;
-
-/** Study-route filters match the English entry-route text kept on the record. */
-function matchesStudyRoute(career: LocalizedCareer, route: string) {
-  const entry = career.entry.toLowerCase();
-  if (route === "degree") return /degree|university|mbbs|engineering/.test(entry);
-  if (route === "professional") return /professional|registration|licensing|ca\b|slmc|accreditation/.test(entry);
-  if (route === "diploma") return /diploma|nvq|training|apprenticeship|vocational/.test(entry);
-  if (route === "skills") return /skills|portfolio|practice|experience/.test(entry);
-  return true;
-}
 
 /** `artwork` is a server-rendered slot (it needs server-only translations). */
 export function CareerDirectory({ careers, artwork }: { careers: LocalizedCareer[]; artwork: ReactNode }) {
@@ -43,7 +32,6 @@ export function CareerDirectory({ careers, artwork }: { careers: LocalizedCareer
   const catalog = useTranslations("catalog");
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState(ALL);
-  const [studyRoute, setStudyRoute] = useState("");
   const [showMoreCategories, setShowMoreCategories] = useState(false);
   const [sort, setSort] = useState("featured");
 
@@ -62,10 +50,9 @@ export function CareerDirectory({ careers, artwork }: { careers: LocalizedCareer
         }
         return career.category === category;
       })
-      .filter((career) => !studyRoute || matchesStudyRoute(career, studyRoute))
       .filter((career) => !needle || `${career.display.title} ${career.display.summary} ${career.display.employers} ${career.title} ${career.employers}`.toLowerCase().includes(needle))
       .sort((a, b) => (sort === "az" ? a.display.title.localeCompare(b.display.title) : 0));
-  }, [careers, category, studyRoute, query, sort]);
+  }, [careers, category, query, sort]);
 
   function selectCategory(next: string) {
     setCategory(next);
@@ -75,7 +62,6 @@ export function CareerDirectory({ careers, artwork }: { careers: LocalizedCareer
   function clearFilters() {
     setQuery("");
     setCategory(ALL);
-    setStudyRoute("");
     setShowMoreCategories(false);
   }
 
@@ -109,15 +95,6 @@ export function CareerDirectory({ careers, artwork }: { careers: LocalizedCareer
                 <SlidersHorizontal size={14} aria-hidden="true" />{t(`filters.interest.${key}`)}{category === value && <span aria-hidden="true">✓</span>}
               </button>
             ))}
-            <p className="eyebrow study-route-label">{t("filters.studyRoutes")}</p>
-            <div className="study-route-filters">
-              {studyRoutes.map((value) => (
-                <label key={value}>
-                  <input type="radio" name="career-study-route" checked={studyRoute === value} onChange={() => setStudyRoute(studyRoute === value ? "" : value)} onClick={() => studyRoute === value && setStudyRoute("")} />
-                  <span>{t(`filters.route.${value}`)}</span>
-                </label>
-              ))}
-            </div>
             <div className="sidebar-cta gold-glass">
               <Sparkles size={22} aria-hidden="true" />
               <h3>{t("filters.notSure")}</h3>

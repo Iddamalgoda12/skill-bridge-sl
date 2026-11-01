@@ -105,16 +105,20 @@
         "title": "Explore Careers",
         "copy": "Find work you’ll love, starting with your strengths."
       },
+      "about": {
+        "title": "About SkillBridge SL",
+        "copy": "Built by students, for students figuring out what comes next."
+      },
       "saved": {
-        "title": "Save Your Shortlist",
-        "copy": "Keep your favourite careers and universities together."
+        "title": "About SkillBridge SL",
+        "copy": "Built by students, for students figuring out what comes next."
       },
       "path": {
         "title": "Plan Your Journey",
         "copy": "A clear roadmap from O/Ls all the way to PhD."
       },
       "universities": {
-        "title": "Compare Universities",
+        "title": "Learn About Universities",
         "copy": "Find the right place for your next step."
       }
     },
@@ -1464,6 +1468,7 @@
       "intro": "Big dreams feel easier with a clear plan. Discover the subjects,<br></br>courses and milestones that can take you there.",
       "build": "Build my roadmap",
       "example": "See an example",
+      "viewMyPath": "View My Path",
       "note": "Made for Sri Lankan students, from O/Ls to your first career."
     },
     "journey": {
@@ -1685,36 +1690,20 @@
       "body": "The big decisions feel easier when an aiya shares the roadmap.<br></br>That is the feeling I want SkillBridge SL to give every student."
     },
     "founder": {
-      "addPhoto": "ADD YOUR PHOTO",
-      "placeholder": "Your portrait goes here • Replace this image layer",
+      "badge": "Creator & Developer",
       "eyebrow": "MEET THE CREATOR",
-      "title": "An engineering student. An aiya.",
+      "title": "Piumantha Iddamalgoda",
       "faculty": "Faculty of Engineering · University of Ruhuna",
-      "disclaimer": "Independent student project • Not an official university service"
+      "disclaimer": "Independent student project • Built with heart for Sri Lankan youth"
     },
     "story": {
-      "eyebrow": "THE STORY BEHIND SKILLBRIDGE",
-      "title": "Why I started SkillBridge SL",
-      "description": "A small student idea, with a bigger purpose.",
-      "hi": "Hi, I’m the student behind SkillBridge SL.",
-      "p1": "I study at the Faculty of Engineering, University of Ruhuna. I know how hard<br></br>it can be to connect school subjects, degree choices and real careers.",
-      "p2": "I created SkillBridge SL to bring that information into one friendly place—<br></br>so the next student does not have to figure everything out alone.",
-      "tag": "Made by a Ruhuna engineering student"
-    },
-    "values": {
-      "title": "What matters to me",
-      "clarity": {
-        "title": "Clarity",
-        "copy": "Clear steps, without overwhelming jargon."
-      },
-      "guidance": {
-        "title": "Real guidance",
-        "copy": "Helpful context across study stages."
-      },
-      "student": {
-        "title": "Student-first",
-        "copy": "Built around the questions we really ask."
-      }
+      "eyebrow": "FROM THE CREATOR'S HEART",
+      "title": "Why I built SkillBridge SL",
+      "description": "A personal message from an engineering student who knows the struggle firsthand.",
+      "hi": "Hi, I’m Piumantha — the student behind SkillBridge SL.",
+      "p1": "I'm just an ordinary guy studying engineering at the University of Ruhuna. To be completely honest, after my O/Ls and A/Ls, when results came out, I was terrified. I had no idea what degree to choose, which field had actual jobs, or whether my life was over just because my Z-score wasn't enough. I spent so many nights feeling lost and stressed out with nobody around to really guide me. In Sri Lanka, thousands of school kids go through this exact pain every year in silence. There is rarely someone who sits beside you, puts a reassuring hand on your shoulder, and tells you: 'Don't worry, you are not a failure. Here are the paths you can take, and we’re going to get through this together.'",
+      "p2": "That deep feeling never left my heart. That’s why, between late engineering classes and sleepless nights, I built SkillBridge SL with my own two hands. This isn't just a university project or some corporate website to me — it's a promise to every younger brother and sister across Sri Lanka. It doesn't matter what school you attended or how much money you have in your pocket. You don't have to walk in the dark anymore. Whatever your dream is, we will find a way to get you there.",
+      "tag": "Built with ❤️ by Piumantha Iddamalgoda · Ruhuna Engineering"
     }
   }
 }

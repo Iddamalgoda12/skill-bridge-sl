@@ -129,7 +129,7 @@ export function PersonalPathBanner() {
         <div className="path-actions-col">
           <Link href="/build-your-path" className="glass-button gold-glass path-primary-btn">
             <Sparkles size={16} />
-            <span>{isSi ? "මගේ Career Path එක හදන්න" : "Build My Career Path"}</span>
+            <span>{isSi ? "Career Path එක හදන්න" : "Build Career Path"}</span>
             <ArrowRight size={17} />
           </Link>
         </div>

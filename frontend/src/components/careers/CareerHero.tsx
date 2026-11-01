@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { useLocale } from "next-intl";
 import { Sparkles, Route, Check, DollarSign, BookOpen, GraduationCap, Compass, Brain, TrendingUp } from "lucide-react";
-import { SaveButton } from "@/components/shared/SaveButton";
 import { ActionLink } from "@/components/shared/ActionLink";
 import type { CareerDetail } from "@/lib/data/careerDetails";
 
@@ -71,9 +70,15 @@ export function CareerHero({ career }: CareerHeroProps) {
           <p className="career-hero-tagline">{career.tagline}</p>
 
           <div className="career-hero-actions">
-            <SaveButton id={career.slug} title={career.title} />
-            <ActionLink href="/build-your-path" icon={<Route size={16} />}>
-              {isSi ? "මගේ Career Path එක හදන්න" : "Build My Career Path"}
+            <ActionLink
+              href={
+                career.slug === "software-engineer"
+                  ? "/build-your-path?career=engineer&field=software-engineering#career-architect"
+                  : `/build-your-path?career=${career.slug}#career-architect`
+              }
+              icon={<Route size={16} />}
+            >
+              {isSi ? "Career Path එක හදන්න" : "Build Career Path"}
             </ActionLink>
             <Link href="/universities" className="career-hero-secondary-btn">
               <GraduationCap size={16} aria-hidden="true" />

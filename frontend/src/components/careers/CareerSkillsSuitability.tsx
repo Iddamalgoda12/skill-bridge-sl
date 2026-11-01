@@ -113,7 +113,7 @@ export function CareerSkillsSuitability({
         <div className="sub-card glass-panel">
           <div className="sub-card-header">
             <BookOpen size={16} aria-hidden="true" />
-            <h4>{isSi ? "පාසලේදී වැඩි අවධානයක් දිය යුතු විෂයයන්" : "Important School Subjects"}</h4>
+            <h4>{isSi ? "උසස් පෙළ සහ අධ්‍යයන විෂයයන් (A/L & Academic Stream)" : "Key Academic & A/L Stream Subjects"}</h4>
           </div>
           <div className="subjects-tags-row">
             {skills.importantSchoolSubjects.map((sub, idx) => (

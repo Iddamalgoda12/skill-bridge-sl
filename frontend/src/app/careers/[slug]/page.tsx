@@ -2,8 +2,7 @@ import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
 import { Route } from "lucide-react";
 import { getLocale, getTranslations } from "next-intl/server";
-import { getCareerDetail, getAllCareerSlugs } from "@/lib/data/careerDetails";
-import { getCareer } from "@/lib/api/catalog";
+import { getCareer, getCareerProfile } from "@/lib/api/catalog";
 import { localizeCareer } from "@/lib/i18n/catalog";
 import { CareerHero } from "@/components/careers/CareerHero";
 import { CareerOverviewSection } from "@/components/careers/CareerOverviewSection";
@@ -15,7 +14,6 @@ import { CareerSkillsSuitability } from "@/components/careers/CareerSkillsSuitab
 import { CareerFutureOutlook } from "@/components/careers/CareerFutureOutlook";
 import { CareerRelatedSection } from "@/components/careers/CareerRelatedSection";
 import { EngineeringFields } from "@/components/careers/EngineeringFields";
-import { SaveButton } from "@/components/shared/SaveButton";
 import { ActionLink } from "@/components/shared/ActionLink";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -39,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: "Engineering Fields in Sri Lanka | SkillBridge SL" };
   }
 
-  const detail = getCareerDetail(slug);
+  const detail = await getCareerProfile(slug);
   if (detail) {
     return {
       title: `${detail.title} in Sri Lanka - Salary, Degrees, Requirements & Career Guide | SkillBridge SL`,
@@ -57,10 +55,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export function generateStaticParams() {
-  return getAllCareerSlugs().map((slug) => ({ slug }));
-}
-
 export default async function CareerPage({ params }: Props) {
   const { slug } = await params;
 
@@ -70,7 +64,7 @@ export default async function CareerPage({ params }: Props) {
   }
 
   // Load detailed career record
-  const detail = getCareerDetail(slug);
+  const detail = await getCareerProfile(slug);
   const isEngineer = slug === "engineer";
   const locale = await getLocale();
   const isSi = locale === "si";
@@ -110,7 +104,11 @@ export default async function CareerPage({ params }: Props) {
       />
 
       {/* 6. Step-by-Step 6-Stage Visual Career Roadmap */}
-      <CareerRoadmapSection roadmap={detail.roadmap} careerTitle={detail.title} />
+      <CareerRoadmapSection
+        roadmap={detail.roadmap}
+        careerTitle={detail.title}
+        careerSlug={detail.slug}
+      />
 
       {/* 7. Skills, School Subjects, Trait Fit & Interactive Self-Assessment Quiz */}
       <CareerSkillsSuitability
@@ -151,9 +149,15 @@ export default async function CareerPage({ params }: Props) {
           </div>
         </div>
         <div className="cta-right-actions">
-          <SaveButton id={detail.slug} title={detail.title} />
-          <ActionLink href="/build-your-path" icon={<Route size={16} />}>
-            {isSi ? "මගේ Career Path එක හදන්න" : "Build My Career Path"}
+          <ActionLink
+            href={
+              detail.slug === "software-engineer"
+                ? "/build-your-path?career=engineer&field=software-engineering#career-architect"
+                : `/build-your-path?career=${detail.slug}#career-architect`
+            }
+            icon={<Route size={16} />}
+          >
+            {isSi ? "Career Path එක හදන්න" : "Build Career Path"}
           </ActionLink>
         </div>
       </div>

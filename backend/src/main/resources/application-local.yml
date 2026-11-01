@@ -4,9 +4,9 @@
 
 spring:
   datasource:
-    url: ${DB_URL:jdbc:postgresql://localhost:5432/skillbridgesl}
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/skillbridgesl_db}
     username: ${DB_USERNAME:skillbridge}
-    password: ${DB_PASSWORD:skillbridge_secret}
+    password: ${DB_PASSWORD:Piyumantha@1}
 
   # ─── Flyway: point to the shared database/migrations/ folder ──────────────
   # Working directory when running `mvn spring-boot:run` is backend/,
