@@ -1,6 +1,7 @@
 package com.skillbridgesl.dto.path;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -14,6 +15,7 @@ import java.util.List;
 public class CreateCareerPathRequest {
 
     @NotBlank(message = "Path title is required")
+    @Size(min = 3, max = 255, message = "Path title must be 3-255 characters")
     private String title;
 
     @NotBlank(message = "Target career slug is required")

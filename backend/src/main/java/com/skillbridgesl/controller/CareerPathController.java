@@ -47,7 +47,7 @@ public class CareerPathController {
     @PatchMapping("/{id}")
     public CareerPathResponse updatePath(@AuthenticationPrincipal User principal,
                                          @PathVariable UUID id,
-                                         @RequestBody UpdateCareerPathRequest request) {
+                                         @Valid @RequestBody UpdateCareerPathRequest request) {
         return careerPathService.updatePath(principal.getId(), id, request);
     }
 
@@ -69,7 +69,7 @@ public class CareerPathController {
     @PatchMapping("/milestones/{milestoneId}")
     public MilestoneResponse updateMilestone(@AuthenticationPrincipal User principal,
                                              @PathVariable UUID milestoneId,
-                                             @RequestBody UpdateMilestoneRequest request) {
+                                             @Valid @RequestBody UpdateMilestoneRequest request) {
         return careerPathService.updateMilestone(principal.getId(), milestoneId, request);
     }
 
@@ -77,6 +77,21 @@ public class CareerPathController {
     public ResponseEntity<Void> deleteMilestone(@AuthenticationPrincipal User principal,
                                                 @PathVariable UUID milestoneId) {
         careerPathService.deleteMilestone(principal.getId(), milestoneId);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/milestones/{milestoneId}/tasks")
+    public ResponseEntity<TaskResponse> addTask(@AuthenticationPrincipal User principal,
+                                                @PathVariable UUID milestoneId,
+                                                @Valid @RequestBody AddTaskRequest request) {
+        TaskResponse added = careerPathService.addTask(principal.getId(), milestoneId, request);
+        return ResponseEntity.status(HttpStatus.CREATED).body(added);
+    }
+
+    @DeleteMapping("/tasks/{taskId}")
+    public ResponseEntity<Void> deleteTask(@AuthenticationPrincipal User principal,
+                                           @PathVariable UUID taskId) {
+        careerPathService.deleteTask(principal.getId(), taskId);
         return ResponseEntity.noContent().build();
     }
 

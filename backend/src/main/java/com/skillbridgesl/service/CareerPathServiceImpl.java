@@ -236,6 +236,52 @@ public class CareerPathServiceImpl implements CareerPathService {
 
     @Override
     @Transactional
+    public TaskResponse addTask(UUID userId, UUID milestoneId, AddTaskRequest request) {
+        PathMilestone milestone = milestoneRepository.findByIdAndUserId(milestoneId, userId)
+                .orElseThrow(() -> new ResourceNotFoundException("Milestone", milestoneId));
+
+        MilestoneTask task = MilestoneTask.builder()
+                .milestone(milestone)
+                .title(request.getTitle().trim())
+                .position(milestone.getTasks().size())
+                .build();
+        MilestoneTask saved = taskRepository.saveAndFlush(task);
+        milestone.getTasks().add(saved);
+
+        syncMilestoneStatus(milestone);
+        recalculateProgress(milestone.getCareerPath());
+        return toTaskResponse(saved);
+    }
+
+    @Override
+    @Transactional
+    public void deleteTask(UUID userId, UUID taskId) {
+        MilestoneTask task = taskRepository.findByIdAndUserId(taskId, userId)
+                .orElseThrow(() -> new ResourceNotFoundException("Task", taskId));
+        PathMilestone milestone = task.getMilestone();
+        milestone.getTasks().remove(task);
+        taskRepository.delete(task);
+
+        syncMilestoneStatus(milestone);
+        recalculateProgress(milestone.getCareerPath());
+    }
+
+    private void syncMilestoneStatus(PathMilestone milestone) {
+        List<MilestoneTask> tasks = milestone.getTasks();
+        long completed = tasks.stream().filter(MilestoneTask::isCompleted).count();
+
+        if (completed == tasks.size() && !tasks.isEmpty()) {
+            milestone.setStatus("COMPLETED");
+        } else if (completed > 0) {
+            milestone.setStatus("IN_PROGRESS");
+        } else {
+            milestone.setStatus("PENDING");
+        }
+        milestoneRepository.save(milestone);
+    }
+
+    @Override
+    @Transactional
     public TaskResponse toggleTask(UUID userId, UUID taskId, ToggleTaskRequest request) {
         MilestoneTask task = taskRepository.findByIdAndUserId(taskId, userId)
                 .orElseThrow(() -> new ResourceNotFoundException("Task", taskId));
@@ -249,17 +295,7 @@ public class CareerPathServiceImpl implements CareerPathService {
 
         // Update parent milestone status based on task completions
         PathMilestone milestone = task.getMilestone();
-        List<MilestoneTask> tasks = milestone.getTasks();
-        long completed = tasks.stream().filter(MilestoneTask::isCompleted).count();
-
-        if (completed == tasks.size() && !tasks.isEmpty()) {
-            milestone.setStatus("COMPLETED");
-        } else if (completed > 0) {
-            milestone.setStatus("IN_PROGRESS");
-        } else {
-            milestone.setStatus("PENDING");
-        }
-        milestoneRepository.save(milestone);
+        syncMilestoneStatus(milestone);
 
         // Recalculate whole path completion and check badges
         recalculateProgress(milestone.getCareerPath());

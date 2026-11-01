@@ -120,6 +120,50 @@ class CareerPathIntegrationTest {
     }
 
     @Test
+    void tasksCanBeAddedAndDeletedAndProgressFollows() throws Exception {
+        String token = register();
+        JsonNode path = createPath(token);
+        String id = path.get("id").asText();
+        String milestoneId = path.get("milestones").get(0).get("id").asText();
+
+        String body = mvc.perform(authed(post("/paths/milestones/" + milestoneId + "/tasks")
+                        .contentType(MediaType.APPLICATION_JSON).content("{\"title\":\"Join study group\"}"), token))
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.title").value("Join study group"))
+                .andReturn().getResponse().getContentAsString();
+        String newTaskId = json.readTree(body).get("id").asText();
+
+        mvc.perform(authed(get("/paths/" + id), token))
+                .andExpect(jsonPath("$.totalTasks").value(4))
+                .andExpect(jsonPath("$.milestones[0].tasks.length()").value(3));
+
+        mvc.perform(authed(delete("/paths/tasks/" + newTaskId), token)).andExpect(status().isNoContent());
+
+        mvc.perform(authed(get("/paths/" + id), token))
+                .andExpect(jsonPath("$.totalTasks").value(3))
+                .andExpect(jsonPath("$.milestones[0].tasks.length()").value(2));
+    }
+
+    @Test
+    void updateAndAddRequestsAreValidatedOnTheServer() throws Exception {
+        String token = register();
+        JsonNode path = createPath(token);
+        String id = path.get("id").asText();
+        String milestoneId = path.get("milestones").get(0).get("id").asText();
+
+        mvc.perform(authed(patch("/paths/" + id).contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"title\":\"ab\"}"), token)).andExpect(status().isBadRequest());
+        mvc.perform(authed(patch("/paths/milestones/" + milestoneId).contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"status\":\"DONE\"}"), token)).andExpect(status().isBadRequest());
+        mvc.perform(authed(patch("/paths/milestones/" + milestoneId).contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"durationMonths\":0}"), token)).andExpect(status().isBadRequest());
+        mvc.perform(authed(post("/paths/" + id + "/milestones").contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"stageKey\":\"CUSTOM\",\"title\":\"x\"}"), token)).andExpect(status().isBadRequest());
+        mvc.perform(authed(post("/paths/milestones/" + milestoneId + "/tasks").contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"title\":\"  \"}"), token)).andExpect(status().isBadRequest());
+    }
+
+    @Test
     void aStudentCannotReadChangeOrDeleteAnotherStudentsPath() throws Exception {
         String owner = register();
         String intruder = register();

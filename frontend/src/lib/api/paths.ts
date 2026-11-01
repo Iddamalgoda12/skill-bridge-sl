@@ -687,6 +687,22 @@ export async function addTaskToMilestone(
     position: 999,
   };
 
+  // Persist to the database first; the server returns the real task id.
+  try {
+    if (!(await hasServerSession())) throw new Error("guest");
+    const res = await fetch(`/api/paths/milestones/${milestoneId}/tasks`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title: newTask.title }),
+    });
+    if (res.ok) {
+      const data = await res.json();
+      if (data.task?.id) newTask.id = data.task.id;
+    }
+  } catch {
+    // Local fallback is active
+  }
+
   const paths = getLocalPaths();
   const path = paths.find((p) => p.id === pathId);
   if (path) {
@@ -726,6 +742,13 @@ export async function deleteTaskFromMilestone(
   milestoneId: string,
   taskId: string
 ): Promise<boolean> {
+  try {
+    if (!(await hasServerSession())) throw new Error("guest");
+    await fetch(`/api/paths/tasks/${taskId}`, { method: "DELETE" });
+  } catch {
+    // Local fallback is active
+  }
+
   const paths = getLocalPaths();
   const path = paths.find((p) => p.id === pathId);
   if (path) {
