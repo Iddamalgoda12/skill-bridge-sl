@@ -1,5 +1,6 @@
 package com.skillbridgesl.dto.path;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import java.time.Instant;
@@ -19,6 +20,8 @@ public class CareerPathResponse {
     private String currentStream;
     private String district;
     private String budgetTier;
+    // Lombok would expose this as "active"; the API contract (and the frontend) use "isActive"
+    @JsonProperty("isActive")
     private boolean isActive;
     private int completionPercent;
     private String notes;

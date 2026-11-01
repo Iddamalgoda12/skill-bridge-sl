@@ -13,7 +13,6 @@ export function UniversityCard({ university }: { university: LocalizedUniversity
     <Link
       href={`/universities/${university.slug}`}
       className="university-card glass-panel university-card-link"
-      aria-label={display.name}
     >
       <div className="university-illustration university-card-media">
         <Image

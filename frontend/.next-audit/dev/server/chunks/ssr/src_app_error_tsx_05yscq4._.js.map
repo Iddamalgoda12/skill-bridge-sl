@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///projects/MyProjects/skillbridgesl/frontend/src/app/error.tsx"],"sourcesContent":["\"use client\";\nimport { useTranslations } from \"next-intl\";\n\nexport default function ErrorPage({ reset }: { error: Error & { digest?: string }; reset: () => void }) {\n  const t = useTranslations(\"states.error\");\n  return (\n    <div className=\"page-container\">\n      <div className=\"glass-panel empty-state\" role=\"alert\">\n        <h1>{t(\"title\")}</h1>\n        <p>{t(\"body\")}</p>\n        <button className=\"glass-button\" onClick={reset}>{t(\"retry\")}</button>\n      </div>\n    </div>\n  );\n}\n"],"names":["ErrorPage","reset","t","className","role","onClick"],"mappings":";;;;;AACA;AADA;;;AAGe,SAASA,UAAU,EAAEC,KAAK,EAA6D;IACpG,MAAMC,IAAI,IAAA,yMAAe,EAAC;IAC1B,qBACE,8OAAC;QAAIC,WAAU;kBACb,cAAA,8OAAC;YAAIA,WAAU;YAA0BC,MAAK;;8BAC5C,8OAAC;8BAAIF,EAAE;;;;;;8BACP,8OAAC;8BAAGA,EAAE;;;;;;8BACN,8OAAC;oBAAOC,WAAU;oBAAeE,SAASJ;8BAAQC,EAAE;;;;;;;;;;;;;;;;;AAI5D"}}]
+}

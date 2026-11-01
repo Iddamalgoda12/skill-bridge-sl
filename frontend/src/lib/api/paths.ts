@@ -54,6 +54,44 @@ export interface AchievementRecord {
   unlockedAt: string;
 }
 
+/** Choices made on the Build Your Path page, saved with the path so My Path can show and reopen them. */
+export interface PathPreferences {
+  specialization?: string;
+  universityName?: string;
+  universitySlug?: string;
+  degreeName?: string;
+  route?: "STATE_UGC" | "PRIVATE_GLOBAL" | "PROFESSIONAL_BODY";
+  engineeringFieldId?: string;
+}
+
+export function parsePathPreferences(path: Pick<CareerPathRecord, "preferencesJson">): PathPreferences {
+  if (!path.preferencesJson) return {};
+  try {
+    const parsed = JSON.parse(path.preferencesJson);
+    return parsed && typeof parsed === "object" ? (parsed as PathPreferences) : {};
+  } catch {
+    return {};
+  }
+}
+
+let sessionProbe: { at: number; signedIn: boolean } | null = null;
+const SESSION_PROBE_TTL_MS = 10_000;
+
+/** Guests keep their roadmap in this browser only, so skip server calls that would just fail with 401. */
+async function hasServerSession(): Promise<boolean> {
+  if (sessionProbe && Date.now() - sessionProbe.at < SESSION_PROBE_TTL_MS) return sessionProbe.signedIn;
+  let signedIn = false;
+  try {
+    if (!(await hasServerSession())) throw new Error("guest");
+    const res = await fetch("/api/session", { cache: "no-store" });
+    if (res.ok) signedIn = Boolean((await res.json()).authenticated);
+  } catch {
+    // Offline or backend down: behave like a guest
+  }
+  sessionProbe = { at: Date.now(), signedIn };
+  return signedIn;
+}
+
 const LOCAL_STORAGE_KEY = "skillbridgesl_saved_paths_v2";
 
 function getLocalPaths(): CareerPathRecord[] {
@@ -75,11 +113,39 @@ function saveLocalPaths(paths: CareerPathRecord[]): void {
   }
 }
 
+function toCreatePayload(p: CareerPathRecord) {
+  return {
+    title: p.title,
+    targetCareerSlug: p.targetCareerSlug,
+    educationStage: p.educationStage,
+    currentStream: p.currentStream,
+    district: p.district,
+    budgetTier: p.budgetTier,
+    notes: p.notes,
+    preferencesJson: p.preferencesJson,
+    milestones: p.milestones.map((m) => ({
+      stageKey: m.stageKey,
+      title: m.title,
+      description: m.description,
+      whyItMatters: m.whyItMatters,
+      prerequisites: m.prerequisites,
+      durationMonths: m.durationMonths,
+      tasks: m.tasks.map((t) => ({
+        title: t.title,
+        resourceUrl: t.resourceUrl,
+        resourceType: t.resourceType,
+        notes: t.notes,
+      })),
+    })),
+  };
+}
+
 /**
  * Fetch all saved career paths for the user.
  * Tries the backend authenticated endpoint first; falls back to localStorage for guests.
  */
 export async function fetchUserPaths(): Promise<CareerPathRecord[]> {
+  if (!(await hasServerSession())) return getLocalPaths();
   try {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 3500);
@@ -98,43 +164,28 @@ export async function fetchUserPaths(): Promise<CareerPathRecord[]> {
           return data.paths;
         }
 
-        // When user is authenticated but has no paths in DB yet, auto-sync local guest path to DB
+        // When user is authenticated but has no paths in DB yet, auto-sync local guest paths to DB
         const local = getLocalPaths();
         if (local.length > 0) {
-          const primary = local.find((p) => p.isActive) || local[0];
+          const activeLocal = local.find((p) => p.isActive) || local[0];
+          // Upload the active path last so it stays the active one on the server
+          const ordered = [...local.filter((p) => p !== activeLocal), activeLocal];
+          const synced: CareerPathRecord[] = [];
           try {
-            const syncRes = await fetch("/api/paths", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                title: primary.title,
-                targetCareerSlug: primary.targetCareerSlug,
-                educationStage: primary.educationStage,
-                currentStream: primary.currentStream,
-                district: primary.district,
-                budgetTier: primary.budgetTier,
-                milestones: primary.milestones.map((m) => ({
-                  stageKey: m.stageKey,
-                  title: m.title,
-                  description: m.description,
-                  whyItMatters: m.whyItMatters,
-                  prerequisites: m.prerequisites,
-                  durationMonths: m.durationMonths,
-                  tasks: m.tasks.map((t) => ({
-                    title: t.title,
-                    resourceUrl: t.resourceUrl,
-                    resourceType: t.resourceType,
-                    notes: t.notes,
-                  })),
-                })),
-              }),
-            });
-            if (syncRes.ok) {
+            for (const p of ordered) {
+              const syncRes = await fetch("/api/paths", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(toCreatePayload(p)),
+              });
+              if (!syncRes.ok) throw new Error("sync failed");
               const syncData = await syncRes.json();
-              if (syncData.path) {
-                saveLocalPaths([syncData.path]);
-                return [syncData.path];
-              }
+              if (syncData.path) synced.push(syncData.path);
+            }
+            if (synced.length > 0) {
+              const result = synced.reverse();
+              saveLocalPaths(result);
+              return result;
             }
           } catch {
             // Return local paths if sync encounters network error
@@ -166,7 +217,8 @@ export async function fetchActivePath(): Promise<CareerPathRecord | null> {
  * Always saves locally first so no user work is ever lost, then syncs with API.
  */
 export async function saveGeneratedPath(
-  generated: GeneratedCareerPath
+  generated: GeneratedCareerPath,
+  preferences?: PathPreferences
 ): Promise<CareerPathRecord> {
   // Sanitize stream to clean title (fits VARCHAR(50) and VARCHAR(255))
   const cleanStream = generated.currentStream
@@ -180,6 +232,7 @@ export async function saveGeneratedPath(
     currentStream: cleanStream,
     district: generated.district,
     budgetTier: generated.budgetTier,
+    preferencesJson: preferences ? JSON.stringify(preferences) : undefined,
     milestones: generated.milestones.map((m) => ({
       stageKey: m.stageKey,
       title: m.title,
@@ -205,6 +258,7 @@ export async function saveGeneratedPath(
     currentStream: payload.currentStream,
     district: payload.district,
     budgetTier: payload.budgetTier,
+    preferencesJson: payload.preferencesJson ?? null,
     isActive: true,
     completionPercent: 0,
     totalMilestones: payload.milestones.length,
@@ -219,6 +273,7 @@ export async function saveGeneratedPath(
       whyItMatters: m.whyItMatters,
       prerequisites: m.prerequisites,
       status: "PENDING",
+      durationMonths: m.durationMonths,
       position: mIdx,
       tasks: m.tasks.map((t, tIdx) => ({
         id: "t-" + Date.now() + "-" + mIdx + "-" + tIdx,
@@ -235,11 +290,14 @@ export async function saveGeneratedPath(
   };
 
   const existing = getLocalPaths();
-  const updated = [localRecord, ...existing.filter((p) => p.targetCareerSlug !== localRecord.targetCareerSlug).map((p) => ({ ...p, isActive: false }))];
+  // The same career with the same title is the same path; different choices (university, route) are kept as separate paths
+  const isSamePath = (p: CareerPathRecord) => p.targetCareerSlug === localRecord.targetCareerSlug && p.title === localRecord.title;
+  const updated = [localRecord, ...existing.filter((p) => !isSamePath(p)).map((p) => ({ ...p, isActive: false }))];
   saveLocalPaths(updated);
 
   // 2. Sync with authenticated API in the background with timeout
   try {
+    if (!(await hasServerSession())) throw new Error("guest");
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 3500);
 
@@ -255,8 +313,11 @@ export async function saveGeneratedPath(
       const data = await res.json();
       if (data.path) {
         // Sync the server-assigned ID into local storage as well
-        const synced = [data.path, ...existing.filter((p) => p.id !== data.path.id && p.targetCareerSlug !== data.path.targetCareerSlug).map((p) => ({ ...p, isActive: false }))];
+        const staleOnServer = existing.filter((p) => isSamePath(p) && !p.id.startsWith("local-") && p.id !== data.path.id);
+        const synced = [data.path, ...existing.filter((p) => p.id !== data.path.id && !isSamePath(p)).map((p) => ({ ...p, isActive: false }))];
         saveLocalPaths(synced);
+        // Remove the older server copy so My Path doesn't show duplicates
+        await Promise.all(staleOnServer.map((p) => deleteCareerPath(p.id).catch(() => false)));
         return data.path;
       }
     }
@@ -276,6 +337,7 @@ export async function toggleTaskCompletion(
   isCompleted: boolean
 ): Promise<{ success: boolean }> {
   try {
+    if (!(await hasServerSession())) throw new Error("guest");
     const res = await fetch(`/api/paths/tasks/${taskId}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -334,6 +396,7 @@ export async function toggleTaskCompletion(
  */
 export async function deleteCareerPath(pathId: string): Promise<boolean> {
   try {
+    if (!(await hasServerSession())) throw new Error("guest");
     const res = await fetch(`/api/paths/${pathId}`, { method: "DELETE" });
     if (res.ok) return true;
   } catch {
@@ -349,7 +412,9 @@ export async function deleteCareerPath(pathId: string): Promise<boolean> {
  * Fetch achievements.
  */
 export async function fetchUserAchievements(): Promise<AchievementRecord[]> {
+  if (!(await hasServerSession())) return [];
   try {
+    if (!(await hasServerSession())) throw new Error("guest");
     const res = await fetch("/api/paths/achievements");
     if (res.ok) {
       const data = await res.json();
@@ -419,6 +484,7 @@ export async function addCustomMilestone(
 
   // 2. Sync with backend API
   try {
+    if (!(await hasServerSession())) throw new Error("guest");
     const res = await fetch(`/api/paths/${pathId}/milestones`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -501,6 +567,7 @@ export async function updateMilestone(
 
   // 2. Sync with backend API
   try {
+    if (!(await hasServerSession())) throw new Error("guest");
     const res = await fetch(`/api/paths/milestones/${milestoneId}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -558,6 +625,7 @@ export async function deleteMilestone(
 
   // 2. Sync with backend API
   try {
+    if (!(await hasServerSession())) throw new Error("guest");
     const res = await fetch(`/api/paths/milestones/${milestoneId}`, { method: "DELETE" });
     if (res.ok) return true;
   } catch {
@@ -587,6 +655,7 @@ export async function updateCareerPath(
 
   // 2. Sync with backend API
   try {
+    if (!(await hasServerSession())) throw new Error("guest");
     const res = await fetch(`/api/paths/${pathId}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },

@@ -156,9 +156,9 @@ export function FacultyExplorer({
                     target="_blank"
                     rel="noopener noreferrer"
                     className="faculty-portal-btn"
-                    aria-label={`${title} Official Website`}
                   >
                     <span>{isRuhuna ? t("facultyExplorer.visitFaculty") : (isSi ? "නිල පීඨ Portal එක" : "Official Faculty Portal")}</span>
+                    <span className="sr-only">{`: ${title}`}</span>
                     <ExternalLink size={13} aria-hidden="true" />
                   </a>
                 )}

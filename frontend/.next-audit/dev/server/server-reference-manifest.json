@@ -1,0 +1,84 @@
+{
+  "node": {
+    "40579dcbdd622aec5bd0d53fa7b8c7e05e95b5f45e": {
+      "workers": {
+        "app/about/page": {
+          "moduleId": "[project]/.next-internal/server/app/about/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/i18n/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "setLocale",
+          "filename": "src/i18n/actions.ts"
+        },
+        "app/account/page": {
+          "moduleId": "[project]/.next-internal/server/app/account/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/i18n/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "setLocale",
+          "filename": "src/i18n/actions.ts"
+        },
+        "app/build-your-path/page": {
+          "moduleId": "[project]/.next-internal/server/app/build-your-path/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/i18n/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "setLocale",
+          "filename": "src/i18n/actions.ts"
+        },
+        "app/careers/(list)/page": {
+          "moduleId": "[project]/.next-internal/server/app/careers/(list)/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/i18n/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "setLocale",
+          "filename": "src/i18n/actions.ts"
+        },
+        "app/careers/[slug]/page": {
+          "moduleId": "[project]/.next-internal/server/app/careers/[slug]/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/i18n/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "setLocale",
+          "filename": "src/i18n/actions.ts"
+        },
+        "app/contact/page": {
+          "moduleId": "[project]/.next-internal/server/app/contact/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/i18n/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "setLocale",
+          "filename": "src/i18n/actions.ts"
+        },
+        "app/login/page": {
+          "moduleId": "[project]/.next-internal/server/app/login/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/i18n/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "setLocale",
+          "filename": "src/i18n/actions.ts"
+        },
+        "app/my-path/page": {
+          "moduleId": "[project]/.next-internal/server/app/my-path/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/i18n/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "setLocale",
+          "filename": "src/i18n/actions.ts"
+        },
+        "app/page": {
+          "moduleId": "[project]/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/i18n/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "setLocale",
+          "filename": "src/i18n/actions.ts"
+        },
+        "app/register/page": {
+          "moduleId": "[project]/.next-internal/server/app/register/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/i18n/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "setLocale",
+          "filename": "src/i18n/actions.ts"
+        },
+        "app/universities/(list)/page": {
+          "moduleId": "[project]/.next-internal/server/app/universities/(list)/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/i18n/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "setLocale",
+          "filename": "src/i18n/actions.ts"
+        },
+        "app/universities/[slug]/page": {
+          "moduleId": "[project]/.next-internal/server/app/universities/[slug]/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/i18n/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "setLocale",
+          "filename": "src/i18n/actions.ts"
+        }
+      },
+      "filename": "src/i18n/actions.ts",
+      "exportedName": "setLocale"
+    }
+  },
+  "edge": {},
+  "encryptionKey": "Con7ffbb26sS/MGM4TR0mYkCMF5bua4aGTfIURjrM5s="
+}

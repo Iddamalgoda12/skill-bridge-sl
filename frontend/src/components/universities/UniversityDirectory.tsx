@@ -82,7 +82,11 @@ export function UniversityDirectory({ universities }: { universities: LocalizedU
               aria-label={t("search.label")}
               placeholder={t("search.placeholder")}
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e) => {
+                // Filter while typing, like the careers search; the button still submits explicitly
+                setQuery(e.target.value);
+                setSearch(e.target.value);
+              }}
             />
           </label>
           <Button variant="glass" className="glass-button button-dark" type="submit">

@@ -15,7 +15,7 @@ test.describe("registration", () => {
     await page.getByLabel("First name").fill("Nimal");
     await page.getByLabel("Last name").fill("Perera");
     await page.getByLabel("Email address").fill("not-an-email");
-    await page.getByLabel("Password").fill("abcdefgh");
+    await page.getByLabel("Password", { exact: true }).fill("abcdefgh");
     await page.getByRole("button", { name: "Create account" }).click();
     await expect(page.getByText("Enter a valid email address.")).toBeVisible();
     await expect(page.getByText("Include at least one letter and one number.")).toBeVisible();
@@ -36,7 +36,7 @@ test.describe("registration", () => {
     await page.getByLabel("First name").fill("Again");
     await page.getByLabel("Last name").fill("Perera");
     await page.getByLabel("Email address").fill(email.toUpperCase());
-    await page.getByLabel("Password").fill(PASSWORD);
+    await page.getByLabel("Password", { exact: true }).fill(PASSWORD);
     await page.getByRole("button", { name: "Create account" }).click();
     await expect(alerts(page).filter({ hasText: "already exists" })).toBeVisible();
     expect(problems.filter((p) => !/409/.test(p))).toEqual([]);
@@ -45,7 +45,7 @@ test.describe("registration", () => {
   test("works in Sinhala with Sinhala messages", async ({ page }) => {
     await setLocale(page, "si");
     await page.goto("/register");
-    await page.getByRole("button", { name: "ගිණුම සාදන්න" }).click();
+    await page.getByRole("button", { name: "Account එක හදාගන්න" }).click();
     await expect(page.getByText("මෙම ක්ෂේත්‍රය අනිවාර්යයි.")).toHaveCount(4);
   });
 });
@@ -61,12 +61,12 @@ test.describe("login, logout and protected pages", () => {
     await page.waitForURL("**/login?next=%2Faccount");
 
     await page.getByLabel("Email address").fill(email);
-    await page.getByLabel("Password").fill("Wr0ngPassword");
+    await page.getByLabel("Password", { exact: true }).fill("Wr0ngPassword");
     await page.getByRole("button", { name: "Log in" }).click();
     await expect(alerts(page)).toHaveText("Your email or password is incorrect.");
     await expect(page).toHaveURL(/\/login/);
 
-    await page.getByLabel("Password").fill(PASSWORD);
+    await page.getByLabel("Password", { exact: true }).fill(PASSWORD);
     await page.getByRole("button", { name: "Log in" }).click();
     await page.waitForURL("**/account");
     await expect(page.getByRole("link", { name: "Account" }).first()).toBeVisible();
@@ -79,7 +79,7 @@ test.describe("login, logout and protected pages", () => {
     await page.waitForURL("**/");
     await page.goto("/login?next=https://evil.example/phish");
     await page.getByLabel("Email address").fill(email);
-    await page.getByLabel("Password").fill(PASSWORD);
+    await page.getByLabel("Password", { exact: true }).fill(PASSWORD);
     await page.getByRole("button", { name: "Log in" }).click();
     await page.waitForURL("**/account");
     expect(new URL(page.url()).hostname).not.toContain("evil");
@@ -172,10 +172,10 @@ test.describe("account management", () => {
     await expect(page.getByText("Your password was changed.")).toBeVisible();
 
     await page.getByLabel("Email address").fill(email);
-    await page.getByLabel("Password").fill(PASSWORD);
+    await page.getByLabel("Password", { exact: true }).fill(PASSWORD);
     await page.getByRole("button", { name: "Log in" }).click();
     await expect(alerts(page)).toHaveText("Your email or password is incorrect.");
-    await page.getByLabel("Password").fill("N3wPassword");
+    await page.getByLabel("Password", { exact: true }).fill("N3wPassword");
     await page.getByRole("button", { name: "Log in" }).click();
     await page.waitForURL("**/account");
   });
@@ -186,7 +186,7 @@ test.describe("API failures", () => {
     await page.route("**/api/auth/login", (route) => route.fulfill({ status: 503, json: { code: "UNAVAILABLE" } }));
     await page.goto("/login");
     await page.getByLabel("Email address").fill("a@example.test");
-    await page.getByLabel("Password").fill("whatever1");
+    await page.getByLabel("Password", { exact: true }).fill("whatever1");
     await page.getByRole("button", { name: "Log in" }).click();
     await expect(alerts(page)).toContainText("temporarily unavailable");
   });
@@ -195,7 +195,7 @@ test.describe("API failures", () => {
     await page.route("**/api/auth/login", (route) => route.abort());
     await page.goto("/login");
     await page.getByLabel("Email address").fill("a@example.test");
-    await page.getByLabel("Password").fill("whatever1");
+    await page.getByLabel("Password", { exact: true }).fill("whatever1");
     await page.getByRole("button", { name: "Log in" }).click();
     await expect(alerts(page)).toContainText("Can’t reach the server");
   });

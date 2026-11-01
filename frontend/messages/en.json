@@ -152,6 +152,8 @@
   },
   "auth": {
     "fields": {
+      "showPassword": "Show password",
+      "hidePassword": "Hide password",
       "firstName": "First name",
       "lastName": "Last name",
       "email": "Email address",
@@ -298,7 +300,7 @@
         "entry": "A/L any stream + computing / portfolio"
       },
       "doctor": {
-        "title": "Doctor",
+        "title": "Medical Doctor (MBBS)",
         "summary": "Help people live healthier lives through medicine and care.",
         "employers": "Government hospitals · Asiri",
         "entry": "A/L Bio → MBBS → SLMC registration"
@@ -310,7 +312,7 @@
         "entry": "A/L Maths + accredited engineering degree"
       },
       "accountant": {
-        "title": "Accountant",
+        "title": "Chartered Accountant",
         "summary": "Turn financial information into better decisions.",
         "employers": "KPMG · EY · John Keells",
         "entry": "A/L any stream + AAT / CA / finance degree"
@@ -490,7 +492,7 @@
         "entry": "A/L Combined Maths / Science / Tech + accredited B.Sc. Engineering (Software, Civil, Mech, Elec)"
       },
       "lawyer": {
-        "title": "Lawyer",
+        "title": "Attorney-at-Law",
         "summary": "Provide legal counsel, handle dispute litigation, and uphold corporate law.",
         "employers": "Bar Association · Commercial Banks · Law Firms",
         "entry": "A/L any stream → LLB Degree / Sri Lanka Law College"
@@ -502,7 +504,7 @@
         "entry": "A/L → National College of Education (NCOE) / B.Ed degree"
       },
       "nurse": {
-        "title": "Registered Nurse",
+        "title": "Nursing Officer",
         "summary": "Support patients through skilled, compassionate clinical care.",
         "employers": "General Hospitals · Asiri Health · Lanka Hospitals",
         "entry": "A/L Science → Government Nursing Training / B.Sc Nursing"
@@ -514,7 +516,7 @@
         "entry": "A/L Maths or Arts + B.Arch degree / SLIA parts"
       },
       "banker": {
-        "title": "Banking Officer",
+        "title": "Bank Officer",
         "summary": "Support customers and companies with banking, credit facilities, and loans.",
         "employers": "Commercial Bank · HNB · Sampath Bank · BOC",
         "entry": "A/L any stream + IBSL exams / Finance degree"
@@ -532,7 +534,7 @@
         "entry": "Any A/L + design portfolio + UI/UX tools"
       },
       "hospitality-manager": {
-        "title": "Hospitality Manager",
+        "title": "Hotel Manager",
         "summary": "Deliver world-class guest experiences across Sri Lanka's luxury resorts.",
         "employers": "Jetwing · Cinnamon Hotels · Aitken Spence",
         "entry": "A/L any stream + SLITHM diploma / hospitality degree"
@@ -544,7 +546,7 @@
         "entry": "A/L + CILT / logistics degree"
       },
       "airline-pilot": {
-        "title": "Airline Pilot",
+        "title": "Commercial Pilot",
         "summary": "Command commercial passenger flights and manage international flight safety.",
         "employers": "SriLankan Airlines · FitsAir · International carriers",
         "entry": "A/L Science / Maths + Class 1 Medical + CPL / ATPL"
@@ -556,13 +558,13 @@
         "entry": "A/L Bio / Biosystems Technology → B.Sc. Agriculture"
       },
       "marine-officer": {
-        "title": "Marine Officer",
+        "title": "Merchant Navy Officer",
         "summary": "Navigate merchant naval vessels and manage deep-sea marine engineering.",
         "employers": "Mercantile Marine Management · Colombo Dockyard · Global fleets",
         "entry": "A/L Maths / Science → Cadet Training (CINEC / KDU) + CoC"
       },
       "dentist": {
-        "title": "Dental Surgeon / Dentist",
+        "title": "Dental Surgeon (BDS)",
         "summary": "Diagnose dental health, perform oral surgeries, and treat orthodontic conditions.",
         "employers": "Government Dental Institutes · Private Dental Hospitals · Asiri",
         "entry": "A/L Bio Science → BDS (Peradeniya) → SLMC Dental Council registration"
@@ -574,7 +576,7 @@
         "entry": "A/L Bio Science → BVSc (Peradeniya) → Veterinary Council registration"
       },
       "financial-analyst": {
-        "title": "Financial & Investment Analyst",
+        "title": "Financial Analyst",
         "summary": "Analyze equity markets, corporate balance sheets, and guide high-return investments.",
         "employers": "Colombo Stock Exchange · NDB Capital · CAL · Acuity · Commercial Banks",
         "entry": "A/L Commerce / Maths → Finance Degree / CFA / CIMA"
@@ -592,73 +594,73 @@
         "entry": "Maths / Computing / Data Science degree + Python / PyTorch / LLMs"
       },
       "biomedical-scientist": {
-        "title": "Biomedical & Laboratory Scientist",
+        "title": "Medical Laboratory Scientist (MLS)",
         "summary": "Perform clinical blood pathologies, microbiological testing, and molecular diagnostics.",
         "employers": "State General Hospitals · Asiri Laboratories · Durdans · Lanka Hospitals",
         "entry": "A/L Science → B.Sc. Medical Laboratory Science (MLS) / Biomedical Science"
       },
       "food-scientist": {
-        "title": "Food Scientist & Technologist",
+        "title": "Food Technologist",
         "summary": "Innovate nutrition products, test food safety, and manage modern agro-processing lines.",
         "employers": "Ceylon Biscuits (Munchee) · Maliban · Nestlé Lanka · Elephant House",
         "entry": "A/L Bio / Science → B.Sc. Food Science & Technology"
       },
       "air-traffic-controller": {
-        "title": "Air Traffic Controller (ATC)",
+        "title": "Air Traffic Controller",
         "summary": "Manage flight trajectories, airport runways, and ensure safe separation of commercial airliners.",
         "employers": "Airport & Aviation Services Sri Lanka (AASL) · Bandaranaike Int'l Airport (BIA)",
         "entry": "A/L Maths / Science + AASL ATC Selection Aptitude & Medical"
       },
       "fashion-designer": {
-        "title": "Fashion & Apparel Designer",
+        "title": "Fashion Designer",
         "summary": "Design international runway collections, functional performance sportswear, and apparel trends.",
         "employers": "MAS Holdings · Brandix Apparel · Hirdaramani · Design Studios",
         "entry": "Any A/L + B.Des Fashion Design (Moratuwa) / SLITA / AOD"
       },
       "tea-plantation-manager": {
-        "title": "Tea Plantation & Estate Manager",
+        "title": "Plantation Manager (Tea Estate)",
         "summary": "Direct Ceylon tea cultivation, processing factories, and sustainable high-elevation plantations.",
         "employers": "Hayleys Plantations · Kelani Valley · Dilmah Tea · Maskeliya Plantations",
         "entry": "A/L Agriculture / Science / Commerce + B.Sc. Plantation Management / NIPM"
       },
       "wildlife-conservationist": {
-        "title": "Wildlife Conservation Officer",
+        "title": "Wildlife Officer (DWC)",
         "summary": "Protect endangered species, safeguard national parks (Yala/Wilpattu), and manage human-elephant coexistence.",
         "employers": "Department of Wildlife Conservation (DWC) · WNPS · Elephant Transit Home",
         "entry": "A/L Bio Science → B.Sc. Zoology / Wildlife Conservation (Colombo/USJ)"
       },
       "marine-biologist": {
-        "title": "Marine Biologist & Oceanographer",
+        "title": "Marine Biologist",
         "summary": "Research coral reefs, blue whale migration corridors, and protect Indian Ocean marine biodiversity.",
         "employers": "NARA · Ruhuna Marine Science · Oceanswell · Blue Resources Trust",
         "entry": "A/L Bio Science → B.Sc. Marine Science / Oceanography (Ruhuna/Colombo)"
       },
       "ayurvedic-doctor": {
-        "title": "Ayurvedic Medical Doctor (BAMS)",
+        "title": "Ayurveda Doctor (BAMS)",
         "summary": "Heal patients through holistic indigenous medicine, herbal pharmacology, and Panchakarma therapies.",
         "employers": "Ayurvedic Teaching Hospitals · Siddhalepa · Link Natural · Luxury Wellness Resorts",
         "entry": "A/L Bio Science → BAMS (Colombo / Gampaha Wickramarachchi) → Ayurvedic Council"
       },
       "gemologist": {
-        "title": "Gemologist & Jewellery Appraiser",
+        "title": "Gemologist",
         "summary": "Inspect, grade, and certify precious Ceylon blue sapphires, rubies, and gemstone crystals.",
         "employers": "National Gem and Jewellery Authority (NGJA) · Ratnapura Gem Exchanges · Export Houses",
         "entry": "A/L Science / Maths → B.Sc. Geology / NGJA Professional Gemology Diploma"
       },
       "aquaculture-specialist": {
-        "title": "Aquaculture & Fisheries Specialist",
+        "title": "Aquaculture Officer",
         "summary": "Lead coastal brackish-water prawn farms, freshwater fish hatcheries, and sustainable seafood exports.",
         "employers": "NAQDA · Oceanpick · Taprobane Seafood Group · State Hatcheries",
         "entry": "A/L Bio Science → B.Sc. Aquaculture & Fisheries (Ruhuna / Wayamba)"
       },
       "environmental-officer": {
-        "title": "Environmental Officer & Forester",
+        "title": "Environmental Officer",
         "summary": "Conserve tropical rainforest reserves (Sinharaja/KDN), monitor industrial emissions, and manage reforestation.",
         "employers": "Forest Department Sri Lanka · Central Environmental Authority (CEA) · UNDP",
         "entry": "A/L Bio / Science → B.Sc. Forestry & Environmental Science (USJ)"
       },
       "ecotourism-naturalist": {
-        "title": "Eco-Tourism Naturalist & Safari Guide",
+        "title": "Naturalist & Safari Guide",
         "summary": "Guide international wildlife expeditions, birdwatching tours, and whale watching safaris.",
         "employers": "Jetwing Vil Uyana · Cinnamon Nature Trails · Walkers Tours · Eco-Lodges",
         "entry": "A/L any stream + SLTDA Chauffeur/Site Guide License + Field Naturalist Training"
@@ -1463,6 +1465,7 @@
   "path": {
     "meta": "Build Your Path",
     "hero": {
+      "launchArchitect": "Build this path",
       "eyebrow": "BUILD YOUR PATH",
       "title": "Your future,<br></br><accent>step by step.</accent>",
       "intro": "Big dreams feel easier with a clear plan. Discover the subjects,<br></br>courses and milestones that can take you there.",
@@ -1659,6 +1662,7 @@
     }
   },
   "myPath": {
+    "savedHeading": "Saved careers & universities",
     "meta": "My Path",
     "eyebrow": "YOUR JOURNEY",
     "title": "Your future, in one place.",

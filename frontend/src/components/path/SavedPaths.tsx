@@ -9,7 +9,7 @@ import { milestoneIndexes } from "@/lib/data/roadmaps";
 import { isLegacyRoadmap, savedItems, savedRoadmaps, subscribeSaved, type SavedItem, type StoredRoadmap } from "@/lib/data/saved-items";
 
 /** `titles` maps `${kind}:${slug}` to the name in the current language (from the server); stored titles are the fallback. */
-export function SavedPaths({ titles }: { titles: Record<string, string> }) {
+export function SavedPaths({ titles, hideEmpty = false }: { titles: Record<string, string>; hideEmpty?: boolean }) {
   const t = useTranslations("myPath");
   const p = useTranslations("path");
   const saved: SavedItem[] = JSON.parse(useSyncExternalStore(subscribeSaved, savedItems.snapshot, () => "[]"));
@@ -23,8 +23,12 @@ export function SavedPaths({ titles }: { titles: Record<string, string> }) {
     }
   }
 
+  // Next to the roadmap dashboard, an empty bookmark list is just noise
+  if (hideEmpty && !saved.length && !roadmaps.length) return null;
+
   return (
     <section className="section-block">
+      {hideEmpty && <h2>{t("savedHeading")}</h2>}
       <p className="muted">{t("deviceNote")}</p>
       {!saved.length && !roadmaps.length ? (
         <div className="empty-state glass-panel section-block">
@@ -53,7 +57,7 @@ export function SavedPaths({ titles }: { titles: Record<string, string> }) {
                         }
                         icon={<Route size={15} />}
                       >
-                        {p("hero.launchArchitect") || "Build Path"}
+                        {p("hero.launchArchitect")}
                       </ActionLink>
                     )}
                     <SaveButton id={item.id} title={title} kind={item.kind} />

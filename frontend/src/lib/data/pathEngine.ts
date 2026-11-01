@@ -5,6 +5,14 @@
 import { careerDetails, getCareerDetail, type CareerDetail } from "./careerDetails";
 import { getCareerOlGuidance } from "./olGuidance";
 import {
+  getOlPrepTasks,
+  getOlCareerMilestone,
+  getAfterOlMilestone,
+  getAlPrepTasks,
+  getAlCareerMilestone,
+  getAlApplicationMilestone,
+} from "./studentStageGuidance";
+import {
   getEngineeringDiscipline,
   ENGINEERING_DISCIPLINES,
   type EngineeringDiscipline,
@@ -161,7 +169,7 @@ export function recommendCareersForStudent(profile: StudentProfileInput): {
   matchReasons: string[];
   eligibility: "ELIGIBLE" | "POTENTIALLY_ELIGIBLE" | "ALTERNATIVE_PATHWAY";
 }[] {
-  const allCareers = Object.values(careerDetails);
+  const allCareers = Object.values(careerDetails).filter((career) => career.slug !== "software-engineer");
 
   return allCareers
     .map((career) => {
@@ -280,8 +288,10 @@ export function recommendCareersForStudent(profile: StudentProfileInput): {
  */
 export function generatePersonalizedPath(
   targetCareerSlug: string,
-  profile: StudentProfileInput
+  profile: StudentProfileInput,
+  isSi = false
 ): GeneratedCareerPath {
+  const t = (en: string, si: string) => (isSi ? si : en);
   const career = getCareerDetail(targetCareerSlug) || careerDetails["engineer"];
   const isEngineer = career.slug === "engineer";
   const engDiscipline = isEngineer
@@ -351,68 +361,139 @@ export function generatePersonalizedPath(
     });
   }
 
-  // Stage 2: O/L Preparation (For before-ol and ol)
+  const careerLabel = career.title.split("/")[0].replace(/\(.*?\)/g, "").trim();
+  const alStreamLabel = engDiscipline ? engDiscipline.alStream : career.education.alStream;
+
+  // Stage 2: O/L preparation (for before-ol and ol): one prep milestone plus career-specific actions
   if (stage === "before-ol" || stage === "ol") {
+    const olMonths = stage === "ol" ? 10 : 24;
+    const basketList = isSi
+      ? [olGuidance.basket1.sinhalaRecommendedSubject, olGuidance.basket2.sinhalaRecommendedSubject, olGuidance.basket3.sinhalaRecommendedSubject]
+      : [olGuidance.basket1.recommendedSubject, olGuidance.basket2.recommendedSubject, olGuidance.basket3.recommendedSubject];
     milestones.push({
       stageKey: "OL_MASTERY",
-      title: "G.C.E. O/L Examination Mastery",
-      description: `Attain required O/L Credit passes: ${career.education.olRequirements}`,
-      whyItMatters: "O/L credits in Mathematics and English Language are mandatory legal prerequisites across all Sri Lankan universities and professional bodies.",
-      prerequisites: "Completion of Grade 10 & 11 syllabus",
-      durationMonths: stage === "ol" ? 10 : 24,
+      title: t("G.C.E. O/L Examination Mastery", "G.C.E. O/L විභාග සූදානම"),
+      description: t(
+        `Attain required O/L Credit passes: ${career.education.olRequirements}`,
+        `අවශ්‍ය O/L සම්මාන සාමාර්ථ ලබාගන්න: ${isSi ? olGuidance.sinhalaCoreSummary : career.education.olRequirements}`
+      ),
+      whyItMatters: t(
+        "O/L credits in Mathematics and English Language are mandatory legal prerequisites across all Sri Lankan universities and professional bodies.",
+        "ගණිතය සහ ඉංග්‍රීසි භාෂාව සඳහා O/L සම්මාන සාමාර්ථ ශ්‍රී ලංකාවේ සියලු විශ්වවිද්‍යාල සහ වෘත්තීය ආයතන සඳහා අනිවාර්ය පූර්ව අවශ්‍යතා වේ."
+      ),
+      prerequisites: t("Completion of Grade 10 & 11 syllabus", "Grade 10 සහ 11 විෂය නිර්දේශය අවසන් කිරීම"),
+      durationMonths: olMonths,
       tasks: [
         {
-          title: "Complete past 10 years of G.C.E. O/L past papers in Mathematics & Science",
-          notes: "Focus on time management and clear step-by-step working."
+          title: t(
+            `Confirm your elective baskets with your school: ${basketList.join(", ")}`,
+            `ඔබේ විකල්ප කාණ්ඩ විෂයයන් පාසලෙන් තහවුරු කරගන්න: ${basketList.join(", ")}`
+          ),
+          notes: t(
+            "Choose 1 subject from each of the 3 Ministry of Education baskets.",
+            "අධ්‍යාපන අමාත්‍යාංශයේ කාණ්ඩ 3න් එක් එක් කාණ්ඩයෙන් විෂයයක් බැගින් තෝරන්න."
+          )
         },
         {
-          title: "Achieve distinction 'A' or 'C' in English Language & Mathematics",
-          notes: "Minimum requirement for university admission eligibility."
+          title: olGuidance.additionalMaths.recommended
+            ? t(
+                `Take Additional Mathematics as your optional 10th subject (${olGuidance.additionalMaths.badgeText})`,
+                `අතිරේක ගණිතය ඔබේ විකල්ප 10 වන විෂයය ලෙස හදාරන්න (${olGuidance.additionalMaths.sinhalaBadgeText})`
+              )
+            : t(
+                "Decide whether to take Additional Mathematics (optional 10th subject)",
+                "අතිරේක ගණිතය (විකල්ප 10 වන විෂයය) හැදෑරිය යුතුදැයි තීරණය කරන්න"
+              ),
+          notes: isSi ? olGuidance.additionalMaths.sinhalaReason : olGuidance.additionalMaths.reason
         },
-        {
-          title: `Select recommended elective baskets: ${olGuidance.basket1.recommendedSubject}, ${olGuidance.basket2.recommendedSubject}, ${olGuidance.basket3.recommendedSubject}`,
-          notes: olGuidance.additionalMaths.recommended
-            ? `Take Additional Mathematics (10th subject) as recommended for ${career.title}.`
-            : "Balance basket subjects to achieve maximum distinctions ('A' passes)."
-        }
+        ...getOlPrepTasks(stage === "ol", isSi),
       ]
     });
+    milestones.push(getOlCareerMilestone(career, careerLabel, olMonths, isSi));
   }
 
-  // Stage 3: A/L Stream Selection & Study (For before-ol, ol, after-ol, al)
+  // Between O/L and A/L: results, school and stream choice
+  if (stage === "after-ol") {
+    milestones.push(getAfterOlMilestone(careerLabel, alStreamLabel, isSi));
+  }
+
+  // Stage 3: A/L study (for before-ol, ol, after-ol, al): one prep milestone plus career-specific actions
   if (stage === "before-ol" || stage === "ol" || stage === "after-ol" || stage === "al") {
-    const streamTitle = engDiscipline ? engDiscipline.alStream : career.education.alStream;
+    const streamTitle = alStreamLabel;
     const zScoreTarget = engDiscipline ? engDiscipline.zScoreTarget : career.education.zScoreRange;
+    const careerName = engDiscipline ? (isSi ? engDiscipline.titleSi : engDiscipline.titleEn) : (isSi ? career.sinhalaTitle : career.title);
+    const highCompetition = ["Colombo", "Gampaha", "Kandy"].includes(district);
 
     milestones.push({
       stageKey: "AL_STREAM_PREP",
-      title: `A/L Preparation in ${streamTitle.split("or")[0].split("(")[0].trim()}`,
-      description: `Follow the recommended A/L stream and target Z-score benchmark: ${zScoreTarget}`,
-      whyItMatters: `State university intake in Sri Lanka is strictly based on A/L Z-score district quotas (${district} quota applies).`,
-      prerequisites: "Qualifying O/L examination passes",
+      title: t(
+        `A/L Preparation in ${streamTitle.split("or")[0].split("(")[0].trim()}`,
+        `${streamTitle.split("or")[0].split("(")[0].trim()} සඳහා A/L සූදානම`
+      ),
+      description: t(
+        `Follow the recommended A/L stream and target Z-score benchmark: ${zScoreTarget}`,
+        `නිර්දේශිත A/L අංශය අනුගමනය කර ඉලක්කගත Z-score කඩඉම ලබාගන්න: ${zScoreTarget}`
+      ),
+      whyItMatters: t(
+        `State university intake in Sri Lanka is strictly based on A/L Z-score district quotas (${district} quota applies).`,
+        `ශ්‍රී ලංකාවේ රාජ්‍ය විශ්වවිද්‍යාල ඇතුළත් කිරීම සම්පූර්ණයෙන්ම A/L Z-score සහ දිස්ත්‍රික් quota මත රඳා පවතී (${district} quota අදාළ වේ).`
+      ),
+      prerequisites: t("Qualifying O/L examination passes", "සුදුසුකම් ලත් O/L විභාග සාමාර්ථ"),
       durationMonths: stage === "al" ? 12 : 24,
       tasks: [
         {
-          title: `Lock in required A/L subject combination: ${streamTitle}`,
-          notes: `Essential core subjects for ${engDiscipline ? engDiscipline.titleEn : career.title}.`
+          title: t(`Lock in required A/L subject combination: ${streamTitle}`, `අවශ්‍ය A/L විෂය සංයෝජනය තහවුරු කරගන්න: ${streamTitle}`),
+          notes: t(`Essential core subjects for ${careerName}.`, `${careerName} සඳහා අත්‍යවශ්‍ය ප්‍රධාන විෂයයන්.`)
         },
         {
-          title: "Complete comprehensive syllabus coverage & model paper revision",
-          notes: "Focus on essay structured questions and multiple-choice precision."
+          title: t(
+            "Study your 3 core A/L subjects to the UGC handbook combination for your target faculty",
+            "ඔබේ ඉලක්කගත පීඨයට අදාළ UGC අත්පොතේ සංයෝජනයට අනුව ප්‍රධාන A/L විෂයයන් 3 හදාරන්න"
+          ),
+          notes: t(
+            "Subject combinations must match the UGC admission handbook for direct intake into state university faculties.",
+            "රාජ්‍ය විශ්වවිද්‍යාල පීඨවලට සෘජුවම ඇතුළත් වීමට විෂය සංයෝජන UGC ඇතුළත් කිරීමේ අත්පොතට ගැළපිය යුතුයි."
+          )
         },
         {
-          title: career.education.entranceExams ? `Prepare for ${career.education.entranceExams}` : `Target qualifying district Z-Score: ${zScoreTarget}`,
-          notes: `District context: ${district} quota requirements for premier engineering faculties.`
+          title: t(`Aim for the typical state cut-off Z-score: ${zScoreTarget}`, `සාමාන්‍ය රාජ්‍ය කඩඉම් Z-score එක ඉලක්ක කරන්න: ${zScoreTarget}`),
+          notes: career.education.competitionNote
+        },
+        {
+          title: t(
+            "Pass the Common General Test (minimum 30 marks) and sit General English",
+            "Common General Test එක සමත් වන්න (අවම ලකුණු 30) සහ General English පත්‍රයට පෙනී සිටින්න"
+          ),
+          notes: t(
+            "The Common General Test is needed for state university registration; General English is tested during A/L. Confirm current rules in the UGC handbook.",
+            "රාජ්‍ය විශ්වවිද්‍යාල ලියාපදිංචියට Common General Test අවශ්‍ය වේ; General English A/L අතරතුර පරීක්ෂා කෙරේ. වත්මන් නීති UGC අත්පොතෙන් තහවුරු කරගන්න."
+          )
+        },
+        ...getAlPrepTasks(isSi),
+        {
+          title: career.education.entranceExams
+            ? t(`Prepare for ${career.education.entranceExams}`, `${career.education.entranceExams} සඳහා සූදානම් වන්න`)
+            : t(`Target qualifying district Z-Score: ${zScoreTarget}`, `සුදුසුකම් ලබන දිස්ත්‍රික් Z-Score එක ඉලක්ක කරන්න: ${zScoreTarget}`),
+          notes: t(
+            `District context: ${district} quota applies. ${highCompetition ? "Colombo, Gampaha, and Kandy face the highest merit cut-offs, so target the upper range." : "Other districts often benefit from district-quota cut-offs lower than the Western Province."} Compare last year's cut-offs for your target degrees.`,
+            `දිස්ත්‍රික් සන්දර්භය: ${district} quota අදාළ වේ. ${highCompetition ? "කොළඹ, ගම්පහ සහ මහනුවර ඉහළම merit කඩඉම් වලට මුහුණ දේ; ඉහළ පරාසය ඉලක්ක කරන්න." : "අනෙකුත් දිස්ත්‍රික්කවලට බොහෝවිට බස්නාහිර පළාතට වඩා පහළ දිස්ත්‍රික් quota කඩඉම් වල වාසිය ලැබේ."} ඔබේ ඉලක්කගත උපාධිවල පසුගිය වසරේ කඩඉම් සසඳන්න.`
+          )
         }
       ]
     });
+    milestones.push(getAlCareerMilestone(career, careerLabel, isSi));
+  }
+
+  // UGC application and backup routes (A/L students and those awaiting results)
+  if (stage === "al" || stage === "after-al") {
+    milestones.push(getAlApplicationMilestone(careerLabel, isSi));
   }
 
   // Stage 4: University / Degree Admission (Applicable to all stages)
   const defaultUni = engDiscipline
     ? {
         name: engDiscipline.universities[0].name,
-        slug: engDiscipline.universities[0].slug || "university-of-moratuwa",
+        slug: engDiscipline.universities[0].slug || "moratuwa",
         degreeName: engDiscipline.degree,
         type: engDiscipline.universities[0].type === "STATE" ? "State University" : "Private University",
         duration: engDiscipline.universities[0].duration,
@@ -450,7 +531,7 @@ export function generatePersonalizedPath(
       {
         title: profile.preferredRoute === "PRIVATE_GLOBAL"
           ? `Submit direct undergraduate admission application to ${chosenUni.name}`
-          : `List ${chosenUni.name} preferences in UGC Sri Lanka University Admission Handbook`,
+          : `Rank ${chosenUni.degreeName} at ${chosenUni.name} in your UGC preference list`,
         resourceUrl: profile.preferredRoute === "PRIVATE_GLOBAL" ? `/universities/${chosenUni.slug}` : "https://ugc.ac.lk",
         resourceType: "OFFICIAL_GUIDE",
         notes: "Prioritize your preferred degree programme and check entry benchmarks."
@@ -626,16 +707,54 @@ export function generatePersonalizedPath(
     };
   });
 
-  const pathTitle = engDiscipline
-    ? `${engDiscipline.titleEn} Career Pathway (${district} District)`
-    : profile.targetSpecialization
-    ? `${career.title.split("/")[0].trim()} (${profile.targetSpecialization}) Roadmap`
-    : `${career.title.split("/")[0].trim()} Career Roadmap`;
+  // Path name as a student would say it: goal, university, and A/L stream (e.g. "Medicine (MBBS) via University of Colombo · Bio stream")
+  const GOAL_NAMES: Record<string, { en: string; si: string }> = {
+    doctor: { en: "Medicine (MBBS)", si: "වෛද්‍ය විද්‍යාව (MBBS)" },
+    dentist: { en: "Dental Surgery (BDS)", si: "දන්ත වෛද්‍ය විද්‍යාව (BDS)" },
+    veterinarian: { en: "Veterinary Science", si: "සත්ව වෛද්‍ය විද්‍යාව" },
+    "ayurvedic-doctor": { en: "Ayurveda Medicine (BAMS)", si: "ආයුර්වේද වෛද්‍ය විද්‍යාව (BAMS)" },
+    nurse: { en: "Nursing", si: "හෙද සේවය" },
+    lawyer: { en: "Attorney-at-Law (LLB)", si: "නීතිඥ (LLB)" },
+    accountant: { en: "Chartered Accountancy", si: "වරලත් ගිණුම්කරණය" },
+    banker: { en: "Banking", si: "බැංකු සේවය" },
+    teacher: { en: "School Teaching", si: "ගුරු වෘත්තිය" },
+    "airline-pilot": { en: "Commercial Pilot (CPL)", si: "වාණිජ ගුවන් නියමු (CPL)" },
+    "marine-officer": { en: "Merchant Navy Officer", si: "වෙළඳ නාවික නිලධාරී" },
+    "software-engineer": { en: "Software Engineering", si: "මෘදුකාංග ඉංජිනේරු විද්‍යාව" },
+    architect: { en: "Architecture (B.Arch)", si: "ගෘහ නිර්මාණ ශිල්පය (B.Arch)" },
+  };
+  const goalName = engDiscipline
+    ? { en: /engineer/i.test(engDiscipline.titleEn) ? engDiscipline.titleEn : `${engDiscipline.titleEn} Engineering`, si: engDiscipline.titleSi }
+    : GOAL_NAMES[career.slug] || {
+        en: (profile.targetSpecialization || career.title).split("/")[0].replace(/\(.*?\)/g, "").trim(),
+        si: (career.sinhalaTitle || career.title).split("/")[0].trim(),
+      };
+  const streamKey = stream.toLowerCase();
+  const streamName = /\bany\b/.test(streamKey)
+    ? undefined
+    : streamKey.includes("bio")
+    ? { en: "Bio", si: "ජීව විද්‍යා" }
+    : streamKey.includes("math") || streamKey.includes("physical")
+    ? { en: "Maths", si: "ගණිත" }
+    : streamKey.includes("commerce")
+    ? { en: "Commerce", si: "වාණිජ" }
+    : streamKey.includes("art")
+    ? { en: "Arts", si: "කලා" }
+    : streamKey.includes("tech")
+    ? { en: "Technology", si: "තාක්ෂණ" }
+    : undefined;
+  const routeNote =
+    profile.preferredRoute === "PRIVATE_GLOBAL" ? { en: "private route", si: "පෞද්ගලික මාර්ගය" }
+    : profile.preferredRoute === "PROFESSIONAL_BODY" ? { en: "professional route", si: "වෘත්තීය මාර්ගය" }
+    : undefined;
+  const pathTitle = isSi
+    ? `${goalName.si} — ${chosenUni.name}${streamName ? ` (${streamName.si} අංශය)` : ""}${routeNote ? ` · ${routeNote.si}` : ""}`
+    : `${goalName.en} via ${chosenUni.name}${streamName ? ` · ${streamName.en} stream` : ""}${routeNote ? ` · ${routeNote.en}` : ""}`;
 
   const uniList = engDiscipline
     ? engDiscipline.universities.map(u => ({
         name: u.name,
-        slug: u.slug || "university-of-moratuwa",
+        slug: u.slug || "moratuwa",
         degree: u.degreeName,
         type: u.type === "STATE" ? "State University" : "Private / Defence University"
       }))

@@ -16,7 +16,10 @@ async function catalog<T>(resource: string, sample: T[], required: (keyof T)[]):
   if (!Array.isArray(data) || data.some(item => !item || required.some(key => !(key in item)))) throw new Error(`Invalid ${resource} response`);
   return data as T[];
 }
-export const getCareers = () => catalog<Career>("careers/public", sampleCareers, ["slug", "title", "category"]);
+export const getCareers = async () =>
+  (await catalog<Career>("careers/public", sampleCareers, ["slug", "title", "category"]))
+    .filter((career) => career.slug !== "software-engineer")
+    .map((career) => career.slug === "engineer" ? { ...career, title: "Engineer" } : career);
 export const getUniversities = () => catalog<University>("universities/public", sampleUniversities, ["slug", "name", "areas", "type"]);
 async function profile<T>(resource: string, slug: string, sample: T | undefined): Promise<T | undefined> {
   if (process.env.CATALOG_DATA_SOURCE === "sample") return sample;
@@ -29,7 +32,12 @@ async function profile<T>(resource: string, slug: string, sample: T | undefined)
   if (!response.ok) throw new Error(`Catalog request failed: ${resource}/${slug} (${response.status})`);
   return await response.json() as T;
 }
-export const getCareerProfile = (slug: string) => profile<CareerDetail>("careers", slug, getSampleCareerDetail(slug));
+export const getCareerProfile = async (slug: string) => {
+  const result = await profile<CareerDetail>("careers", slug, getSampleCareerDetail(slug));
+  return result && slug === "engineer"
+    ? { ...result, title: "Engineer", sinhalaTitle: "ඉංජිනේරු" }
+    : result;
+};
 export const getUniversityProfile = (slug: string) => profile<UniversityDetail>("universities", slug, getSampleUniversityDetail(slug));
 const ENGINEERING_SLUGS = [
   "cloud-architect",

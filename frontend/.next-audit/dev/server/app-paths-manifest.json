@@ -1,0 +1,20 @@
+{
+  "/about/page": "app/about/page.js",
+  "/account/page": "app/account/page.js",
+  "/api/account/password/route": "app/api/account/password/route.js",
+  "/api/account/route": "app/api/account/route.js",
+  "/api/auth/login/route": "app/api/auth/login/route.js",
+  "/api/auth/logout/route": "app/api/auth/logout/route.js",
+  "/api/auth/register/route": "app/api/auth/register/route.js",
+  "/api/contact/route": "app/api/contact/route.js",
+  "/build-your-path/page": "app/build-your-path/page.js",
+  "/careers/(list)/page": "app/careers/(list)/page.js",
+  "/careers/[slug]/page": "app/careers/[slug]/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/login/page": "app/login/page.js",
+  "/my-path/page": "app/my-path/page.js",
+  "/page": "app/page.js",
+  "/register/page": "app/register/page.js",
+  "/universities/(list)/page": "app/universities/(list)/page.js",
+  "/universities/[slug]/page": "app/universities/[slug]/page.js"
+}

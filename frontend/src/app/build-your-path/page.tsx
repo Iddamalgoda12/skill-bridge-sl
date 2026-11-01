@@ -10,11 +10,7 @@ import { ResourceCards } from "@/components/shared/ResourceCards";
 import assets from "@/lib/design/assets.json";
 
 export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: "Build Your Career Path - Personalized Education Roadmap | SkillBridge SL",
-    description:
-      "Select your dream profession and discover your complete Sri Lankan journey: required G.C.E. O/L subjects, A/L stream, UGC university degrees, and professional courses.",
-  };
+  return { title: (await getTranslations("path"))("meta") };
 }
 
 export default async function BuildYourPathPage() {
