@@ -63,7 +63,7 @@ export function CareerHero({ career }: CareerHeroProps) {
           <h1 className="career-hero-title">
             {primaryTitle}
             {secondaryTitle && (
-              <span className="career-sinhala-subtitle">{secondaryTitle}</span>
+              <span className="career-sinhala-subtitle" lang={isSi ? "en" : "si"}>{secondaryTitle}</span>
             )}
           </h1>
 
@@ -87,7 +87,7 @@ export function CareerHero({ career }: CareerHeroProps) {
           </div>
 
           {/* Quick Jump Navigation Bar */}
-          <nav className="career-quick-nav" aria-label="Career sections">
+          <nav className="career-quick-nav" aria-label={isSi ? "වෘත්තීය කොටස්" : "Career sections"}>
             <span className="career-quick-nav-label">{isSi ? "පෙරළන්න:" : "Jump to:"}</span>
             <div className="career-quick-nav-pills">
               {navItems.map((item) => {

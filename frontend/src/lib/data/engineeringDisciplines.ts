@@ -49,10 +49,10 @@ export const ENGINEERING_DISCIPLINES: EngineeringDiscipline[] = [
     summaryEn: "Design, construct, and sustain major national infrastructure: bridges, multi-storey buildings, expressways, reservoirs, coastal dams, and water networks.",
     summarySi: "පාලම්, අධිවේගී මාර්ග, ගොඩනැගිලි, ජලාශ සහ වරාය වැනි රටේ ප්‍රධාන යටිතල පහසුකම් සැලසුම් කර ඉදිකිරීම.",
     specialisations: [
-      "Structural Engineering & High-Rise Design",
-      "Geotechnical & Foundation Soil Mechanics",
-      "Hydraulics & Water Resources Engineering",
-      "Transportation, Highways & Traffic Systems",
+      "Structural Engineering (Buildings & Bridges)",
+      "Geotechnical & Foundation Engineering",
+      "Water Resources & Irrigation Engineering",
+      "Highway & Transportation Engineering (RDA)",
       "Environmental & Coastal Engineering"
     ],
     employers: [
@@ -64,11 +64,11 @@ export const ENGINEERING_DISCIPLINES: EngineeringDiscipline[] = [
       "National Water Supply & Drainage Board (NWSDB)"
     ],
     universities: [
-      { name: "University of Moratuwa", slug: "university-of-moratuwa", degreeName: "B.Sc. Eng (Hons) in Civil Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
-      { name: "University of Peradeniya", slug: "university-of-peradeniya", degreeName: "B.Sc. Eng (Hons) in Civil Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
-      { name: "University of Ruhuna", slug: "university-of-ruhuna", degreeName: "B.Sc. Eng (Hons) in Civil Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
-      { name: "University of Jaffna", slug: "university-of-jaffna", degreeName: "B.Sc. Eng (Hons) in Civil Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
-      { name: "South Eastern University", slug: "south-eastern-university-of-sri-lanka", degreeName: "B.Sc. Eng (Hons) in Civil Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Moratuwa", slug: "moratuwa", degreeName: "B.Sc. Eng (Hons) in Civil Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Peradeniya", slug: "peradeniya", degreeName: "B.Sc. Eng (Hons) in Civil Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Ruhuna", slug: "ruhuna", degreeName: "B.Sc. Eng (Hons) in Civil Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Jaffna", slug: "jaffna", degreeName: "B.Sc. Eng (Hons) in Civil Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "South Eastern University", slug: "southeastern", degreeName: "B.Sc. Eng (Hons) in Civil Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
       { name: "SLIIT", slug: "sliit", degreeName: "B.Sc. Eng (Hons) in Civil Engineering", faculty: "Faculty of Engineering", type: "PRIVATE", duration: "4 Years" }
     ],
     salaryLkr: "LKR 120k – 380k+ / mo (2026 avg)",
@@ -118,11 +118,11 @@ export const ENGINEERING_DISCIPLINES: EngineeringDiscipline[] = [
     summaryEn: "Develop, analyze, and automate thermal machines, industrial production systems, automotive powertrains, HVAC climate units, and energy equipment.",
     summarySi: "යන්ත්‍ර සූත්‍ර, කර්මාන්තශාලා ස්වයංක්‍රීයකරණය, මෝටර් රථ පද්ධති සහ බලශක්ති තාක්ෂණය සැලසුම් කර ක්‍රියාත්මක කිරීම.",
     specialisations: [
-      "Thermodynamics & Powerplant Generation",
-      "Manufacturing Systems & CAD/CAM Robotics",
-      "Automotive Powertrains & EV Systems",
-      "HVAC & Industrial Building Services",
-      "Fluid Dynamics & Pneumatic Automation"
+      "Thermal Power & Energy Engineering",
+      "Manufacturing & Production Engineering",
+      "Automobile & EV Engineering",
+      "Building Services (HVAC, Fire & Plumbing)",
+      "Hydraulics, Pneumatics & Machine Design"
     ],
     employers: [
       "MAS Holdings",
@@ -134,10 +134,10 @@ export const ENGINEERING_DISCIPLINES: EngineeringDiscipline[] = [
       "Hayleys Group"
     ],
     universities: [
-      { name: "University of Moratuwa", slug: "university-of-moratuwa", degreeName: "B.Sc. Eng (Hons) in Mechanical Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
-      { name: "University of Peradeniya", slug: "university-of-peradeniya", degreeName: "B.Sc. Eng (Hons) in Mechanical Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
-      { name: "University of Ruhuna", slug: "university-of-ruhuna", degreeName: "B.Sc. Eng (Hons) in Mechanical Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
-      { name: "University of Jaffna", slug: "university-of-jaffna", degreeName: "B.Sc. Eng (Hons) in Mechanical Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Moratuwa", slug: "moratuwa", degreeName: "B.Sc. Eng (Hons) in Mechanical Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Peradeniya", slug: "peradeniya", degreeName: "B.Sc. Eng (Hons) in Mechanical Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Ruhuna", slug: "ruhuna", degreeName: "B.Sc. Eng (Hons) in Mechanical Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Jaffna", slug: "jaffna", degreeName: "B.Sc. Eng (Hons) in Mechanical Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
       { name: "SLIIT", slug: "sliit", degreeName: "B.Sc. Eng (Hons) in Mechanical Engineering", faculty: "Faculty of Engineering", type: "PRIVATE", duration: "4 Years" }
     ],
     salaryLkr: "LKR 125k – 360k+ / mo (2026 avg)",
@@ -187,11 +187,11 @@ export const ENGINEERING_DISCIPLINES: EngineeringDiscipline[] = [
     summaryEn: "Power nation-building electrical grids, renewable solar/wind installations, high-voltage transformers, electric vehicle systems, and industrial drives.",
     summarySi: "ජාතික විදුලිබල පද්ධති, සූර්ය හා සුළං බලශක්ති ව්‍යාපෘති, ස්මාර්ට් ග්‍රිඩ් සහ ඉහළ වෝල්ටීයතා පද්ධති මෙහෙයවීම.",
     specialisations: [
-      "Power Systems Generation & Transmission Grids",
-      "Renewable Energy Systems (Solar PV & Wind Farms)",
-      "High-Voltage Substation & Transformer Engineering",
-      "Power Electronics & Variable Frequency Drives",
-      "Smart Grid Automation & Energy Management"
+      "Power Systems (CEB / LECO)",
+      "Solar & Wind Energy Systems",
+      "High-Voltage & Substation Engineering",
+      "Power Electronics & Motor Drives",
+      "Energy Management & Industrial Electrical Design"
     ],
     employers: [
       "Ceylon Electricity Board (CEB)",
@@ -202,10 +202,10 @@ export const ENGINEERING_DISCIPLINES: EngineeringDiscipline[] = [
       "Vega Innovations (Electric Vehicles)"
     ],
     universities: [
-      { name: "University of Moratuwa", slug: "university-of-moratuwa", degreeName: "B.Sc. Eng (Hons) in Electrical Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
-      { name: "University of Peradeniya", slug: "university-of-peradeniya", degreeName: "B.Sc. Eng (Hons) in Electrical Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
-      { name: "University of Ruhuna", slug: "university-of-ruhuna", degreeName: "B.Sc. Eng (Hons) in Electrical Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
-      { name: "University of Jaffna", slug: "university-of-jaffna", degreeName: "B.Sc. Eng (Hons) in Electrical Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Moratuwa", slug: "moratuwa", degreeName: "B.Sc. Eng (Hons) in Electrical Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Peradeniya", slug: "peradeniya", degreeName: "B.Sc. Eng (Hons) in Electrical Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Ruhuna", slug: "ruhuna", degreeName: "B.Sc. Eng (Hons) in Electrical Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Jaffna", slug: "jaffna", degreeName: "B.Sc. Eng (Hons) in Electrical Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
       { name: "SLIIT", slug: "sliit", degreeName: "B.Sc. Eng (Hons) in Electrical & Electronic Engineering", faculty: "Faculty of Engineering", type: "PRIVATE", duration: "4 Years" }
     ],
     salaryLkr: "LKR 130k – 380k+ / mo (2026 avg)",
@@ -249,17 +249,17 @@ export const ENGINEERING_DISCIPLINES: EngineeringDiscipline[] = [
     id: "software-engineering",
     category: "computing",
     iconName: "Cpu",
-    titleEn: "Software & Computer Systems Engineering",
-    titleSi: "මෘදුකාංග සහ පරිගණක පද්ධති ඉංජිනේරු විද්‍යාව",
+    titleEn: "Software Engineer",
+    titleSi: "මෘදුකාංග ඉංජිනේරු",
     degree: "B.Sc. Eng (Hons) in Computer Science & Engineering · 4 Years",
     summaryEn: "Design mission-critical enterprise software platforms, microservice architectures, cloud backends, operating systems, and full-stack solutions.",
     summarySi: "මෘදුකාංග (Software), ක්ලවුඩ් පද්ධති, කාවැද්දූ හාඩ්වෙයාර් (Embedded Systems) සහ මහා පරිමාණ පරිගණක පද්ධති ඉංජිනේරු මට්ටමින් නිර්මාණය කිරීම.",
     specialisations: [
-      "Distributed Cloud Architecture & Microservices",
-      "Full-Stack Web & Enterprise API Platforms",
-      "Operating Systems & Low-Level Systems Programming",
-      "High-Performance Database & Concurrency Engines",
-      "Mobile App Platforms & Secure Architecture"
+      "Cloud & Backend Engineering",
+      "Full-Stack Web Development",
+      "Systems & Embedded Programming",
+      "Database Engineering",
+      "Mobile App Development (Android / iOS)"
     ],
     employers: [
       "WSO2",
@@ -272,10 +272,10 @@ export const ENGINEERING_DISCIPLINES: EngineeringDiscipline[] = [
       "Synopsys Sri Lanka"
     ],
     universities: [
-      { name: "University of Moratuwa (CSE)", slug: "university-of-moratuwa", degreeName: "B.Sc. Eng (Hons) in Computer Science & Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
-      { name: "University of Peradeniya (CE)", slug: "university-of-peradeniya", degreeName: "B.Sc. Eng (Hons) in Computer Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
-      { name: "University of Ruhuna (DEIE)", slug: "university-of-ruhuna", degreeName: "B.Sc. Eng (Hons) in Computer Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
-      { name: "University of Jaffna (CE)", slug: "university-of-jaffna", degreeName: "B.Sc. Eng (Hons) in Computer Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Moratuwa (CSE)", slug: "moratuwa", degreeName: "B.Sc. Eng (Hons) in Computer Science & Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Peradeniya (CE)", slug: "peradeniya", degreeName: "B.Sc. Eng (Hons) in Computer Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Ruhuna (DEIE)", slug: "ruhuna", degreeName: "B.Sc. Eng (Hons) in Computer Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Jaffna (CE)", slug: "jaffna", degreeName: "B.Sc. Eng (Hons) in Computer Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
       { name: "SLIIT", slug: "sliit", degreeName: "B.Sc. Eng (Hons) in Software Engineering", faculty: "Faculty of Computing", type: "PRIVATE", duration: "4 Years" }
     ],
     salaryLkr: "LKR 180k – 550k+ / mo (2026 avg)",
@@ -325,16 +325,16 @@ export const ENGINEERING_DISCIPLINES: EngineeringDiscipline[] = [
     summaryEn: "Architect resilient high-availability AWS/Azure/GCP cloud environments, automated CI/CD container clusters, and microservice orchestration.",
     summarySi: "AWS, Azure හෝ Google Cloud ජාල සැලසුම් කිරීම, Kubernetes කන්ටේනර් පද්ධති සහ මෘදුකාංග ස්වයංක්‍රීයව deploy කිරීම.",
     specialisations: [
-      "Multi-Cloud Architecture (AWS, Azure, GCP)",
-      "Kubernetes & Container Orchestration",
-      "Infrastructure as Code (Terraform & Ansible)",
-      "Site Reliability Engineering (SRE) & Observability",
-      "Serverless Computing & Cloud FinOps"
+      "Cloud Engineering (AWS, Azure, GCP)",
+      "Docker & Kubernetes",
+      "Infrastructure Automation (Terraform, Ansible)",
+      "Site Reliability Engineering (SRE)",
+      "Cloud Cost & Serverless Engineering"
     ],
     employers: ["Sysco LABS", "WSO2", "Dialog Axiata", "Axiata Digital Labs", "IFS World Operations", "Virtusa"],
     universities: [
-      { name: "University of Moratuwa (CSE)", slug: "university-of-moratuwa", degreeName: "B.Sc. Eng (Hons) in Computer Science & Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
-      { name: "University of Peradeniya (CE)", slug: "university-of-peradeniya", degreeName: "B.Sc. Eng (Hons) in Computer Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Moratuwa (CSE)", slug: "moratuwa", degreeName: "B.Sc. Eng (Hons) in Computer Science & Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Peradeniya (CE)", slug: "peradeniya", degreeName: "B.Sc. Eng (Hons) in Computer Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
       { name: "SLIIT", slug: "sliit", degreeName: "B.Sc. (Hons) in Computer Systems & Network Engineering", faculty: "Faculty of Computing", type: "PRIVATE", duration: "4 Years" }
     ],
     salaryLkr: "LKR 245k – 650k+ / mo (2026 avg)",
@@ -385,16 +385,16 @@ export const ENGINEERING_DISCIPLINES: EngineeringDiscipline[] = [
     summarySi: "බැංකු, විදුලි සංදේශ ජාල සහ රාජ්‍ය ඩිජිටල් පද්ධති සයිබර් ප්‍රහාරවලින් සහ හැකර්වරුන්ගෙන් ආරක්ෂා කිරීම.",
     specialisations: [
       "Ethical Hacking & Penetration Testing",
-      "Security Operations Center (SOC) & Threat Hunting",
-      "Cryptography & Zero Trust Network Architecture",
-      "Cloud Security & DevSecOps Automated Scanning",
+      "SOC Analyst & Threat Monitoring",
+      "Network Security Engineering",
+      "Cloud Security & DevSecOps",
       "Digital Forensics & Incident Response"
     ],
     employers: ["Virtusa", "Dialog Axiata", "SLT-MOBITEL", "Commercial Bank of Ceylon", "Hatton National Bank", "Sri Lanka CERT"],
     universities: [
-      { name: "University of Moratuwa (CSE)", slug: "university-of-moratuwa", degreeName: "B.Sc. Eng (Hons) in Computer Science & Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Moratuwa (CSE)", slug: "moratuwa", degreeName: "B.Sc. Eng (Hons) in Computer Science & Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
       { name: "SLIIT", slug: "sliit", degreeName: "B.Sc. (Hons) in Information Technology (Cyber Security)", faculty: "Faculty of Computing", type: "PRIVATE", duration: "4 Years" },
-      { name: "General Sir John Kotelawala Defence University", slug: "general-sir-john-kotelawala-defence-university", degreeName: "B.Sc. (Hons) in Computer Engineering", faculty: "Faculty of Computing", type: "DEFENCE", duration: "4 Years" }
+      { name: "General Sir John Kotelawala Defence University", slug: "kdu", degreeName: "B.Sc. (Hons) in Computer Engineering", faculty: "Faculty of Computing", type: "DEFENCE", duration: "4 Years" }
     ],
     salaryLkr: "LKR 210k – 600k+ / mo (2026 avg)",
     badge: "Critical Defense",
@@ -443,16 +443,16 @@ export const ENGINEERING_DISCIPLINES: EngineeringDiscipline[] = [
     summaryEn: "Train generative AI models, deep neural networks, computer vision algorithms, and natural language processing pipelines at scale.",
     summarySi: "Generative AI, ChatGPT වැනි භාෂා මොඩල (LLMs), පරිගණක දෘෂ්ටිය (Computer Vision) සහ ස්වයංක්‍රීය බුද්ධිමය පද්ධති ඉංජිනේරු මට්ටමින් නිර්මාණය.",
     specialisations: [
-      "Deep Learning & Transformer Architectures",
-      "Large Language Models (LLMs) & Generative AI",
-      "Computer Vision & Autonomous Sensing",
-      "MLOps & Scalable Cloud Model Inference",
-      "Reinforcement Learning & Robotics AI"
+      "Deep Learning",
+      "Generative AI & LLM Applications",
+      "Computer Vision",
+      "MLOps & Model Deployment",
+      "Robotics & Intelligent Systems"
     ],
     employers: ["Sysco LABS", "WSO2", "Virtusa", "Synopsys Sri Lanka", "London Stock Exchange Group (LSEG)", "AI Startups"],
     universities: [
-      { name: "University of Moratuwa (CSE / AI)", slug: "university-of-moratuwa", degreeName: "B.Sc. Eng (Hons) in Artificial Intelligence / CSE", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
-      { name: "University of Peradeniya (CE)", slug: "university-of-peradeniya", degreeName: "B.Sc. Eng (Hons) in Computer Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Moratuwa (CSE / AI)", slug: "moratuwa", degreeName: "B.Sc. Eng (Hons) in Artificial Intelligence / CSE", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Peradeniya (CE)", slug: "peradeniya", degreeName: "B.Sc. Eng (Hons) in Computer Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
       { name: "SLIIT", slug: "sliit", degreeName: "B.Sc. (Hons) in Information Technology (Data Science & AI)", faculty: "Faculty of Computing", type: "PRIVATE", duration: "4 Years" }
     ],
     salaryLkr: "LKR 260k – 750k+ / mo (2026 avg)",
@@ -502,17 +502,17 @@ export const ENGINEERING_DISCIPLINES: EngineeringDiscipline[] = [
     summaryEn: "Engineer intuitive human-computer interfaces, design system architectures, responsive web apps, and human-centered digital experiences.",
     summarySi: "Mobile apps සහ websites මිනිසුන්ට පහසුවෙන් පාවිච්චි කරන්න පුළුවන් ආකාරයට design systems සහ අන්තර්ක්‍රියාකාරී පරිශීලක අතුරුමුහුණත් නිර්මාණය.",
     specialisations: [
-      "Enterprise Design Systems Architecture",
-      "Human-Computer Interaction (HCI) & UX Research",
-      "Interactive Frontend Engineering (React, Next.js, Flutter)",
-      "Digital Accessibility (WCAG 2.2) & Usability Engineering",
-      "Mobile Product Prototyping & Micro-interactions"
+      "Design Systems",
+      "UX Research",
+      "Frontend Development (React, Next.js, Flutter)",
+      "Accessibility & Usability Testing",
+      "Mobile App UI Design"
     ],
     employers: ["99x", "Sysco LABS", "Arimac", "Virtusa", "Axiata Digital Labs", "Global Product Firms"],
     universities: [
-      { name: "University of Moratuwa (CSE / Design)", slug: "university-of-moratuwa", degreeName: "B.Sc. Eng (Hons) / B.Des in Design", faculty: "Faculty of Architecture / Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Moratuwa (CSE / Design)", slug: "moratuwa", degreeName: "B.Sc. Eng (Hons) / B.Des in Design", faculty: "Faculty of Architecture / Engineering", type: "STATE", duration: "4 Years" },
       { name: "SLIIT", slug: "sliit", degreeName: "B.Sc. (Hons) in Interactive Media / Software Engineering", faculty: "Faculty of Computing", type: "PRIVATE", duration: "4 Years" },
-      { name: "University of Sri Jayewardenepura", slug: "university-of-sri-jayewardenepura", degreeName: "B.Sc. (Hons) in Computing", faculty: "Faculty of Computing", type: "STATE", duration: "4 Years" }
+      { name: "University of Sri Jayewardenepura", slug: "jayewardenepura", degreeName: "B.Sc. (Hons) in Computing", faculty: "Faculty of Computing", type: "STATE", duration: "4 Years" }
     ],
     salaryLkr: "LKR 140k – 420k+ / mo (2026 avg)",
     badge: "Product Experience",
@@ -561,16 +561,16 @@ export const ENGINEERING_DISCIPLINES: EngineeringDiscipline[] = [
     summaryEn: "Build petabyte-scale data pipelines, distributed data lakehouses, real-time streaming engines, and high-speed analytical databases.",
     summarySi: "විශාල දත්ත පද්ධති (Big Data), Real-time දත්ත විශ්ලේෂණය සහ ස්මාර්ට් දත්ත ගබඩා ගොඩනැගීම.",
     specialisations: [
-      "Distributed Data Lakehouse Architecture",
-      "Real-Time Streaming Pipelines (Kafka & Flink)",
-      "Cloud Data Warehousing (Snowflake & BigQuery)",
-      "Advanced SQL & Analytical Data Modeling",
-      "Data Quality, Governance & Security"
+      "Data Engineering",
+      "Real-Time Data Pipelines (Kafka)",
+      "Data Warehousing (Snowflake, BigQuery)",
+      "SQL & Business Intelligence (Power BI)",
+      "Data Governance & Quality"
     ],
     employers: ["Dialog Axiata", "Sysco LABS", "IFS World Operations", "Virtusa", "London Stock Exchange Group (LSEG)", "Commercial Bank of Ceylon"],
     universities: [
-      { name: "University of Moratuwa", slug: "university-of-moratuwa", degreeName: "B.Sc. Eng (Hons) in Computer Science & Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
-      { name: "University of Peradeniya", slug: "university-of-peradeniya", degreeName: "B.Sc. Eng (Hons) in Computer Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Moratuwa", slug: "moratuwa", degreeName: "B.Sc. Eng (Hons) in Computer Science & Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Peradeniya", slug: "peradeniya", degreeName: "B.Sc. Eng (Hons) in Computer Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
       { name: "SLIIT", slug: "sliit", degreeName: "B.Sc. (Hons) in Data Science", faculty: "Faculty of Computing", type: "PRIVATE", duration: "4 Years" }
     ],
     salaryLkr: "LKR 170k – 480k+ / mo (2026 avg)",
@@ -620,17 +620,17 @@ export const ENGINEERING_DISCIPLINES: EngineeringDiscipline[] = [
     summaryEn: "Architect 5G/6G mobile communication networks, optical fiber undersea links, digital signal processing, satellite payloads, and RF microwave transmission.",
     summarySi: "5G/6G සන්නිවේදන ජාල, ඔප්ටිකල් ෆයිබර්, සැටලයිට් සන්නිවේදනය සහ ඩිජිටල් සිග්නල් සැකසුම් පද්ධති නිර්මාණය.",
     specialisations: [
-      "5G & Future 6G Cellular Mobile Networks",
-      "Optical Fiber Communications & Dense WDM",
-      "RF & Microwave Antenna Systems",
-      "Digital Signal Processing (DSP) & Radar",
-      "Satellite Payloads & Terrestrial Microwave Links"
+      "Mobile Networks (4G / 5G)",
+      "Fibre Optic Networks (SLT / Dialog)",
+      "RF & Antenna Engineering",
+      "Signal Processing",
+      "Satellite & Microwave Links"
     ],
     employers: ["Dialog Axiata", "SLT-MOBITEL", "Huawei Technologies Lanka", "Ericsson Sri Lanka", "Telecommunications Regulatory Commission (TRCSL)", "ZTE Corporation"],
     universities: [
-      { name: "University of Moratuwa (ENTC)", slug: "university-of-moratuwa", degreeName: "B.Sc. Eng (Hons) in Electronic & Telecommunication Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
-      { name: "University of Ruhuna (DEIE)", slug: "university-of-ruhuna", degreeName: "B.Sc. Eng (Hons) in Electrical & Information Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
-      { name: "University of Peradeniya", slug: "university-of-peradeniya", degreeName: "B.Sc. Eng (Hons) in Electrical & Electronic Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Moratuwa (ENTC)", slug: "moratuwa", degreeName: "B.Sc. Eng (Hons) in Electronic & Telecommunication Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Ruhuna (DEIE)", slug: "ruhuna", degreeName: "B.Sc. Eng (Hons) in Electrical & Information Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Peradeniya", slug: "peradeniya", degreeName: "B.Sc. Eng (Hons) in Electrical & Electronic Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
       { name: "SLIIT", slug: "sliit", degreeName: "B.Sc. Eng (Hons) in Electronic Engineering", faculty: "Faculty of Engineering", type: "PRIVATE", duration: "4 Years" }
     ],
     salaryLkr: "LKR 135k – 400k+ / mo (2026 avg)",
@@ -680,19 +680,19 @@ export const ENGINEERING_DISCIPLINES: EngineeringDiscipline[] = [
     summaryEn: "Synthesize mechanical mechanisms, microcontrollers, computer vision, and AI to engineer autonomous industrial robots and automated smart production lines.",
     summarySi: "රොබෝ තාක්ෂණය, කර්මාන්තශාලා ස්වයංක්‍රීයකරණය, පරිගණක දෘෂ්ටි සංවේදක සහ කෘත්‍රිම බුද්ධිය එක් කර නව පද්ධති නිර්මාණය.",
     specialisations: [
-      "Industrial Robotics & Kinematic Arm Control",
-      "PLC, SCADA & Factory Industrial Automation",
-      "Embedded Microcontrollers (ARM / STM32 / ESP32)",
-      "Autonomous Mobile Robots (AMRs) & Robot Operating System (ROS)",
-      "Computer Vision & Edge Sensor Integration"
+      "Industrial Robotics",
+      "PLC & SCADA Automation",
+      "Embedded Systems (Arduino, ESP32, STM32)",
+      "Mobile Robots & ROS",
+      "Machine Vision & Sensors"
     ],
     employers: ["MAS Matrix", "Brandix Apparel Solutions", "Camso Loadstar", "Unilever Sri Lanka", "Ansell Lanka", "Nestlé Lanka"],
     universities: [
-      { name: "University of Moratuwa", slug: "university-of-moratuwa", degreeName: "B.Sc. Eng (Hons) in Mechanical / Mechatronics Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
-      { name: "University of Sri Jayewardenepura", slug: "university-of-sri-jayewardenepura", degreeName: "B.Sc. Eng (Hons) in Mechanical Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Moratuwa", slug: "moratuwa", degreeName: "B.Sc. Eng (Hons) in Mechanical / Mechatronics Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Sri Jayewardenepura", slug: "jayewardenepura", degreeName: "B.Sc. Eng (Hons) in Mechanical Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
       { name: "SLIIT", slug: "sliit", degreeName: "B.Sc. Eng (Hons) in Mechatronics Engineering", faculty: "Faculty of Engineering", type: "PRIVATE", duration: "4 Years" },
       { name: "CINEC Campus", degreeName: "B.Sc. Eng (Hons) in Mechatronics", faculty: "Faculty of Engineering", type: "PRIVATE", duration: "4 Years" },
-      { name: "General Sir John Kotelawala Defence University", slug: "general-sir-john-kotelawala-defence-university", degreeName: "B.Sc. Eng (Hons) in Mechatronic Engineering", faculty: "Faculty of Engineering", type: "DEFENCE", duration: "4 Years" }
+      { name: "General Sir John Kotelawala Defence University", slug: "kdu", degreeName: "B.Sc. Eng (Hons) in Mechatronic Engineering", faculty: "Faculty of Engineering", type: "DEFENCE", duration: "4 Years" }
     ],
     salaryLkr: "LKR 130k – 380k+ / mo (2026 avg)",
     badge: "Industry 4.0 Robotics",
@@ -741,16 +741,16 @@ export const ENGINEERING_DISCIPLINES: EngineeringDiscipline[] = [
     summaryEn: "Convert raw natural materials into valuable petroleum fuels, polymers, rubber products, pharmaceuticals, activated carbon, and eco-friendly consumer goods.",
     summarySi: "තෙල් පිරිපහදු, ඖෂධ, පොලිමර් සහ රබර් නිෂ්පාදන, සක්‍රිය කාබන් සහ ආහාර සැකසුම් කර්මාන්ත සඳහා රසායනික ක්‍රියාවලි සැලසුම් කිරීම.",
     specialisations: [
-      "Petroleum Refining & Natural Gas Processing",
-      "Polymer, Rubber & Latex Industrial Processing",
-      "Pharmaceutical Manufacturing & Drug Synthesis",
-      "Reaction Kinetics & Industrial Reactor Design",
-      "Industrial Effluent & Wastewater Treatment"
+      "Petroleum Refining (CPC Sapugaskanda)",
+      "Rubber, Polymer & Plastics Processing",
+      "Pharmaceutical Manufacturing",
+      "Process Design & Plant Operations",
+      "Wastewater & Effluent Treatment"
     ],
     employers: ["Ceylon Petroleum Corporation (CPC)", "Ansell Lanka", "Haycarb PLC", "Unilever Sri Lanka", "DSI Samson Group", "Link Natural Products"],
     universities: [
-      { name: "University of Moratuwa", slug: "university-of-moratuwa", degreeName: "B.Sc. Eng (Hons) in Chemical & Process Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
-      { name: "University of Peradeniya", slug: "university-of-peradeniya", degreeName: "B.Sc. Eng (Hons) in Chemical Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" }
+      { name: "University of Moratuwa", slug: "moratuwa", degreeName: "B.Sc. Eng (Hons) in Chemical & Process Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Peradeniya", slug: "peradeniya", degreeName: "B.Sc. Eng (Hons) in Chemical Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" }
     ],
     salaryLkr: "LKR 125k – 360k+ / mo (2026 avg)",
     badge: "Process & Export Industry",
@@ -799,15 +799,15 @@ export const ENGINEERING_DISCIPLINES: EngineeringDiscipline[] = [
     summaryEn: "Pioneer healthcare technology by engineering clinical hospital instruments, MRI/CT scanners, patient monitoring units, smart prosthetics, and artificial organs.",
     summarySi: "රෝහල් උපකරණ, MRI/CT ස්කෑනර්, රෝගී නිරීක්ෂණ පද්ධති සහ කෘත්‍රිම අවයව වැනි වෛද්‍ය තාක්ෂණික විසඳුම් සැලසුම් කිරීම.",
     specialisations: [
-      "Medical Diagnostic Imaging (MRI, CT, Ultrasound)",
-      "Biosignal Processing (ECG, EEG, EMG)",
-      "Prosthetics, Orthotics & Biomechanics",
-      "Clinical Hospital Instrumentation Maintenance",
-      "Implantable Medical Devices & Biomaterials"
+      "Medical Imaging Equipment (MRI, CT, Ultrasound)",
+      "Biosignals (ECG, EEG)",
+      "Prosthetics & Biomechanics",
+      "Hospital Equipment Maintenance",
+      "Medical Devices & Biomaterials"
     ],
     employers: ["Ministry of Health Teaching Hospitals", "Asiri Health Group", "Nawaloka Hospitals", "Premium International Lanka", "Biomedite Healthcare", "Global MedTech MNCs"],
     universities: [
-      { name: "University of Moratuwa", slug: "university-of-moratuwa", degreeName: "B.Sc. Eng (Hons) in Biomedical Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Moratuwa", slug: "moratuwa", degreeName: "B.Sc. Eng (Hons) in Biomedical Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
       { name: "SLIIT", slug: "sliit", degreeName: "B.Sc. Eng (Hons) in Electrical & Electronic (Biomedical)", faculty: "Faculty of Engineering", type: "PRIVATE", duration: "4 Years" }
     ],
     salaryLkr: "LKR 125k – 370k+ / mo (2026 avg)",
@@ -857,17 +857,17 @@ export const ENGINEERING_DISCIPLINES: EngineeringDiscipline[] = [
     summaryEn: "Design ocean-going cargo vessels, supervise giant diesel marine propulsion engines, manage shipyard dry-docks, and maintain offshore maritime energy platforms.",
     summarySi: "නැව් සැලසුම් කිරීම, සාගර යාත්‍රා එන්ජින් පද්ධති නඩත්තුව, නැව් තටාකාංගන සහ වරාය යන්ත්‍රෝපකරණ ක්‍රියාත්මක කිරීම.",
     specialisations: [
-      "Naval Architecture & Hull Hydrodynamics",
-      "Marine Giant 2-Stroke Diesel Propulsion Engines",
-      "Shipyard Dry-Dock Overhaul & Surveying",
-      "Offshore Oil & Wind Marine Structures",
-      "Marine Electrical, Automation & Bridge Controls"
+      "Naval Architecture & Ship Design",
+      "Ship Engines & Propulsion",
+      "Shipbuilding & Dry-Dock Repairs (Colombo Dockyard)",
+      "Offshore Structures",
+      "Marine Electrical & Automation"
     ],
     employers: ["Colombo Dockyard PLC", "Walkers Shipyard", "Sri Lanka Ports Authority (SLPA)", "International Merchant Navies (USD tax-free contracts)"],
     universities: [
-      { name: "University of Moratuwa", slug: "university-of-moratuwa", degreeName: "B.Sc. Eng (Hons) in Marine Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
+      { name: "University of Moratuwa", slug: "moratuwa", degreeName: "B.Sc. Eng (Hons) in Marine Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" },
       { name: "CINEC Campus", degreeName: "B.Sc. Eng (Hons) in Marine Engineering", faculty: "Faculty of Maritime Sciences", type: "PRIVATE", duration: "4 Years" },
-      { name: "General Sir John Kotelawala Defence University", slug: "general-sir-john-kotelawala-defence-university", degreeName: "B.Sc. Eng (Hons) in Marine Engineering", faculty: "Faculty of Engineering", type: "DEFENCE", duration: "4 Years" }
+      { name: "General Sir John Kotelawala Defence University", slug: "kdu", degreeName: "B.Sc. Eng (Hons) in Marine Engineering", faculty: "Faculty of Engineering", type: "DEFENCE", duration: "4 Years" }
     ],
     salaryLkr: "LKR 150k – 450k+ / mo (USD at sea)",
     badge: "Global Maritime Careers",
@@ -916,15 +916,15 @@ export const ENGINEERING_DISCIPLINES: EngineeringDiscipline[] = [
     summaryEn: "Synthesize high-strength ceramics, composite polymers, metallurgy alloys, and carbon nanomaterials for aerospace, building, and industrial exports.",
     summarySi: "අධි තාක්ෂණික සෙරමික්, මිශ්‍ර ලෝහ, පොලිමර් සහ නැනෝ තාක්ෂණික ද්‍රව්‍ය පර්යේෂණ කර කාර්මික නිෂ්පාදන සඳහා යොදාගැනීම.",
     specialisations: [
-      "Advanced Metallurgy & Alloy Heat Treatment",
-      "Ceramics, Glass & Refractory Engineering",
-      "Composite Carbon Fibres & Polymer Synthesis",
-      "Materials Failure Analysis & Fracture Mechanics",
-      "Nanotechnology & Semiconductor Thin Films"
+      "Metallurgy & Heat Treatment",
+      "Ceramics & Glass Technology",
+      "Composites & Polymers",
+      "Failure Analysis & Quality Testing",
+      "Nanomaterials & Electronic Materials"
     ],
     employers: ["Noritake Lanka Porcelain", "Lanka Walltiles", "Ceylon Steel Corporation", "Camso Loadstar", "DSI Samson Group", "Sri Lanka Institute of Nanotechnology (SLINTEC)"],
     universities: [
-      { name: "University of Moratuwa", slug: "university-of-moratuwa", degreeName: "B.Sc. Eng (Hons) in Materials Science & Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" }
+      { name: "University of Moratuwa", slug: "moratuwa", degreeName: "B.Sc. Eng (Hons) in Materials Science & Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" }
     ],
     salaryLkr: "LKR 115k – 320k+ / mo (2026 avg)",
     badge: "Advanced Materials & R&D",
@@ -973,15 +973,15 @@ export const ENGINEERING_DISCIPLINES: EngineeringDiscipline[] = [
     summaryEn: "Extract Sri Lanka's high-purity vein graphite, mineral sands, gemstones, and limestone through underground tunneling, rock blasting, and mineral processing.",
     summarySi: "ශ්‍රී ලංකාවේ මිනිරන්, ඛනිජ වැලි, මැණික් සහ හුණුගල් සම්පත් නිරීක්ෂණය, භූගත උමං කැණීම් සහ පතල් ඉංජිනේරු මෙහෙයුම්.",
     specialisations: [
-      "Underground Tunneling & Rock Mechanics",
-      "Mineral Sand & Industrial Ore Processing",
-      "Geophysical Exploration & Precious Gemology",
-      "Mine Shaft Ventilation & Subterranean Safety",
-      "Quarry Blasting & Environmental Rehabilitation"
+      "Tunnelling & Rock Mechanics",
+      "Mineral Sands & Graphite Processing",
+      "Exploration Geology & Gem Mining",
+      "Mine Safety & Ventilation",
+      "Quarry Management & Land Rehabilitation (GSMB)"
     ],
     employers: ["Geological Survey & Mines Bureau (GSMB)", "Bogala Graphite Lanka PLC", "Lanka Mineral Sands (Pulmoddai)", "INSEE Cement (Siam City Lanka)", "Kahatagaha Graphite Lanka"],
     universities: [
-      { name: "University of Moratuwa", slug: "university-of-moratuwa", degreeName: "B.Sc. Eng (Hons) in Earth Resources Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" }
+      { name: "University of Moratuwa", slug: "moratuwa", degreeName: "B.Sc. Eng (Hons) in Earth Resources Engineering", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" }
     ],
     salaryLkr: "LKR 120k – 350k+ / mo (2026 avg)",
     badge: "Unique Mineral Wealth",
@@ -1030,16 +1030,16 @@ export const ENGINEERING_DISCIPLINES: EngineeringDiscipline[] = [
     summaryEn: "Oversee commercial airliner airframes, jet turbine propulsion engines, avionics navigation systems, and international flight airworthiness certification.",
     summarySi: "ගුවන්යානා එන්ජින්, ගගන යාන්ත්‍ර විද්‍යාව, ඒවියොනික්ස් නාවික පද්ධති සහ ගුවන්යානා නඩත්තු (MRO) මෙහෙයුම්.",
     specialisations: [
-      "Aerodynamics & High-Speed Flight Dynamics",
-      "Gas Turbine Jet Engines & Rocket Propulsion",
-      "Avionics, Fly-by-Wire & Flight Deck Radar",
-      "Airframe Structural Integrity & Fatigue Analysis",
-      "Aircraft Maintenance (MRO) & Airworthiness Certification"
+      "Aerodynamics",
+      "Aircraft Engines & Propulsion",
+      "Avionics",
+      "Aircraft Structures",
+      "Aircraft Maintenance (SriLankan Engineering)"
     ],
     employers: ["SriLankan Airlines Engineering (MRO)", "FitsAir", "Sri Lanka Air Force (SLAF)", "Civil Aviation Authority of Sri Lanka (CAASL)", "International Airlines MRO Hubs (Emirates, Qatar, Singapore Airlines)"],
     universities: [
-      { name: "General Sir John Kotelawala Defence University", slug: "general-sir-john-kotelawala-defence-university", degreeName: "B.Sc. Eng (Hons) in Aeronautical Engineering", faculty: "Faculty of Engineering", type: "DEFENCE", duration: "4 Years" },
-      { name: "University of Moratuwa (Aero Pathway)", slug: "university-of-moratuwa", degreeName: "B.Sc. Eng (Hons) in Mechanical / Aerospace", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" }
+      { name: "General Sir John Kotelawala Defence University", slug: "kdu", degreeName: "B.Sc. Eng (Hons) in Aeronautical Engineering", faculty: "Faculty of Engineering", type: "DEFENCE", duration: "4 Years" },
+      { name: "University of Moratuwa (Aero Pathway)", slug: "moratuwa", degreeName: "B.Sc. Eng (Hons) in Mechanical / Aerospace", faculty: "Faculty of Engineering", type: "STATE", duration: "4 Years" }
     ],
     salaryLkr: "LKR 140k – 420k+ / mo (2026 avg)",
     badge: "Aviation & MRO Sector",

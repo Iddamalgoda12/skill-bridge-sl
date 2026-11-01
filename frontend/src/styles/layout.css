@@ -6,7 +6,7 @@ button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
 button, select { cursor: pointer; }
 button:disabled { cursor: not-allowed; opacity: .6; }
 a { color: inherit; text-decoration: none; }
-button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible { outline: none; box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--forest); }
+button:focus-visible, [role="button"]:focus-visible, [tabindex]:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible { outline: none; box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--forest); }
 ::-webkit-scrollbar { width: 9px; height: 9px; }
 ::-webkit-scrollbar-track { background: rgba(255, 248, 225, 0.4); }
 ::-webkit-scrollbar-thumb { background: rgba(180, 150, 80, 0.35); border-radius: 9px; border: 2px solid transparent; background-clip: content-box; }

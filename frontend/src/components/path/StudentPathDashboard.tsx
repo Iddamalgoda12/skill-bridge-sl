@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { Fragment, useState, useEffect, useMemo, type ReactNode } from "react";
 import Link from "next/link";
 import { useLocale } from "next-intl";
 import {
@@ -44,11 +44,13 @@ import {
   type MilestoneRecord,
   type TaskRecord,
   type AchievementRecord,
+  parsePathPreferences,
 } from "@/lib/api/paths";
 import { careerDetails } from "@/lib/data/careerDetails";
-import { SRI_LANKAN_DISTRICTS } from "@/lib/data/pathEngine";
+import { MILESTONE_PHASES, getMilestonePhase, type MilestonePhase } from "@/lib/data/milestonePhases";
+import { SRI_LANKAN_DISTRICTS, EDUCATION_STAGES } from "@/lib/data/pathEngine";
 
-export function StudentPathDashboard() {
+export function StudentPathDashboard({ intro }: { intro?: ReactNode }) {
   const locale = useLocale();
   const isSi = locale === "si";
 
@@ -76,7 +78,7 @@ export function StudentPathDashboard() {
   } | null>(null);
 
   // Form states for Add Milestone
-  const [newStageKey, setNewStageKey] = useState("STAGE_2_UNDERGRADUATE");
+  const [newStageKey, setNewStageKey] = useState("DEGREE_CUSTOM");
   const [newTitle, setNewTitle] = useState("");
   const [newDesc, setNewDesc] = useState("");
   const [newWhy, setNewWhy] = useState("");
@@ -149,7 +151,7 @@ export function StudentPathDashboard() {
 
     // 3. Stage Filter
     if (stageFilter !== "ALL") {
-      list = list.filter((m) => m.stageKey === stageFilter);
+      list = list.filter((m) => getMilestonePhase(m.stageKey) === stageFilter);
     }
 
     // 4. Sorting
@@ -456,15 +458,20 @@ export function StudentPathDashboard() {
 
   if (loading) {
     return (
+      <>
+      {intro}
       <div className="dashboard-loading-state glass-panel">
         <Sparkles className="spin-slow" size={28} />
         <p>{isSi ? "ඔයාගෙ Career Journey Dashboard එක load වෙනවා..." : "Loading your career journey dashboard..."}</p>
       </div>
+      </>
     );
   }
 
   if (paths.length === 0) {
     return (
+      <>
+      {intro}
       <div className="dashboard-empty-state glass-panel">
         <div className="empty-icon-wrap">
           <Route size={36} />
@@ -481,6 +488,7 @@ export function StudentPathDashboard() {
           <ArrowRight size={16} />
         </Link>
       </div>
+      </>
     );
   }
 
@@ -491,116 +499,220 @@ export function StudentPathDashboard() {
       {/* ──────────────────────────────────────────────────────────────────
           TOP BAR: SAVED PATHS SWITCHER & ACTIONS
       ────────────────────────────────────────────────────────────────── */}
-      <div className="dashboard-header-bar glass-panel">
-        <div className="path-switcher-col">
-          <span className="switcher-label">
-            {isSi ? "ක්‍රියාකාරී Roadmaps:" : "Active Career Path:"}
-          </span>
-          <div className="paths-tabs-row">
-            {paths.map((p) => (
-              <button
-                key={p.id}
-                type="button"
-                className={`path-tab-pill ${p.id === activePath.id ? "active-tab" : ""}`}
-                onClick={() => setActivePathId(p.id)}
-              >
-                <span>{p.title}</span>
-                <span className="tab-percent">{p.completionPercent}%</span>
-              </button>
-            ))}
-            <Link href="/build-your-path" className="add-path-tab-btn" title="Create another career path">
-              <Plus size={14} />
-              <span>{isSi ? "අලුත් එකක්" : "New Path"}</span>
-            </Link>
-          </div>
-        </div>
-
-        <div className="path-delete-col">
-          <button
-            type="button"
-            className="delete-path-btn"
-            onClick={() =>
-              setDeleteConfirmTarget({
-                type: "PATH",
-                id: activePath.id,
-                title: activePath.title,
-              })
-            }
-            title="Delete this entire roadmap"
-          >
-            <Trash2 size={15} />
-            <span>{isSi ? "Roadmap එක අයින් කරන්න" : "Delete Path"}</span>
-          </button>
-        </div>
-      </div>
-
       {/* ──────────────────────────────────────────────────────────────────
           MAIN GRID: OVERVIEW, FILTERS, MILESTONES & SIDEBAR
       ────────────────────────────────────────────────────────────────── */}
-      <div className="dashboard-main-grid">
-        {/* Left Column: Milestones & Interactive Task Checklists */}
-        <div className="dashboard-timeline-col">
-          {/* Active Milestone Card Highlight */}
-          <div className="roadmap-progress-summary glass-panel">
-            <div className="progress-summary-top">
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <span className="summary-stage-tag">{activePath.educationStage.toUpperCase()}</span>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap", marginTop: "4px" }}>
-                  <h2 className="summary-career-title" style={{ margin: 0 }}>{activePath.title}</h2>
-                  <button
-                    type="button"
-                    className="milestone-action-btn"
-                    title={isSi ? "Roadmap විස්තර වෙනස් කරන්න" : "Edit Roadmap Details"}
-                    onClick={() => {
-                      setEditPathTitle(activePath.title);
-                      setEditPathDistrict(activePath.district || "");
-                      setEditPathNotes(activePath.notes || "");
-                      setFormError("");
-                      setIsEditPathOpen(true);
-                    }}
-                  >
-                    <Edit3 size={15} />
-                  </button>
-                </div>
-                <p className="summary-career-sub">
-                  {isSi ? "ඉලක්කගත වෘත්තිය:" : "Target Profession:"}{" "}
-                  <strong>
-                    {careerInfo ? (isSi ? `${careerInfo.title} (${careerInfo.sinhalaTitle})` : careerInfo.title) : activePath.targetCareerSlug}
-                  </strong>
-                  {activePath.district && <span> • {activePath.district} {isSi ? "දිස්ත්‍රික්කය" : "District"}</span>}
-                </p>
-                {activePath.notes && (
-                  <p style={{ fontSize: "12px", color: "#475569", marginTop: "4px", fontStyle: "italic" }}>
-                    📝 {activePath.notes}
-                  </p>
-                )}
-              </div>
+      {intro}
 
-              <div className="progress-gauge-wrap">
-                <div className="gauge-number">{activePath.completionPercent}%</div>
-                <span className="gauge-label">{isSi ? "සම්පූර්ණයි" : "Roadmap Complete"}</span>
-              </div>
-            </div>
-
-            <div className="summary-progress-bar-wrap">
-              <div
-                className="summary-progress-bar-fill"
-                style={{ width: `${activePath.completionPercent}%` }}
-              />
-            </div>
-
-            <div className="summary-stats-footer">
-              <span>
-                <strong>{activePath.completedMilestones}</strong> of {activePath.totalMilestones}{" "}
-                {isSi ? "Milestones සම්පූර්ණයි" : "Milestones Completed"}
-              </span>
-              <span>
-                <strong>{activePath.completedTasks}</strong> of {activePath.totalTasks}{" "}
-                {isSi ? "Tasks සම්පූර්ණයි" : "Tasks Checked"}
-              </span>
+        <div className="dashboard-header-bar glass-panel">
+          <div className="path-switcher-col">
+            <span className="switcher-label">
+              {isSi ? "ක්‍රියාකාරී Roadmaps:" : "Active Career Path:"}
+            </span>
+            <div className="paths-tabs-row">
+              {paths.map((p) => (
+                <button
+                  key={p.id}
+                  type="button"
+                  className={`path-tab-pill ${p.id === activePath.id ? "active-tab" : ""}`}
+                  onClick={() => setActivePathId(p.id)}
+                >
+                  <span>{p.title}</span>
+                  <span className="tab-percent">{p.completionPercent}%</span>
+                </button>
+              ))}
+              <Link href="/build-your-path" className="add-path-tab-btn" title={isSi ? "තවත් career path එකක් හදන්න" : "Create another career path"}>
+                <Plus size={14} />
+                <span>{isSi ? "අලුත් එකක්" : "New Path"}</span>
+              </Link>
             </div>
           </div>
 
+          <div className="path-delete-col">
+            <button
+              type="button"
+              className="delete-path-btn"
+              onClick={() =>
+                setDeleteConfirmTarget({
+                  type: "PATH",
+                  id: activePath.id,
+                  title: activePath.title,
+                })
+              }
+              title={isSi ? "මෙම roadmap එක සම්පූර්ණයෙන්ම අයින් කරන්න" : "Delete this entire roadmap"}
+            >
+              <Trash2 size={15} />
+              <span>{isSi ? "Roadmap එක අයින් කරන්න" : "Delete Path"}</span>
+            </button>
+          </div>
+        </div>
+
+      <div className="dashboard-overview-grid">
+        {/* Active Milestone Card Highlight */}
+        <div className="roadmap-progress-summary glass-panel">
+          <div className="progress-summary-top">
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <span className="summary-stage-tag">
+                {(() => {
+                  const stageInfo = EDUCATION_STAGES.find((st) => st.id === activePath.educationStage);
+                  return stageInfo ? (isSi ? stageInfo.sinhalaLabel : stageInfo.label) : activePath.educationStage;
+                })()}
+              </span>
+              <div className="summary-title-row">
+                <h2 className="summary-career-title">{activePath.title}</h2>
+                <button
+                  type="button"
+                  className="milestone-action-btn"
+                  title={isSi ? "Roadmap විස්තර වෙනස් කරන්න" : "Edit Roadmap Details"}
+                  onClick={() => {
+                    setEditPathTitle(activePath.title);
+                    setEditPathDistrict(activePath.district || "");
+                    setEditPathNotes(activePath.notes || "");
+                    setFormError("");
+                    setIsEditPathOpen(true);
+                  }}
+                >
+                  <Edit3 size={15} />
+                </button>
+              </div>
+              <p className="summary-career-sub">
+                {isSi ? "ඉලක්කගත වෘත්තිය:" : "Target Profession:"}{" "}
+                <strong>
+                  {careerInfo ? (isSi ? `${careerInfo.title} (${careerInfo.sinhalaTitle})` : careerInfo.title) : activePath.targetCareerSlug}
+                </strong>
+                {activePath.district && <span> • {activePath.district} {isSi ? "දිස්ත්‍රික්කය" : "District"}</span>}
+              </p>
+              {(() => {
+                const prefs = parsePathPreferences(activePath);
+                const chips = [
+                  prefs.universityName && (prefs.degreeName ? `${prefs.universityName} · ${prefs.degreeName}` : prefs.universityName),
+                  prefs.specialization,
+                  prefs.route === "PRIVATE_GLOBAL" ? (isSi ? "පෞද්ගලික මාර්ගය" : "Private route") : prefs.route === "PROFESSIONAL_BODY" ? (isSi ? "වෘත්තීය මාර්ගය" : "Professional route") : prefs.route === "STATE_UGC" ? (isSi ? "රාජ්‍ය (UGC) මාර්ගය" : "State (UGC) route") : undefined,
+                ].filter(Boolean) as string[];
+                return (
+                  <div className="path-pref-row">
+                    {chips.map((chip) => (
+                      <span key={chip} className="path-pref-chip">{chip}</span>
+                    ))}
+                    <Link
+                      href={`/build-your-path?career=${activePath.targetCareerSlug}${prefs.engineeringFieldId ? `&field=${prefs.engineeringFieldId}` : ""}#career-architect`}
+                      className="path-pref-edit"
+                    >
+                      {isSi ? "Build පිටුවේ වෙනස් කරන්න" : "Change in Build Path"}
+                    </Link>
+                  </div>
+                );
+              })()}
+              {activePath.notes && (
+                <p style={{ fontSize: "12px", color: "#475569", marginTop: "4px", fontStyle: "italic" }}>
+                  📝 {activePath.notes}
+                </p>
+              )}
+            </div>
+
+            <div className="progress-gauge-wrap">
+              <div className="gauge-number">{activePath.completionPercent}%</div>
+              <span className="gauge-label">{isSi ? "සම්පූර්ණයි" : "Roadmap Complete"}</span>
+            </div>
+          </div>
+
+          <div className="summary-progress-bar-wrap">
+            <div
+              className="summary-progress-bar-fill"
+              style={{ width: `${activePath.completionPercent}%` }}
+            />
+          </div>
+
+          <div className="summary-stats-footer">
+            <span>
+              <strong>{activePath.completedMilestones}</strong> of {activePath.totalMilestones}{" "}
+              {isSi ? "Milestones සම්පූර්ණයි" : "Milestones Completed"}
+            </span>
+            <span>
+              <strong>{activePath.completedTasks}</strong> of {activePath.totalTasks}{" "}
+              {isSi ? "Tasks සම්පූර්ණයි" : "Tasks Checked"}
+            </span>
+          </div>
+        </div>
+
+      {/* Right Column: Achievements, Connected Career, & University Options */}
+      <aside className="dashboard-overview-aside">
+        {/* Target Career Snapshot Card */}
+        {careerInfo && (
+          <div className="side-widget-card glass-panel">
+            <div className="side-widget-header">
+              <Compass size={18} />
+              <h4>{isSi ? "ඉලක්කගත Career Guide එක" : "Target Career Guide"}</h4>
+            </div>
+            <p className="widget-career-title">{careerInfo.title}</p>
+            {careerInfo.sinhalaTitle && <p className="widget-career-sinhala">{careerInfo.sinhalaTitle}</p>}
+            <p className="widget-career-desc">{careerInfo.tagline}</p>
+
+            <div className="widget-salary-row">
+              <span className="salary-label">{isSi ? "සාමාන්‍ය වැටුප (Mid-Level):" : "Estimated Mid-Level:"}</span>
+              <strong>{careerInfo.salary.midLevel.label}</strong>
+            </div>
+
+            <Link
+              href={`/careers/${careerInfo.slug}`}
+              className="view-career-btn gold-glass"
+            >
+              <span>{isSi ? "සම්පූර්ණ Guide එක කියවන්න" : "Read Full 10-Pillar Guide"}</span>
+              <ArrowRight size={14} />
+            </Link>
+          </div>
+        )}
+
+        {/* Student Achievements & Milestone Badges */}
+        <div className="side-widget-card glass-panel">
+          <div className="side-widget-header">
+            <Trophy size={18} className="trophy-icon" />
+            <h4>{isSi ? "ලබාගත් Achievements & Badges" : "Achievements & Badges"}</h4>
+          </div>
+
+          <div className="achievements-badges-grid">
+            {(() => {
+              const earned = new Map(achievements.map((a) => [a.badgeKey, a]));
+              const pct = activePath.completionPercent;
+              const defs = [
+                { key: "FIRST_PATH_CREATED", icon: "🌟", threshold: 0, name: isSi ? "මඟපෙන්වුම්කරු" : "Visionary Pathfinder", hint: isSi ? "ඔයාගෙ roadmap එක සෑදුවා" : "Created your personalized roadmap" },
+                { key: "MILESTONE_25", icon: "🎯", threshold: 25, name: isSi ? "25% සම්පූර්ණයි" : "25% Milestone", hint: isSi ? "Tasks වලින් 25%ක් සම්පූර්ණ කරන්න" : "Complete 25% of your tasks" },
+                { key: "MILESTONE_50", icon: "🚀", threshold: 50, name: isSi ? "අඩක් ජයගත් වීරයා" : "Halfway Hero", hint: isSi ? "Tasks වලින් 50%ක් සම්පූර්ණ කරන්න" : "Complete 50% of your tasks" },
+                { key: "MILESTONE_100", icon: "👑", threshold: 100, name: isSi ? "වෘත්තීය ජයග්‍රාහකයා" : "Career Trailblazer", hint: isSi ? "100% සම්පූර්ණ කර ජයගන්න" : "Complete 100% of your tasks" },
+              ];
+              return defs.map((badge) => {
+                const record = earned.get(badge.key);
+                const unlocked = badge.threshold === 0 || pct >= badge.threshold || !!record;
+                const progress = Math.min(100, Math.round((pct / badge.threshold) * 100));
+                return (
+                  <div key={badge.key} className={`badge-item ${unlocked ? "unlocked" : "locked"}`}>
+                    <div className="badge-icon-wrap">{unlocked ? badge.icon : "🔒"}</div>
+                    <div className="badge-details">
+                      <strong>{badge.name}</strong>
+                      <small>
+                        {unlocked
+                          ? record
+                            ? `${isSi ? "ජයගත්තා" : "Unlocked"} · ${new Date(record.unlockedAt).toLocaleDateString(isSi ? "si-LK" : "en-GB", { day: "numeric", month: "short" })}`
+                            : isSi ? "ජයගත්තා!" : "Unlocked!"
+                          : badge.hint}
+                      </small>
+                      {!unlocked && (
+                        <span className="badge-progress" aria-label={`${progress}%`}>
+                          <span style={{ width: `${progress}%` }} />
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                );
+              });
+            })()}
+          </div>
+        </div>
+
+      </aside>
+      </div>
+
+      <div className="dashboard-timeline-col">
           {/* ──────────────────────────────────────────────────────────────
               SEARCH, FILTER & SORT BAR (Rubric: Read / Search, Filter, Sort)
           ────────────────────────────────────────────────────────────── */}
@@ -631,9 +743,9 @@ export function StudentPathDashboard() {
               {/* Status Filter */}
               <select
                 value={statusFilter}
-                onChange={(e) => setStatusFilter(e.target.value as any)}
+                onChange={(e) => setStatusFilter(e.target.value as typeof statusFilter)}
                 className="dashboard-select-input"
-                title="Filter by completion status"
+                title={isSi ? "සම්පූර්ණ වීමේ තත්ත්වය අනුව පෙරන්න" : "Filter by completion status"}
               >
                 <option value="ALL">{isSi ? "සියලු Statuses" : "All Statuses"}</option>
                 <option value="IN_PROGRESS">{isSi ? "සිදුවෙමින් පවතින (In Progress)" : "In Progress"}</option>
@@ -646,21 +758,22 @@ export function StudentPathDashboard() {
                 value={stageFilter}
                 onChange={(e) => setStageFilter(e.target.value)}
                 className="dashboard-select-input"
-                title="Filter by stage"
+                title={isSi ? "අදියර අනුව පෙරන්න" : "Filter by stage"}
               >
                 <option value="ALL">{isSi ? "සියලු අදියර (All Stages)" : "All Stages"}</option>
-                <option value="STAGE_1_FOUNDATION">{isSi ? "O/L & A/L පදනම" : "Stage 1: Foundation"}</option>
-                <option value="STAGE_2_UNDERGRADUATE">{isSi ? "උපාධිය / Higher Studies" : "Stage 2: Degree"}</option>
-                <option value="STAGE_3_LICENSURE">{isSi ? "වෘත්තීය Charter" : "Stage 3: Charter / License"}</option>
-                <option value="STAGE_4_CAREER">{isSi ? "වෘත්තීය රැකියාව" : "Stage 4: Career"}</option>
+                {(Object.keys(MILESTONE_PHASES) as MilestonePhase[]).map((phase) => (
+                  <option key={phase} value={phase}>
+                    {isSi ? MILESTONE_PHASES[phase].si : MILESTONE_PHASES[phase].en}
+                  </option>
+                ))}
               </select>
 
               {/* Sort By */}
               <select
                 value={sortBy}
-                onChange={(e) => setSortBy(e.target.value as any)}
+                onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
                 className="dashboard-select-input"
-                title="Sort order"
+                title={isSi ? "පිළිවෙල" : "Sort order"}
               >
                 <option value="POSITION">{isSi ? "පිළිවෙල (Stage Order)" : "Sort: Stage Order"}</option>
                 <option value="DATE">{isSi ? "දිනය අනුව (Target Date)" : "Sort: Target Date"}</option>
@@ -739,9 +852,16 @@ export function StudentPathDashboard() {
                 const isDone = m.status === "COMPLETED";
                 const inProgress = m.status === "IN_PROGRESS";
 
+                const phase = getMilestonePhase(m.stageKey);
+                const showPhase =
+                  sortBy === "POSITION" && (mIdx === 0 || getMilestonePhase(filteredMilestones[mIdx - 1].stageKey) !== phase);
+
                 return (
+                  <Fragment key={m.id}>
+                  {showPhase && (
+                    <div className="milestone-phase-heading">{isSi ? MILESTONE_PHASES[phase].si : MILESTONE_PHASES[phase].en}</div>
+                  )}
                   <article
-                    key={m.id}
                     className={`milestone-interactive-card glass-panel ${isDone ? "is-done" : inProgress ? "is-in-progress" : ""}`}
                   >
                     <div
@@ -849,7 +969,10 @@ export function StudentPathDashboard() {
                                     }
                                     className="m-task-checkbox"
                                   />
-                                  <span className="m-task-text">{task.title}</span>
+                                  <span className="m-task-body">
+                                    <span className="m-task-text">{task.title}</span>
+                                    {task.notes && <small className="m-task-note">{task.notes}</small>}
+                                  </span>
                                 </label>
 
                                 <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
@@ -912,112 +1035,11 @@ export function StudentPathDashboard() {
                       </div>
                     )}
                   </article>
+                  </Fragment>
                 );
               })
             )}
           </div>
-        </div>
-
-        {/* Right Column: Achievements, Connected Career, & University Options */}
-        <aside className="dashboard-side-col">
-          {/* Target Career Snapshot Card */}
-          {careerInfo && (
-            <div className="side-widget-card glass-panel">
-              <div className="side-widget-header">
-                <Compass size={18} />
-                <h4>{isSi ? "ඉලක්කගත Career Guide එක" : "Target Career Guide"}</h4>
-              </div>
-              <p className="widget-career-title">{careerInfo.title}</p>
-              {careerInfo.sinhalaTitle && <p className="widget-career-sinhala">{careerInfo.sinhalaTitle}</p>}
-              <p className="widget-career-desc">{careerInfo.tagline}</p>
-
-              <div className="widget-salary-row">
-                <span className="salary-label">{isSi ? "සාමාන්‍ය වැටුප (Mid-Level):" : "Estimated Mid-Level:"}</span>
-                <strong>{careerInfo.salary.midLevel.label}</strong>
-              </div>
-
-              <Link
-                href={`/careers/${careerInfo.slug}`}
-                className="view-career-btn gold-glass"
-              >
-                <span>{isSi ? "සම්පූර්ණ Guide එක කියවන්න" : "Read Full 10-Pillar Guide"}</span>
-                <ArrowRight size={14} />
-              </Link>
-            </div>
-          )}
-
-          {/* Student Achievements & Milestone Badges */}
-          <div className="side-widget-card glass-panel">
-            <div className="side-widget-header">
-              <Trophy size={18} className="trophy-icon" />
-              <h4>{isSi ? "ලබාගත් Achievements & Badges" : "Achievements & Badges"}</h4>
-            </div>
-
-            <div className="achievements-badges-grid">
-              <div className="badge-item unlocked">
-                <div className="badge-icon-wrap">🌟</div>
-                <div className="badge-details">
-                  <strong>{isSi ? "මඟපෙන්වුම්කරු" : "Visionary Pathfinder"}</strong>
-                  <small>{isSi ? "ඔයාගෙ roadmap එක සෑදුවා" : "Created your personalized roadmap"}</small>
-                </div>
-              </div>
-
-              <div className={`badge-item ${activePath.completionPercent >= 25 ? "unlocked" : "locked"}`}>
-                <div className="badge-icon-wrap">🎯</div>
-                <div className="badge-details">
-                  <strong>{isSi ? "25% සම්පූර්ණයි" : "25% Milestone"}</strong>
-                  <small>{activePath.completionPercent >= 25 ? (isSi ? "ජයගත්තා!" : "Unlocked!") : (isSi ? "Tasks වලින් 25%ක් සම්පූර්ණ කරන්න" : "Complete 25% of tasks")}</small>
-                </div>
-              </div>
-
-              <div className={`badge-item ${activePath.completionPercent >= 50 ? "unlocked" : "locked"}`}>
-                <div className="badge-icon-wrap">🚀</div>
-                <div className="badge-details">
-                  <strong>{isSi ? "අඩක් ජයගත් වීරයා" : "Halfway Hero"}</strong>
-                  <small>{activePath.completionPercent >= 50 ? (isSi ? "ජයගත්තා!" : "Unlocked!") : (isSi ? "Tasks වලින් 50%ක් සම්පූර්ණ කරන්න" : "Complete 50% of tasks")}</small>
-                </div>
-              </div>
-
-              <div className={`badge-item ${activePath.completionPercent === 100 ? "unlocked" : "locked"}`}>
-                <div className="badge-icon-wrap">👑</div>
-                <div className="badge-details">
-                  <strong>{isSi ? "වෘත්තීය ජයග්‍රාහකයා" : "Career Trailblazer"}</strong>
-                  <small>{activePath.completionPercent === 100 ? (isSi ? "ජයගත්තා!" : "Unlocked!") : (isSi ? "100% සම්පූර්ණ කර ජයගන්න" : "Achieve 100% completion")}</small>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Recommended Universities Connected to Path */}
-          {careerInfo && careerInfo.universities.length > 0 && (
-            <div className="side-widget-card glass-panel">
-              <div className="side-widget-header">
-                <GraduationCap size={18} />
-                <h4>{isSi ? "නිර්දේශිත Universities" : "Recommended Universities"}</h4>
-              </div>
-
-              <ul className="side-unis-list">
-                {careerInfo.universities.slice(0, 3).map((uni, idx) => (
-                  <li key={idx} className="side-uni-item">
-                    <div>
-                      <strong>{uni.name}</strong>
-                      <p>{uni.degreeName}</p>
-                    </div>
-                    {uni.slug && (
-                      <Link href={`/universities/${uni.slug}`} className="side-uni-arrow">
-                        <ArrowRight size={13} />
-                      </Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
-
-              <Link href="/universities" className="side-all-unis-link">
-                {isSi ? "සියලු Universities බලන්න →" : "Explore all universities →"}
-              </Link>
-            </div>
-          )}
-        </aside>
       </div>
 
       {/* ──────────────────────────────────────────────────────────────────
@@ -1053,10 +1075,10 @@ export function StudentPathDashboard() {
                   onChange={(e) => setNewStageKey(e.target.value)}
                   className="crud-form-select"
                 >
-                  <option value="STAGE_1_FOUNDATION">{isSi ? "1 වන පියවර: O/L සහ A/L පදනම" : "Stage 1: Foundation (O/L & A/L)"}</option>
-                  <option value="STAGE_2_UNDERGRADUATE">{isSi ? "2 වන පියවර: උපාධිය / Higher Studies" : "Stage 2: Degree / Higher Studies"}</option>
-                  <option value="STAGE_3_LICENSURE">{isSi ? "3 වන පියවර: වෘත්තීය බලපත්‍ර / Charter" : "Stage 3: Professional Charter"}</option>
-                  <option value="STAGE_4_CAREER">{isSi ? "4 වන පියවර: රැකියාව සහ කර්මාන්තය" : "Stage 4: Career & Industry"}</option>
+                  <option value="OL_CUSTOM">{isSi ? MILESTONE_PHASES.school.si : MILESTONE_PHASES.school.en}</option>
+                  <option value="AL_CUSTOM">{isSi ? MILESTONE_PHASES.advanced.si : MILESTONE_PHASES.advanced.en}</option>
+                  <option value="DEGREE_CUSTOM">{isSi ? MILESTONE_PHASES.degree.si : MILESTONE_PHASES.degree.en}</option>
+                  <option value="CAREER_LAUNCH_CUSTOM">{isSi ? MILESTONE_PHASES.career.si : MILESTONE_PHASES.career.en}</option>
                 </select>
               </div>
 
@@ -1082,7 +1104,7 @@ export function StudentPathDashboard() {
                     type="number"
                     min="1"
                     max="60"
-                    placeholder="e.g. 6"
+                    placeholder={isSi ? "උදා: 6" : "e.g. 6"}
                     value={newDuration}
                     onChange={(e) => setNewDuration(e.target.value)}
                     className="crud-form-input"
@@ -1240,7 +1262,7 @@ export function StudentPathDashboard() {
                   <select
                     value={editingMilestone.status}
                     onChange={(e) =>
-                      setEditingMilestone({ ...editingMilestone, status: e.target.value as any })
+                      setEditingMilestone({ ...editingMilestone, status: e.target.value as MilestoneRecord["status"] })
                     }
                     className="crud-form-select"
                   >

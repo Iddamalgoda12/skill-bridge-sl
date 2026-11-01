@@ -155,7 +155,7 @@ export default async function UniversityPage({ params }: Props) {
               <>
                 <span className="eyebrow-pill">
                   <MapPin size={12} />
-                  {t("locationRuhuna")}
+                  {t("locationRuhuna", { location: detail?.location || location })}
                 </span>
                 <span className="eyebrow-pill">
                   <Landmark size={12} />

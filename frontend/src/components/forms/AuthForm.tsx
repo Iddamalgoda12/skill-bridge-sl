@@ -103,8 +103,8 @@ export function AuthForm({ register = false, next = "/account", passwordChanged 
             type="button"
             className="password-toggle-btn"
             onClick={() => setShowPassword(!showPassword)}
-            title={showPassword ? "Hide password" : "Show password"}
-            aria-label={showPassword ? "Hide password" : "Show password"}
+            title={showPassword ? f("hidePassword") : f("showPassword")}
+            aria-label={showPassword ? f("hidePassword") : f("showPassword")}
           >
             {showPassword ? <EyeOff size={18} aria-hidden="true" /> : <Eye size={18} aria-hidden="true" />}
           </button>

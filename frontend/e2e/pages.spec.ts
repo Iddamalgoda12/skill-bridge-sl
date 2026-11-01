@@ -34,7 +34,15 @@ for (const locale of locales) {
 
         const text = await page.locator("main").innerText();
         if (locale === "si") expect(text, "no Sinhala copy rendered").toMatch(SINHALA);
-        else expect(text).not.toMatch(SINHALA);
+        else {
+          // Passages deliberately written in Sinhala are marked lang="si"; everything else must be English.
+          const englishOnly = await page.locator("main").evaluate((main) => {
+            const clone = main.cloneNode(true) as HTMLElement;
+            clone.querySelectorAll('[lang="si"]').forEach((node) => node.remove());
+            return clone.textContent ?? "";
+          });
+          expect(englishOnly).not.toMatch(SINHALA);
+        }
         // The light theme is the only theme: no toggle, no theme attribute.
         await expect(page.locator("html")).not.toHaveAttribute("data-theme", /.+/);
         await expect(page.getByRole("button", { name: /dark mode|light mode/i })).toHaveCount(0);
@@ -48,7 +56,7 @@ test("unknown routes show the localized not-found page", async ({ page }) => {
   await setLocale(page, "si");
   const response = await page.goto("/careers/does-not-exist");
   expect(response?.status()).toBe(404);
-  await expect(page.getByRole("heading", { level: 1 })).toContainText("මෙම මාර්ගය තවම මෙහි නැත");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("page එක මෙතන නැහැ");
 });
 
 test("the document title and metadata follow the language", async ({ page }) => {

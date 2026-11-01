@@ -69,6 +69,14 @@ const RUHUNA_FALLBACK_PHOTOS: PhotoItem[] = [
   },
 ];
 
+function activateOnKey(event: React.KeyboardEvent, action: () => void) {
+  if (event.target !== event.currentTarget) return;
+  if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    action();
+  }
+}
+
 export function CampusGallery({
   name,
   photos,
@@ -148,9 +156,9 @@ export function CampusGallery({
         <div
           className="gallery-card hero-photo-card"
           onClick={() => setSelectedIndex(0)}
+          onKeyDown={(e) => activateOnKey(e, () => setSelectedIndex(0))}
           role="button"
           tabIndex={0}
-          aria-label={`${getPhotoTitle(photoList[0])} - ${t("viewFull")}`}
         >
           <div className="gallery-img-wrapper">
             <Image
@@ -187,9 +195,9 @@ export function CampusGallery({
                 key={photo.id}
                 className="gallery-card thumb-photo-card"
                 onClick={() => setSelectedIndex(actualIndex)}
+                onKeyDown={(e) => activateOnKey(e, () => setSelectedIndex(actualIndex))}
                 role="button"
                 tabIndex={0}
-                aria-label={`${getPhotoTitle(photo)} - ${t("viewFull")}`}
               >
                 <div className="gallery-img-wrapper">
                   <Image

@@ -33,6 +33,8 @@ spring:
         format_sql: true
         jdbc:
           batch_size: 25
+        # Load lazy collections (path -> milestones -> tasks) in batches instead of one query per row (N+1)
+        default_batch_fetch_size: 50
         order_inserts: true
         order_updates: true
 

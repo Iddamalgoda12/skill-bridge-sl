@@ -44,7 +44,7 @@ graph TD
     end
 
     subgraph Database ["PostgreSQL 17 Relational Database"]
-        Flyway["Flyway Migration Engine (V1 - V8)"]
+        Flyway["Flyway Migration Engine (V1 - V10)"]
         Schema["Tables (users, student_career_paths, path_milestones, milestone_tasks)"]
     end
 

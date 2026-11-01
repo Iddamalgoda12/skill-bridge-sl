@@ -117,8 +117,8 @@ export interface CareerDetail {
 export const careerDetails: Record<string, CareerDetail> = {
   "doctor": {
     "slug": "doctor",
-    "title": "Medical Doctor (MBBS)",
-    "sinhalaTitle": "වෛද්‍යවරයා / ශල්‍ය වෛද්‍යවරයා",
+    "title": "Medical Doctor",
+    "sinhalaTitle": "වෛද්‍යවරයා (Medical Doctor)",
     "category": "Healthcare",
     "tagline": "Save lives, diagnose illnesses, and advance clinical healthcare across Sri Lanka's hospitals and clinics.",
     "heroImage": "/images/careers/doctor.jpg",
@@ -379,11 +379,11 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "Demand for medical doctors in Sri Lanka remains chronically high due to an aging population, rising non-communicable diseases (diabetes, cardiovascular conditions, cancer), and continuous doctor migration overseas.",
       "aiImpact": "AI diagnostic imaging (radiology/pathology) and automated electronic medical records will augment clinical decisions, allowing doctors to focus more on patient interaction, complex ethical reasoning, and surgical precision.",
       "growingSpecializations": [
-        "Geriatric Medicine (Elderly Care)",
-        "Interventional Cardiology",
-        "Medical Oncology & Genomics",
-        "Emergency Medicine & Trauma Surgery",
-        "Public Health Informatics"
+        "Geriatric Medicine",
+        "Cardiology",
+        "Oncology",
+        "Emergency Medicine & Surgery",
+        "Community Medicine & Public Health"
       ],
       "globalDemand": "Unprecedented global demand in the UK National Health Service (NHS), Australia, New Zealand, Canada, and the Middle East, offering fast-track permanent residency visas for licensed doctors.",
       "challenges": [
@@ -422,10 +422,10 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "engineer": {
     "slug": "engineer",
-    "title": "Engineer (Software, Civil, Mech, Elec)",
-    "sinhalaTitle": "වෘත්තීය ඉංජිනේරුවරයා (Software / Civil / Mech / Elec)",
+    "title": "Engineer",
+    "sinhalaTitle": "ඉංජිනේරු",
     "category": "Engineering",
-    "tagline": "Design cutting-edge software platforms, modern infrastructure, renewable energy grids, robotics, and industrial technology shaping Sri Lanka's future.",
+    "tagline": "Design modern infrastructure, expressways, multi-storey towers, bridges, and water networks shaping Sri Lanka's future.",
     "heroImage": "/images/careers/engineer.jpg",
     "roleOverview": {
       "whatTheyDo": "Engineers apply mathematics, physics, computational sciences, and software systems design to build both digital and physical systems — from enterprise cloud platforms and artificial intelligence engines to towering infrastructure, expressways, renewable solar grids, automated manufacturing lines, and telecommunications networks.",
@@ -686,12 +686,12 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "The engineering sector is pivoting rapidly toward renewable energy transitions (solar/wind/green hydrogen), smart automated factories, climate-resilient civil infrastructure, and electric mobility.",
       "aiImpact": "Generative CAD, automated structural topology optimization, and AI predictive maintenance will accelerate routine engineering calculations, empowering engineers to focus on higher-level architecture and safety.",
       "growingSpecializations": [
-        "Software Engineering & Cloud Architectures",
-        "Artificial Intelligence & Machine Learning Systems",
-        "Robotics & Industrial Automation (Mechatronics)",
-        "Civil & Structural Infrastructure",
-        "Renewable Energy & Smart Grid Engineering",
-        "Electronic & Telecommunications Engineering"
+        "Software Engineering & Cloud",
+        "AI & Machine Learning",
+        "Mechatronics & Automation",
+        "Civil & Structural Engineering",
+        "Renewable Energy & Power Systems",
+        "Electronic & Telecommunication Engineering"
       ],
       "globalDemand": "Massive global engineering shortage across Australia (Engineers Australia fast-track PR), Canada, Germany, UK, and the Gulf Cooperation Council (GCC) for Washington Accord graduates and software architects.",
       "challenges": [
@@ -702,14 +702,14 @@ export const careerDetails: Record<string, CareerDetail> = {
     },
     "relatedCareers": [
       {
-        "slug": "architect",
-        "title": "Architect",
-        "category": "Creative"
-      },
-      {
         "slug": "quantity-surveyor",
         "title": "Quantity Surveyor",
         "category": "Construction"
+      },
+      {
+        "slug": "architect",
+        "title": "Architect",
+        "category": "Creative"
       },
       {
         "slug": "marine-officer",
@@ -717,23 +717,18 @@ export const careerDetails: Record<string, CareerDetail> = {
         "category": "Maritime"
       },
       {
-        "slug": "airline-pilot",
-        "title": "Airline Pilot",
-        "category": "Aviation"
-      },
-      {
-        "slug": "air-traffic-controller",
-        "title": "Air Traffic Controller",
-        "category": "Aviation"
+        "slug": "logistics-manager",
+        "title": "Logistics Manager",
+        "category": "Business"
       }
     ]
   },
   "software-engineer": {
     "slug": "software-engineer",
-    "title": "Software Engineer & Tech Lead",
-    "sinhalaTitle": "මෘදුකාංග ඉංජිනේරුවරයා",
-    "category": "Engineering",
-    "tagline": "Architect high-scale cloud platforms, enterprise mobile apps, and cutting-edge AI systems powering global software giants.",
+    "title": "Software Engineer",
+    "sinhalaTitle": "මෘදුකාංග ඉංජිනේරු (Software Engineer)",
+    "category": "Technology",
+    "tagline": "Architect high-scale cloud platforms, enterprise mobile apps, and modern digital systems powering global tech companies.",
     "heroImage": "/images/careers/software-engineer.jpg",
     "roleOverview": {
       "whatTheyDo": "Software engineers conceive, architect, code, test, and deploy software applications, distributed cloud services, mobile platforms, and AI systems that solve complex problems for millions of users worldwide.",
@@ -983,11 +978,11 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "Software development continues to expand across every human sector — finance, healthcare, autonomous vehicles, retail, and education. Engineers who master AI-assisted development and distributed cloud will be in massive demand.",
       "aiImpact": "AI tools (GitHub Copilot, LLMs) write boilerplate code rapidly. The software engineer's role is shifting toward high-level system architecture, cybersecurity, domain modeling, and AI orchestration.",
       "growingSpecializations": [
-        "AI Systems & LLM Engineering",
+        "AI & Machine Learning Engineering",
         "Cloud Security & DevSecOps",
-        "Full-Stack Microservices & Distributed Computing",
-        "Embedded IoT & Robotics Firmware",
-        "Data Platform Engineering"
+        "Full-Stack & Backend Development",
+        "Embedded Systems & IoT",
+        "Data Engineering"
       ],
       "globalDemand": "Highest global remote demand of any profession; Sri Lankan engineers can work for Silicon Valley, London, or Singapore without leaving home.",
       "challenges": [
@@ -999,7 +994,7 @@ export const careerDetails: Record<string, CareerDetail> = {
     "relatedCareers": [
       {
         "slug": "engineer",
-        "title": "Chartered Engineer",
+        "title": "Civil Engineer",
         "category": "Engineering"
       },
       {
@@ -1013,20 +1008,20 @@ export const careerDetails: Record<string, CareerDetail> = {
         "category": "Business"
       },
       {
-        "slug": "graphic-designer",
-        "title": "UI/UX Designer",
-        "category": "Creative"
+        "slug": "quantity-surveyor",
+        "title": "Quantity Surveyor",
+        "category": "Engineering"
       },
       {
-        "slug": "air-traffic-controller",
-        "title": "Air Traffic Controller",
-        "category": "Skilled Trades"
+        "slug": "banker",
+        "title": "Banking Officer",
+        "category": "Business"
       }
     ]
   },
   "ayurvedic-doctor": {
     "slug": "ayurvedic-doctor",
-    "title": "Ayurvedic Medical Doctor (BAMS)",
+    "title": "Ayurvedic Medical Doctor",
     "sinhalaTitle": "ආයුර්වේද වෛද්‍යවරයා",
     "category": "Healthcare",
     "tagline": "Heal patients through classical Ayurveda, Hela Veda indigenous pharmacology, and luxury wellness tourism.",
@@ -1237,10 +1232,10 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "Global wellness tourism is growing at over 12% annually. Sri Lanka is positioned as a world-leading destination for authentic Ayurvedic rejuvenation, attracting affluent international travellers.",
       "aiImpact": "AI is assisting in herbal chemical compound screening, standardizing natural active ingredient extraction, and validating ancient remedies with scientific clinical proof.",
       "growingSpecializations": [
-        "Eco-Wellness Resort Direction",
-        "Ayurvedic Cosmeceuticals & Skin Therapy",
-        "Acupuncture & Chronic Pain Management",
-        "Herbal Pharmaceutical Manufacturing"
+        "Wellness & Spa Resort Practice",
+        "Ayurveda Skin & Beauty Care",
+        "Panchakarma & Pain Management",
+        "Herbal Medicine Manufacturing (Link Natural, Siddhalepa)"
       ],
       "globalDemand": "Growing demand for qualified Ayurvedic doctors in Europe, Japan, Australia, and North America in holistic integrative medicine clinics.",
       "challenges": [
@@ -1273,7 +1268,7 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "dentist": {
     "slug": "dentist",
-    "title": "Dental Surgeon (BDS)",
+    "title": "Dental Surgeon",
     "sinhalaTitle": "දන්ත වෛද්‍යවරයා / දන්ත ශල්‍ය වෛද්‍යවරයා",
     "category": "Healthcare",
     "tagline": "Restore healthy smiles, perform oral maxillofacial surgeries, and lead clinical dental healthcare.",
@@ -1462,10 +1457,10 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "Demand for cosmetic dentistry (clear aligners, veneers, teeth whitening) and dental implants is rising rapidly among urban Sri Lankans.",
       "aiImpact": "3D intraoral digital scanners, CAD/CAM chairside milling of ceramic crowns in minutes, and AI caries detection on X-rays are transforming dental clinics.",
       "growingSpecializations": [
-        "Cosmetic Dentistry & Smile Design",
-        "Clear Aligner Orthodontics",
-        "Dental Implantology",
-        "Pediatric Dentistry"
+        "Cosmetic & Restorative Dentistry",
+        "Orthodontics",
+        "Dental Implants & Oral Surgery",
+        "Paediatric Dentistry"
       ],
       "globalDemand": "Consistently ranked as one of the top quality-of-life healthcare professions globally with high migration prospects.",
       "challenges": [
@@ -1497,7 +1492,7 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "veterinarian": {
     "slug": "veterinarian",
-    "title": "Veterinary Surgeon (BVSc)",
+    "title": "Veterinary Surgeon",
     "sinhalaTitle": "පශු වෛද්‍යවරයා / සත්ත්ව ශල්‍ය වෛද්‍යවරයා",
     "category": "Healthcare",
     "tagline": "Protect domestic pets, farm livestock, and endangered wildlife through skilled animal medicine and surgery.",
@@ -1686,10 +1681,10 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "The pet care economy in urban Sri Lanka is expanding rapidly with pet owners willing to invest significantly in advanced veterinary healthcare, surgeries, and nutrition.",
       "aiImpact": "AI diagnostic imaging for pet ultrasound and X-rays is assisting veterinarians in rapid tumor and fracture detection.",
       "growingSpecializations": [
-        "Companion Animal Orthopedics",
-        "Wildlife & Conservation Medicine",
-        "Commercial Poultry & Dairy Health Management",
-        "Veterinary Dermatology"
+        "Small Animal Practice",
+        "Wildlife Veterinary Services (DWC)",
+        "Poultry & Dairy Farm Health",
+        "Veterinary Public Health"
       ],
       "globalDemand": "Massive global veterinary shortage in Australia, Canada, the UK, and New Zealand with immediate skilled migration pathways.",
       "challenges": [
@@ -1721,7 +1716,7 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "pharmacist": {
     "slug": "pharmacist",
-    "title": "Registered Pharmacist (B.Pharm)",
+    "title": "Pharmacist",
     "sinhalaTitle": "ඖෂධවේදියා / ඖෂධ සංයෝජකයා",
     "category": "Healthcare",
     "tagline": "Ensure medication safety, formulate pharmaceuticals, and guide patient therapeutic drug regimens.",
@@ -1942,10 +1937,10 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "Sri Lanka is actively investing in domestic pharmaceutical self-sufficiency, building dedicated pharma manufacturing zones in Hambantota (Mirijjawila) and Horana.",
       "aiImpact": "Automated dispensing robotics and AI drug-interaction screening will assist pharmacists, freeing time for high-value clinical consultations and personalized medicine.",
       "growingSpecializations": [
-        "Clinical Oncology Pharmacy",
-        "Pharmaceutical Regulatory Affairs & Patent Law",
-        "Industrial QA & Formulation Science",
-        "Radiopharmacy"
+        "Hospital & Clinical Pharmacy",
+        "Drug Regulation (NMRA)",
+        "Pharmaceutical Manufacturing & Quality Assurance",
+        "Community & Retail Pharmacy"
       ],
       "globalDemand": "Steady global migration opportunities in Australia, New Zealand, Canada, and the UK.",
       "challenges": [
@@ -1977,7 +1972,7 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "physiotherapist": {
     "slug": "physiotherapist",
-    "title": "Chartered Physiotherapist (B.Sc. PT)",
+    "title": "Physiotherapist",
     "sinhalaTitle": "භෞතචිකිත්සකවරයා",
     "category": "Healthcare",
     "tagline": "Restore physical mobility, rehabilitate stroke and trauma patients, and optimize elite athletic performance.",
@@ -2185,10 +2180,10 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "Sri Lanka's rapidly aging demographic and growing participation in urban gym culture and recreational sports are creating unprecedented demand for private physiotherapy.",
       "aiImpact": "Motion-capture computer vision cameras and wearable sensor suits are helping physiotherapists track millimeter-precise rehabilitation progress at home.",
       "growingSpecializations": [
-        "Sports Injury & Orthopedic Rehabilitation",
-        "Neurological Stroke Rehabilitation",
-        "Cardiopulmonary ICU Physiotherapy",
-        "Geriatric Fall Prevention"
+        "Sports & Orthopaedic Physiotherapy",
+        "Neurological Rehabilitation",
+        "Cardiorespiratory & ICU Physiotherapy",
+        "Elderly Care Physiotherapy"
       ],
       "globalDemand": "Extremely high global shortage in Australia, Canada, the UK, and Europe with streamlined skilled migration visas.",
       "challenges": [
@@ -2220,7 +2215,7 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "nurse": {
     "slug": "nurse",
-    "title": "Registered Professional Nurse (B.Sc. Nursing)",
+    "title": "Registered Nurse",
     "sinhalaTitle": "ලියාපදිංචි වෘත්තීය හෙද නිලධාරියා",
     "category": "Healthcare",
     "tagline": "Provide expert clinical care, monitor critical patient vitals, and serve as the compassionate heartbeat of hospitals.",
@@ -2441,10 +2436,10 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "The global nursing shortage is estimated at over 6 million professionals. Countries like the UK, Australia, New Zealand, and Canada actively recruit and sponsor Sri Lankan nurses.",
       "aiImpact": "Electronic health charts and smart bedside vitals monitors will reduce tedious paperwork, giving nurses more time for direct patient bedside care.",
       "growingSpecializations": [
-        "Critical Care & Intensive Care (ICU)",
-        "Oncology & Palliative Care",
-        "Cardiac Catheterization Nursing",
-        "Pediatric & Neonatal Nursing"
+        "Intensive Care (ICU) Nursing",
+        "Oncology & Palliative Nursing (Maharagama)",
+        "Cardiac & Theatre Nursing",
+        "Paediatric & Neonatal Nursing (LRH)"
       ],
       "globalDemand": "Unrivalled international migration prospects with permanent residency fast-tracks for registered nurses globally.",
       "challenges": [
@@ -2476,8 +2471,8 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "tea-plantation-manager": {
     "slug": "tea-plantation-manager",
-    "title": "Tea Plantation Manager / Planter",
-    "sinhalaTitle": "තේ වතු කළමනාකරු / වැවිලිකරු",
+    "title": "Tea Plantation Manager",
+    "sinhalaTitle": "තේ වතු කළමනාකරු",
     "category": "Business",
     "tagline": "Direct world-renowned Ceylon tea estates, manage agro-processing factories, and live in breathtaking high-elevation colonial bungalows.",
     "heroImage": "/images/careers/tea-plantation-manager.jpg",
@@ -2686,10 +2681,10 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "The tea industry is rapidly modernizing with mechanical harvesting shears, automated factory temperature sensors, drip fertigation, and high-margin specialty artisan white and golden tips.",
       "aiImpact": "Drones and AI multispectral imaging analyze bush health, soil nitrogen levels, and yield forecasting from the sky.",
       "growingSpecializations": [
-        "Specialty & Artisanal Tea Crafting",
-        "Organic & Regenerative Agriculture",
-        "Carbon Credit & Forestry Management on Estates",
-        "Tea Tourism & Heritage Homestays"
+        "Orthodox & Specialty Tea Manufacturing",
+        "Organic Tea Cultivation",
+        "Estate Forestry & Land Management",
+        "Tea Tourism & Bungalow Hospitality"
       ],
       "globalDemand": "Global appreciation for premium single-origin Ceylon teas ensures enduring managerial demand.",
       "challenges": [
@@ -2721,8 +2716,8 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "wildlife-conservationist": {
     "slug": "wildlife-conservationist",
-    "title": "Wildlife Conservationist & Ecologist",
-    "sinhalaTitle": "වනජීවී සංරක්ෂණ නිලධාරියා / පරිසරවේදියා",
+    "title": "Wildlife Conservationist",
+    "sinhalaTitle": "වනජීවී සංරක්ෂක",
     "category": "Education",
     "tagline": "Protect endangered Asian elephants, leopards, and virgin rainforests while managing human-wildlife coexistence.",
     "heroImage": "/images/careers/wildlife-conservationist.jpg",
@@ -2932,10 +2927,10 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "Biodiversity protection and climate resilience are now international economic mandates. Global carbon credits and nature-based solution funds are directing billions toward tropical biodiversity hotspots like Sri Lanka.",
       "aiImpact": "AI audio listening arrays (bioacoustics) and drone thermal cameras now automatically detect gunshots, chainsaws, and animal movement in real time.",
       "growingSpecializations": [
-        "Human-Elephant Conflict (HEC) Mitigation Engineering",
-        "Bioacoustics & AI Wildlife Monitoring",
-        "Rainforest Carbon Credit Verification",
-        "Marine & Coastal Wildlife Protection"
+        "Human-Elephant Conflict Mitigation",
+        "Wildlife Research & Monitoring",
+        "Forest Conservation (Sinharaja)",
+        "Marine Turtle & Coastal Conservation"
       ],
       "globalDemand": "Global conservation organizations (WWF, Wildlife Conservation Society, National Geographic) recruit field biologists worldwide.",
       "challenges": [
@@ -2967,8 +2962,8 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "marine-biologist": {
     "slug": "marine-biologist",
-    "title": "Marine Biologist & Oceanographer",
-    "sinhalaTitle": "සාගර ජීව විද්‍යාඥයා / සමුද්‍ර විද්‍යාඥයා",
+    "title": "Marine Biologist",
+    "sinhalaTitle": "සාගර ජීව විද්‍යාඥ",
     "category": "Education",
     "tagline": "Explore Indian Ocean coral reefs, study blue whales, and champion sustainable maritime marine ecosystems.",
     "heroImage": "/images/careers/marine-biologist.jpg",
@@ -3178,10 +3173,10 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "The Indian Ocean Blue Economy is Sri Lanka's largest untapped asset. Global climate negotiations prioritize ocean carbon sequestration (Blue Carbon - mangroves and seagrass beds).",
       "aiImpact": "AI automated satellite imagery and underwater drones (ROVs) now track coral reef bleaching and illegal fishing vessels across hundreds of square miles.",
       "growingSpecializations": [
-        "Blue Carbon & Mangrove Ecosystem Accounting",
-        "Marine Protected Area (MPA) Design",
-        "Microplastic Pollution Remediation",
-        "Artisanal Fishery Quota Management"
+        "Mangrove & Coastal Ecosystem Research",
+        "Marine Protected Area Management",
+        "Marine Pollution Monitoring",
+        "Fisheries Resource Assessment (NARA)"
       ],
       "globalDemand": "Strong international demand across island nations (Maldives, Seychelles, Pacific islands) and Australian marine research institutes.",
       "challenges": [
@@ -3213,8 +3208,8 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "agricultural-scientist": {
     "slug": "agricultural-scientist",
-    "title": "Agricultural Scientist & Agronomist",
-    "sinhalaTitle": "කෘෂි විද්‍යාඥයා",
+    "title": "Agricultural Scientist",
+    "sinhalaTitle": "කෘෂි විද්‍යාඥ",
     "category": "Education",
     "tagline": "Innovate climate-smart crops, optimize organic fertilization, and pioneer modern precision hydroponic farming in Sri Lanka.",
     "heroImage": "/images/careers/agricultural-scientist.jpg",
@@ -3423,10 +3418,10 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "Precision agriculture (IoT soil sensors, drone spraying, automated poly-tunnels) is transforming Sri Lankan farming from traditional manual labor into high-tech, profitable science.",
       "aiImpact": "Computer vision models on smartphones now instantly identify crop leaf diseases and recommend targeted organic solutions within seconds.",
       "growingSpecializations": [
-        "Controlled Environment Agriculture (CEA & Vertical Farming)",
-        "Genomic Seed Breeding & Climate Resilient Strains",
-        "Organic Bio-Fertilizer Formulation",
-        "Agri-Robotics & Drone Spraying"
+        "Protected Agriculture (Greenhouse Farming)",
+        "Crop Breeding & Seed Production",
+        "Soil Science & Organic Fertiliser",
+        "Precision Agriculture & Drone Spraying"
       ],
       "globalDemand": "Global demand for food security specialists across Australia, New Zealand, Canada, and Africa.",
       "challenges": [
@@ -3458,8 +3453,8 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "aquaculture-specialist": {
     "slug": "aquaculture-specialist",
-    "title": "Aquaculture Specialist & Seafood Producer",
-    "sinhalaTitle": "ජලජීවී වගා විශේෂඥයා",
+    "title": "Aquaculture Specialist",
+    "sinhalaTitle": "ජලජීවී වගා විශේෂඥ",
     "category": "Education",
     "tagline": "Cultivate high-value black tiger prawns, offshore sea bass cages, and export ornamental aquatic species.",
     "heroImage": "/images/careers/aquaculture-specialist.jpg",
@@ -3668,10 +3663,10 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "Aquaculture is the fastest-growing food production sector in the world. Sri Lanka is expanding offshore marine fish farming (sea bass, pompano) and organic mud crab fattening.",
       "aiImpact": "Underwater cameras powered by AI computer vision now count fish populations, estimate average weight, and trigger automated feeding pellets with zero waste.",
       "growingSpecializations": [
-        "Recirculating Aquaculture Systems (RAS - Zero Water Discharge)",
-        "Offshore Deep-Water Sea Cage Farming",
-        "Ornamental Fish Genetic Breeding",
-        "Seaweed & Algae Carbon Farming"
+        "Shrimp & Fish Pond Culture",
+        "Sea Cage Farming",
+        "Ornamental Fish Breeding & Export",
+        "Seaweed Farming"
       ],
       "globalDemand": "Huge demand for aquaculture engineers in Australia, Norway, Canada, and Saudi Arabia's mega Red Sea aquaculture projects.",
       "challenges": [
@@ -3703,8 +3698,8 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "environmental-officer": {
     "slug": "environmental-officer",
-    "title": "Environmental Officer & ESG Consultant",
-    "sinhalaTitle": "පරිසර නිලධාරියා / තිරසාර උපදේශකයා",
+    "title": "Environmental Officer",
+    "sinhalaTitle": "පරිසර නිලධාරී",
     "category": "Education",
     "tagline": "Audit industrial pollution, enforce environmental protection laws, and lead corporate ESG sustainability.",
     "heroImage": "/images/careers/environmental-officer.jpg",
@@ -3913,10 +3908,10 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "The European Union's Carbon Border Adjustment Mechanism (CBAM) and Corporate Sustainability Due Diligence Directive (CSDDD) mandate that all Sri Lankan exporters prove zero deforestation, zero toxic wastewater, and carbon reduction.",
       "aiImpact": "IoT chimney sensors and satellite pollution imagery now continuously track real-time factory emissions, creating automated alerts for environmental officers.",
       "growingSpecializations": [
-        "Corporate ESG Reporting & GRI Compliance",
-        "Carbon Credit Accounting & Offsetting",
-        "Circular Economy & Zero Waste Engineering",
-        "Industrial Water Reclamation & Zero Liquid Discharge (ZLD)"
+        "Environmental Impact Assessment (EIA)",
+        "Climate Change & Carbon Projects",
+        "Solid Waste Management",
+        "Industrial Pollution Control (CEA)"
       ],
       "globalDemand": "Massive global demand across Europe, Canada, Australia, and Singapore for certified ESG and sustainability leaders.",
       "challenges": [
@@ -3948,8 +3943,8 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "food-scientist": {
     "slug": "food-scientist",
-    "title": "Food Scientist & Product Developer",
-    "sinhalaTitle": "ආහාර විද්‍යාඥයා / ආහාර තාක්ෂණවේදියා",
+    "title": "Food Scientist",
+    "sinhalaTitle": "ආහාර විද්‍යාඥ",
     "category": "Education",
     "tagline": "Innovate delicious snack recipes, assure nutritional safety, and direct state-of-the-art food manufacturing lines.",
     "heroImage": "/images/careers/food-scientist.jpg",
@@ -4159,10 +4154,10 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "Massive global and local consumer shift toward functional foods (immune-boosting ingredients, prebiotic snacks, low-sugar alternatives, plant-based dairy substitutes).",
       "aiImpact": "AI flavor profiling algorithms and molecular gastrosimulation tools now predict consumer taste preferences and optimize flavor formulations in days rather than months.",
       "growingSpecializations": [
-        "Plant-Based Protein & Dairy Alternatives",
-        "Functional Foods & Nutraceuticals",
-        "Sustainable Biodegradable Food Packaging",
-        "Flavors & Fragrance Chemistry"
+        "Dairy & Beverage Technology",
+        "Nutrition & Functional Foods",
+        "Food Packaging & Shelf-Life",
+        "Food Quality & Safety (HACCP)"
       ],
       "globalDemand": "Consistently high employment demand in Australia, New Zealand, Canada, and Europe in multinational food giants.",
       "challenges": [
@@ -4194,8 +4189,8 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "biomedical-scientist": {
     "slug": "biomedical-scientist",
-    "title": "Biomedical Scientist & Diagnostic Geneticist",
-    "sinhalaTitle": "ජෛව වෛද්‍ය විද්‍යාඥයා",
+    "title": "Biomedical Scientist",
+    "sinhalaTitle": "ජෛව වෛද්‍ය විද්‍යාඥ",
     "category": "Healthcare",
     "tagline": "Uncover microscopic pathogens, run automated PCR DNA sequencing, and power precision clinical medicine.",
     "heroImage": "/images/careers/biomedical-scientist.jpg",
@@ -4414,10 +4409,10 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "Personalized medicine, cancer genetic sequencing, and liquid biopsies are rapidly expanding in Sri Lanka's healthcare sector, creating high demand for molecular diagnostic scientists.",
       "aiImpact": "AI computer vision models now assist in scanning thousands of blood smear microscope fields in seconds, flagging abnormal cancer cells for scientist verification.",
       "growingSpecializations": [
-        "Molecular Oncology & Cancer Genetics",
-        "Immunology & Flow Cytometry",
-        "Infectious Disease Molecular Epidemiology",
-        "Assisted Reproductive Technology (Embryology)"
+        "Histopathology & Cytology",
+        "Immunology & Serology",
+        "Microbiology & Infection Control",
+        "Clinical Chemistry & Haematology"
       ],
       "globalDemand": "Extremely high migration demand in the UK (NHS Biomedical Scientist shortage), Australia, and Canada.",
       "challenges": [
@@ -4449,8 +4444,8 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "gemologist": {
     "slug": "gemologist",
-    "title": "Gemologist & Gemstone Valuer",
-    "sinhalaTitle": "මැණික් විද්‍යාඥයා / මැණික් තක්සේරුකරු",
+    "title": "Gemologist",
+    "sinhalaTitle": "මැණික් විද්‍යාඥ",
     "category": "Skilled Trades",
     "tagline": "Grade world-famous Ceylon blue sapphires, identify heat-treatments, and unlock millions in Sri Lanka's gemstone trade.",
     "heroImage": "/images/careers/gemologist.jpg",
@@ -4649,10 +4644,10 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "Ethical, traceable, conflict-free gemstones with verifiable origin (Ceylon Sapphires) command record premiums in luxury jewelry markets worldwide.",
       "aiImpact": "Advanced Raman spectroscopy and laser-induced breakdown spectroscopy (LIBS) now provide computerized chemical fingerprints verifying gemstone geological origin.",
       "growingSpecializations": [
-        "Padparadscha & Color-Change Sapphire Certification",
-        "Advanced Thermal & Irradiation Treatment Detection",
-        "Rough Stone Yield Modeling (3D Laser Scanning)",
-        "Auction House Jewelry Valuation"
+        "Sapphire & Padparadscha Grading",
+        "Heat-Treatment Detection & Gem Certification",
+        "Gem Cutting & Polishing",
+        "Gem Trading & Jewellery Valuation"
       ],
       "globalDemand": "Unmatched global career portability: Ceylon gemologists are renowned worldwide in Bangkok, Geneva, Hong Kong, and New York.",
       "challenges": [
@@ -4684,8 +4679,8 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "accountant": {
     "slug": "accountant",
-    "title": "Chartered Accountant (CA / CIMA / ACCA)",
-    "sinhalaTitle": "වරලත් ගණකාධිකාරීවරයා",
+    "title": "Chartered Accountant",
+    "sinhalaTitle": "වරලත් ගණකාධිකාරී",
     "category": "Business",
     "tagline": "Master financial intelligence, direct corporate audits, and guide multi-billion rupee boardroom decisions.",
     "heroImage": "/images/careers/accountant.jpg",
@@ -4904,10 +4899,10 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "Routine bookkeeping and data entry are automated by AI. Chartered Accountants are evolving into high-level strategic business partners, ESG carbon auditors, and forensic risk advisors.",
       "aiImpact": "AI automation handles invoice reconciliation and routine ledgers instantly, allowing accountants to focus on strategic capital allocation, tax optimization, and business forecasting.",
       "growingSpecializations": [
-        "Forensic Accounting & Fraud Investigation",
-        "ESG & Corporate Sustainability Auditing",
-        "International Cross-Border Taxation",
-        "Financial Technology (FinTech) Regulatory Advisory"
+        "Forensic Accounting & Auditing",
+        "External Audit (Big 4 Firms)",
+        "Taxation (IRD Compliance)",
+        "Management Accounting & Finance Leadership"
       ],
       "globalDemand": "Massive global demand across the UK, Australia, New Zealand, Canada, and the Gulf for qualified Chartered Accountants.",
       "challenges": [
@@ -4939,8 +4934,8 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "financial-analyst": {
     "slug": "financial-analyst",
-    "title": "Financial Analyst & Investment Banker",
-    "sinhalaTitle": "මූල්‍ය විශ්ලේෂකයා / ආයෝජන බැංකුකරු",
+    "title": "Financial Analyst",
+    "sinhalaTitle": "මූල්‍ය විශ්ලේෂක",
     "category": "Business",
     "tagline": "Analyze equity stocks, model company valuations, and direct multimillion-dollar investment portfolios.",
     "heroImage": "/images/careers/financial-analyst.jpg",
@@ -5149,10 +5144,10 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "As Sri Lanka recovers economically, debt restructuring, capital market deepening, and private equity investments are driving record demand for elite financial analysts.",
       "aiImpact": "Algorithmic quantitative trading and AI financial scraping automate data gathering, elevating the analyst's role into qualitative strategic judgment and corporate negotiation.",
       "growingSpecializations": [
-        "Quantitative Trading & Algorithmic Finance",
-        "ESG & Sustainable Green Bond Structuring",
-        "Private Equity & Venture Capital Valuation",
-        "Distressed Debt & Corporate Restructuring"
+        "Equity Research (Colombo Stock Exchange)",
+        "Corporate Finance & Investment Banking",
+        "Business Valuation",
+        "Risk & Credit Analysis"
       ],
       "globalDemand": "CFA charterholders enjoy premier global career mobility across Singapore, Dubai, London, and New York.",
       "challenges": [
@@ -5176,16 +5171,16 @@ export const careerDetails: Record<string, CareerDetail> = {
         "category": "Creative"
       },
       {
-        "slug": "software-engineer",
-        "title": "Software Engineer",
-        "category": "Technology"
+        "slug": "engineer",
+        "title": "Engineer",
+        "category": "Engineering"
       }
     ]
   },
   "banker": {
     "slug": "banker",
-    "title": "Commercial & Corporate Banker",
-    "sinhalaTitle": "බැංකු නිලධාරියා",
+    "title": "Banking Officer",
+    "sinhalaTitle": "බැංකු නිලධාරී",
     "category": "Business",
     "tagline": "Fuel Sri Lanka's trade, manage retail and corporate lending, and build a trusted career in commercial banking.",
     "heroImage": "/images/careers/banker.jpg",
@@ -5394,10 +5389,10 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "Digital banking, automated loan scoring, and QR-based mobile payments (LankaQR) are transforming banking into a high-tech digital advisory service.",
       "aiImpact": "AI automated credit scoring engines evaluate customer creditworthiness in seconds, freeing bankers to focus on relationship banking and complex corporate deals.",
       "growingSpecializations": [
-        "Digital Banking & FinTech Partnerships",
-        "SME & Green Energy Climate Lending",
-        "Treasury & Foreign Exchange Trading",
-        "Anti-Money Laundering & Financial Crime Investigation"
+        "Digital Banking",
+        "SME & Corporate Lending",
+        "Treasury & Foreign Exchange",
+        "Compliance & Anti-Money Laundering"
       ],
       "globalDemand": "Opportunities across Middle Eastern financial centers (Dubai, Doha, Riyadh) for experienced trade finance and credit risk officers.",
       "challenges": [
@@ -5429,7 +5424,7 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "hr-manager": {
     "slug": "hr-manager",
-    "title": "Human Resources Director (HR)",
+    "title": "HR Manager",
     "sinhalaTitle": "මානව සම්පත් කළමනාකරු",
     "category": "Business",
     "tagline": "Cultivate top workplace talent, champion organizational culture, and shape employee leadership in top corporations.",
@@ -5639,10 +5634,10 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "The transition to hybrid remote work, digital nomadism, and the rise of AI tools make human workplace culture, mental well-being, and talent retention the top corporate priority.",
       "aiImpact": "AI automated resume screening and chatbot HR assistants handle basic queries, allowing HR leaders to focus on employee empathy, culture building, and leadership development.",
       "growingSpecializations": [
-        "Employee Experience (EX) & Mental Wellbeing Design",
-        "People Analytics & Predictive Retention",
-        "Diversity, Equity & Inclusion (DEI) Leadership",
-        "Remote & Distributed Team Culture Engineering"
+        "Employee Relations & Welfare",
+        "Recruitment & Talent Acquisition",
+        "Training & Development",
+        "Compensation & Payroll (EPF / ETF)"
       ],
       "globalDemand": "Growing global demand for strategic People & Culture leaders across multinational enterprises.",
       "challenges": [
@@ -5674,8 +5669,8 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "lawyer": {
     "slug": "lawyer",
-    "title": "Attorney-at-Law & Legal Counsel",
-    "sinhalaTitle": "නීතිඥවරයා / ජනාධිපති නීතිඥවරයා",
+    "title": "Lawyer / Attorney-at-Law",
+    "sinhalaTitle": "නීතිඥ (Attorney-at-Law)",
     "category": "Legal",
     "tagline": "Champion justice, litigate in the Supreme Court, and structure multi-million-dollar corporate contracts.",
     "heroImage": "/images/careers/lawyer.jpg",
@@ -5894,10 +5889,10 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "Corporate legal practice is booming in Sri Lanka with Port City special economic zone regulations, cross-border intellectual property, foreign direct investments, and commercial dispute arbitration.",
       "aiImpact": "AI legal search engines scan decades of Sri Lanka Law Reports (SLR) in seconds, allowing lawyers to focus on courtroom emotional persuasion, witness strategy, and complex negotiations.",
       "growingSpecializations": [
-        "Commercial & Investment Arbitration",
-        "Intellectual Property & Technology Law",
-        "Admiralty & Maritime Law (Colombo Port Hub)",
-        "Environmental Writs & Human Rights Litigation"
+        "Commercial & Corporate Law",
+        "Intellectual Property Law",
+        "Maritime & Shipping Law",
+        "Civil Litigation & Human Rights"
       ],
       "globalDemand": "Opportunities in international commercial arbitration centers in Singapore, London, and Dubai for bilingual legal minds.",
       "challenges": [
@@ -5929,8 +5924,8 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "teacher": {
     "slug": "teacher",
-    "title": "School Teacher & Education Leader",
-    "sinhalaTitle": "ගුරුවරයා / ගුරු උපදේශකයා",
+    "title": "School Teacher",
+    "sinhalaTitle": "පාසල් ගුරුවරයා",
     "category": "Education",
     "tagline": "Inspire the next generation, ignite curious young minds, and shape the human future of Sri Lanka.",
     "heroImage": "/images/careers/teacher.jpg",
@@ -6138,10 +6133,10 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "Interactive digital smart boards, blended online learning, and bilingual English-medium education are expanding across Sri Lankan schools.",
       "aiImpact": "AI automates routine grading and lesson worksheet creation, allowing teachers to focus entirely on human mentorship, empathy, character building, and critical thinking.",
       "growingSpecializations": [
-        "Special Needs & Inclusive Education (SEN)",
-        "STEM & Robotics School Education",
-        "English Language Teaching (ELT)",
-        "Digital EdTech Curriculum Integration"
+        "Special Needs Education",
+        "Science & Mathematics Teaching",
+        "English Language Teaching",
+        "ICT Teaching & e-Learning"
       ],
       "globalDemand": "Global shortage of qualified Science, Mathematics, and Special Education teachers in the UK, Australia, and New Zealand.",
       "challenges": [
@@ -6173,8 +6168,8 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "university-lecturer": {
     "slug": "university-lecturer",
-    "title": "University Lecturer & Professor",
-    "sinhalaTitle": "විශ්වවිද්‍යාල ආචාර්යවරයා / මහාචාර්යවරයා",
+    "title": "University Lecturer",
+    "sinhalaTitle": "විශ්වවිද්‍යාල කථිකාචාර්ය",
     "category": "Education",
     "tagline": "Pioneer groundbreaking scientific research, mentor elite undergraduates, and command supreme academic honor.",
     "heroImage": "/images/careers/university-lecturer.jpg",
@@ -6381,10 +6376,10 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "Sri Lanka's university system is expanding postgraduate research programs and industry-collaborative incubators to commercialize national inventions.",
       "aiImpact": "AI literature review tools and automated data analytics accelerate research discovery, elevating professors into thought leaders, ethical philosophers, and interdisciplinary synthesizers.",
       "growingSpecializations": [
-        "Artificial Intelligence & Machine Learning Research",
-        "Renewable Energy & Battery Chemistry",
-        "Biomedical Genomics & Tropical Disease Immunology",
-        "Development Economics & Public Policy"
+        "Computer Science Research",
+        "Chemistry & Materials Research",
+        "Medical & Biological Sciences Research",
+        "Economics & Public Policy"
       ],
       "globalDemand": "Distinguished academics are universally mobile, easily securing visiting professorships worldwide.",
       "challenges": [
@@ -6416,8 +6411,8 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "hospitality-manager": {
     "slug": "hospitality-manager",
-    "title": "General Manager - Luxury Resorts",
-    "sinhalaTitle": "හෝටල් හා සංචාරක කළමනාකරු",
+    "title": "Hotel & Hospitality Manager",
+    "sinhalaTitle": "හෝටල් කළමනාකරු (Hospitality Manager)",
     "category": "Hospitality",
     "tagline": "Direct world-renowned luxury resort destinations, curate bespoke guest experiences, and lead Sri Lanka's tourism economy.",
     "heroImage": "/images/careers/hospitality-manager.jpg",
@@ -6626,10 +6621,10 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "Sri Lanka is experiencing a massive tourism resurgence. Affluent experiential travellers demand authentic wellness retreats, eco-villas, and Michelin-caliber local culinary arts.",
       "aiImpact": "AI chatbots handle routine room service requests and bookings, while human hotel managers focus on bespoke emotional connections, private excursions, and unique guest memories.",
       "growingSpecializations": [
-        "Eco-Resort & Sustainable Hospitality Direction",
-        "Wellness & Ayurvedic Retreat Management",
-        "Boutique Luxury Villa Hospitality",
-        "Experiential Adventure & Culinary Tourism"
+        "Resort & Hotel Operations",
+        "Wellness & Ayurveda Resort Management",
+        "Boutique Villa & Heritage Hotels",
+        "Food & Beverage Management"
       ],
       "globalDemand": "Unrivalled career mobility in the Maldives, Dubai, Qatar, Southeast Asia, and luxury cruise ships.",
       "challenges": [
@@ -6661,8 +6656,8 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "logistics-manager": {
     "slug": "logistics-manager",
-    "title": "Logistics & Supply Chain Director",
-    "sinhalaTitle": "සැපයුම් දාම හා සැපයුම් කළමනාකරු",
+    "title": "Logistics & Supply Chain Manager",
+    "sinhalaTitle": "සැපයුම් හා ප්‍රවාහන කළමනාකරු",
     "category": "Business",
     "tagline": "Orchestrate global shipping fleets, transshipment port cargo, and multimodal supply chains connecting East and West.",
     "heroImage": "/images/careers/logistics-manager.jpg",
@@ -6871,10 +6866,10 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "The Colombo Port City and new deep-water container terminals (West Container Terminal - Adani/JKH) are cementing Sri Lanka as South Asia's preeminent maritime mega-hub.",
       "aiImpact": "AI predictive shipping algorithms now anticipate port congestion, automate customs risk screening, and calculate fuel-optimal ocean routes.",
       "growingSpecializations": [
-        "Cold-Chain Pharmaceutical Logistics",
-        "Green Shipping & Decarbonized Maritime Transport",
-        "E-Commerce Automated Warehousing (Robotics)",
-        "Port & Intermodal Rail Integration"
+        "Cold Chain & Perishable Logistics",
+        "Shipping & Freight Forwarding",
+        "Warehousing & Distribution",
+        "Port & Container Terminal Operations (SLPA)"
       ],
       "globalDemand": "Huge global demand for supply chain directors in Singapore, Dubai, Rotterdam, and Australia.",
       "challenges": [
@@ -6906,8 +6901,8 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "airline-pilot": {
     "slug": "airline-pilot",
-    "title": "Commercial Airline Pilot",
-    "sinhalaTitle": "වාණිජ ගුවන් නියමුවා",
+    "title": "Airline Pilot",
+    "sinhalaTitle": "ගුවන් නියමු (Airline Pilot)",
     "category": "Aviation",
     "tagline": "Command modern commercial jetliners, navigate international flight corridors, and fly across the globe.",
     "heroImage": "/images/careers/airline-pilot.jpg",
@@ -7117,9 +7112,9 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "Rapid expansion of commercial airline fleets in India, the Gulf, and Southeast Asia ensures a multi-decade global shortage of qualified airline pilots.",
       "aiImpact": "Autoland and autopilot systems handle cruise phases, but human commanders remain legally and operationally indispensable for safety-critical choices and emergency recovery.",
       "growingSpecializations": [
-        "Ultra-Long-Haul Wide-Body International Flights",
-        "Aviation Safety & Flight Data Monitoring (FDM)",
-        "Flight Simulator Training Instructor (TRI/TRE)"
+        "Wide-Body International Flying (SriLankan Airlines)",
+        "Flight Safety & Operations",
+        "Flight Instructor"
       ],
       "globalDemand": "Unprecedented pilot recruitment drives across Middle East, Indian, and Southeast Asian airlines.",
       "challenges": [
@@ -7146,7 +7141,7 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "air-traffic-controller": {
     "slug": "air-traffic-controller",
-    "title": "Air Traffic Controller (ATCO)",
+    "title": "Air Traffic Controller",
     "sinhalaTitle": "ගුවන් ගමනාගමන පාලක",
     "category": "Aviation",
     "tagline": "Direct international air corridors, manage runway traffic, and ensure collision-free skyways across Colombo airspace.",
@@ -7354,9 +7349,9 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "Growth in international transit overflights through Colombo oceanic airspace ensures continuous demand for skilled radar controllers.",
       "aiImpact": "Automated trajectory safety alerts support controllers, but human controllers hold sole legal authority for airspace separation.",
       "growingSpecializations": [
-        "Performance-Based Navigation (PBN) Airspace Design",
-        "Unmanned Drone Traffic Management (UTM)",
-        "Search & Rescue (SAR) Air Operations"
+        "Area Control (Colombo ACC)",
+        "Aerodrome & Approach Control",
+        "Aviation Safety & Search and Rescue"
       ],
       "globalDemand": "High demand across the Middle East (Dubai, Doha) offering tax-free expatriate contracts for experienced Sri Lankan controllers.",
       "challenges": [
@@ -7383,8 +7378,8 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "marine-officer": {
     "slug": "marine-officer",
-    "title": "Merchant Navy Officer / Ship Captain",
-    "sinhalaTitle": "වෙළඳ නාවික නිලධාරියා / නැව් කපිතාන්",
+    "title": "Marine Officer (Merchant Navy)",
+    "sinhalaTitle": "නාවික නිලධාරී (Marine Officer)",
     "category": "Maritime",
     "tagline": "Command giant container ships and oil tankers across international oceans, powering global trade.",
     "heroImage": "/images/careers/marine-officer.jpg",
@@ -7449,7 +7444,7 @@ export const careerDetails: Record<string, CareerDetail> = {
     "universities": [
       {
         "name": "Ocean University of Sri Lanka",
-        "slug": "ocean-university",
+        "slug": "ocean",
         "type": "Government (UGC)",
         "degreeName": "B.Sc. in Nautical Science / Marine Engineering",
         "faculty": "Faculty of Fisheries and Ocean Sciences",
@@ -7593,9 +7588,9 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "Global commercial fleet expansion and green decarbonization (LNG, green methanol, ammonia) create intense demand for skilled officers.",
       "aiImpact": "Shore-monitored autonomous technologies assist navigation, but international treaties require certified human Master Mariners for legal seaworthiness and emergency command.",
       "growingSpecializations": [
-        "LNG & Dual-Fuel Tanker Operations",
-        "Dynamic Positioning (DP) for Offshore Energy Vessels",
-        "Harbour Marine Pilot & Port Operations"
+        "Tanker & Chemical Ship Operations",
+        "Offshore Support Vessels",
+        "Harbour Pilot & Port Operations (SLPA)"
       ],
       "globalDemand": "Global container lines actively sponsor Sri Lankan deck officers due to exceptional maritime competence and English fluency.",
       "challenges": [
@@ -7622,8 +7617,8 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "quantity-surveyor": {
     "slug": "quantity-surveyor",
-    "title": "Chartered Quantity Surveyor (ChQS / MRICS)",
-    "sinhalaTitle": "ප්‍රමාණ මිනුම්වේදියා",
+    "title": "Quantity Surveyor",
+    "sinhalaTitle": "ප්‍රමාණ සමීක්ෂක (Quantity Surveyor)",
     "category": "Built Environment",
     "tagline": "Manage multi-billion rupee construction budgets, procurement, and contracts, ensuring projects finish on time and on budget.",
     "heroImage": "/images/careers/quantity-surveyor.jpg",
@@ -7833,9 +7828,9 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "Global boom in smart infrastructure, green building retrofits, and giga-projects ensures strong long-term demand for Chartered Quantity Surveyors.",
       "aiImpact": "AI automates routine 2D drawing measurement, freeing Quantity Surveyors to focus on high-value contract negotiation, risk strategy, and dispute resolution.",
       "growingSpecializations": [
-        "Embodied Carbon & Green Building Cost Modeling",
-        "5D BIM Digital Cost Management",
-        "Construction Dispute Arbitration & Expert Witness"
+        "Building Cost Estimation & Tendering",
+        "Contracts & Quantity Surveying (Maga, Access)",
+        "Construction Claims & Arbitration"
       ],
       "globalDemand": "Huge demand across Saudi Arabia (NEOM, Red Sea Project), the UK, and Australia for Sri Lankan RICS-qualified professionals.",
       "challenges": [
@@ -7862,8 +7857,8 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "architect": {
     "slug": "architect",
-    "title": "Chartered Architect (AIA / SLIA / RIBA)",
-    "sinhalaTitle": "වාස්තු විද්‍යාඥයා",
+    "title": "Architect",
+    "sinhalaTitle": "ගෘහ නිර්මාණ ශිල්පී (Architect)",
     "category": "Built Environment",
     "tagline": "Envision, conceptualize, and design breathtaking, sustainable spaces, transforming landscapes into architectural masterpieces.",
     "heroImage": "/images/careers/architect.jpg",
@@ -8073,9 +8068,9 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "Expanding tourism, boutique hotel developments, and demand for sustainable urban living ensure healthy career growth for creative architects.",
       "aiImpact": "Generative AI accelerates mood boarding, but human architects remain essential for spatial psychology, tropical craft, and site-specific cultural sensitivity.",
       "growingSpecializations": [
-        "Tropical Passive & Net-Zero Carbon Architecture",
-        "Luxury Boutique Hospitality Resort Design",
-        "Heritage Conservation & Adaptive Reuse"
+        "Tropical Architecture (Bawa-style)",
+        "Hotel & Resort Design",
+        "Heritage Conservation"
       ],
       "globalDemand": "Sri Lankan tropical modernism is internationally celebrated; architects are actively hired for resort projects in the Maldives, Bali, Thailand, and the Seychelles.",
       "challenges": [
@@ -8102,8 +8097,8 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "fashion-designer": {
     "slug": "fashion-designer",
-    "title": "Fashion & Apparel Designer",
-    "sinhalaTitle": "විලාසිතා සහ ඇඟලුම් නිර්මාණකරු",
+    "title": "Fashion Designer",
+    "sinhalaTitle": "විලාසිතා නිර්මාණ ශිල්පී",
     "category": "Creative",
     "tagline": "Design cutting-edge apparel collections, pioneer sustainable textiles, and innovate for world-class fashion brands.",
     "heroImage": "/images/careers/fashion-designer.jpg",
@@ -8313,9 +8308,9 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "Accelerated shift toward 3D digital virtual prototyping and sustainable circular fashion makes tech-savvy fashion designers highly sought after in Sri Lanka.",
       "aiImpact": "Generative AI produces preliminary mood board motifs, but human designers are essential for tactile touch, ergonomic stretch fits, and emotional brand resonance.",
       "growingSpecializations": [
-        "3D Digital Fashion & Virtual Prototyping",
-        "Circular & Zero-Waste Textile Innovation",
-        "Technical Performance Activewear Design"
+        "Apparel Design (MAS, Brandix)",
+        "Textile & Handloom Design",
+        "Activewear & Lingerie Design"
       ],
       "globalDemand": "Sri Lankan technical apparel designers hold key creative positions at Nike, Lululemon, Adidas, and global retail brands across Asia and the West.",
       "challenges": [
@@ -8342,8 +8337,8 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "digital-marketer": {
     "slug": "digital-marketer",
-    "title": "Digital Marketing Strategist / Growth Lead",
-    "sinhalaTitle": "ඩිජිටල් අලෙවිකරණ විශේෂඥයා",
+    "title": "Digital Marketer",
+    "sinhalaTitle": "ඩිජිටල් අලෙවිකරණ විශේෂඥ",
     "category": "Marketing",
     "tagline": "Architect data-driven ad campaigns, scale online brand revenue, and lead multi-channel growth across digital ecosystems.",
     "heroImage": "/images/careers/digital-marketer.jpg",
@@ -8563,9 +8558,9 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "Massive global e-commerce and AI-powered personalization fuel ongoing demand for data-driven performance marketers.",
       "aiImpact": "AI creates ad variants and handles routine bid adjustments, making strategic positioning, brand storytelling, and data architecture the highest-paid skills.",
       "growingSpecializations": [
-        "AI Marketing & Automated Predictive Personalization",
-        "First-Party Data Strategy & Privacy-First Tracking",
-        "B2B SaaS Product-Led Growth (PLG)"
+        "Social Media Marketing",
+        "SEO & Content Marketing",
+        "Performance Marketing (Google & Meta Ads)"
       ],
       "globalDemand": "Global companies actively seek remote performance marketers and SEO engineers, offering high USD compensation without leaving Sri Lanka.",
       "challenges": [
@@ -8574,9 +8569,9 @@ export const careerDetails: Record<string, CareerDetail> = {
     },
     "relatedCareers": [
       {
-        "slug": "software-engineer",
-        "title": "Software Engineer",
-        "category": "Technology"
+        "slug": "engineer",
+        "title": "Engineer",
+        "category": "Engineering"
       },
       {
         "slug": "fashion-designer",
@@ -8592,8 +8587,8 @@ export const careerDetails: Record<string, CareerDetail> = {
   },
   "ecotourism-naturalist": {
     "slug": "ecotourism-naturalist",
-    "title": "Ecotourism Specialist & Field Naturalist",
-    "sinhalaTitle": "පාරිසරික සංචාරක විශේෂඥයා / ස්වභාවවේදියා",
+    "title": "Eco-Tourism Naturalist",
+    "sinhalaTitle": "පාරිසරික සංචාරක මඟපෙන්වන්නා",
     "category": "Tourism",
     "tagline": "Guide wilderness expeditions, champion wildlife conservation, and curate sustainable eco-lodge experiences across Sri Lanka's biodiversity hotspots.",
     "heroImage": "/images/careers/ecotourism-naturalist.jpg",
@@ -8658,7 +8653,7 @@ export const careerDetails: Record<string, CareerDetail> = {
     "universities": [
       {
         "name": "Uva Wellassa University",
-        "slug": "uva-wellassa",
+        "slug": "uvawellassa",
         "type": "Government (UGC)",
         "degreeName": "B.B.M. (Hons) in Hospitality, Tourism and Events Management",
         "faculty": "Faculty of Management",
@@ -8812,9 +8807,9 @@ export const careerDetails: Record<string, CareerDetail> = {
       "trendSummary": "Global shift toward high-value regenerative eco-tourism makes skilled, educated field naturalists highly valued in Sri Lanka.",
       "aiImpact": "AI assists in photo identification of wildlife, but human naturalists provide irreplaceable sensory tracking, safety intuition, and memorable storytelling.",
       "growingSpecializations": [
-        "Marine Mammal & Pelagic Ocean Safari Guide",
-        "Wildlife Documentary Expedition Fixer",
-        "Regenerative Carbon-Offset Eco-Lodge Assessor"
+        "Whale Watching Guide (Mirissa)",
+        "Leopard Safari Guide (Yala, Wilpattu)",
+        "Birdwatching & Rainforest Guide (Sinharaja)"
       ],
       "globalDemand": "Luxury safari operators in East Africa, the Maldives, and polar expedition ships actively recruit English-speaking naturalists.",
       "challenges": [
@@ -8842,6 +8837,7 @@ export const careerDetails: Record<string, CareerDetail> = {
 };
 
 export function getCareerDetail(slug: string): CareerDetail | undefined {
+  if (slug === "civil-engineer") return careerDetails["engineer"];
   return careerDetails[slug];
 }
 

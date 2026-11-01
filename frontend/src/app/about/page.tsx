@@ -76,10 +76,10 @@ export default async function AboutPage() {
             {/* Sinhala Heartfelt Message Box */}
             <div className="heartfelt-box sinhala-box">
               <div className="heartfelt-box-header">
-                <span className="lang-badge sinhala-badge">{FOUNDER_STORY.si.flag} {FOUNDER_STORY.si.badge}</span>
+                <span className="lang-badge sinhala-badge" lang="si">{FOUNDER_STORY.si.flag} {FOUNDER_STORY.si.badge}</span>
               </div>
-              <p className="heartfelt-text sinhala-text">{FOUNDER_STORY.si.p1}</p>
-              <p className="heartfelt-text sinhala-text">{FOUNDER_STORY.si.p2}</p>
+              <p className="heartfelt-text sinhala-text" lang="si">{FOUNDER_STORY.si.p1}</p>
+              <p className="heartfelt-text sinhala-text" lang="si">{FOUNDER_STORY.si.p2}</p>
             </div>
 
             {/* English Heartfelt Message Box */}

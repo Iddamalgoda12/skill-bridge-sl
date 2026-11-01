@@ -1,0 +1,17 @@
+{
+  "node": {
+    "40579dcbdd622aec5bd0d53fa7b8c7e05e95b5f45e": {
+      "workers": {
+        "app/build-your-path/page": {
+          "moduleId": "[project]/.next-internal/server/app/build-your-path/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/i18n/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "setLocale",
+          "filename": "src/i18n/actions.ts"
+        }
+      },
+      "exportedName": "setLocale",
+      "filename": "src/i18n/actions.ts"
+    }
+  },
+  "edge": {}
+}
