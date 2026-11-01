@@ -25,6 +25,10 @@ public interface CareerPathService {
 
     void deleteMilestone(UUID userId, UUID milestoneId);
 
+    TaskResponse addTask(UUID userId, UUID milestoneId, AddTaskRequest request);
+
+    void deleteTask(UUID userId, UUID taskId);
+
     TaskResponse toggleTask(UUID userId, UUID taskId, ToggleTaskRequest request);
 
     List<AchievementResponse> getUserAchievements(UUID userId);

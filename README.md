@@ -2,24 +2,32 @@
 
 > **EC4307 Web Application Development — Mini Project**  
 > An interactive, full-stack education and career pathway platform engineered for Sri Lankan students.  
-> Implements full persistent CRUD operations, real-time search/filter/sort, multi-tier validation, relational PostgreSQL database design, and dual English & Sinhala localization.
+> Career and university explorer with a personal, editable study-and-career roadmap.
 
 ---
 
-## 📋 Evaluation Rubrics Compliance Matrix (EC4307)
+## About
 
-| Criterion | Requirement | Implementation in SkillBridge SL | Marks | Status |
-| :--- | :--- | :--- | :---: | :---: |
-| **1. Create** | Adding new records through forms | • Career Path Wizard (`/build-your-path`) creating full student roadmap records.<br>• "+ Add Custom Milestone" modal with stage, title, duration, date, and task checklist builder. | 4/4 | ✅ Complete |
-| **2. Read** | Listing, viewing details, search, filter and sort | • My Path Dashboard (`/my-path`) listing all user roadmaps and interactive milestones.<br>• **Live Search**: Substring search across titles, descriptions, and tasks.<br>• **Filter**: By status (`All`, `In Progress`, `Pending`, `Completed`) and stage.<br>• **Sort**: By Stage Order, Target Date, Duration, and Status. | 4/4 | ✅ Complete |
-| **3. Update** | Editing existing records | • "Edit Milestone" modal to edit titles, descriptions, status, target dates, and duration.<br>• "Edit Roadmap" modal to rename path, update district quota, and personal notes.<br>• Interactive task checklist toggles with automatic completion recalculation. | 4/4 | ✅ Complete |
-| **4. Delete** | Removing records safely | • **Safe Delete Confirmation Modal** with descriptive warning dialog.<br>• Delete individual milestones safely (`DELETE /api/paths/milestones/{id}`).<br>• Delete tasks and delete entire career paths with relational cascade (`ON DELETE CASCADE`). | 4/4 | ✅ Complete |
-| **5. Validation & Error Handling** | Client & server side validation, error messages, stability | • **Client-side**: Form field constraints ($\ge 3$ chars, valid dates, positive duration) with red inline error banners.<br>• **Server-side**: Jakarta `@Valid`, `@NotBlank`, `@Size` with Spring Boot `GlobalExceptionHandler`.<br>• Resilient offline/local storage fallback ensuring zero data loss. | 2/2 | ✅ Complete |
-| **6. Database Design** | Structure, keys, relationships, data types | • PostgreSQL 17 relational database normalized to 3NF.<br>• Primary keys (`UUIDv4`), foreign key constraints (`ON DELETE CASCADE`), B-tree indexes, automatic audit triggers for `updated_at`. | 4/4 | ✅ Complete |
-| **7. UI/UX & Responsiveness** | Layout, navigation, consistency, mobile support | • Custom Glassmorphism design system.<br>• Mobile-responsive sidebar drawer with SVG navigation cards.<br>• Full bilingual support in **English** and **Sinhala (`si`)** using `next-intl`. | 2/2 | ✅ Complete |
-| **8. Code Quality & Structure** | Organization, naming, reuse, version control | • Next.js 16 App Router (BFF architecture) + Spring Boot 3.5 (Controller-Service-Repository).<br>• Fully typed TypeScript models, clean Git commits on branch `buildcareer`. | 2/2 | ✅ Complete |
-| **9. Documentation** | README, setup steps, ERD, screenshots | • Comprehensive README with setup steps, architecture, and ERD.<br>• Academic 10-page report located at [`docs/MINI_PROJECT_REPORT.md`](docs/MINI_PROJECT_REPORT.md). | 2/2 | ✅ Complete |
-| **10. Demonstration** | Project demonstration and presentation skills | • Detailed 5-minute video recording script in [`docs/MINI_PROJECT_REPORT.md`](docs/MINI_PROJECT_REPORT.md#9-5-minute-demonstration-video-script). | 2/2 | ✅ Complete |
+Choosing an A/L stream, a degree and a university in Sri Lanka means piecing together information from many places. SkillBridge SL puts it in one site: students explore careers and universities, then turn what they find into a personal roadmap of milestones and tasks that they can edit and track.
+
+## Features
+
+- **Careers** – searchable directory with detail pages (overview, skills, salary, education route, roadmap, related universities, outlook).
+- **Universities** – state and non-state institutions with faculties, academics, campus gallery and admissions information.
+- **Build Your Path** – step-by-step wizard that generates a roadmap from the chosen career, stage, stream, district and budget.
+- **My Path (CRUD)** – create, view, edit and delete roadmaps, milestones and tasks; search, filter by status/stage and sort by order, date, duration or status; progress and achievement badges update automatically; deletes ask for confirmation.
+- **Accounts** – register, login, profile update and password change with rotating refresh tokens.
+- **Contact form** – messages are stored in the database.
+- **English / Sinhala** interface and a responsive layout for phone, tablet and desktop.
+
+## Tech stack
+
+| Layer | Technology |
+| :--- | :--- |
+| Frontend | Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4, next-intl |
+| Backend | Java 25, Spring Boot 3.5, Spring Data JPA, Spring Security + JWT, Jakarta Validation |
+| Database | PostgreSQL 17, Flyway migrations (`database/migrations`) |
+| Testing | Vitest, Playwright, axe-core, Spring Boot Test |
 
 ---
 
@@ -197,6 +205,3 @@ mvn -f backend/pom.xml test
 ```
 
 ---
-
-## 📄 Mini Project Report
-The official academic 10-page project documentation is available in [`docs/MINI_PROJECT_REPORT.md`](docs/MINI_PROJECT_REPORT.md).

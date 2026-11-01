@@ -23,3 +23,19 @@ export async function PATCH(request: NextRequest, { params }: Props) {
   }
 }
 
+
+export async function DELETE(request: NextRequest, { params }: Props) {
+  if (!isSameOrigin(request)) return forbiddenOrigin();
+  const { taskId } = await params;
+
+  try {
+    const call = await callAsUser(request, `/paths/tasks/${taskId}`, {
+      method: "DELETE",
+    });
+    if (!call) return withSessionCookies(failure(401, "UNAUTHENTICATED"), null);
+    if (!call.response.ok) return withSessionCookies(await relayBackendError(call.response), call);
+    return withSessionCookies(NextResponse.json({ ok: true }), call);
+  } catch {
+    return unavailable();
+  }
+}
